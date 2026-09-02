@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Universal Institute of Higher Education & Skill Development</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; scroll-behavior: smooth; }
     body { background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
     
     /* Header & Navigation Bar */
@@ -16,17 +16,17 @@
     nav a { color: #cbd5e1; text-decoration: none; margin-left: 20px; font-weight: 500; transition: 0.3s; }
     nav a:hover { color: #facc15; }
 
-    /* Hero Section with Dummy College Building Image */
+    /* Hero Section with College Building Background */
     .hero { 
       background: linear-gradient(rgba(15, 23, 42, 0.78), rgba(15, 23, 42, 0.85)), 
                   url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; 
       color: white; 
       text-align: center; 
-      padding: 110px 20px; 
+      padding: 100px 20px; 
     }
-    .hero-logo { width: 115px; height: 115px; margin-bottom: 20px; border-radius: 50%; box-shadow: 0 0 25px rgba(250, 204, 21, 0.5); background: #ffffff; padding: 5px; }
-    .hero h2 { font-size: 2.4rem; margin-bottom: 15px; color: #facc15; text-shadow: 0 2px 4px rgba(0,0,0,0.6); }
-    .hero p { font-size: 1.25rem; max-width: 750px; margin: 0 auto 25px; color: #e2e8f0; }
+    .hero-logo { width: 110px; height: 110px; margin-bottom: 20px; border-radius: 50%; box-shadow: 0 0 25px rgba(250, 204, 21, 0.5); background: #ffffff; padding: 5px; }
+    .hero h2 { font-size: 2.3rem; margin-bottom: 15px; color: #facc15; text-shadow: 0 2px 4px rgba(0,0,0,0.6); }
+    .hero p { font-size: 1.2rem; max-width: 750px; margin: 0 auto 25px; color: #e2e8f0; }
     .btn { background: #facc15; color: #0f172a; padding: 12px 30px; text-decoration: none; font-weight: bold; border-radius: 6px; display: inline-block; transition: 0.3s; }
     .btn:hover { background: #eab308; transform: translateY(-2px); }
 
@@ -39,6 +39,10 @@
     .card { background: white; padding: 30px 20px; border-radius: 10px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border-top: 4px solid #0f172a; text-align: left; }
     .card h4 { font-size: 1.3rem; margin-bottom: 10px; color: #0284c7; }
     
+    /* Google Form Embed Container */
+    .form-container { max-width: 750px; margin: 0 auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
+    iframe { border-radius: 8px; }
+
     /* Contact Box */
     .contact-box { background: white; max-width: 600px; margin: 0 auto; padding: 35px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
 
@@ -56,6 +60,7 @@
     <nav>
       <a href="#about">About</a>
       <a href="#courses">Courses</a>
+      <a href="#admission">Admission</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -64,7 +69,7 @@
     <img src="collagelogo1.png" alt="UIHESD Emblem" class="hero-logo" onerror="this.style.display='none'">
     <h2>Universal Institute of Higher Education & Skill Development</h2>
     <p>Wisdom • Skill • Excellence | ਆਧੁਨਿਕ ਤਕਨੀਕੀ ਅਤੇ ਉੱਚ ਵਿੱਦਿਆ ਦਾ ਭਰੋਸੇਮੰਦ ਕੇਂਦਰ</p>
-    <a href="#contact" class="btn">Apply For Admission</a>
+    <a href="#admission" class="btn">Apply For Admission</a>
   </section>
 
   <section class="section" id="about">
@@ -92,13 +97,21 @@
     </div>
   </section>
 
-  <section class="section" id="contact">
+  <section class="section" id="admission">
+    <h3>ਆਨਲਾਈਨ ਦਾਖ਼ਲਾ ਫਾਰਮ (Admission Form)</h3>
+    <p style="margin-bottom: 25px; color: #64748b;">ਹੇਠਾਂ ਦਿੱਤਾ ਫਾਰਮ ਭਰੋ, ਸਾਡੀ ਟੀਮ ਦਾਖ਼ਲੇ ਸਬੰਧੀ ਤੁਹਾਡੇ ਨਾਲ ਜਲਦੀ ਰਾਬਤਾ ਕਰੇਗੀ।</p>
+    <div class="form-container">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc-DUMMY_FORM_ID_HERE/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">ਫਾਰਮ ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ…</iframe>
+    </div>
+  </section>
+
+  <section class="section" style="background: #edf2f7;" id="contact">
     <h3>ਸੰਪਰਕ ਕਰੋ (Contact & Admissions)</h3>
     <div class="contact-box">
       <p style="margin-bottom: 15px;"><strong>ਪਤਾ:</strong> Main Campus, Punjab, India</p>
       <p style="margin-bottom: 15px;"><strong>ਫ਼ੋਨ ਨੰਬਰ:</strong> +91 XXXXX-XXXXX</p>
       <p style="margin-bottom: 15px;"><strong>ਈਮੇਲ:</strong> info@uihesd.org</p>
-      <p style="color: #64748b; font-size: 0.95rem;">ਦਾਖ਼ਲਾ ਸਬੰਧੀ ਜਾਣਕਾਰੀ ਲਈ ਦਫ਼ਤਰ ਆਓ ਜਾਂ ਫ਼ੋਨ 'ਤੇ ਰਾਬਤਾ ਕਰੋ।</p>
+      <p style="color: #64748b; font-size: 0.95rem;">ਦਾਖ਼ਲਾ ਸਬੰਧੀ ਜਾਣਕਾਰੀ ਲਈ ਕੈਂਪਸ ਆਓ ਜਾਂ ਦਿੱਤੇ ਨੰਬਰਾਂ 'ਤੇ ਸੰਪਰਕ ਕਰੋ।</p>
     </div>
   </section>
 
