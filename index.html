@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universal Institute of Higher Education & Skill Development</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
+    
+    /* Header & Nav */
+    header { background: #0f172a; color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+    .brand { display: flex; align-items: center; gap: 15px; }
+    .brand img { height: 50px; border-radius: 50%; }
+    .brand h1 { font-size: 1.1rem; font-weight: 600; color: #f8fafc; }
+    nav a { color: #cbd5e1; text-decoration: none; margin-left: 20px; font-weight: 500; }
+    nav a:hover { color: #38bdf8; }
+
+    /* Hero Section */
+    .hero { background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80') center/cover; color: white; text-align: center; padding: 100px 20px; }
+    .hero h2 { font-size: 2.5rem; margin-bottom: 15px; color: #facc15; }
+    .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 25px; color: #e2e8f0; }
+    .btn { background: #facc15; color: #0f172a; padding: 12px 28px; text-decoration: none; font-weight: bold; border-radius: 6px; display: inline-block; }
+    .btn:hover { background: #eab308; }
+
+    /* Section Styling */
+    .section { padding: 60px 8%; text-align: center; }
+    .section h3 { font-size: 2rem; margin-bottom: 40px; color: #0f172a; }
+    
+    /* Courses Cards */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+    .card { background: white; padding: 30px 20px; border-radius: 10px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border-top: 4px solid #0f172a; text-align: left; }
+    .card h4 { font-size: 1.3rem; margin-bottom: 10px; color: #0284c7; }
+    
+    /* Contact Box */
+    .contact-box { background: white; max-width: 600px; margin: 0 auto; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+
+    /* Footer */
+    footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 20px; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <img src="logo.png" alt="UIHESD Logo" onerror="this.style.display='none'">
+      <h1>UIHESD</h1>
+    </div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#courses">Courses</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Universal Institute of Higher Education & Skill Development</h2>
+    <p>Wisdom • Skill • Excellence | ਆਧੁਨਿਕ ਤਕਨੀਕੀ ਅਤੇ ਉੱਚ ਵਿੱਦਿਆ ਦਾ ਭਰੋਸੇਮੰਦ ਕੇਂਦਰ</p>
+    <a href="#contact" class="btn">Apply For Admission</a>
+  </section>
+
+  <section class="section" id="about">
+    <h3>ਸਾਡੇ ਬਾਰੇ (About Us)</h3>
+    <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: #475569;">
+      UIHESD ਨੌਜਵਾਨਾਂ ਨੂੰ ਆਧੁਨਿਕ ਉਦਯੋਗਾਂ ਦੀ ਮੰਗ ਅਨੁਸਾਰ ਪ੍ਰੈਕਟੀਕਲ ਹੁਨਰ, ਤਕਨੀਕੀ ਸਿੱਖਿਆ ਅਤੇ ਉੱਚ ਮਿਆਰੀ ਡਿਗਰੀਆਂ ਪ੍ਰਦਾਨ ਕਰਨ ਲਈ ਵਚਨਬੱਧ ਹੈ। ਸਾਡਾ ਮੁੱਖ ਮਕਸਦ ਹਰ ਵਿਦਿਆਰਥੀ ਨੂੰ ਆਤਮ-ਨਿਰਭਰ ਅਤੇ ਸਫਲ ਬਣਾਉਣਾ ਹੈ।
+    </p>
+  </section>
+
+  <section class="section" style="background: #edf2f7;" id="courses">
+    <h3>ਮੁੱਖ ਕੋਰਸ (Popular Programs)</h3>
+    <div class="grid">
+      <div class="card">
+        <h4>Computer & IT Skills</h4>
+        <p>COPA, ਪ੍ਰੋਗਰਾਮਿੰਗ, ਵੈੱਬ ਡਿਜ਼ਾਈਨਿੰਗ ਅਤੇ ਆਧੁਨਿਕ ਆਈ.ਟੀ. ਸਕਿੱਲਜ਼।</p>
+      </div>
+      <div class="card">
+        <h4>Technical Trades (ITI)</h4>
+        <p>ਇਲੈਕਟ੍ਰੀਸ਼ੀਅਨ, ਫਿਟਰ ਅਤੇ ਇੰਡਸਟ੍ਰੀਅਲ ਪ੍ਰੈਕਟੀਕਲ ਟ੍ਰੇਨਿੰਗ।</p>
+      </div>
+      <div class="card">
+        <h4>Higher Education</h4>
+        <p>ਗ੍ਰੈਜੂਏਸ਼ਨ, ਡਿਪਲੋਮਾ ਅਤੇ ਪ੍ਰੋਫੈਸ਼ਨਲ ਮੈਨੇਜਮੈਂਟ ਸਟੱਡੀਜ਼।</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h3>ਸੰਪਰਕ ਕਰੋ (Contact & Admissions)</h3>
+    <div class="contact-box">
+      <p style="margin-bottom: 15px;"><strong>ਪਤਾ:</strong> Main Campus, Punjab, India</p>
+      <p style="margin-bottom: 15px;"><strong>ਫ਼ੋਨ ਨੰਬਰ:</strong> +91 XXXXX-XXXXX</p>
+      <p style="margin-bottom: 15px;"><strong>ਈਮੇਲ:</strong> info@uihesd.org</p>
+      <p style="color: #64748b; font-size: 0.95rem;">ਦਾਖ਼ਲਾ ਸਬੰਧੀ ਜਾਣਕਾਰੀ ਲਈ ਦਫ਼ਤਰ ਆਓ ਜਾਂ ਫ਼ੋਨ 'ਤੇ ਰਾਬਤਾ ਕਰੋ।</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Universal Institute of Higher Education & Skill Development. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
