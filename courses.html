@@ -3,161 +3,138 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Courses & Programs | UIHESD</title>
+  <title>Courses & Trades | UIHESD</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
     body { background-color: #f8fafc; color: #1e293b; line-height: 1.5; }
 
-    /* Top Flag Bar */
-    .gov-flag-bar { background: #f1f5f9; border-bottom: 1px solid #e2e8f0; padding: 5px 6%; font-size: 0.8rem; display: flex; justify-content: space-between; align-items: center; color: #334155; }
-    .flag-group { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+    /* ================= MASTER OFFICIAL HEADER (EXACT MATCH) ================= */
+    .gov-flag-bar {
+      height: 32px;
+      background: #0f172a;
+      border-bottom: 2px solid #ff9933;
+      padding: 0 6%;
+      font-size: 0.76rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #e2e8f0;
+    }
+    .flag-group { display: flex; align-items: center; gap: 8px; font-weight: 700; }
     .flag-icon { width: 20px; height: 13px; border: 1px solid #cbd5e1; background: linear-gradient(#ff9933 33%, #ffffff 33%, #ffffff 66%, #128807 66%); display: inline-block; }
-    .gov-links a { margin-left: 15px; color: #475569; text-decoration: none; font-size: 0.78rem; font-weight: 600; }
+    .gov-links a { color: #cbd5e1; text-decoration: none; font-size: 0.74rem; font-weight: 600; margin-left: 14px; }
+    .gov-links a:hover { color: #facc15; }
 
-    /* Portal Header */
-    .portal-header { background: #ffffff; padding: 12px 6%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.03); }
-    .header-logos { display: flex; align-items: center; gap: 20px; }
-    .emblem-box { display: flex; align-items: center; gap: 8px; border-right: 2px solid #e2e8f0; padding-right: 18px; }
-    .emblem-text { font-size: 0.72rem; font-weight: 700; color: #1e293b; line-height: 1.2; text-transform: uppercase; }
-    .brand-logo-area { display: flex; align-items: center; gap: 12px; }
-    .brand-logo-area img { height: 60px; width: auto; object-fit: contain; }
-    .brand-names h1 { font-size: 1.15rem; color: #0f172a; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; }
-    .brand-names p { font-size: 0.75rem; color: #0284c7; font-weight: 700; }
+    .portal-header {
+      height: 96px;
+      background: #ffffff;
+      padding: 0 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    .header-logos { display: flex; align-items: center; gap: 16px; }
+    .emblem-box { display: flex; align-items: center; gap: 8px; border-right: 2px solid #cbd5e1; padding-right: 16px; }
+    .emblem-text { font-size: 0.70rem; font-weight: 800; color: #0f172a; line-height: 1.2; text-transform: uppercase; }
+    
+    .brand-logo-area { display: flex; align-items: center; gap: 14px; }
+    .brand-logo-area img { height: 72px; width: auto; object-fit: contain; }
+    .brand-names h1 { font-size: 1.55rem; color: #0f172a; font-weight: 900; text-transform: uppercase; letter-spacing: 0.3px; line-height: 1.1; margin: 0; }
+    .brand-names h2 { font-size: 0.82rem; color: #1e3a8a; font-weight: 800; text-transform: uppercase; margin: 2px 0 0; }
+    .brand-names p { font-size: 0.74rem; color: #0284c7; font-weight: 700; margin: 0; }
 
-    .header-controls { display: flex; align-items: center; gap: 12px; }
-    .search-box { display: flex; align-items: center; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 4px; padding: 6px 12px; width: 240px; }
-    .search-box input { border: none; outline: none; font-size: 0.85rem; width: 100%; margin-left: 6px; }
-    .btn-dash { background: #f97316; color: white; border: none; padding: 8px 14px; font-size: 0.8rem; font-weight: 700; border-radius: 4px; cursor: pointer; }
-    .btn-reg { background: #b45309; color: white; border: none; padding: 8px 16px; font-size: 0.8rem; font-weight: 700; border-radius: 4px; cursor: pointer; text-decoration: none; }
-    .btn-login { background: white; color: #b45309; border: 1px solid #b45309; padding: 7px 16px; font-size: 0.8rem; font-weight: 700; border-radius: 4px; cursor: pointer; text-decoration: none; }
+    .header-controls { display: flex; align-items: center; gap: 10px; }
+    .search-box { display: flex; align-items: center; background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 4px; padding: 6px 12px; width: 220px; }
+    .search-box input { border: none; outline: none; font-size: 0.82rem; width: 100%; margin-left: 6px; }
+    .btn-dash { background: #f97316; color: white; border: none; padding: 8px 14px; font-size: 0.78rem; font-weight: 800; border-radius: 4px; cursor: pointer; }
+    .btn-reg { background: #b45309; color: white; border: none; padding: 8px 16px; font-size: 0.78rem; font-weight: 800; border-radius: 4px; cursor: pointer; text-decoration: none; }
+    .btn-login { background: white; color: #b45309; border: 1.5px solid #b45309; padding: 7px 16px; font-size: 0.78rem; font-weight: 800; border-radius: 4px; cursor: pointer; text-decoration: none; }
 
-    /* Navigation */
-    nav { background: #ffffff; border-top: 1px solid #f1f5f9; border-bottom: 2px solid #e2e8f0; padding: 0 6%; }
-    .nav-list { display: flex; list-style: none; gap: 24px; align-items: center; }
-    .nav-list li a { display: block; padding: 12px 0; color: #334155; text-decoration: none; font-size: 0.85rem; font-weight: 600; }
-    .nav-list li a:hover, .nav-list li a.active { color: #0284c7; }
+    nav { height: 46px; background: #1e3a8a; padding: 0 6%; display: flex; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.08); }
+    .nav-list { display: flex; list-style: none; gap: 26px; align-items: center; }
+    .nav-list li a { display: block; color: #ffffff; text-decoration: none; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; }
+    .nav-list li a:hover, .nav-list li a.active { color: #facc15; }
     .nav-dot { width: 7px; height: 7px; background: #dc2626; border-radius: 50%; display: inline-block; margin-left: 4px; }
 
-    /* Alert Ribbon */
-    .alert-ribbon { background: #0284c7; color: white; padding: 7px 6%; font-size: 0.82rem; display: flex; align-items: center; gap: 12px; }
-    .alert-tag { background: #0369a1; padding: 2px 8px; border-radius: 3px; font-weight: 700; font-size: 0.72rem; white-space: nowrap; }
+    .alert-ribbon { height: 34px; background: #0284c7; color: white; padding: 0 6%; font-size: 0.82rem; display: flex; align-items: center; gap: 12px; }
+    .alert-tag { background: #0c4a6e; padding: 2px 8px; border-radius: 3px; font-weight: 800; font-size: 0.72rem; }
 
     /* Page Content */
-    .page-header-strip { background: linear-gradient(135deg, #0b1f3a, #1b3a6b); color: white; padding: 40px 6%; border-bottom: 3px solid #f97316; }
-    .page-header-strip h2 { font-size: 1.8rem; font-weight: 800; }
-    .page-header-strip p { font-size: 0.9rem; color: #cbd5e1; }
-
-    .content-container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+    .content-container { max-width: 1100px; margin: 35px auto; padding: 0 20px; }
     .courses-table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; }
     .courses-table th, .courses-table td { padding: 14px 16px; border-bottom: 1px solid #e2e8f0; text-align: left; font-size: 0.92rem; }
     .courses-table th { background: #1e3a8a; color: white; font-weight: 700; }
     .badge-open { background: #dcfce7; color: #166534; font-size: 0.78rem; padding: 4px 10px; border-radius: 4px; font-weight: bold; }
 
-    footer { background: #0b132b; color: #94a3b8; padding: 30px 6%; font-size: 0.85rem; text-align: center; }
+    footer { background: #0b132b; color: #94a3b8; padding: 30px 6%; font-size: 0.85rem; text-align: center; margin-top: 40px; }
+
+    @media (max-width: 850px) {
+      .portal-header { height: auto; padding: 10px 6%; flex-direction: column; gap: 10px; }
+      nav { height: auto; padding: 8px 6%; }
+      .nav-list { flex-wrap: wrap; gap: 12px; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Top Bar -->
+  <!-- MASTER TOP FLAG BAR -->
   <div class="gov-flag-bar">
-    <div class="flag-group">
-      <span class="flag-icon"></span>
-      <span>ਭਾਰਤ ਸਰਕਾਰ | Government of India</span>
-    </div>
-    <div class="gov-links">
-      <a href="verify.html">Document Verification</a>
-    </div>
+    <div class="flag-group"><span class="flag-icon"></span><span>ਭਾਰਤ ਸਰਕਾਰ | Government of India</span></div>
+    <div class="gov-links"><a href="verify.html">Document Verification</a><a href="index.html">Main Home</a></div>
   </div>
 
-  <!-- Header -->
+  <!-- MASTER PORTAL HEADER -->
   <header class="portal-header">
     <div class="header-logos">
       <div class="emblem-box">
         🏛️
-        <div class="emblem-text">
-          कौशल विकास एवं उद्यमशीलता मंत्रालय<br>
-          <span style="font-size:0.65rem; color:#64748b;">MINISTRY OF SKILL DEVELOPMENT & ENTREPRENEURSHIP</span>
-        </div>
+        <div class="emblem-text">ਕੌਸ਼ਲ ਵਿਕਾਸ ਮੰਤਰਾਲਾ<br><span style="font-size:0.62rem; color:#64748b;">MINISTRY OF SKILL DEV.</span></div>
       </div>
       <div class="brand-logo-area">
-        <img src="collagelogo1.png" alt="UIHESD Logo" onerror="this.src='https://via.placeholder.com/60?text=UIHESD'">
+        <img src="collagelogo1.png" alt="UIHESD Logo" onerror="this.src='https://via.placeholder.com/72?text=UIHESD'">
         <div class="brand-names">
           <h1>UIHESD SKILL HUB</h1>
+          <h2>Universal Institute of Higher Education & Skill Development</h2>
           <p>ਕੌਸ਼ਲ ਭਾਰਤ • ਕੁਸ਼ਲ ਭਾਰਤ | Technical & Vocational Institute</p>
         </div>
       </div>
     </div>
     <div class="header-controls">
-      <div class="search-box">🔍 <input type="text" placeholder="Search Courses..."></div>
+      <div class="search-box">🔍 <input type="text" placeholder="Search Courses, Trades..."></div>
       <button class="btn-dash" onclick="window.location.href='index.html'">HOME</button>
-      <button class="btn-reg" onclick="window.location.href='courses.html'">REGISTER</button>
+      <button class="btn-reg" onclick="window.location.href='courses.html'">COURSES</button>
       <button class="btn-login" onclick="window.location.href='verify.html'">VERIFY</button>
     </div>
   </header>
 
-  <!-- Navigation -->
+  <!-- MASTER NAVIGATION BAR -->
   <nav>
     <ul class="nav-list">
-      <li><a href="index.html">MSDE <span class="nav-dot"></span></a></li>
-      <li><a href="courses.html" class="active">Schemes / Programs</a></li>
-      <li><a href="courses.html">Skill Courses</a></li>
+      <li><a href="index.html">MSDE</a></li>
+      <li><a href="courses.html" class="active">Courses & Trades <span class="nav-dot"></span></a></li>
       <li><a href="about.html">About Institute</a></li>
-      <li><a href="dgt.html">DGT Ecosystem <span class="nav-dot"></span></a></li>
       <li><a href="verify.html">Verify Certificate</a></li>
     </ul>
   </nav>
 
-  <!-- Alert Ribbon -->
+  <!-- MASTER ALERT RIBBON -->
   <div class="alert-ribbon">
     <span class="alert-tag">COURSES</span>
-    <marquee>Admissions Open for Session 2026-27: ITI Trades (COPA, Electrician), B.Sc IT & Professional Certifications.</marquee>
-  </div>
-
-  <div class="page-header-strip">
-    <h2>ਮਾਨਤਾ ਪ੍ਰਾਪਤ ਕੋਰਸ (Academic Programs Offered)</h2>
-    <p>NCVT / DGT Norms & University Degree Programs</p>
+    <marquee>Admissions Open for Session 2026-27: ITI Trades (COPA, Electrician, Fitter), Software Diplomas & University Degrees.</marquee>
   </div>
 
   <div class="content-container">
+    <h2 style="color:#1e3a8a; margin-bottom:15px; font-weight:800;">Academic & Vocational Programs Offered</h2>
     <table class="courses-table">
       <thead>
-        <tr>
-          <th>ਕੋਰਸ ਦਾ ਨਾਮ</th>
-          <th>ਟ੍ਰੇਡ / ਖੇਤਰ</th>
-          <th>ਸਮਾਂ (Duration)</th>
-          <th>ਯੋਗਤਾ (Eligibility)</th>
-          <th>ਦਾਖ਼ਲਾ ਸਥਿਤੀ</th>
-        </tr>
+        <tr><th>ਕੋਰਸ ਦਾ ਨਾਮ</th><th>ਟ੍ਰੇਡ / ਖੇਤਰ</th><th>ਸਮਾਂ</th><th>ਯੋਗਤਾ</th><th>ਸਥਿਤੀ</th></tr>
       </thead>
       <tbody>
-        <tr>
-          <td><strong>COPA</strong> (Computer Operator & Programming Assistant)</td>
-          <td>ਆਈ.ਟੀ. ਅਤੇ ਪ੍ਰੋਗਰਾਮਿੰਗ</td>
-          <td>1 ਸਾਲ</td>
-          <td>10ਵੀਂ ਪਾਸ</td>
-          <td><span class="badge-open">ਦਾਖ਼ਲਾ ਸ਼ੁਰੂ</span></td>
-        </tr>
-        <tr>
-          <td><strong>Electrician (ਇਲੈਕਟ੍ਰੀਸ਼ੀਅਨ)</strong></td>
-          <td>ਤਕਨੀਕੀ ਟ੍ਰੇਡ (ITI)</td>
-          <td>2 ਸਾਲ</td>
-          <td>10ਵੀਂ ਪਾਸ</td>
-          <td><span class="badge-open">ਦਾਖ਼ਲਾ ਸ਼ੁਰੂ</span></td>
-        </tr>
-        <tr>
-          <td><strong>B.Sc (Information Technology)</strong></td>
-          <td>ਯੂਨੀਵਰਸਿਟੀ ਡਿਗਰੀ</td>
-          <td>3 ਸਾਲ</td>
-          <td>12ਵੀਂ ਪਾਸ</td>
-          <td><span class="badge-open">ਦਾਖ਼ਲਾ ਸ਼ੁਰੂ</span></td>
-        </tr>
-        <tr>
-          <td><strong>DCA</strong> (Diploma in Computer Applications)</td>
-          <td>ਸਾਫਟਵੇਅਰ ਡਿਪਲੋਮਾ</td>
-          <td>1 ਸਾਲ</td>
-          <td>12ਵੀਂ ਪਾਸ</td>
-          <td><span class="badge-open">ਦਾਖ਼ਲਾ ਸ਼ੁਰੂ</span></td>
-        </tr>
+        <tr><td><strong>COPA</strong> (Computer Operator & Programming Assistant)</td><td>ਆਈ.ਟੀ. ਅਤੇ ਸਾਫਟਵੇਅਰ</td><td>1 ਸਾਲ</td><td>10ਵੀਂ ਪਾਸ</td><td><span class="badge-open">ਦਾਖ਼ਲਾ ਸ਼ੁਰੂ</span></td></tr>
+        <tr><td><strong>Electrician (ਇਲੈਕਟ੍ਰੀਸ਼ੀਅਨ)</strong></td><td>ਇੰਡਸਟ੍ਰੀਅਲ ਟ੍ਰੇਡ (ITI)</td><td>2 ਸਾਲ</td><td>10ਵੀਂ ਪਾਸ</td><td><span class="badge-open">ਦਾਖ਼ਲਾ ਸ਼ੁਰੂ</span></td></tr>
+        <tr><td><strong>B.Sc (Information Technology)</strong></td><td>ਯੂਨੀਵਰਸਿਟੀ ਡਿਗਰੀ (IKGPTU)</td><td>3 ਸਾਲ</td><td>12ਵੀਂ ਪਾਸ</td><td><span class="badge-open">ਦਾਖ਼ਲਾ ਸ਼ੁਰੂ</span></td></tr>
+        <tr><td><strong>DCA</strong> (Diploma in Computer Applications)</td><td>ਕੰਪਿਊਟਰ ਡਿਪਲੋਮਾ</td><td>1 ਸਾਲ</td><td>12ਵੀਂ ਪਾਸ</td><td><span class="badge-open">ਦਾਖ਼ਲਾ ਸ਼ੁਰੂ</span></td></tr>
       </tbody>
     </table>
   </div>
