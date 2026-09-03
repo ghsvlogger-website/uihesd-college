@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Online Certificate Verification System | UIHESD</title>
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
   <style>
@@ -49,28 +50,33 @@
     .cert-box { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-top: 4px solid #1e3a8a; }
     .cert-input-group { display: flex; gap: 10px; margin-top: 15px; }
     .cert-input-group input { flex: 1; padding: 12px 15px; border: 1.5px solid #cbd5e1; border-radius: 5px; font-size: 1rem; outline: none; }
+    .cert-input-group input:focus { border-color: #1e3a8a; }
     .cert-btn { background: #1e3a8a; color: white; border: none; padding: 12px 24px; border-radius: 5px; font-weight: bold; cursor: pointer; }
     .cert-btn:hover { background: #0f172a; }
     .cert-result { display: none; margin-top: 25px; }
     .cert-invalid { border: 1px solid #fecaca; background: #fef2f2; color: #dc2626; padding: 15px; text-align: center; font-weight: bold; border-radius: 6px; }
 
-    /* CERTIFICATE FRAME */
+    /* ===================================================
+       CERTIFICATE FRAME (AUTHENTIC & PROFESSIONAL)
+    =================================================== */
     .certificate-frame {
       background: #ffffff;
       border: 14px solid #1e3a8a;
       outline: 4px solid #b45309;
       outline-offset: -8px;
-      padding: 30px 40px;
+      padding: 35px 45px 25px;
       position: relative;
       margin: 20px auto;
       box-shadow: 0 10px 30px rgba(0,0,0,0.18);
       background-image: radial-gradient(circle, rgba(30,58,138,0.02) 1px, transparent 1px);
       background-size: 18px 18px;
     }
+
+    /* Watermark Seal */
     .certificate-frame::before {
       content: "UIHESD VERIFIED";
       position: absolute;
-      top: 52%;
+      top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) rotate(-25deg);
       font-size: 4.8rem;
@@ -81,49 +87,172 @@
       white-space: nowrap;
     }
 
-    /* 4 Logos Top Strip (ISO, IAF, MSME, PTU) */
-    .cert-accreditations-bar {
+    /* Top Institute Header */
+    .cert-main-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #b45309;
+      padding-bottom: 12px;
+      margin-bottom: 15px;
+      gap: 15px;
+    }
+    .cert-inst-logo {
+      height: 80px;
+      width: auto;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+    }
+    .cert-titles-center {
+      text-align: center;
+      flex: 1;
+    }
+    .cert-titles-center h2 {
+      font-size: 1.5rem;
+      color: #1e3a8a;
+      font-family: 'Georgia', serif;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+    }
+    .cert-titles-center h4 {
+      font-size: 0.95rem;
+      color: #b45309;
+      margin-top: 2px;
+      font-weight: 700;
+    }
+    .cert-titles-center p {
+      font-size: 0.74rem;
+      color: #475569;
+      margin-top: 3px;
+      font-weight: 600;
+    }
+
+    .cert-meta-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 18px;
+    }
+
+    .cert-badge-ribbon { text-align: center; margin: 15px 0 20px; }
+    .cert-badge-ribbon span {
+      background: #1e3a8a;
+      color: #facc15;
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      padding: 6px 28px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      font-family: 'Georgia', serif;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .cert-body-text {
+      font-size: 1.05rem;
+      line-height: 2;
+      color: #1e293b;
+      text-align: justify;
+      margin-bottom: 25px;
+      font-family: 'Times New Roman', serif;
+    }
+    .cert-fill-data {
+      color: #0b132b;
+      font-weight: 800;
+      border-bottom: 1.5px solid #1e3a8a;
+      padding: 0 8px;
+      font-size: 1.15rem;
+      display: inline-block;
+    }
+
+    /* ===================================================
+       FOOTER: 4 LOGOS + QR CODE + SIGNATURES
+    =================================================== */
+    .cert-footer-section {
+      margin-top: 25px;
+      padding-top: 15px;
+      border-top: 2px dashed #cbd5e1;
+    }
+
+    /* 4 Accreditations Logos Strip in Footer */
+    .footer-logos-strip {
       display: flex;
       justify-content: space-around;
       align-items: center;
-      background: #fafafa;
+      background: #f8fafc;
       border: 1px solid #e2e8f0;
       border-radius: 6px;
-      padding: 8px 15px;
-      margin-bottom: 20px;
+      padding: 8px 12px;
+      margin-bottom: 18px;
     }
-    .acc-item { display: flex; align-items: center; gap: 8px; }
-    .acc-item img { height: 52px; width: auto; object-fit: contain; mix-blend-mode: multiply; }
-    .acc-item-title { font-size: 0.68rem; font-weight: 800; color: #1e3a8a; line-height: 1.2; text-transform: uppercase; }
+    .footer-logo-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-logo-item img {
+      height: 52px;
+      width: auto;
+      object-fit: contain;
+      mix-blend-mode: multiply; /* ਬੈਕਗ੍ਰਾਊਂਡ ਪਾਰਦਰਸ਼ੀ ਕਰਨ ਲਈ */
+    }
+    .footer-logo-item span {
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: #1e3a8a;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
 
-    .cert-main-head { display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #b45309; padding-bottom: 12px; margin-bottom: 15px; gap: 15px; }
-    .cert-inst-logo { height: 75px; width: auto; object-fit: contain; mix-blend-mode: multiply; }
-    .cert-titles-center { text-align: center; flex: 1; }
-    .cert-titles-center h2 { font-size: 1.45rem; color: #1e3a8a; font-family: 'Georgia', serif; font-weight: 900; }
-    .cert-titles-center h4 { font-size: 0.88rem; color: #b45309; margin-top: 2px; font-weight: 700; }
-    .cert-titles-center p { font-size: 0.72rem; color: #475569; margin-top: 3px; font-weight: 600; }
+    /* Bottom Row: QR Code, Hologram Stamp, Signatures */
+    .footer-actions-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px;
+    }
 
-    .cert-meta-row { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; color: #334155; margin-bottom: 18px; }
-    .cert-badge-ribbon { text-align: center; margin: 15px 0 20px; }
-    .cert-badge-ribbon span { background: #1e3a8a; color: #facc15; font-size: 1.15rem; font-weight: 800; letter-spacing: 2px; padding: 6px 28px; border-radius: 4px; text-transform: uppercase; font-family: 'Georgia', serif; }
-    .cert-body-text { font-size: 1.05rem; line-height: 2; color: #1e293b; text-align: justify; margin-bottom: 25px; font-family: 'Times New Roman', serif; }
-    .cert-fill-data { color: #0b132b; font-weight: 800; border-bottom: 1.5px solid #1e3a8a; padding: 0 8px; font-size: 1.15rem; display: inline-block; }
-
-    /* Footer Live QR */
-    .cert-footer-row { display: flex; justify-content: space-between; align-items: center; margin-top: 25px; padding-top: 15px; border-top: 1px dashed #cbd5e1; }
-    .qr-container { text-align: center; background: #f8fafc; padding: 8px; border: 1px solid #cbd5e1; border-radius: 6px; }
-    #qrcode { display: inline-block; padding: 4px; background: white; border: 1px solid #e2e8f0; }
+    .qr-container {
+      text-align: center;
+      background: #ffffff;
+      padding: 6px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+    }
+    #qrcode {
+      display: inline-block;
+      padding: 4px;
+      background: white;
+    }
     .qr-text { font-size: 0.65rem; color: #475569; font-weight: 700; margin-top: 4px; text-transform: uppercase; }
 
+    /* Official Gold Hologram Seal */
     .gold-seal-box {
-      width: 82px; height: 82px; border-radius: 50%; border: 3px double #b45309;
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      border: 3px double #b45309;
       background: radial-gradient(circle, #fef08a 20%, #facc15 80%);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center; color: #78350f; font-weight: 900; font-size: 0.58rem; line-height: 1.1;
+      box-shadow: 0 0 10px rgba(234, 179, 8, 0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #78350f;
+      font-weight: 900;
+      font-size: 0.58rem;
+      line-height: 1.1;
     }
-    .cert-sign-box { text-align: center; font-size: 0.8rem; font-weight: 700; color: #1e3a8a; width: 140px; }
+
+    .cert-sign-box { text-align: center; font-size: 0.8rem; font-weight: 700; color: #1e3a8a; width: 145px; }
     .sign-line { border-bottom: 1.5px solid #0f172a; margin-bottom: 4px; height: 35px; }
+
     .btn-print { background: #16a34a; color: white; border: none; padding: 12px 28px; font-weight: bold; border-radius: 5px; cursor: pointer; font-size: 0.95rem; margin: 20px auto 0; display: block; }
+    .btn-print:hover { background: #15803d; }
 
     /* Admin Form */
     .admin-toggle { text-align: center; margin-top: 25px; }
@@ -144,7 +273,6 @@
 </head>
 <body>
 
-  <!-- Top Bar -->
   <div class="gov-flag-bar">
     <div class="flag-group">
       <span class="flag-icon"></span>
@@ -155,7 +283,6 @@
     </div>
   </div>
 
-  <!-- Header -->
   <header class="portal-header">
     <div class="header-logos">
       <div class="emblem-box">
@@ -181,7 +308,6 @@
     </div>
   </header>
 
-  <!-- Navigation -->
   <nav>
     <ul class="nav-list">
       <li><a href="index.html">MSDE <span class="nav-dot"></span></a></li>
@@ -193,7 +319,6 @@
     </ul>
   </nav>
 
-  <!-- Alert Ribbon -->
   <div class="alert-ribbon">
     <span class="alert-tag">VERIFICATION</span>
     <marquee>Official Certificate Verification Portal: Verify candidate credentials with instant QR Code evaluation.</marquee>
@@ -252,7 +377,7 @@
     };
 
     function getDB() {
-      const s = localStorage.getItem("uihesd_students_fixed_v3");
+      const s = localStorage.getItem("uihesd_students_footer_v1");
       return s ? Object.assign({}, defaultData, JSON.parse(s)) : defaultData;
     }
 
@@ -281,27 +406,9 @@
           </div>
 
           <div class="certificate-frame" id="certFrame">
-            <div class="cert-accreditations-bar">
-              <div class="acc-item">
-                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L2pvYjE4NDYtMjctcC0wMDdhLXgucG5n.png" alt="ISO 9001">
-                <div class="acc-item-title">ISO 9001<br>Certified</div>
-              </div>
-              <div class="acc-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/IAF_logo.png" alt="IAF">
-                <div class="acc-item-title">IAF<br>Accredited</div>
-              </div>
-              <div class="acc-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/MSME_logo.png" alt="MSME">
-                <div class="acc-item-title">MSME<br>Govt. of India</div>
-              </div>
-              <div class="acc-item">
-                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/25/I._K._Gujral_Punjab_Technical_University_logo.png/220px-I._K._Gujral_Punjab_Technical_University_logo.png" alt="IKGPTU">
-                <div class="acc-item-title">IKGPTU<br>Affiliated</div>
-              </div>
-            </div>
 
             <div class="cert-main-head">
-              <img src="collagelogo1.png" class="cert-inst-logo" alt="UIHESD" onerror="this.src='https://dummyimage.com/75x75/1e3a8a/fff&text=UIHESD'">
+              <img src="collagelogo1.png" class="cert-inst-logo" alt="UIHESD" onerror="this.src='https://dummyimage.com/80x80/1e3a8a/fff&text=UIHESD'">
               <div class="cert-titles-center">
                 <h2>UNIVERSAL INSTITUTE OF HIGHER EDUCATION & SKILL DEVELOPMENT</h2>
                 <h4>ਯੂਨੀਵਰਸਲ ਇੰਸਟੀਚਿਊਟ ਆਫ਼ ਹਾਇਰ ਐਜੂਕੇਸ਼ਨ ਐਂਡ ਸਕਿੱਲ ਡਿਵੈਲਪਮੈਂਟ</h4>
@@ -336,41 +443,66 @@
               The overall performance has been evaluated and awarded Grade: <span class="cert-fill-data">${s.grade || 'Grade A+'}</span>.
             </div>
 
-            <div class="cert-footer-row">
-              <div class="qr-container">
-                <div id="qrcode"></div>
-                <div class="qr-text">Scan To Verify Online</div>
+            <div class="cert-footer-section">
+              
+              <div class="footer-logos-strip">
+                <div class="footer-logo-item">
+                  <img src="logo_iso.png" alt="ISO 9001" onerror="this.src='https://dummyimage.com/50x50/facc15/000&text=ISO'">
+                  <span>ISO 9001<br>Certified</span>
+                </div>
+                <div class="footer-logo-item">
+                  <img src="logo_iaf.png" alt="IAF" onerror="this.src='https://dummyimage.com/50x50/1e3a8a/fff&text=IAF'">
+                  <span>IAF<br>Accredited</span>
+                </div>
+                <div class="footer-logo-item">
+                  <img src="logo_certi.png" alt="MSME" onerror="this.src='https://dummyimage.com/50x50/dc2626/fff&text=MSME'">
+                  <span>MSME<br>Govt. of India</span>
+                </div>
+                <div class="footer-logo-item">
+                  <img src="logo_ptu.png" alt="IKGPTU" onerror="this.src='https://dummyimage.com/50x50/1e3a8a/fff&text=PTU'">
+                  <span>IKGPTU<br>Affiliated</span>
+                </div>
               </div>
 
-              <div class="gold-seal-box">
-                ★ CERTIFIED ★<br>
-                UIHESD<br>
-                SEAL OF EXCELLENCE<br>
-                ★ ISO / IAF / MSME ★
+              <div class="footer-actions-row">
+                <div class="qr-container">
+                  <div id="qrcode"></div>
+                  <div class="qr-text">Scan To Verify</div>
+                </div>
+
+                <div class="gold-seal-box">
+                  ★ CERTIFIED ★<br>
+                  UIHESD<br>
+                  SEAL OF EXCELLENCE<br>
+                  ★ ISO / IAF / MSME ★
+                </div>
+
+                <div class="cert-sign-box">
+                  <div class="sign-line"></div>
+                  <div>Course Coordinator</div>
+                </div>
+
+                <div class="cert-sign-box">
+                  <div class="sign-line"></div>
+                  <div>Director / Controller</div>
+                </div>
               </div>
 
-              <div class="cert-sign-box">
-                <div class="sign-line"></div>
-                <div>Course Coordinator</div>
-              </div>
-
-              <div class="cert-sign-box">
-                <div class="sign-line"></div>
-                <div>Director / Examination Cell</div>
-              </div>
             </div>
+
           </div>
 
           <button class="btn-print" onclick="window.print()">🖨️ ਪ੍ਰਿੰਟ ਸਰਟੀਫਿਕੇਟ (Print Certificate)</button>
         `;
 
+        // Live Dynamic QR Code Generation
         setTimeout(() => {
           document.getElementById("qrcode").innerHTML = "";
-          const qrText = `UIHESD OFFICIAL RECORD VERIFICATION\n----------------------------\nCandidate: ${s.name}\nFather: ${s.father}\nCourse: ${s.course}\nRoll No: ${s.rollNo}\nUID: ${s.uniqueId}\nGrade: ${s.grade}\nAccredited By: ISO 9001:2015, IAF, MSME, IKGPTU\nVerification: 100% Genuine & Authentic`;
+          const qrText = `UIHESD OFFICIAL VERIFICATION\n--------------------------\nCandidate: ${s.name}\nFather: ${s.father}\nCourse: ${s.course}\nRoll No: ${s.rollNo}\nUID: ${s.uniqueId}\nGrade: ${s.grade}\nRecognitions: ISO 9001, IAF, MSME, IKGPTU\nStatus: 100% Genuine & Verified`;
           new QRCode(document.getElementById("qrcode"), {
             text: qrText,
-            width: 82,
-            height: 82,
+            width: 78,
+            height: 78,
             colorDark: "#0b132b",
             colorLight: "#ffffff",
             correctLevel: QRCode.CorrectLevel.H
@@ -405,13 +537,13 @@
         return alert("ਕਿਰਪਾ ਕਰਕੇ ਸਾਰੀ ਜ਼ਰੂਰੀ ਜਾਣਕਾਰੀ ਭਰੋ!");
       }
 
-      let db = JSON.parse(localStorage.getItem("uihesd_students_fixed_v3") || "{}");
+      let db = JSON.parse(localStorage.getItem("uihesd_students_footer_v1") || "{}");
       db[rollNo] = {
         name, father, address, course, rollNo, uniqueId, session, grade,
         issueDate: new Date().toLocaleDateString('en-GB')
       };
 
-      localStorage.setItem("uihesd_students_fixed_v3", JSON.stringify(db));
+      localStorage.setItem("uihesd_students_footer_v1", JSON.stringify(db));
       alert("ਵਿਦਿਆਰਥੀ ਦਾ ਰਿਕਾਰਡ ਸੇਵ ਹੋ ਗਿਆ!");
       toggleAdmin();
     }
