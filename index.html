@@ -3,66 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Universal Institute of Higher Education & Skill Development (UIHESD)</title>
+  <title>Universal Institute of Higher Education & Skill Development (UIHESD) | Official Portal</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
     body { background-color: #f8fafc; color: #1e293b; line-height: 1.5; }
 
-    /* 1. Top Government Flag Bar */
+    /* 1. National Official Flag & Accessibility Bar */
     .gov-flag-bar {
-      background: #f1f5f9;
-      border-bottom: 1px solid #e2e8f0;
+      background: #0f172a;
+      border-bottom: 2px solid #ff9933;
       padding: 5px 6%;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: #334155;
+      color: #e2e8f0;
     }
-    .flag-group { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+    .flag-group { display: flex; align-items: center; gap: 8px; font-weight: 700; }
     .flag-icon { width: 20px; height: 13px; border: 1px solid #cbd5e1; background: linear-gradient(#ff9933 33%, #ffffff 33%, #ffffff 66%, #128807 66%); display: inline-block; }
-    .gov-links a { margin-left: 15px; color: #475569; text-decoration: none; font-size: 0.78rem; font-weight: 600; }
+    .gov-links { display: flex; align-items: center; gap: 14px; }
+    .gov-links a { color: #cbd5e1; text-decoration: none; font-size: 0.75rem; font-weight: 600; }
+    .gov-links a:hover { color: #facc15; }
+    .access-tools { display: flex; gap: 6px; border-left: 1px solid #334155; padding-left: 12px; }
+    .access-btn { background: #1e293b; color: #f8fafc; border: 1px solid #475569; padding: 1px 6px; font-size: 0.7rem; border-radius: 3px; cursor: pointer; }
 
-    /* 2. Main Official Header */
+    /* 2. Main Portal Header */
     .portal-header {
       background: #ffffff;
       padding: 12px 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+      border-bottom: 2px solid #e2e8f0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.03);
     }
-    .header-logos { display: flex; align-items: center; gap: 20px; }
-    .emblem-box { display: flex; align-items: center; gap: 8px; border-right: 2px solid #e2e8f0; padding-right: 18px; }
-    .emblem-text { font-size: 0.72rem; font-weight: 700; color: #1e293b; line-height: 1.2; text-transform: uppercase; }
+    .header-logos { display: flex; align-items: center; gap: 18px; }
+    .emblem-box { display: flex; align-items: center; gap: 8px; border-right: 2px solid #cbd5e1; padding-right: 16px; }
+    .emblem-text { font-size: 0.7rem; font-weight: 800; color: #0f172a; line-height: 1.2; text-transform: uppercase; }
     .brand-logo-area { display: flex; align-items: center; gap: 12px; }
-    .brand-logo-area img { height: 60px; width: auto; object-fit: contain; }
-    .brand-names h1 { font-size: 1.15rem; color: #0f172a; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; }
-    .brand-names p { font-size: 0.75rem; color: #0284c7; font-weight: 700; }
+    .brand-logo-area img { height: 64px; width: auto; object-fit: contain; }
+    .brand-names h1 { font-size: 1.15rem; color: #0f172a; font-weight: 900; text-transform: uppercase; letter-spacing: 0.3px; }
+    .brand-names p { font-size: 0.75rem; color: #0284c7; font-weight: 800; }
 
-    /* Header Controls */
-    .header-controls { display: flex; align-items: center; gap: 12px; }
-    .search-box { display: flex; align-items: center; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 4px; padding: 6px 12px; width: 240px; }
-    .search-box input { border: none; outline: none; font-size: 0.85rem; width: 100%; margin-left: 6px; }
-    .btn-dash { background: #f97316; color: white; border: none; padding: 8px 14px; font-size: 0.8rem; font-weight: 700; border-radius: 4px; cursor: pointer; }
-    .btn-reg { background: #b45309; color: white; border: none; padding: 8px 16px; font-size: 0.8rem; font-weight: 700; border-radius: 4px; cursor: pointer; text-decoration: none; }
-    .btn-login { background: white; color: #b45309; border: 1px solid #b45309; padding: 7px 16px; font-size: 0.8rem; font-weight: 700; border-radius: 4px; cursor: pointer; text-decoration: none; }
+    .header-controls { display: flex; align-items: center; gap: 10px; }
+    .search-box { display: flex; align-items: center; background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 4px; padding: 6px 12px; width: 230px; }
+    .search-box input { border: none; outline: none; font-size: 0.82rem; width: 100%; margin-left: 6px; }
+    .btn-dash { background: #f97316; color: white; border: none; padding: 8px 14px; font-size: 0.78rem; font-weight: 800; border-radius: 4px; cursor: pointer; }
+    .btn-reg { background: #b45309; color: white; border: none; padding: 8px 16px; font-size: 0.78rem; font-weight: 800; border-radius: 4px; cursor: pointer; text-decoration: none; }
+    .btn-login { background: white; color: #b45309; border: 1.5px solid #b45309; padding: 7px 16px; font-size: 0.78rem; font-weight: 800; border-radius: 4px; cursor: pointer; text-decoration: none; }
 
     /* 3. Navigation Bar */
-    nav { background: #ffffff; border-top: 1px solid #f1f5f9; border-bottom: 2px solid #e2e8f0; padding: 0 6%; }
-    .nav-list { display: flex; list-style: none; gap: 24px; align-items: center; }
-    .nav-list li a { display: block; padding: 12px 0; color: #334155; text-decoration: none; font-size: 0.85rem; font-weight: 600; }
-    .nav-list li a:hover, .nav-list li a.active { color: #0284c7; }
+    nav { background: #1e3a8a; padding: 0 6%; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+    .nav-list { display: flex; list-style: none; gap: 22px; align-items: center; }
+    .nav-list li a { display: block; padding: 12px 0; color: #ffffff; text-decoration: none; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; }
+    .nav-list li a:hover, .nav-list li a.active { color: #facc15; }
     .nav-dot { width: 7px; height: 7px; background: #dc2626; border-radius: 50%; display: inline-block; margin-left: 4px; }
 
     /* 4. Alert Ribbon */
-    .alert-ribbon { background: #0284c7; color: white; padding: 7px 6%; font-size: 0.82rem; display: flex; align-items: center; gap: 12px; }
-    .alert-tag { background: #0369a1; padding: 2px 8px; border-radius: 3px; font-weight: 700; font-size: 0.72rem; white-space: nowrap; }
+    .alert-ribbon { background: #0284c7; color: white; padding: 7px 6%; font-size: 0.8rem; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #0369a1; }
+    .alert-tag { background: #0c4a6e; padding: 2px 8px; border-radius: 3px; font-weight: 800; font-size: 0.7rem; white-space: nowrap; }
 
     /* 5. Official Hero Section */
     .official-hero {
       position: relative;
-      background: linear-gradient(135deg, #0b1f3a 0%, #102a4e 60%, #1b3a6b 100%);
+      background: linear-gradient(135deg, #0b1f3a 0%, #0f274a 60%, #173863 100%);
       color: #ffffff;
       min-height: 480px;
       display: flex;
@@ -70,19 +74,11 @@
       overflow: hidden;
       border-bottom: 4px solid #f97316;
     }
-    .official-hero::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #ff9933 33.3%, #ffffff 33.3%, #ffffff 66.6%, #138808 66.6%);
-      z-index: 4;
-    }
     .hero-graphic-bg {
       position: absolute;
       top: 0; right: 0; bottom: 0;
       width: 55%;
-      background-image: linear-gradient(to right, #0b1f3a 0%, rgba(11, 31, 58, 0.75) 40%, rgba(11, 31, 58, 0.2) 100%),
+      background-image: linear-gradient(to right, #0b1f3a 0%, rgba(11, 31, 58, 0.78) 40%, rgba(11, 31, 58, 0.2) 100%),
                         url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1400&q=80');
       background-size: cover;
       background-position: center right;
@@ -99,40 +95,40 @@
       justify-content: space-between;
       align-items: center;
     }
-    .hero-content { max-width: 640px; }
+    .hero-content { max-width: 650px; }
     .official-tag {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       backdrop-filter: blur(8px);
       padding: 5px 14px;
       border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 700;
+      font-size: 0.78rem;
+      font-weight: 800;
       color: #facc15;
       margin-bottom: 16px;
       text-transform: uppercase;
     }
-    .hero-title { font-size: 2.3rem; font-weight: 800; line-height: 1.25; margin-bottom: 14px; color: #ffffff; }
+    .hero-title { font-size: 2.35rem; font-weight: 900; line-height: 1.25; margin-bottom: 14px; color: #ffffff; }
     .hero-title span { color: #38bdf8; }
-    .hero-sub { font-size: 1rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 24px; }
+    .hero-sub { font-size: 0.98rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 24px; }
     .accreditation-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
-    .acc-badge { background: rgba(15, 23, 42, 0.65); border: 1px solid rgba(148, 163, 184, 0.35); padding: 6px 12px; border-radius: 6px; font-size: 0.78rem; font-weight: 600; color: #f1f5f9; }
+    .acc-badge { background: rgba(15, 23, 42, 0.75); border: 1px solid rgba(148, 163, 184, 0.4); padding: 6px 12px; border-radius: 6px; font-size: 0.78rem; font-weight: 700; color: #f1f5f9; }
     .hero-actions { display: flex; gap: 14px; align-items: center; }
-    .btn-primary-official { background: #dc2626; color: #ffffff; padding: 12px 26px; border-radius: 4px; font-weight: 700; font-size: 0.95rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(220, 38, 38, 0.4); cursor: pointer; }
+    .btn-primary-official { background: #dc2626; color: #ffffff; padding: 12px 26px; border-radius: 4px; font-weight: 800; font-size: 0.92rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(220, 38, 38, 0.4); cursor: pointer; }
     .btn-primary-official:hover { background: #b91c1c; }
-    .btn-secondary-official { background: transparent; color: #ffffff; border: 1.5px solid #cbd5e1; padding: 11px 22px; border-radius: 4px; font-weight: 700; font-size: 0.95rem; text-decoration: none; }
+    .btn-secondary-official { background: transparent; color: #ffffff; border: 1.5px solid #cbd5e1; padding: 11px 22px; border-radius: 4px; font-weight: 800; font-size: 0.92rem; text-decoration: none; }
     .btn-secondary-official:hover { background: rgba(255, 255, 255, 0.1); }
 
-    /* Floating Registry Card */
+    /* Floating Official Registry Card */
     .hero-floating-card {
       background: rgba(255, 255, 255, 0.97);
       color: #0f172a;
       border-radius: 10px;
       padding: 22px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
       border-top: 4px solid #0284c7;
       width: 320px;
       display: flex;
@@ -140,19 +136,19 @@
       gap: 12px;
     }
     .card-head { display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; }
-    .card-head h4 { font-size: 0.95rem; font-weight: 800; color: #1e3a8a; }
+    .card-head h4 { font-size: 0.95rem; font-weight: 900; color: #1e3a8a; }
     .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: center; }
     .stat-box { background: #f8fafc; border: 1px solid #e2e8f0; padding: 10px 6px; border-radius: 6px; }
-    .stat-number { font-size: 1.25rem; font-weight: 800; color: #0284c7; }
-    .stat-label { font-size: 0.7rem; font-weight: 700; color: #64748b; }
+    .stat-number { font-size: 1.25rem; font-weight: 900; color: #0284c7; }
+    .stat-label { font-size: 0.68rem; font-weight: 800; color: #64748b; }
 
-    /* Partners */
+    /* Partners Strip */
     .partners-section { padding: 45px 6%; background: #ffffff; text-align: center; border-bottom: 1px solid #e2e8f0; }
     .partner-logos-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 20px; }
-    .partner-card { padding: 12px 20px; border: 1px solid #e2e8f0; border-radius: 6px; background: #f8fafc; min-width: 160px; text-align: center; }
+    .partner-card { padding: 14px 20px; border: 1px solid #e2e8f0; border-radius: 6px; background: #f8fafc; min-width: 170px; text-align: center; }
     .partner-card .p-icon { font-size: 2rem; margin-bottom: 5px; }
 
-    /* 6. Skill India Pop-up Modal (SIDH Style) */
+    /* SIDH Modal */
     .sidh-overlay {
       display: none;
       position: fixed;
@@ -174,10 +170,7 @@
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
       animation: popZoom 0.25s ease-out;
     }
-    @keyframes popZoom {
-      from { transform: scale(0.92); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
+    @keyframes popZoom { from { transform: scale(0.92); opacity: 0; } to { transform: scale(1); opacity: 1; } }
     .sidh-close-btn { position: absolute; top: 18px; right: 20px; background: transparent; border: none; font-size: 1.8rem; color: #64748b; cursor: pointer; line-height: 1; }
     .sidh-brand-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
     .sidh-brand-head img { height: 35px; width: auto; }
@@ -191,8 +184,6 @@
     .sidh-icon { width: 52px; height: 52px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; border-radius: 50%; background: #eff6ff; }
     .sidh-info h4 { font-size: 0.95rem; font-weight: 700; color: #1e293b; margin-bottom: 3px; }
     .sidh-info p { font-size: 0.75rem; color: #64748b; line-height: 1.3; }
-    .sidh-footer-terms { text-align: center; font-size: 0.78rem; color: #64748b; }
-    .sidh-footer-terms a { color: #f97316; text-decoration: none; font-weight: 600; }
 
     footer { background: #0b132b; color: #94a3b8; padding: 30px 6%; font-size: 0.85rem; text-align: center; }
 
@@ -206,17 +197,24 @@
 </head>
 <body>
 
+  <!-- 1. Flag & Accessibility Bar -->
   <div class="gov-flag-bar">
     <div class="flag-group">
       <span class="flag-icon"></span>
       <span>ਭਾਰਤ ਸਰਕਾਰ | Government of India</span>
     </div>
     <div class="gov-links">
-      <a href="verify.html">Document Verification</a> |
+      <a href="verify.html">Document Verification</a>
       <a href="javascript:void(0)" onclick="openSidhModal()">Choose Role</a>
+      <div class="access-tools">
+        <button class="access-btn">A-</button>
+        <button class="access-btn">A</button>
+        <button class="access-btn">A+</button>
+      </div>
     </div>
   </div>
 
+  <!-- 2. Main Portal Header -->
   <header class="portal-header">
     <div class="header-logos">
       <div class="emblem-box">
@@ -237,7 +235,7 @@
 
     <div class="header-controls">
       <div class="search-box">
-        🔍 <input type="text" placeholder="Search Skill Courses...">
+        🔍 <input type="text" placeholder="Search Courses, Trades...">
       </div>
       <button class="btn-dash" onclick="openSidhModal()">DASHBOARDS</button>
       <button class="btn-reg" onclick="openSidhModal()">REGISTER</button>
@@ -245,25 +243,27 @@
     </div>
   </header>
 
+  <!-- 3. Navigation Bar -->
   <nav>
     <ul class="nav-list">
       <li><a href="index.html" class="active">MSDE <span class="nav-dot"></span></a></li>
       <li><a href="courses.html">Schemes / Programs</a></li>
       <li><a href="courses.html">Skill Courses</a></li>
-      <li><a href="about.html">Learn & UpSkill</a></li>
-      <li><a href="verify.html">PM-SETU <span class="nav-dot"></span></a></li>
-      <li><a href="courses.html">PMKVY</a></li>
-      <li><a href="courses.html">IndiaSkills <span class="nav-dot"></span></a></li>
+      <li><a href="about.html">About Institute</a></li>
+      <li><a href="dgt.html">DGT Ecosystem <span class="nav-dot"></span></a></li>
+      <li><a href="verify.html">Verify Certificate</a></li>
     </ul>
   </nav>
 
+  <!-- 4. Alert Ribbon -->
   <div class="alert-ribbon">
     <span class="alert-tag">LATEST NOTIFICATION</span>
     <marquee onmouseover="this.stop();" onmouseout="this.start();">
-      📢 IndiaSkills 2026-27 Competitions Registration OPEN | Admissions live for ITI Trades (COPA, Electrician, Fitter) & Professional Degree Programs | Online Document Verification active.
+      📢 IndiaSkills 2026-27 Competitions Registration OPEN | Admissions live for ITI Trades (COPA, Electrician, Fitter) & Degree Programs | Online Document Verification active.
     </marquee>
   </div>
 
+  <!-- 5. Official Hero Section -->
   <section class="official-hero">
     <div class="hero-graphic-bg"></div>
     <div class="hero-container">
@@ -318,8 +318,9 @@
     </div>
   </section>
 
+  <!-- 6. Partners & Recognitions -->
   <section class="partners-section">
-    <h3 style="color:#1e293b; font-weight:800; font-size:1.3rem;">Our Academic & Certification Partners</h3>
+    <h3 style="color:#1e293b; font-weight:900; font-size:1.3rem;">Our Academic & Certification Partners</h3>
     <div class="partner-logos-grid">
       <div class="partner-card"><div class="p-icon">🏛️</div><h4>IKGPTU</h4><p>Punjab Technical University</p></div>
       <div class="partner-card"><div class="p-icon">🏅</div><h4>ISO 9001:2015</h4><p>Quality Standard Certified</p></div>
@@ -328,6 +329,7 @@
     </div>
   </section>
 
+  <!-- 7. Skill India Pop-up Modal (SIDH Style) -->
   <div id="sidhModal" class="sidh-overlay" onclick="closeOnOutside(event)">
     <div class="sidh-card">
       <button class="sidh-close-btn" onclick="closeSidhModal()">&times;</button>
@@ -375,10 +377,6 @@
           </div>
         </a>
       </div>
-
-      <p class="sidh-footer-terms">
-        By choosing to continue, you agree to accept all applicable <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>
-      </p>
     </div>
   </div>
 
@@ -387,19 +385,9 @@
   </footer>
 
   <script>
-    function openSidhModal() {
-      document.getElementById('sidhModal').style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
-    function closeSidhModal() {
-      document.getElementById('sidhModal').style.display = 'none';
-      document.body.style.overflow = 'auto';
-    }
-    function closeOnOutside(event) {
-      if (event.target.id === 'sidhModal') {
-        closeSidhModal();
-      }
-    }
+    function openSidhModal() { document.getElementById('sidhModal').style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+    function closeSidhModal() { document.getElementById('sidhModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
+    function closeOnOutside(event) { if (event.target.id === 'sidhModal') closeSidhModal(); }
   </script>
 
 </body>
