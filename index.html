@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pa">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,25 +8,41 @@
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
     body { background-color: #f8fafc; color: #1e293b; line-height: 1.5; }
 
-    /* 1. Top Flag Bar */
-    .gov-flag-bar { background: #f1f5f9; border-bottom: 1px solid #e2e8f0; padding: 5px 6%; font-size: 0.8rem; display: flex; justify-content: space-between; align-items: center; color: #334155; }
+    /* 1. Top Government Flag Bar */
+    .gov-flag-bar {
+      background: #f1f5f9;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 5px 6%;
+      font-size: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #334155;
+    }
     .flag-group { display: flex; align-items: center; gap: 8px; font-weight: 600; }
     .flag-icon { width: 20px; height: 13px; border: 1px solid #cbd5e1; background: linear-gradient(#ff9933 33%, #ffffff 33%, #ffffff 66%, #128807 66%); display: inline-block; }
-    .gov-links a { margin-left: 15px; color: #475569; text-decoration: none; font-size: 0.78rem; }
+    .gov-links a { margin-left: 15px; color: #475569; text-decoration: none; font-size: 0.78rem; font-weight: 600; }
 
-    /* 2. Main Portal Header */
-    .portal-header { background: #ffffff; padding: 12px 6%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.03); }
+    /* 2. Main Official Header */
+    .portal-header {
+      background: #ffffff;
+      padding: 12px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    }
     .header-logos { display: flex; align-items: center; gap: 20px; }
     .emblem-box { display: flex; align-items: center; gap: 8px; border-right: 2px solid #e2e8f0; padding-right: 18px; }
     .emblem-text { font-size: 0.72rem; font-weight: 700; color: #1e293b; line-height: 1.2; text-transform: uppercase; }
     .brand-logo-area { display: flex; align-items: center; gap: 12px; }
-    .brand-logo-area img { height: 62px; width: auto; object-fit: contain; }
+    .brand-logo-area img { height: 60px; width: auto; object-fit: contain; }
     .brand-names h1 { font-size: 1.15rem; color: #0f172a; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; }
     .brand-names p { font-size: 0.75rem; color: #0284c7; font-weight: 700; }
 
     /* Header Controls */
     .header-controls { display: flex; align-items: center; gap: 12px; }
-    .search-box { display: flex; align-items: center; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 4px; padding: 6px 12px; width: 250px; }
+    .search-box { display: flex; align-items: center; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 4px; padding: 6px 12px; width: 240px; }
     .search-box input { border: none; outline: none; font-size: 0.85rem; width: 100%; margin-left: 6px; }
     .btn-dash { background: #f97316; color: white; border: none; padding: 8px 14px; font-size: 0.8rem; font-weight: 700; border-radius: 4px; cursor: pointer; }
     .btn-reg { background: #b45309; color: white; border: none; padding: 8px 16px; font-size: 0.8rem; font-weight: 700; border-radius: 4px; cursor: pointer; text-decoration: none; }
@@ -43,42 +59,102 @@
     .alert-ribbon { background: #0284c7; color: white; padding: 7px 6%; font-size: 0.82rem; display: flex; align-items: center; gap: 12px; }
     .alert-tag { background: #0369a1; padding: 2px 8px; border-radius: 3px; font-weight: 700; font-size: 0.72rem; white-space: nowrap; }
 
-    /* 5. Hero Banner */
-    .hero-banner {
+    /* 5. Official Hero Section (With Lab Background & Tricolor) */
+    .official-hero {
       position: relative;
-      background: #ffffff;
-      border-bottom: 1px solid #e2e8f0;
-      min-height: 420px;
+      background: linear-gradient(135deg, #0b1f3a 0%, #102a4e 60%, #1b3a6b 100%);
+      color: #ffffff;
+      min-height: 480px;
       display: flex;
+      align-items: center;
+      overflow: hidden;
+      border-bottom: 4px solid #f97316;
     }
-    .hero-bg-overlay {
+    .official-hero::before {
+      content: "";
       position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: linear-gradient(90deg, rgba(255,255,255,0.96) 35%, rgba(255,255,255,0.4) 65%, rgba(255,255,255,0.1) 100%), 
-                  url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1500&q=80') center right/cover no-repeat;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #ff9933 33.3%, #ffffff 33.3%, #ffffff 66.6%, #138808 66.6%);
+      z-index: 4;
+    }
+    .hero-graphic-bg {
+      position: absolute;
+      top: 0; right: 0; bottom: 0;
+      width: 55%;
+      background-image: linear-gradient(to right, #0b1f3a 0%, rgba(11, 31, 58, 0.75) 40%, rgba(11, 31, 58, 0.2) 100%),
+                        url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1400&q=80');
+      background-size: cover;
+      background-position: center right;
       z-index: 1;
     }
-    .hero-inner { position: relative; z-index: 2; padding: 50px 6%; max-width: 680px; display: flex; flex-direction: column; justify-content: center; }
-    .event-badge span { background: #eff6ff; color: #1d4ed8; font-weight: 800; font-size: 0.75rem; padding: 4px 10px; border-radius: 4px; border: 1px solid #bfdbfe; }
-    .hero-inner h2 { font-size: 2.5rem; color: #0f172a; font-weight: 900; line-height: 1.1; margin: 10px 0 8px; }
-    .hero-inner h2 span { color: #dc2626; }
-    .hero-inner h3 { font-size: 1.7rem; color: #1e3a8a; font-weight: 800; margin-bottom: 15px; }
-    .stats-pill { display: flex; gap: 12px; margin-bottom: 25px; }
-    .pill { background: #0f172a; color: white; padding: 6px 14px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; }
-    .pill.red { background: #dc2626; }
-    .cta-banner-btn { display: inline-flex; align-items: center; background: #e11d48; color: white; text-decoration: none; font-weight: 800; padding: 12px 28px; font-size: 1rem; border-radius: 4px; width: fit-content; box-shadow: 0 4px 14px rgba(225, 29, 72, 0.4); cursor: pointer; }
+    .hero-container {
+      position: relative;
+      z-index: 3;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 50px 6%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .hero-content { max-width: 640px; }
+    .official-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(8px);
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #facc15;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    .hero-title { font-size: 2.3rem; font-weight: 800; line-height: 1.25; margin-bottom: 14px; color: #ffffff; }
+    .hero-title span { color: #38bdf8; }
+    .hero-sub { font-size: 1rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 24px; }
+    .accreditation-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+    .acc-badge { background: rgba(15, 23, 42, 0.65); border: 1px solid rgba(148, 163, 184, 0.35); padding: 6px 12px; border-radius: 6px; font-size: 0.78rem; font-weight: 600; color: #f1f5f9; }
+    .hero-actions { display: flex; gap: 14px; align-items: center; }
+    .btn-primary-official { background: #dc2626; color: #ffffff; padding: 12px 26px; border-radius: 4px; font-weight: 700; font-size: 0.95rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(220, 38, 38, 0.4); }
+    .btn-primary-official:hover { background: #b91c1c; }
+    .btn-secondary-official { background: transparent; color: #ffffff; border: 1.5px solid #cbd5e1; padding: 11px 22px; border-radius: 4px; font-weight: 700; font-size: 0.95rem; text-decoration: none; }
+    .btn-secondary-official:hover { background: rgba(255, 255, 255, 0.1); }
+
+    /* Floating Registry Card */
+    .hero-floating-card {
+      background: rgba(255, 255, 255, 0.97);
+      color: #0f172a;
+      border-radius: 10px;
+      padding: 22px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      border-top: 4px solid #0284c7;
+      width: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .card-head { display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; }
+    .card-head h4 { font-size: 0.95rem; font-weight: 800; color: #1e3a8a; }
+    .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: center; }
+    .stat-box { background: #f8fafc; border: 1px solid #e2e8f0; padding: 10px 6px; border-radius: 6px; }
+    .stat-number { font-size: 1.25rem; font-weight: 800; color: #0284c7; }
+    .stat-label { font-size: 0.7rem; font-weight: 700; color: #64748b; }
 
     /* Partners */
-    .partners-section { padding: 40px 6%; background: #ffffff; text-align: center; }
+    .partners-section { padding: 45px 6%; background: #ffffff; text-align: center; border-bottom: 1px solid #e2e8f0; }
     .partner-logos-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 20px; }
     .partner-card { padding: 12px 20px; border: 1px solid #e2e8f0; border-radius: 6px; background: #f8fafc; min-width: 160px; text-align: center; }
     .partner-card .p-icon { font-size: 2rem; margin-bottom: 5px; }
 
-    /* ===================================================
-       EXACT SKILL INDIA DIGITAL HUB (SIDH) POP-UP MODAL
-    =================================================== */
+    /* 6. Skill India Digital Hub (SIDH) Style Pop-up Modal */
     .sidh-overlay {
-      display: flex; /* By default open hunda hai */
+      display: flex;
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(15, 23, 42, 0.75);
@@ -102,162 +178,47 @@
       from { transform: scale(0.92); opacity: 0; }
       to { transform: scale(1); opacity: 1; }
     }
-    .sidh-close-btn {
-      position: absolute;
-      top: 18px;
-      right: 20px;
-      background: transparent;
-      border: none;
-      font-size: 1.8rem;
-      color: #64748b;
-      cursor: pointer;
-      line-height: 1;
-    }
-    .sidh-close-btn:hover { color: #0f172a; }
-
-    /* Top Brand Inside Modal */
+    .sidh-close-btn { position: absolute; top: 18px; right: 20px; background: transparent; border: none; font-size: 1.8rem; color: #64748b; cursor: pointer; line-height: 1; }
     .sidh-brand-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
     .sidh-brand-head img { height: 35px; width: auto; }
     .sidh-brand-title { font-size: 0.95rem; font-weight: 800; color: #1e3a8a; }
-
     .sidh-heading { text-align: center; margin-bottom: 25px; }
     .sidh-heading h2 { font-size: 1.45rem; color: #1e293b; font-weight: 800; margin-bottom: 4px; }
     .sidh-heading p { font-size: 0.88rem; color: #64748b; }
-
-    /* 4 Grid Choices (Exact SIDH Design) */
-    .sidh-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-    .sidh-box {
-      border: 1.5px solid #e2e8f0;
-      border-radius: 10px;
-      padding: 16px 14px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      background: #ffffff;
-      position: relative;
-    }
-    .sidh-box:hover {
-      border-color: #0284c7;
-      box-shadow: 0 6px 16px rgba(2, 132, 199, 0.12);
-      transform: translateY(-2px);
-    }
-    .sidh-radio {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      width: 14px;
-      height: 14px;
-      border: 2px solid #cbd5e1;
-      border-radius: 50%;
-    }
-    .sidh-box:hover .sidh-radio { border-color: #0284c7; background: #0284c7; }
-    .sidh-icon {
-      width: 55px;
-      height: 55px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      border-radius: 50%;
-      background: #eff6ff;
-    }
-    .sidh-info h4 { font-size: 0.98rem; font-weight: 700; color: #1e293b; margin-bottom: 3px; }
-    .sidh-info p { font-size: 0.76rem; color: #64748b; line-height: 1.3; }
-
-    .sidh-footer-terms {
-      text-align: center;
-      font-size: 0.78rem;
-      color: #64748b;
-      margin-top: 10px;
-    }
+    .sidh-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+    .sidh-box { border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 16px 14px; display: flex; align-items: center; gap: 14px; cursor: pointer; text-decoration: none; transition: all 0.2s ease; background: #ffffff; }
+    .sidh-box:hover { border-color: #0284c7; box-shadow: 0 6px 16px rgba(2, 132, 199, 0.12); transform: translateY(-2px); }
+    .sidh-icon { width: 52px; height: 52px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; border-radius: 50%; background: #eff6ff; }
+    .sidh-info h4 { font-size: 0.95rem; font-weight: 700; color: #1e293b; margin-bottom: 3px; }
+    .sidh-info p { font-size: 0.75rem; color: #64748b; line-height: 1.3; }
+    .sidh-footer-terms { text-align: center; font-size: 0.78rem; color: #64748b; }
     .sidh-footer-terms a { color: #f97316; text-decoration: none; font-weight: 600; }
 
-    /* Footer */
     footer { background: #0b132b; color: #94a3b8; padding: 30px 6%; font-size: 0.85rem; text-align: center; }
+
+    @media (max-width: 900px) {
+      .hero-graphic-bg { width: 100%; opacity: 0.25; }
+      .hero-floating-card { display: none; }
+      .hero-title { font-size: 1.85rem; }
+      .sidh-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
 
-  <div id="sidhModal" class="sidh-overlay" onclick="closeOnOutside(event)">
-    <div class="sidh-card">
-      <button class="sidh-close-btn" onclick="closeSidhModal()">&times;</button>
-      
-      <div class="sidh-brand-head">
-        <img src="collagelogo1.png" alt="UIHESD" onerror="this.src='https://via.placeholder.com/35?text=UIHESD'">
-        <div class="sidh-brand-title">Universal Institute of Higher Education & Skill Hub</div>
-      </div>
-
-      <div class="sidh-heading">
-        <h2>Welcome to UIHESD Digital Hub</h2>
-        <p>A platform to meet all your skilling and higher educational needs digitally</p>
-      </div>
-
-      <div class="sidh-grid">
-        
-        <a href="courses.html" class="sidh-box">
-          <div class="sidh-radio"></div>
-          <div class="sidh-icon">👨‍🎓</div>
-          <div class="sidh-info">
-            <h4>Learner / Candidate</h4>
-            <p>Explore skill courses, online admission & training centers</p>
-          </div>
-        </a>
-
-        <a href="about.html" class="sidh-box">
-          <div class="sidh-radio"></div>
-          <div class="sidh-icon">🤝</div>
-          <div class="sidh-info">
-            <h4>Partner / Campus</h4>
-            <p>About institute, training infrastructure & faculty</p>
-          </div>
-        </a>
-
-        <a href="about.html" class="sidh-box">
-          <div class="sidh-radio"></div>
-          <div class="sidh-icon">⚙️</div>
-          <div class="sidh-info">
-            <h4>DGT Ecosystem</h4>
-            <p>IKGPTU affiliation, ISO standards & NCVT trades</p>
-          </div>
-        </a>
-
-        <a href="verify.html" class="sidh-box">
-          <div class="sidh-radio"></div>
-          <div class="sidh-icon">📜</div>
-          <div class="sidh-info">
-            <h4>ITI Result / Verify</h4>
-            <p>Click here to verify certificate and view credentials</p>
-          </div>
-        </a>
-
-      </div>
-
-      <p class="sidh-footer-terms">
-        By choosing to continue, you agree to accept all applicable <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>
-      </p>
-    </div>
-  </div>
-
+  <!-- 1. Government Top Bar -->
   <div class="gov-flag-bar">
     <div class="flag-group">
       <span class="flag-icon"></span>
       <span>ਭਾਰਤ ਸਰਕਾਰ | Government of India</span>
     </div>
     <div class="gov-links">
-      <a href="verify.html">Verify Document</a> |
+      <a href="verify.html">Document Verification</a> |
       <a href="javascript:void(0)" onclick="openSidhModal()">Choose Role</a>
     </div>
   </div>
 
+  <!-- 2. Main Portal Header -->
   <header class="portal-header">
     <div class="header-logos">
       <div class="emblem-box">
@@ -286,6 +247,7 @@
     </div>
   </header>
 
+  <!-- 3. Navigation Bar -->
   <nav>
     <ul class="nav-list">
       <li><a href="index.html" class="active">MSDE <span class="nav-dot"></span></a></li>
@@ -298,6 +260,7 @@
     </ul>
   </nav>
 
+  <!-- 4. Alert Ribbon -->
   <div class="alert-ribbon">
     <span class="alert-tag">LATEST NOTIFICATION</span>
     <marquee onmouseover="this.stop();" onmouseout="this.start();">
@@ -305,24 +268,62 @@
     </marquee>
   </div>
 
-  <section class="hero-banner">
-    <div class="hero-bg-overlay"></div>
-    <div class="hero-inner">
-      <div class="event-badge">
-        <span>⚡ ADMISSIONS & COMPETITIONS 2026-27</span>
+  <!-- 5. Official Hero Section -->
+  <section class="official-hero">
+    <div class="hero-graphic-bg"></div>
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="official-tag">
+          <span>🏛️</span> ਨੈਸ਼ਨਲ ਸਕਿੱਲ ਮਿਸ਼ਨ • ਦਾਖ਼ਲਾ ਸੈਸ਼ਨ 2026-27
+        </div>
+
+        <h2 class="hero-title">
+          ਹੁਨਰਮੰਦ ਸਿੱਖਿਆ ਅਤੇ <span>ਆਧੁਨਿਕ ਤਕਨਾਲੋਜੀ</span> ਦਾ ਪ੍ਰਮੁੱਖ ਕੇਂਦਰ
+        </h2>
+
+        <p class="hero-sub">
+          ਯੂਨੀਵਰਸਲ ਇੰਸਟੀਚਿਊਟ ਆਫ਼ ਹਾਇਰ ਐਜੂਕੇਸ਼ਨ ਐਂਡ ਸਕਿੱਲ ਡਿਵੈਲਪਮੈਂਟ (UIHESD) — ਨੌਜਵਾਨਾਂ ਨੂੰ ਉਦਯੋਗਾਂ ਦੀ ਮੰਗ ਅਨੁਸਾਰ ਆਈ.ਟੀ.ਆਈ. ਟ੍ਰੇਡਾਂ, ਕੰਪਿਊਟਰ ਪ੍ਰੋਗਰਾਮਿੰਗ ਅਤੇ ਯੂਨੀਵਰਸਿਟੀ ਡਿਗਰੀਆਂ ਪ੍ਰਦਾਨ ਕਰਨ ਵਾਲਾ ਮੋਹਰੀ ਸੰਸਥਾਨ।
+        </p>
+
+        <div class="accreditation-row">
+          <div class="acc-badge">✓ IKGPTU ਐਫੀਲੀਏਟਿਡ ਸਟੱਡੀ ਸੈਂਟਰ</div>
+          <div class="acc-badge">✓ ISO 9001:2015 ਪ੍ਰਮਾਣਿਤ</div>
+          <div class="acc-badge">✓ NCVT/DGT ਪੈਟਰਨ ਟ੍ਰੇਡਾਂ</div>
+          <div class="acc-badge">✓ ਆਨਲਾਈਨ ਦਸਤਾਵੇਜ਼ ਪੜਤਾਲ</div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="courses.html" class="btn-primary-official">ਕੋਰਸ ਅਤੇ ਟ੍ਰੇਡਾਂ ਦੇਖੋ ➔</a>
+          <a href="verify.html" class="btn-secondary-official">ਸਰਟੀਫਿਕੇਟ ਵੈਰੀਫਾਈ ਕਰੋ</a>
+        </div>
       </div>
-      <h2>IndiaSkills <span>2026-27</span></h2>
-      <h3>Vocational & Degree Programs</h3>
-      <div class="stats-pill">
-        <span class="pill">63+ Technical Skills</span>
-        <span class="pill red">IKGPTU & ISO Certified</span>
+
+      <div class="hero-floating-card">
+        <div class="card-head">
+          <span style="font-size: 1.4rem;">📜</span>
+          <div>
+            <h4>ਅਧਿਕਾਰਤ ਰਜਿਸਟਰੀ ਪੋਰਟਲ</h4>
+            <p style="font-size: 0.72rem; color: #64748b;">Live Student Database</p>
+          </div>
+        </div>
+        <div class="stat-grid">
+          <div class="stat-box">
+            <div class="stat-number">60+</div>
+            <div class="stat-label">ਸਰਟੀਫਾਈਡ ਟ੍ਰੇਡਾਂ</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">ਵੈਰੀਫਾਈਡ ਰਿਕਾਰਡ</div>
+          </div>
+        </div>
+        <div style="font-size: 0.76rem; color: #166534; background: #f0fdf4; border: 1px solid #bbf7d0; padding: 8px 10px; border-radius: 4px; line-height: 1.4;">
+          <strong>✔ 24x7 ਸਰਵਿਸ:</strong> ਵਿਦਿਆਰਥੀ ਰੋਲ ਨੰਬਰ ਜਾਂ UID ਰਾਹੀਂ ਆਪਣਾ ਸਰਟੀਫਿਕੇਟ ਤੁਰੰਤ ਆਨਲਾਈਨ ਚੈੱਕ ਤੇ ਪ੍ਰਿੰਟ ਕਰ ਸਕਦੇ ਹਨ।
+        </div>
       </div>
-      <a href="javascript:void(0)" onclick="openSidhModal()" class="cta-banner-btn">
-        FREE REGISTRATION ➔
-      </a>
     </div>
   </section>
 
+  <!-- 6. Partners & Recognitions -->
   <section class="partners-section">
     <h3 style="color:#1e293b; font-weight:800; font-size:1.3rem;">Our Academic & Certification Partners</h3>
     <div class="partner-logos-grid">
@@ -333,6 +334,61 @@
     </div>
   </section>
 
+  <!-- 7. Skill India Pop-up Modal (SIDH Style) -->
+  <div id="sidhModal" class="sidh-overlay" onclick="closeOnOutside(event)">
+    <div class="sidh-card">
+      <button class="sidh-close-btn" onclick="closeSidhModal()">&times;</button>
+      
+      <div class="sidh-brand-head">
+        <img src="collagelogo1.png" alt="UIHESD" onerror="this.src='https://via.placeholder.com/35?text=UIHESD'">
+        <div class="sidh-brand-title">Universal Institute of Higher Education & Skill Hub</div>
+      </div>
+
+      <div class="sidh-heading">
+        <h2>Welcome to UIHESD Digital Hub</h2>
+        <p>A platform to meet all your skilling and higher educational needs digitally</p>
+      </div>
+
+      <div class="sidh-grid">
+        <a href="courses.html" class="sidh-box">
+          <div class="sidh-icon">👨‍🎓</div>
+          <div class="sidh-info">
+            <h4>Learner / Candidate</h4>
+            <p>Explore skill courses, online admission & training centers</p>
+          </div>
+        </a>
+
+        <a href="about.html" class="sidh-box">
+          <div class="sidh-icon">🤝</div>
+          <div class="sidh-info">
+            <h4>Partner / Campus</h4>
+            <p>About institute, training infrastructure & faculty</p>
+          </div>
+        </a>
+
+        <a href="about.html" class="sidh-box">
+          <div class="sidh-icon">⚙️</div>
+          <div class="sidh-info">
+            <h4>DGT Ecosystem</h4>
+            <p>IKGPTU affiliation, ISO standards & NCVT trades</p>
+          </div>
+        </a>
+
+        <a href="verify.html" class="sidh-box">
+          <div class="sidh-icon">📜</div>
+          <div class="sidh-info">
+            <h4>ITI Result / Verify</h4>
+            <p>Click here to verify certificate and view credentials</p>
+          </div>
+        </a>
+      </div>
+
+      <p class="sidh-footer-terms">
+        By choosing to continue, you agree to accept all applicable <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>
+      </p>
+    </div>
+  </div>
+
   <footer>
     <p>© 2026 Universal Institute of Higher Education & Skill Development. Powered by Skill India Digital Ecosystem.</p>
   </footer>
@@ -342,12 +398,10 @@
       document.getElementById('sidhModal').style.display = 'flex';
       document.body.style.overflow = 'hidden';
     }
-
     function closeSidhModal() {
       document.getElementById('sidhModal').style.display = 'none';
       document.body.style.overflow = 'auto';
     }
-
     function closeOnOutside(event) {
       if (event.target.id === 'sidhModal') {
         closeSidhModal();
