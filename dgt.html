@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DGT | Directorate General of Training - ITI Portal</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+    body { background-color: #f8fafc; color: #1e293b; line-height: 1.4; }
+
+    /* Top Result Alert Bar */
+    .result-alert {
+      background: #fff3e0;
+      border-bottom: 1px solid #ffe0b2;
+      padding: 7px 6%;
+      text-align: center;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+    .result-alert a {
+      color: #e65100;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    /* Main DGT Header */
+    .dgt-header {
+      background: #ffffff;
+      padding: 10px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .dgt-logos {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .gov-seal-txt {
+      font-size: 0.65rem;
+      font-weight: 700;
+      line-height: 1.1;
+      text-transform: uppercase;
+      color: #334155;
+      border-right: 1.5px solid #cbd5e1;
+      padding-right: 12px;
+    }
+    .brand-logos {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-logos img {
+      height: 48px;
+      object-fit: contain;
+    }
+    .iti-logo-text {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #0284c7;
+      letter-spacing: 1px;
+      border-left: 2px solid #cbd5e1;
+      padding-left: 10px;
+    }
+
+    /* Header Top Right Buttons */
+    .dgt-top-btns {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-result {
+      background: #ffedd5;
+      color: #c2410c;
+      border: 1px solid #fdba74;
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.75rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-nims {
+      background: #fff7ed;
+      color: #ea580c;
+      border: 1px solid #fed7aa;
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-decoration: none;
+    }
+    .btn-login {
+      background: #ea580c;
+      color: white;
+      border: none;
+      padding: 7px 18px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    /* Navigation Bar */
+    nav {
+      background: #ffffff;
+      border-top: 1px solid #f1f5f9;
+      border-bottom: 1.5px solid #e2e8f0;
+      padding: 0 6%;
+    }
+    .nav-list {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+    .nav-list li a {
+      display: block;
+      padding: 10px 0;
+      color: #475569;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .nav-list li a:hover {
+      color: #0284c7;
+    }
+
+    /* 4-Image Practical Workshop Collage Banner */
+    .collage-banner {
+      display: grid;
+      grid-template-columns: 1.2fr 1.3fr 1.5fr;
+      grid-template-rows: 210px 210px;
+      gap: 4px;
+      background: #0f172a;
+      overflow: hidden;
+    }
+    .collage-item {
+      position: relative;
+      overflow: hidden;
+      background: #1e293b;
+    }
+    .collage-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+    .collage-item:hover img {
+      transform: scale(1.03);
+    }
+    .collage-item.tall {
+      grid-row: span 2;
+    }
+    .collage-badge {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: rgba(15, 23, 42, 0.75);
+      color: #facc15;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    /* Public Dashboard Section */
+    .dashboard-section {
+      padding: 40px 6%;
+      text-align: center;
+    }
+    .dashboard-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 25px;
+    }
+
+    /* Blue DGT Schemes Dashboard Strip */
+    .dgt-strip {
+      background: linear-gradient(90deg, #0c4a6e 0%, #0369a1 100%);
+      color: white;
+      border-radius: 6px;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border-left: 6px solid #f97316;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .strip-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .strip-left img {
+      height: 40px;
+      background: white;
+      padding: 3px 6px;
+      border-radius: 4px;
+    }
+    .strip-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .strip-refreshed {
+      font-size: 0.75rem;
+      color: #bae6fd;
+    }
+
+    /* Quick Stats Cards */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: 25px auto 40px;
+    }
+    .stat-card {
+      background: white;
+      padding: 22px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border-top: 3px solid #0284c7;
+      text-align: left;
+    }
+    .stat-card h4 {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+    .stat-card .num {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    /* Footer */
+    footer {
+      background: #0b132b;
+      color: #94a3b8;
+      padding: 25px 6%;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+    footer a {
+      color: #facc15;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    @media (max-width: 800px) {
+      .collage-banner { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .collage-item.tall { grid-row: span 1; }
+      .dgt-strip { flex-direction: column; gap: 10px; text-align: center; }
+      .strip-left { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="result-alert">
+    <a href="verify.html">Click here to view CTS AITT Mains Examination-2026 Result ➔</a>
+  </div>
+
+  <header class="dgt-header">
+    <div class="dgt-logos">
+      <div class="gov-seal-txt">
+        कौशल विकास एवं उद्यमशीलता मंत्रालय<br>
+        <span style="font-size:0.55rem; color:#64748b;">MINISTRY OF SKILL DEVELOPMENT & ENTREPRENEURSHIP</span>
+      </div>
+      <div class="brand-logos">
+        <img src="collagelogo1.png" alt="UIHESD" onerror="this.src='https://dummyimage.com/50x50/1e3a8a/fff&text=ITI';">
+        <div class="iti-logo-text">ITI</div>
+      </div>
+    </div>
+
+    <div class="dgt-top-btns">
+      <a href="verify.html" class="btn-result">RESULT</a>
+      <a href="courses.html" class="btn-nims">Instructor self registration on NIMS</a>
+      <a href="verify.html" class="btn-login">LOGIN</a>
+    </div>
+  </header>
+
+  <nav>
+    <ul class="nav-list">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="#">GRIEVANCE ▾</a></li>
+      <li><a href="courses.html">DOWNLOAD ▾</a></li>
+      <li><a href="verify.html">VERIFICATION ▾</a></li>
+      <li><a href="about.html">IMPORTANT LINKS ▾</a></li>
+      <li><a href="verify.html">REGISTER AS EXAMINER</a></li>
+      <li><a href="about.html">HELP & SUPPORT</a></li>
+    </ul>
+  </nav>
+
+  <div class="collage-banner">
+    <div class="collage-item tall">
+      <img src="https://images.unsplash.com/photo-1508873696983-2df5293cb32f?auto=format&fit=crop&w=800&q=80" alt="Solar & Renewable Practical Training">
+      <div class="collage-badge">☀️ Solar & Industrial Trades</div>
+    </div>
+
+    <div class="collage-item">
+      <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=700&q=80" alt="Wiring and Installation Training">
+      <div class="collage-badge">⚡ Electrical Wiring Workshop</div>
+    </div>
+
+    <div class="collage-item tall">
+      <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80" alt="Electronics & Testing Laboratory">
+      <div class="collage-badge">🔬 Electronics Lab & Multimeter Testing</div>
+    </div>
+
+    <div class="collage-item">
+      <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=700&q=80" alt="Practical Faculty Guidance">
+      <div class="collage-badge">👨‍🏫 Practical Demonstration</div>
+    </div>
+  </div>
+
+  <section class="dashboard-section">
+    <h2 class="dashboard-title">ITI Public Dashboard</h2>
+
+    <div class="dgt-strip">
+      <div class="strip-left">
+        <img src="collagelogo1.png" alt="DGT Skill India" onerror="this.src='https://dummyimage.com/40x40/0284c7/fff&text=DGT';">
+        <div class="strip-title">DGT Schemes Dashboard</div>
+      </div>
+      <div class="strip-refreshed">
+        Dashboard Last Refreshed on: 03-09-2026
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <h4>Affiliated ITI Institutes</h4>
+        <div class="num">15,000+</div>
+      </div>
+      <div class="stat-card">
+        <h4>Enrolled Trainees (Session 2026)</h4>
+        <div class="num">25.4 Lakh</div>
+      </div>
+      <div class="stat-card">
+        <h4>Designated Vocational Trades</h4>
+        <div class="num">150+</div>
+      </div>
+      <div class="stat-card">
+        <h4>Certified Passout Candidates</h4>
+        <div class="num">94.8%</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Directorate General of Training (DGT), Ministry of Skill Development and Entrepreneurship. All Rights Reserved.</p>
+    <p style="margin-top:8px;">
+      <a href="index.html">Main Portal</a> | 
+      <a href="verify.html">AITT Result Verification</a> | 
+      <a href="courses.html">Trade Courses</a>
+    </p>
+  </footer>
+
+</body>
+</html>
