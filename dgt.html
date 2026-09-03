@@ -8,7 +8,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
     body { background-color: #f8fafc; color: #1e293b; line-height: 1.4; }
 
-    /* 1. Flag & Accessibility Bar (Same as Home) */
+    /* 1. National Flag Bar */
     .gov-flag-bar {
       background: #0f172a;
       border-bottom: 2px solid #ff9933;
@@ -25,10 +25,10 @@
     .gov-links a { color: #cbd5e1; text-decoration: none; font-size: 0.75rem; font-weight: 600; }
     .gov-links a:hover { color: #facc15; }
 
-    /* 2. Main Portal Header (Exact Match to Home) */
+    /* 2. Main Portal Header with Enlarged College Name */
     .portal-header {
       background: #ffffff;
-      padding: 12px 6%;
+      padding: 14px 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -36,32 +36,68 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.03);
     }
     .header-logos { display: flex; align-items: center; gap: 18px; }
-    .emblem-box { display: flex; align-items: center; gap: 8px; border-right: 2px solid #cbd5e1; padding-right: 16px; }
-    .emblem-text { font-size: 0.7rem; font-weight: 800; color: #0f172a; line-height: 1.2; text-transform: uppercase; }
-    .brand-logo-area { display: flex; align-items: center; gap: 12px; }
-    .brand-logo-area img { height: 64px; width: auto; object-fit: contain; }
-    .brand-names h1 { font-size: 1.15rem; color: #0f172a; font-weight: 900; text-transform: uppercase; letter-spacing: 0.3px; }
-    .brand-names p { font-size: 0.75rem; color: #0284c7; font-weight: 800; }
+    .emblem-box { display: flex; align-items: center; gap: 8px; border-right: 2px solid #cbd5e1; padding-right: 18px; }
+    .emblem-text { font-size: 0.72rem; font-weight: 800; color: #0f172a; line-height: 1.25; text-transform: uppercase; }
+    
+    .brand-logo-area { display: flex; align-items: center; gap: 16px; }
+    .brand-logo-area img { height: 85px; width: auto; object-fit: contain; }
+    .brand-names h1 { 
+      font-size: 1.85rem; 
+      color: #0f172a; 
+      font-weight: 900; 
+      text-transform: uppercase; 
+      letter-spacing: 0.5px; 
+      line-height: 1.1;
+      margin-bottom: 2px;
+    }
+    .brand-names h2 {
+      font-size: 0.92rem;
+      color: #1e3a8a;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2px;
+      margin-bottom: 2px;
+    }
+    .brand-names p { 
+      font-size: 0.8rem; 
+      color: #0284c7; 
+      font-weight: 700; 
+    }
 
     .header-controls { display: flex; align-items: center; gap: 10px; }
     .search-box { display: flex; align-items: center; background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 4px; padding: 6px 12px; width: 230px; }
     .search-box input { border: none; outline: none; font-size: 0.82rem; width: 100%; margin-left: 6px; }
-    .btn-dash { background: #f97316; color: white; border: none; padding: 8px 14px; font-size: 0.78rem; font-weight: 800; border-radius: 4px; cursor: pointer; }
-    .btn-reg { background: #b45309; color: white; border: none; padding: 8px 16px; font-size: 0.78rem; font-weight: 800; border-radius: 4px; cursor: pointer; text-decoration: none; }
-    .btn-login { background: #ea580c; color: white; border: none; padding: 8px 18px; font-size: 0.78rem; font-weight: 800; border-radius: 4px; cursor: pointer; }
+    .btn-dash { background: #f97316; color: white; border: none; padding: 9px 15px; font-size: 0.8rem; font-weight: 800; border-radius: 4px; cursor: pointer; }
+    .btn-reg { background: #b45309; color: white; border: none; padding: 9px 18px; font-size: 0.8rem; font-weight: 800; border-radius: 4px; cursor: pointer; text-decoration: none; }
+    
+    /* Login Button */
+    .btn-login { 
+      background: #ea580c; 
+      color: white; 
+      border: none; 
+      padding: 9px 22px; 
+      font-size: 0.82rem; 
+      font-weight: 800; 
+      border-radius: 4px; 
+      cursor: pointer; 
+      text-transform: uppercase;
+      box-shadow: 0 2px 6px rgba(234, 88, 12, 0.3);
+      transition: background 0.2s;
+    }
+    .btn-login:hover { background: #c2410c; }
 
-    /* 3. Navigation Bar (Exact Match) */
+    /* 3. Navigation Bar */
     nav { background: #1e3a8a; padding: 0 6%; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
     .nav-list { display: flex; list-style: none; gap: 22px; align-items: center; }
-    .nav-list li a { display: block; padding: 12px 0; color: #ffffff; text-decoration: none; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; }
+    .nav-list li a { display: block; padding: 13px 0; color: #ffffff; text-decoration: none; font-size: 0.84rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; }
     .nav-list li a:hover, .nav-list li a.active { color: #facc15; }
     .nav-dot { width: 7px; height: 7px; background: #dc2626; border-radius: 50%; display: inline-block; margin-left: 4px; }
 
-    /* Top Result Alert Bar */
+    /* Result Banner */
     .result-alert {
       background: #fff3e0;
       border-bottom: 1px solid #ffe0b2;
-      padding: 7px 6%;
+      padding: 8px 6%;
       text-align: center;
       font-size: 0.92rem;
       font-weight: 800;
@@ -110,9 +146,11 @@
     .stat-card h4 { font-size: 0.85rem; color: #64748b; margin-bottom: 6px; text-transform: uppercase; font-weight: 700; }
     .stat-card .num { font-size: 1.7rem; font-weight: 900; color: #0f172a; }
 
-    /* DGT Login Scheme Modal */
+    /* ===================================================
+       EXACT DGT LOGIN SELECT SCHEME MODAL (POPUP)
+    =================================================== */
     .login-modal-overlay {
-      display: none;
+      display: none; /* Only opens on Login click */
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(15, 23, 42, 0.75);
@@ -132,34 +170,123 @@
       padding: 30px 35px 25px;
       position: relative;
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+      animation: modalFade 0.2s ease-out;
     }
-    .login-modal-close { position: absolute; top: 18px; right: 20px; background: transparent; border: none; font-size: 1.8rem; color: #64748b; cursor: pointer; line-height: 1; }
-    .scheme-title { text-align: center; font-size: 1.15rem; font-weight: 800; color: #1e293b; margin-bottom: 12px; }
-    .scheme-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; }
-    .scheme-btn { border: 1px solid #cbd5e1; background: #ffffff; color: #334155; padding: 6px 20px; font-weight: 700; font-size: 0.85rem; border-radius: 6px; cursor: pointer; }
-    .scheme-btn.active { border-color: #0284c7; background: #f0f9ff; color: #0284c7; }
-    .role-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-    .role-box { border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 16px 10px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: space-between; min-height: 125px; background: #ffffff; text-decoration: none; }
-    .role-box:hover { border-color: #0284c7; transform: translateY(-2px); }
-    .role-icon { font-size: 1.7rem; margin-bottom: 6px; }
-    .role-name { font-size: 0.78rem; font-weight: 700; color: #334155; margin-bottom: 8px; }
-    .role-link { font-size: 0.75rem; font-weight: 800; color: #ea580c; }
+    @keyframes modalFade {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .login-modal-close {
+      position: absolute;
+      top: 18px; right: 20px;
+      background: transparent;
+      border: none;
+      font-size: 1.8rem;
+      color: #64748b;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .login-modal-close:hover { color: #0f172a; }
 
-    footer { background: #0b132b; color: #94a3b8; padding: 25px 6%; text-align: center; font-size: 0.8rem; }
+    .scheme-title {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #1e293b;
+      margin-bottom: 12px;
+    }
+    .scheme-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+    .scheme-btn {
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: #334155;
+      padding: 6px 22px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .scheme-btn.active {
+      border-color: #0284c7;
+      background: #f0f9ff;
+      color: #0284c7;
+      box-shadow: 0 1px 4px rgba(2, 132, 199, 0.15);
+    }
+
+    /* 15 Login Roles Grid */
+    .role-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .role-box {
+      border: 1.5px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 16px 10px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 125px;
+      background: #ffffff;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .role-box:hover {
+      border-color: #0284c7;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.12);
+    }
+    .role-icon {
+      font-size: 1.8rem;
+      margin-bottom: 6px;
+      color: #0284c7;
+    }
+    .role-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .role-link {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #ea580c;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    footer {
+      background: #0b132b;
+      color: #94a3b8;
+      padding: 25px 6%;
+      text-align: center;
+      font-size: 0.8rem;
+    }
     footer a { color: #facc15; text-decoration: none; margin: 0 8px; }
 
-    @media (max-width: 800px) {
+    @media (max-width: 900px) {
       .collage-banner { grid-template-columns: 1fr; grid-template-rows: auto; }
       .collage-item.tall { grid-row: span 1; }
       .dgt-strip { flex-direction: column; gap: 10px; text-align: center; }
       .strip-left { flex-direction: column; }
       .role-grid { grid-template-columns: repeat(2, 1fr); }
+      .brand-names h1 { font-size: 1.3rem; }
+      .brand-names h2 { font-size: 0.78rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- 1. Top Flag Bar (Exact Home Match) -->
+  <!-- 1. Top Flag Bar -->
   <div class="gov-flag-bar">
     <div class="flag-group">
       <span class="flag-icon"></span>
@@ -171,7 +298,7 @@
     </div>
   </div>
 
-  <!-- 2. Main Portal Header (Exact Home Match) -->
+  <!-- 2. Main Portal Header with Enlarged College Name -->
   <header class="portal-header">
     <div class="header-logos">
       <div class="emblem-box">
@@ -181,26 +308,30 @@
           <span style="font-size:0.65rem; color:#64748b;">MINISTRY OF SKILL DEVELOPMENT & ENTREPRENEURSHIP</span>
         </div>
       </div>
+      
       <div class="brand-logo-area">
-        <img src="collagelogo1.png" alt="UIHESD Logo" onerror="this.src='https://via.placeholder.com/60?text=UIHESD'">
+        <img src="collagelogo1.png" alt="UIHESD Logo" onerror="this.src='https://via.placeholder.com/85?text=UIHESD'">
         <div class="brand-names">
           <h1>UIHESD SKILL HUB</h1>
-          <p>ਕੌਸ਼ਲ ਭਾਰਤ • ਕੁਸ਼ਲ ਭਾਰਤ | Technical & Vocational Institute</p>
+          <h2>Universal Institute of Higher Education & Skill Development</h2>
+          <p>ਕੌਸ਼ਲ ਭਾਰਤ • ਕੁਸ਼ਲ ਭਾਰਤ | Technical, Vocational & Higher Degree Studies</p>
         </div>
       </div>
     </div>
 
+    <!-- Header Controls with Login Button -->
     <div class="header-controls">
       <div class="search-box">
         🔍 <input type="text" placeholder="Search Trades...">
       </div>
       <button class="btn-dash" onclick="window.location.href='index.html'">HOME</button>
       <button class="btn-reg" onclick="window.location.href='courses.html'">REGISTER</button>
+      <!-- Click to open exact Scheme Modal -->
       <button class="btn-login" onclick="openLoginModal()">LOGIN</button>
     </div>
   </header>
 
-  <!-- 3. Navigation Bar (Exact Home Match) -->
+  <!-- 3. Navigation Bar -->
   <nav>
     <ul class="nav-list">
       <li><a href="index.html">MSDE <span class="nav-dot"></span></a></li>
@@ -259,16 +390,21 @@
     </div>
   </section>
 
-  <!-- Login Modal -->
+  <!-- ===================================================
+       EXACT DGT LOGIN SELECT SCHEME MODAL (POPUP)
+  =================================================== -->
   <div id="dgtLoginModal" class="login-modal-overlay" onclick="closeLoginOnOutside(event)">
     <div class="login-modal-card">
       <button class="login-modal-close" onclick="closeLoginModal()">&times;</button>
+      
       <div class="scheme-title">Select Scheme</div>
+
       <div class="scheme-tabs">
         <button class="scheme-btn active" id="btnCts" onclick="switchScheme('CTS')">CTS</button>
         <button class="scheme-btn" id="btnCits" onclick="switchScheme('CITS')">CITS</button>
       </div>
 
+      <!-- 15 Role Boxes -->
       <div class="role-grid">
         <a href="verify.html" class="role-box"><div class="role-icon">👨‍🎓</div><div class="role-name">Trainee</div><div class="role-link">Login ➔</div></a>
         <a href="verify.html" class="role-box"><div class="role-icon">🧑‍🏫</div><div class="role-name">Instructor</div><div class="role-link">Login ➔</div></a>
@@ -295,14 +431,32 @@
   </footer>
 
   <script>
-    function openLoginModal() { document.getElementById('dgtLoginModal').style.display = 'flex'; document.body.style.overflow = 'hidden'; }
-    function closeLoginModal() { document.getElementById('dgtLoginModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
-    function closeLoginOnOutside(event) { if (event.target.id === 'dgtLoginModal') closeLoginModal(); }
+    function openLoginModal() {
+      document.getElementById('dgtLoginModal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLoginModal() {
+      document.getElementById('dgtLoginModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    function closeLoginOnOutside(event) {
+      if (event.target.id === 'dgtLoginModal') {
+        closeLoginModal();
+      }
+    }
+
     function switchScheme(scheme) {
       const btnCts = document.getElementById('btnCts');
       const btnCits = document.getElementById('btnCits');
-      if (scheme === 'CTS') { btnCts.classList.add('active'); btnCits.classList.remove('active'); }
-      else { btnCits.classList.add('active'); btnCits.classList.remove('active'); }
+      if (scheme === 'CTS') {
+        btnCts.classList.add('active');
+        btnCits.classList.remove('active');
+      } else {
+        btnCits.classList.add('active');
+        btnCits.classList.remove('active');
+      }
     }
   </script>
 
