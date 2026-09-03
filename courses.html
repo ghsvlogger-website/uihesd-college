@@ -8,7 +8,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
     body { background-color: #f8fafc; color: #1e293b; line-height: 1.5; }
 
-    /* ================= MASTER OFFICIAL HEADER (EXACT MATCH) ================= */
+    /* ================= MASTER OFFICIAL HEADER (100% UNIFIED) ================= */
     .gov-flag-bar {
       height: 32px;
       background: #0f172a;
@@ -73,18 +73,17 @@
       .portal-header { height: auto; padding: 10px 6%; flex-direction: column; gap: 10px; }
       nav { height: auto; padding: 8px 6%; }
       .nav-list { flex-wrap: wrap; gap: 12px; }
+      .courses-table { display: block; overflow-x: auto; }
     }
   </style>
 </head>
 <body>
 
-  <!-- MASTER TOP FLAG BAR -->
   <div class="gov-flag-bar">
     <div class="flag-group"><span class="flag-icon"></span><span>ਭਾਰਤ ਸਰਕਾਰ | Government of India</span></div>
     <div class="gov-links"><a href="verify.html">Document Verification</a><a href="index.html">Main Home</a></div>
   </div>
 
-  <!-- MASTER PORTAL HEADER -->
   <header class="portal-header">
     <div class="header-logos">
       <div class="emblem-box">
@@ -108,7 +107,6 @@
     </div>
   </header>
 
-  <!-- MASTER NAVIGATION BAR -->
   <nav>
     <ul class="nav-list">
       <li><a href="index.html">MSDE</a></li>
@@ -118,23 +116,66 @@
     </ul>
   </nav>
 
-  <!-- MASTER ALERT RIBBON -->
   <div class="alert-ribbon">
-    <span class="alert-tag">COURSES</span>
-    <marquee>Admissions Open for Session 2026-27: ITI Trades (COPA, Electrician, Fitter), Software Diplomas & University Degrees.</marquee>
+    <span class="alert-tag">ADMISSIONS 2026-27</span>
+    <marquee>Admissions Open: Mechanic Diesel, COPA, Electrician, Fitter, Software Diplomas & Professional Certifications.</marquee>
   </div>
 
   <div class="content-container">
     <h2 style="color:#1e3a8a; margin-bottom:15px; font-weight:800;">Academic & Vocational Programs Offered</h2>
     <table class="courses-table">
       <thead>
-        <tr><th>ਕੋਰਸ ਦਾ ਨਾਮ</th><th>ਟ੍ਰੇਡ / ਖੇਤਰ</th><th>ਸਮਾਂ</th><th>ਯੋਗਤਾ</th><th>ਸਥਿਤੀ</th></tr>
+        <tr>
+          <th>ਕੋਰਸ ਦਾ ਨਾਮ (Course Title)</th>
+          <th>ਟ੍ਰੇਡ / ਖੇਤਰ (Stream)</th>
+          <th>ਸਮਾਂ (Duration)</th>
+          <th>ਯੋਗਤਾ (Eligibility)</th>
+          <th>ਸਥਿਤੀ (Admission Status)</th>
+        </tr>
       </thead>
       <tbody>
-        <tr><td><strong>COPA</strong> (Computer Operator & Programming Assistant)</td><td>ਆਈ.ਟੀ. ਅਤੇ ਸਾਫਟਵੇਅਰ</td><td>1 ਸਾਲ</td><td>10ਵੀਂ ਪਾਸ</td><td><span class="badge-open">ਦਾਖ਼ਲਾ ਸ਼ੁਰੂ</span></td></tr>
-        <tr><td><strong>Electrician (ਇਲੈਕਟ੍ਰੀਸ਼ੀਅਨ)</strong></td><td>ਇੰਡਸਟ੍ਰੀਅਲ ਟ੍ਰੇਡ (ITI)</td><td>2 ਸਾਲ</td><td>10ਵੀਂ ਪਾਸ</td><td><span class="badge-open">ਦਾਖ਼ਲਾ ਸ਼ੁਰੂ</span></td></tr>
-        <tr><td><strong>B.Sc (Information Technology)</strong></td><td>ਯੂਨੀਵਰਸਿਟੀ ਡਿਗਰੀ (IKGPTU)</td><td>3 ਸਾਲ</td><td>12ਵੀਂ ਪਾਸ</td><td><span class="badge-open">ਦਾਖ਼ਲਾ ਸ਼ੁਰੂ</span></td></tr>
-        <tr><td><strong>DCA</strong> (Diploma in Computer Applications)</td><td>ਕੰਪਿਊਟਰ ਡਿਪਲੋਮਾ</td><td>1 ਸਾਲ</td><td>12ਵੀਂ ਪਾਸ</td><td><span class="badge-open">ਦਾਖ਼ਲਾ ਸ਼ੁਰੂ</span></td></tr>
+        <tr style="background:#fffbeb;">
+          <td><strong>Mechanic Diesel (ਮਕੈਨਿਕ ਡੀਜ਼ਲ)</strong></td>
+          <td>ਆਟੋਮੋਬਾਈਲ / ਇੰਜੀਨੀਅਰਿੰਗ (ITI Trade)</td>
+          <td>1 ਸਾਲ</td>
+          <td>10ਵੀਂ ਪਾਸ (Science & Maths)</td>
+          <td><span class="badge-open">ਦਾਖ਼ਲਾ ਸ਼ੁਰੂ</span></td>
+        </tr>
+        <tr>
+          <td><strong>COPA</strong> (Computer Operator & Programming Assistant)</td>
+          <td>ਆਈ.ਟੀ. ਅਤੇ ਸਾਫਟਵੇਅਰ</td>
+          <td>1 ਸਾਲ</td>
+          <td>10ਵੀਂ ਪਾਸ</td>
+          <td><span class="badge-open">ਦਾਖ਼ਲਾ ਸ਼ੁਰੂ</span></td>
+        </tr>
+        <tr>
+          <td><strong>Electrician (ਇਲੈਕਟ੍ਰੀਸ਼ੀਅਨ)</strong></td>
+          <td>ਇੰਡਸਟ੍ਰੀਅਲ ਟ੍ਰੇਡ (ITI)</td>
+          <td>2 ਸਾਲ</td>
+          <td>10ਵੀਂ ਪਾਸ</td>
+          <td><span class="badge-open">ਦਾਖ਼ਲਾ ਸ਼ੁਰੂ</span></td>
+        </tr>
+        <tr>
+          <td><strong>Fitter (ਫਿਟਰ)</strong></td>
+          <td>ਮਕੈਨੀਕਲ ਟ੍ਰੇਡ (ITI)</td>
+          <td>2 ਸਾਲ</td>
+          <td>10ਵੀਂ ਪਾਸ</td>
+          <td><span class="badge-open">ਦਾਖ਼ਲਾ ਸ਼ੁਰੂ</span></td>
+        </tr>
+        <tr>
+          <td><strong>B.Sc (Information Technology)</strong></td>
+          <td>ਯੂਨੀਵਰਸਿਟੀ ਡਿਗਰੀ (IKGPTU)</td>
+          <td>3 ਸਾਲ</td>
+          <td>12ਵੀਂ ਪਾਸ</td>
+          <td><span class="badge-open">ਦਾਖ਼ਲਾ ਸ਼ੁਰੂ</span></td>
+        </tr>
+        <tr>
+          <td><strong>DCA</strong> (Diploma in Computer Applications)</td>
+          <td>ਕੰਪਿਊਟਰ ਡਿਪਲੋਮਾ</td>
+          <td>1 ਸਾਲ</td>
+          <td>12ਵੀਂ ਪਾਸ</td>
+          <td><span class="badge-open">ਦਾਖ਼ਲਾ ਸ਼ੁਰੂ</span></td>
+        </tr>
       </tbody>
     </table>
   </div>
