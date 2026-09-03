@@ -95,13 +95,14 @@
       background: #ea580c;
       color: white;
       border: none;
-      padding: 7px 18px;
+      padding: 7px 20px;
       border-radius: 4px;
       font-weight: 700;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       cursor: pointer;
       text-decoration: none;
     }
+    .btn-login:hover { background: #c2410c; }
 
     /* Navigation Bar */
     nav {
@@ -124,9 +125,7 @@
       font-weight: 700;
       text-transform: uppercase;
     }
-    .nav-list li a:hover {
-      color: #0284c7;
-    }
+    .nav-list li a:hover { color: #0284c7; }
 
     /* 4-Image Practical Workshop Collage Banner */
     .collage-banner {
@@ -149,12 +148,8 @@
       display: block;
       transition: transform 0.3s;
     }
-    .collage-item:hover img {
-      transform: scale(1.03);
-    }
-    .collage-item.tall {
-      grid-row: span 2;
-    }
+    .collage-item:hover img { transform: scale(1.03); }
+    .collage-item.tall { grid-row: span 2; }
     .collage-badge {
       position: absolute;
       bottom: 10px;
@@ -193,26 +188,10 @@
       max-width: 1100px;
       margin: 0 auto;
     }
-    .strip-left {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-    .strip-left img {
-      height: 40px;
-      background: white;
-      padding: 3px 6px;
-      border-radius: 4px;
-    }
-    .strip-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
-    .strip-refreshed {
-      font-size: 0.75rem;
-      color: #bae6fd;
-    }
+    .strip-left { display: flex; align-items: center; gap: 20px; }
+    .strip-left img { height: 40px; background: white; padding: 3px 6px; border-radius: 4px; }
+    .strip-title { font-size: 1.3rem; font-weight: 700; letter-spacing: 0.5px; }
+    .strip-refreshed { font-size: 0.75rem; color: #bae6fd; }
 
     /* Quick Stats Cards */
     .stats-grid {
@@ -230,19 +209,127 @@
       border-top: 3px solid #0284c7;
       text-align: left;
     }
-    .stat-card h4 {
-      font-size: 0.85rem;
-      color: #64748b;
-      margin-bottom: 6px;
-      text-transform: uppercase;
+    .stat-card h4 { font-size: 0.85rem; color: #64748b; margin-bottom: 6px; text-transform: uppercase; }
+    .stat-card .num { font-size: 1.7rem; font-weight: 800; color: #0f172a; }
+
+    /* ===================================================
+       EXACT DGT LOGIN SELECT SCHEME MODAL (POPUP)
+    =================================================== */
+    .login-modal-overlay {
+      display: none; /* By default hidden, opens on login click */
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
     }
-    .stat-card .num {
-      font-size: 1.7rem;
-      font-weight: 800;
-      color: #0f172a;
+    .login-modal-card {
+      background: #ffffff;
+      width: 100%;
+      max-width: 820px;
+      max-height: 92vh;
+      overflow-y: auto;
+      border-radius: 12px;
+      padding: 30px 35px 25px;
+      position: relative;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+      animation: modalFade 0.2s ease-out;
+    }
+    @keyframes modalFade {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .login-modal-close {
+      position: absolute;
+      top: 18px; right: 20px;
+      background: transparent;
+      border: none;
+      font-size: 1.8rem;
+      color: #64748b;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .login-modal-close:hover { color: #0f172a; }
+
+    .scheme-title {
+      text-align: center;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 12px;
+    }
+    .scheme-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+    .scheme-btn {
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: #334155;
+      padding: 6px 20px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .scheme-btn.active {
+      border-color: #0284c7;
+      background: #f0f9ff;
+      color: #0284c7;
+      box-shadow: 0 1px 3px rgba(2, 132, 199, 0.15);
     }
 
-    /* Footer */
+    /* Grid of 15 Portal Login Roles */
+    .role-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .role-box {
+      border: 1.5px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 16px 10px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 125px;
+      background: #ffffff;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .role-box:hover {
+      border-color: #0284c7;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.12);
+      transform: translateY(-2px);
+    }
+    .role-icon {
+      font-size: 1.7rem;
+      margin-bottom: 6px;
+      color: #0284c7;
+    }
+    .role-name {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .role-link {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #ea580c;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+
     footer {
       background: #0b132b;
       color: #94a3b8;
@@ -250,26 +337,25 @@
       text-align: center;
       font-size: 0.8rem;
     }
-    footer a {
-      color: #facc15;
-      text-decoration: none;
-      margin: 0 8px;
-    }
+    footer a { color: #facc15; text-decoration: none; margin: 0 8px; }
 
     @media (max-width: 800px) {
       .collage-banner { grid-template-columns: 1fr; grid-template-rows: auto; }
       .collage-item.tall { grid-row: span 1; }
       .dgt-strip { flex-direction: column; gap: 10px; text-align: center; }
       .strip-left { flex-direction: column; }
+      .role-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
 
+  <!-- 1. Top Results Notification -->
   <div class="result-alert">
     <a href="verify.html">Click here to view CTS AITT Mains Examination-2026 Result ➔</a>
   </div>
 
+  <!-- 2. Header with Ministry & ITI Logos -->
   <header class="dgt-header">
     <div class="dgt-logos">
       <div class="gov-seal-txt">
@@ -285,10 +371,12 @@
     <div class="dgt-top-btns">
       <a href="verify.html" class="btn-result">RESULT</a>
       <a href="courses.html" class="btn-nims">Instructor self registration on NIMS</a>
-      <a href="verify.html" class="btn-login">LOGIN</a>
+      <!-- Clicking LOGIN button triggers the exact modal -->
+      <button class="btn-login" onclick="openLoginModal()">LOGIN</button>
     </div>
   </header>
 
+  <!-- 3. DGT Menus -->
   <nav>
     <ul class="nav-list">
       <li><a href="index.html">HOME</a></li>
@@ -301,28 +389,27 @@
     </ul>
   </nav>
 
+  <!-- 4. Real 4-Image Practical Workshop Collage Banner -->
   <div class="collage-banner">
     <div class="collage-item tall">
-      <img src="https://images.unsplash.com/photo-1508873696983-2df5293cb32f?auto=format&fit=crop&w=800&q=80" alt="Solar & Renewable Practical Training">
+      <img src="https://images.unsplash.com/photo-1508873696983-2df5293cb32f?auto=format&fit=crop&w=800&q=80" alt="Solar Training">
       <div class="collage-badge">☀️ Solar & Industrial Trades</div>
     </div>
-
     <div class="collage-item">
-      <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=700&q=80" alt="Wiring and Installation Training">
+      <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=700&q=80" alt="Wiring Workshop">
       <div class="collage-badge">⚡ Electrical Wiring Workshop</div>
     </div>
-
     <div class="collage-item tall">
-      <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80" alt="Electronics & Testing Laboratory">
+      <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80" alt="Laboratory Testing">
       <div class="collage-badge">🔬 Electronics Lab & Multimeter Testing</div>
     </div>
-
     <div class="collage-item">
-      <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=700&q=80" alt="Practical Faculty Guidance">
+      <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=700&q=80" alt="Faculty Guidance">
       <div class="collage-badge">👨‍🏫 Practical Demonstration</div>
     </div>
   </div>
 
+  <!-- 5. ITI Public Dashboard -->
   <section class="dashboard-section">
     <h2 class="dashboard-title">ITI Public Dashboard</h2>
 
@@ -356,6 +443,133 @@
     </div>
   </section>
 
+  <!-- ===================================================
+       EXACT DGT "SELECT SCHEME" LOGIN MODAL
+  =================================================== -->
+  <div id="dgtLoginModal" class="login-modal-overlay" onclick="closeLoginOnOutside(event)">
+    <div class="login-modal-card">
+      <button class="login-modal-close" onclick="closeLoginModal()">&times;</button>
+      
+      <div class="scheme-title">Select Scheme</div>
+
+      <div class="scheme-tabs">
+        <button class="scheme-btn active" id="btnCts" onclick="switchScheme('CTS')">CTS</button>
+        <button class="scheme-btn" id="btnCits" onclick="switchScheme('CITS')">CITS</button>
+      </div>
+
+      <!-- 15 Role Cards -->
+      <div class="role-grid">
+        
+        <!-- Role 1: Trainee -->
+        <a href="verify.html" class="role-box">
+          <div class="role-icon">👨‍🎓</div>
+          <div class="role-name">Trainee</div>
+          <div class="role-link">Login ➔</div>
+        </a>
+
+        <!-- Role 2: Instructor -->
+        <a href="verify.html" class="role-box">
+          <div class="role-icon">🧑‍🏫</div>
+          <div class="role-name">Instructor</div>
+          <div class="role-link">Login ➔</div>
+        </a>
+
+        <!-- Role 3: ITI/NSTI Creator -->
+        <a href="verify.html" class="role-box">
+          <div class="role-icon">🏛️</div>
+          <div class="role-name">ITI/NSTI Creator</div>
+          <div class="role-link">Login ➔</div>
+        </a>
+
+        <!-- Role 4: ITI/NSTI Approver -->
+        <a href="verify.html" class="role-box">
+          <div class="role-icon">✍️</div>
+          <div class="role-name">ITI/NSTI Approver</div>
+          <div class="role-link">Login ➔</div>
+        </a>
+
+        <!-- Role 5: NIMI Admin -->
+        <a href="verify.html" class="role-box">
+          <div class="role-icon">💻</div>
+          <div class="role-name">NIMI Admin</div>
+          <div class="role-link">Login ➔</div>
+        </a>
+
+        <!-- Role 6: Examiner -->
+        <a href="verify.html" class="role-box">
+          <div class="role-icon">📋</div>
+          <div class="role-name">Examiner</div>
+          <div class="role-link">Login ➔</div>
+        </a>
+
+        <!-- Role 7: Nodal ITI -->
+        <a href="verify.html" class="role-box">
+          <div class="role-icon">🏫</div>
+          <div class="role-name">Nodal ITI</div>
+          <div class="role-link">Login ➔</div>
+        </a>
+
+        <!-- Role 8: State-Admission -->
+        <a href="verify.html" class="role-box">
+          <div class="role-icon">🇮🇳</div>
+          <div class="role-name">State-Admission</div>
+          <div class="role-link">Login ➔</div>
+        </a>
+
+        <!-- Role 9: State-Examination -->
+        <a href="verify.html" class="role-box">
+          <div class="role-icon">📝</div>
+          <div class="role-name">State-Examination</div>
+          <div class="role-link">Login ➔</div>
+        </a>
+
+        <!-- Role 10: RDSDE -->
+        <a href="verify.html" class="role-box">
+          <div class="role-icon">🏛️</div>
+          <div class="role-name">RDSDE</div>
+          <div class="role-link">Login ➔</div>
+        </a>
+
+        <!-- Role 11: DGT TC Cell -->
+        <a href="verify.html" class="role-box">
+          <div class="role-icon">⚙️</div>
+          <div class="role-name">DGT TC Cell</div>
+          <div class="role-link">Login ➔</div>
+        </a>
+
+        <!-- Role 12: DGT CD Cell -->
+        <a href="verify.html" class="role-box">
+          <div class="role-icon">💡</div>
+          <div class="role-name">DGT CD Cell</div>
+          <div class="role-link">Login ➔</div>
+        </a>
+
+        <!-- Role 13: DGT TT Cell -->
+        <a href="verify.html" class="role-box">
+          <div class="role-icon">🔬</div>
+          <div class="role-name">DGT TT Cell</div>
+          <div class="role-link">Login ➔</div>
+        </a>
+
+        <!-- Role 14: NPIU Creator -->
+        <a href="verify.html" class="role-box">
+          <div class="role-icon">🏢</div>
+          <div class="role-name">NPIU Creator</div>
+          <div class="role-link">Login ➔</div>
+        </a>
+
+        <!-- Role 15: Examination Controller -->
+        <a href="verify.html" class="role-box">
+          <div class="role-icon">🎓</div>
+          <div class="role-name">Examination Controller</div>
+          <div class="role-link">Login ➔</div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
   <footer>
     <p>© 2026 Directorate General of Training (DGT), Ministry of Skill Development and Entrepreneurship. All Rights Reserved.</p>
     <p style="margin-top:8px;">
@@ -364,6 +578,36 @@
       <a href="courses.html">Trade Courses</a>
     </p>
   </footer>
+
+  <script>
+    function openLoginModal() {
+      document.getElementById('dgtLoginModal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLoginModal() {
+      document.getElementById('dgtLoginModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    function closeLoginOnOutside(event) {
+      if (event.target.id === 'dgtLoginModal') {
+        closeLoginModal();
+      }
+    }
+
+    function switchScheme(scheme) {
+      const btnCts = document.getElementById('btnCts');
+      const btnCits = document.getElementById('btnCits');
+      if (scheme === 'CTS') {
+        btnCts.classList.add('active');
+        btnCits.classList.remove('active');
+      } else {
+        btnCits.classList.add('active');
+        btnCts.classList.remove('active');
+      }
+    }
+  </script>
 
 </body>
 </html>
