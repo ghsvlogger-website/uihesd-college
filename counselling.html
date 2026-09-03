@@ -3,329 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Online Counselling & Admission Services | Punjab ITI 2026</title>
+  <title>Online Counselling Sign-In | UIHESD Skill Hub</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
     body { background-color: #f1f5f9; color: #1e293b; line-height: 1.4; }
 
-    /* 1. Top NIC Accessibility Bar */
-    .top-acc-bar {
-      background: #0d2238;
-      color: #ffffff;
-      padding: 4px 6%;
-      font-size: 0.72rem;
+    .gov-flag-bar {
+      height: 32px;
+      background: #0f172a;
+      border-bottom: 2px solid #ff9933;
+      padding: 0 6%;
+      font-size: 0.76rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      color: #e2e8f0;
     }
-    .top-acc-left a { color: #ffffff; text-decoration: none; margin-right: 15px; font-weight: 600; }
-    .top-acc-right { display: flex; align-items: center; gap: 8px; font-weight: bold; }
-    .acc-icon-btn { background: #1e3a5f; color: white; border: 1px solid #33537a; padding: 1px 6px; border-radius: 2px; cursor: pointer; font-size: 0.7rem; }
+    .flag-group { display: flex; align-items: center; gap: 8px; font-weight: 700; }
+    .flag-icon { width: 20px; height: 13px; border: 1px solid #cbd5e1; background: linear-gradient(#ff9933 33%, #ffffff 33%, #ffffff 66%, #128807 66%); display: inline-block; }
+    .gov-links a { color: #cbd5e1; text-decoration: none; font-size: 0.74rem; font-weight: 600; margin-left: 14px; }
 
-    /* 2. State Board Header */
-    .portal-main-head {
+    .portal-header {
+      height: 95px;
       background: #ffffff;
-      padding: 10px 6%;
+      padding: 0 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #cbd5e1;
+      border-bottom: 2px solid #e2e8f0;
     }
-    .head-left { display: flex; align-items: center; gap: 18px; }
-    .tech-logo {
-      width: 50px;
-      height: 50px;
-      border: 3px solid #0284c7;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-      color: #0284c7;
-      font-size: 0.72rem;
-      text-align: center;
-      line-height: 1.1;
-    }
-    .head-titles h2 { font-size: 1.15rem; color: #000000; font-weight: 800; }
-    .head-titles p { font-size: 0.85rem; color: #475569; font-weight: 600; margin-top: 2px; }
+    .header-logos { display: flex; align-items: center; gap: 16px; }
+    .brand-logo-area { display: flex; align-items: center; gap: 14px; }
+    .brand-logo-area img { height: 75px; width: auto; object-fit: contain; }
+    .brand-names h1 { font-size: 1.55rem; color: #0f172a; font-weight: 900; text-transform: uppercase; letter-spacing: 0.3px; line-height: 1.1; margin: 0; }
+    .brand-names h2 { font-size: 0.82rem; color: #1e3a8a; font-weight: 800; text-transform: uppercase; margin: 2px 0 0; }
+    .brand-names p { font-size: 0.74rem; color: #0284c7; font-weight: 700; margin: 0; }
 
     .head-right { text-align: right; }
     .nic-brand-box { display: flex; align-items: center; gap: 8px; justify-content: flex-end; }
-    .e-badge {
-      background: #dc2626;
-      color: white;
-      font-size: 1.3rem;
-      font-weight: 900;
-      padding: 2px 8px;
-      border-radius: 6px;
-      font-style: italic;
-    }
+    .e-badge { background: #dc2626; color: white; font-size: 1.3rem; font-weight: 900; padding: 2px 8px; border-radius: 6px; font-style: italic; }
     .e-counsel-txt { font-size: 1.05rem; font-weight: 800; color: #0f172a; }
-    .head-right span { font-size: 0.7rem; color: #475569; font-weight: 600; }
 
-    /* 3. Blue Nav Bar */
-    .nav-blue-bar {
-      background: #025ca2;
-      padding: 6px 6%;
-    }
-    .nav-blue-bar a {
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 0.82rem;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-    }
+    .nav-blue-bar { background: #025ca2; padding: 8px 6%; }
+    .nav-blue-bar a { color: #ffffff; text-decoration: none; font-size: 0.82rem; font-weight: 700; margin-right: 18px; }
 
-    /* 4. Main Two Column Layout */
-    .counselling-container {
-      max-width: 1180px;
-      margin: 25px auto;
-      padding: 0 15px;
-      display: grid;
-      grid-template-columns: 1.45fr 1fr;
-      gap: 25px;
-    }
+    .counselling-container { max-width: 1180px; margin: 25px auto; padding: 0 15px; display: grid; grid-template-columns: 1.45fr 1fr; gap: 25px; }
+    .card-signin { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 4px; padding: 24px; }
+    .card-head-bar { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #0284c7; padding-bottom: 8px; margin-bottom: 20px; }
+    .card-head-bar h3 { font-size: 1rem; font-weight: 800; color: #025ca2; }
 
-    /* Left: Sign-In Box */
-    .card-signin {
-      background: #ffffff;
-      border: 1px solid #cbd5e1;
-      border-radius: 4px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-      padding: 24px;
-    }
-    .card-head-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 2px solid #0284c7;
-      padding-bottom: 8px;
-      margin-bottom: 20px;
-    }
-    .card-head-bar h3 {
-      font-size: 1rem;
-      font-weight: 800;
-      color: #025ca2;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .secure-badge {
-      font-size: 0.68rem;
-      color: #64748b;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 15px;
-    }
-    .form-row label {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: #334155;
-      text-align: right;
-    }
+    .form-row { display: grid; grid-template-columns: 140px 1fr; align-items: center; gap: 12px; margin-bottom: 15px; }
+    .form-row label { font-size: 0.8rem; font-weight: 700; color: #334155; text-align: right; }
     .req { color: #dc2626; margin-left: 2px; }
+    .form-control-input { width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 3px; font-size: 0.85rem; outline: none; }
 
-    .form-control-input {
-      width: 100%;
-      padding: 8px 12px;
-      border: 1px solid #cbd5e1;
-      border-radius: 3px;
-      font-size: 0.85rem;
-      outline: none;
-    }
-    .form-control-input:focus { border-color: #025ca2; }
-    select.form-control-input { background: #ffffff; }
+    .captcha-wrap { display: flex; align-items: center; gap: 10px; }
+    .captcha-box { background: #e2e8f0; padding: 6px 18px; font-size: 1.4rem; font-weight: 900; letter-spacing: 6px; font-family: monospace; color: #025ca2; border-radius: 3px; }
+    .btn-submit-signin { background: #0284c7; color: #ffffff; border: none; padding: 8px 24px; font-size: 0.85rem; font-weight: 700; border-radius: 3px; cursor: pointer; }
 
-    /* Security Pin Area */
-    .captcha-wrap {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .captcha-box {
-      background: #e2e8f0;
-      padding: 6px 18px;
-      font-size: 1.4rem;
-      font-weight: 900;
-      letter-spacing: 6px;
-      font-family: 'Courier New', Courier, monospace;
-      color: #025ca2;
-      border-radius: 3px;
-      border: 1px solid #cbd5e1;
-      user-select: none;
-      background-image: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(0,0,0,0.03) 5px, rgba(0,0,0,0.03) 10px);
-    }
-    .btn-refresh {
-      background: transparent;
-      border: none;
-      font-size: 1.3rem;
-      color: #0f172a;
-      cursor: pointer;
-    }
+    .instructions-card { background: #f0f7ff; border: 1px solid #bfdbfe; border-radius: 4px; padding: 20px; }
+    .inst-header { color: #025ca2; font-size: 0.95rem; font-weight: 800; margin-bottom: 12px; border-bottom: 1px solid #dbeafe; padding-bottom: 6px; }
+    .inst-list { list-style: disc; padding-left: 18px; font-size: 0.78rem; color: #334155; line-height: 1.6; }
 
-    .audio-player-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .audio-player-row audio {
-      height: 28px;
-      width: 220px;
-    }
-
-    /* Buttons Row */
-    .action-row {
-      margin-top: 20px;
-      padding-top: 15px;
-      border-top: 1px solid #f1f5f9;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-    .btn-submit-signin {
-      background: #0284c7;
-      color: #ffffff;
-      border: none;
-      padding: 8px 24px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      border-radius: 3px;
-      cursor: pointer;
-    }
-    .btn-submit-signin:hover { background: #025ca2; }
-    .forgot-link {
-      color: #025ca2;
-      text-decoration: none;
-      font-size: 0.78rem;
-      font-weight: 600;
-    }
-    .forgot-link:hover { text-decoration: underline; }
-
-    /* New Candidate Registration Bar */
-    .new-reg-card {
-      margin-top: 18px;
-      background: #ffffff;
-      border: 1px solid #cbd5e1;
-      border-radius: 4px;
-      padding: 14px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .new-reg-title h4 { font-size: 0.88rem; font-weight: 800; color: #1e293b; display: flex; align-items: center; gap: 6px; }
-    .new-reg-title p { font-size: 0.72rem; color: #64748b; font-weight: 600; }
-    .btn-fresh-reg {
-      background: #f97316;
-      color: white;
-      border: none;
-      padding: 8px 16px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      border-radius: 3px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .btn-fresh-reg:hover { background: #ea580c; }
-
-    /* Right: Important Instructions Box */
-    .instructions-card {
-      background: #f0f7ff;
-      border: 1px solid #bfdbfe;
-      border-radius: 4px;
-      padding: 20px;
-      height: fit-content;
-    }
-    .inst-header {
-      color: #025ca2;
-      font-size: 0.95rem;
-      font-weight: 800;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      border-bottom: 1px solid #dbeafe;
-      padding-bottom: 6px;
-    }
-    .inst-list {
-      list-style: disc;
-      padding-left: 18px;
-      font-size: 0.78rem;
-      color: #334155;
-      line-height: 1.55;
-    }
-    .inst-list li { margin-bottom: 10px; }
-    .inst-list strong { color: #0f172a; }
-
-    /* Security IP Warning */
-    .ip-caution-box {
-      margin-top: 15px;
-      background: #ffffff;
-      border: 1px solid #facc15;
-      border-left: 4px solid #eab308;
-      padding: 10px 12px;
-      border-radius: 3px;
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      font-size: 0.72rem;
-      color: #713f12;
-    }
-
-    /* Modal Form for Fresh Registration */
-    .reg-modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(15, 23, 42, 0.75);
-      z-index: 10000;
-      justify-content: center;
-      align-items: center;
-      padding: 15px;
-    }
-    .reg-modal-content {
-      background: white;
-      width: 100%;
-      max-width: 600px;
-      border-radius: 6px;
-      padding: 25px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      position: relative;
-    }
-    .reg-modal-close {
-      position: absolute;
-      top: 12px; right: 15px;
-      background: transparent;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    footer {
-      background: #0a192f;
-      color: #94a3b8;
-      padding: 18px 6%;
-      font-size: 0.75rem;
-      text-align: center;
-      margin-top: 40px;
-      border-top: 2px solid #0284c7;
-    }
-    footer a { color: #cbd5e1; text-decoration: none; margin: 0 10px; }
-    footer a:hover { color: #facc15; }
+    footer { background: #0b132b; color: #94a3b8; padding: 20px 6%; text-align: center; font-size: 0.75rem; margin-top: 40px; }
 
     @media (max-width: 850px) {
       .counselling-container { grid-template-columns: 1fr; }
+      .portal-header { height: auto; padding: 10px 6%; flex-direction: column; gap: 10px; }
       .form-row { grid-template-columns: 1fr; gap: 4px; }
       .form-row label { text-align: left; }
     }
@@ -333,256 +77,69 @@
 </head>
 <body>
 
-  <!-- 1. Top Accessibility Bar -->
-  <div class="top-acc-bar">
-    <div class="top-acc-left">
-      <a href="#signinArea">Skip to Main Content</a> |
-      <a href="javascript:void(0)">Screen Reader Access</a>
-    </div>
-    <div class="top-acc-right">
-      <button class="acc-icon-btn">A-</button>
-      <button class="acc-icon-btn">A</button>
-      <button class="acc-icon-btn">A+</button>
-      <span>| 🌐 English</span>
-    </div>
+  <div class="gov-flag-bar">
+    <div class="flag-group"><span class="flag-icon"></span><span>ਭਾਰਤ ਸਰਕਾਰ | Government of India</span></div>
+    <div class="gov-links"><a href="admission.html">Admissions</a><a href="index.html">Main Home</a></div>
   </div>
 
-  <!-- 2. State Technical Board Header -->
-  <header class="portal-main-head">
-    <div class="head-left">
-      <div class="tech-logo">TECH<br>ED</div>
-      <div class="head-titles">
-        <h2>The Punjab State Board of Technical Education and Industrial Training</h2>
-        <p>Punjab ITI Counselling 2026</p>
+  <header class="portal-header">
+    <div class="header-logos">
+      <div class="brand-logo-area">
+        <img src="collagelogo1.png" alt="UIHESD Logo" onerror="this.src='https://via.placeholder.com/75?text=UIHESD'">
+        <div class="brand-names">
+          <h1>UIHESD SKILL HUB</h1>
+          <h2>Universal Institute of Higher Education & Skill Development</h2>
+          <p>National Skill & Vocational Counselling Cell</p>
+        </div>
       </div>
     </div>
-
     <div class="head-right">
-      <div class="nic-brand-box">
-        <span class="e-badge">e</span>
-        <span class="e-counsel-txt">-Counselling Services</span>
-      </div>
-      <span>Simplifying The Admission Process</span>
+      <div class="nic-brand-box"><span class="e-badge">e</span><span class="e-counsel-txt">-Counselling Portal</span></div>
+      <span style="font-size:0.75rem; color:#64748b;">Candidate Self Services</span>
     </div>
   </header>
 
-  <!-- 3. Blue Nav Bar -->
   <div class="nav-blue-bar">
-    <a href="admission.html">⌂ Home</a>
+    <a href="index.html">⌂ Main Home</a>
+    <a href="admission.html">Admissions Home</a>
+    <a href="verify.html">Document Verification</a>
   </div>
 
-  <!-- 4. Main Two Column Layout -->
-  <div class="counselling-container" id="signinArea">
-
-    <!-- Left Column: Registered Candidates Sign-In -->
+  <div class="counselling-container">
     <div>
       <div class="card-signin">
         <div class="card-head-bar">
           <h3>🔒 Registered Candidates Sign-In</h3>
-          <span class="secure-badge">SECURE LOGIN</span>
+          <span style="font-size:0.7rem; color:#64748b; font-weight:bold;">SECURE LOGIN</span>
         </div>
-
-        <form onsubmit="handleCandidateLogin(event)">
-          <!-- Row 1: Counselling -->
-          <div class="form-row">
-            <label>Counselling<span class="req">*</span></label>
-            <select class="form-control-input" id="counsellingType">
-              <option value="punjab2026">Punjab ITI Counselling 2026</option>
-            </select>
-          </div>
-
-          <!-- Row 2: Application Number -->
-          <div class="form-row">
-            <label>Application Number<span class="req">*</span></label>
-            <input type="text" class="form-control-input" id="appNumber" placeholder="Enter Application Number" required>
-          </div>
-
-          <!-- Row 3: Password -->
-          <div class="form-row">
-            <label>Password<span class="req">*</span></label>
-            <input type="password" class="form-control-input" id="appPassword" placeholder="Enter Password" required>
-          </div>
-
-          <!-- Row 4: Security Pin Display -->
-          <div class="form-row">
-            <label>Security Pin<span class="req">*</span></label>
-            <div class="captcha-wrap">
-              <div class="captcha-box" id="captchaCode">313646</div>
-              <button type="button" class="btn-refresh" onclick="generateCaptcha()" title="Refresh Captcha">🔄</button>
-            </div>
-          </div>
-
-          <!-- Row 5: Security Pin Input -->
-          <div class="form-row">
-            <label></label>
-            <div>
-              <input type="text" class="form-control-input" id="captchaInput" placeholder="Enter Security Pin" required>
-              <span style="font-size: 0.7rem; color: #64748b; display:block; margin-top:3px;">🛡️ Security Pin is case sensitive</span>
-            </div>
-          </div>
-
-          <!-- Row 6: Listen Audio -->
-          <div class="form-row">
-            <label>Listen Security Pin Audio<span class="req">*</span></label>
-            <div class="audio-player-row">
-              <audio controls>
-                <source src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=" type="audio/wav">
-                Your browser does not support audio.
-              </audio>
-            </div>
-          </div>
-
-          <!-- Submit Buttons -->
-          <div class="action-row">
+        <form onsubmit="event.preventDefault(); alert('Sign In Successful! Redirecting...'); window.location.href='verify.html';">
+          <div class="form-row"><label>Counselling<span class="req">*</span></label><select class="form-control-input"><option>UIHESD ITI & Skill Counselling 2026</option></select></div>
+          <div class="form-row"><label>Application No<span class="req">*</span></label><input type="text" class="form-control-input" required placeholder="Enter Application Number"></div>
+          <div class="form-row"><label>Password<span class="req">*</span></label><input type="password" class="form-control-input" required placeholder="Enter Password"></div>
+          <div class="form-row"><label>Security Pin<span class="req">*</span></label><div class="captcha-wrap"><div class="captcha-box">482910</div></div></div>
+          <div class="form-row"><label></label><input type="text" class="form-control-input" required placeholder="Enter Security Pin as shown"></div>
+          <div style="margin-top:15px; padding-top:12px; border-top:1px solid #f1f5f9;">
             <button type="submit" class="btn-submit-signin">Sign In</button>
-            <a href="javascript:void(0)" onclick="alert('Password reset link has been sent to registered Mobile number.')" class="forgot-link">Forgot Password ?</a>
-            <span style="color:#cbd5e1;">|</span>
-            <a href="javascript:void(0)" onclick="alert('Enter your registered Mobile to recover Application Number.')" class="forgot-link">Forgot Application Number</a>
           </div>
         </form>
       </div>
-
-      <!-- New Candidate Registration Banner -->
-      <div class="new-reg-card">
-        <div class="new-reg-title">
-          <h4>👤 New Candidate Registration</h4>
-          <p>Apply for the first time in session 2026</p>
-        </div>
-        <button class="btn-fresh-reg" onclick="openRegModal()">
-          🧑‍🎓 Fresh Candidate Registration
-        </button>
-      </div>
     </div>
 
-    <!-- Right Column: Important Instructions -->
     <div>
       <div class="instructions-card">
-        <div class="inst-header">
-          ℹ Important Instructions
-        </div>
-
+        <div class="inst-header">ℹ Important Instructions</div>
         <ul class="inst-list">
-          <li>
-            <strong>Password Confidentiality:</strong> Confidentiality of Password is solely the responsibility of the candidate and all care must be taken to protect the password.
-          </li>
-          <li>
-            <strong>Change Password:</strong> Candidates are advised to keep changing the Password at frequent intervals.
-          </li>
-          <li>
-            <strong>Beware of Phishing:</strong> Never share your password and do not respond to any mail which asks you for your Login-ID/Password.
-          </li>
-          <li>
-            <strong>OTP Security:</strong> It is strongly recommended that the OTP sent to the applicant for any activity like reset password etc. must not be shared with anyone.
-          </li>
-          <li>
-            <strong>Session Security:</strong> For security reasons, after finishing your work, click the LOGOUT button and close all the windows related to your session.
-          </li>
+          <li><strong>Password Protection:</strong> Do not share your login credentials with anyone.</li>
+          <li><strong>Application Form:</strong> Keep your registered mobile number active for OTP verification.</li>
+          <li><strong>Document Check:</strong> Ensure your 10th/12th certificates are verified online.</li>
         </ul>
-
-        <!-- Security IP Caution -->
-        <div class="ip-caution-box">
-          <span style="font-size:1.1rem;">🛡️</span>
-          <div>
-            <strong>Caution:</strong><br>
-            Your IP address <span id="userIpText">103.181.154.95</span> is being monitored for security purposes.
-          </div>
-        </div>
       </div>
-    </div>
-
-  </div>
-
-  <!-- Fresh Registration Popup Modal -->
-  <div id="regModal" class="reg-modal">
-    <div class="reg-modal-content">
-      <button class="reg-modal-close" onclick="closeRegModal()">&times;</button>
-      <h3 style="color:#025ca2; margin-bottom:12px;">Punjab ITI 2026 - New Candidate Registration</h3>
-      <p style="font-size:0.8rem; color:#64748b; margin-bottom:15px;">Please provide primary details to generate your Application Number:</p>
-      
-      <form onsubmit="handleNewReg(event)">
-        <div style="margin-bottom:10px;">
-          <label style="font-size:0.8rem; font-weight:bold;">Candidate Full Name:</label>
-          <input type="text" id="regName" class="form-control-input" required placeholder="As per 10th Certificate">
-        </div>
-        <div style="margin-bottom:10px;">
-          <label style="font-size:0.8rem; font-weight:bold;">Mobile Number (for OTP):</label>
-          <input type="tel" id="regMobile" class="form-control-input" required placeholder="10-digit Mobile">
-        </div>
-        <div style="margin-bottom:10px;">
-          <label style="font-size:0.8rem; font-weight:bold;">Choose Trade / Course:</label>
-          <select class="form-control-input" id="regCourse">
-            <option>COPA (Computer Operator & Programming Assistant)</option>
-            <option>Electrician (2 Years ITI Trade)</option>
-            <option>Fitter / Mechanical</option>
-            <option>Welder / Plumber</option>
-          </select>
-        </div>
-        <button type="submit" class="btn-fresh-reg" style="width:100%; justify-content:center; padding:10px; margin-top:10px;">
-          Submit & Generate Application Number
-        </button>
-      </form>
     </div>
   </div>
 
   <footer>
-    <p>
-      <a href="#">Terms and Conditions</a> | 
-      <a href="#">Hyperlink Policy</a> | 
-      <a href="#">Privacy Policy</a> | 
-      <a href="#">Copyright Policy</a> | 
-      <a href="#">Disclaimer</a>
-    </p>
-    <p style="margin-top:8px; font-size:0.7rem; color:#64748b;">
-      © 2026 The Punjab State Board of Technical Education and Industrial Training. Hosted by National Informatics Centre (NIC).
-    </p>
+    <p>© 2026 Universal Institute of Higher Education & Skill Development. All Rights Reserved.</p>
   </footer>
-
-  <script>
-    // 1. Dynamic Captcha Generator
-    function generateCaptcha() {
-      const code = Math.floor(100000 + Math.random() * 900000);
-      document.getElementById('captchaCode').innerText = code;
-    }
-
-    // 2. Candidate Sign In Action
-    function handleCandidateLogin(e) {
-      e.preventDefault();
-      const appNo = document.getElementById('appNumber').value.trim();
-      const capIn = document.getElementById('captchaInput').value.trim();
-      const curCap = document.getElementById('captchaCode').innerText.trim();
-
-      if (capIn !== curCap) {
-        alert('❌ ਗਲਤ ਸਕਿਊਰਿਟੀ ਪਿਨ (Invalid Security Pin)! ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।');
-        generateCaptcha();
-        return;
-      }
-
-      alert(`✔ ਲੌਗਇਨ ਸਫਲ!\nApplication No: ${appNo}\nPunjab ITI Counselling 2026 Portal`);
-      window.location.href = 'verify.html';
-    }
-
-    // 3. Modal Actions
-    function openRegModal() {
-      document.getElementById('regModal').style.display = 'flex';
-    }
-    function closeRegModal() {
-      document.getElementById('regModal').style.display = 'none';
-    }
-
-    function handleNewReg(e) {
-      e.preventDefault();
-      const name = document.getElementById('regName').value;
-      const genAppNo = 'PBITI' + Math.floor(10000000 + Math.random() * 90000000);
-      alert(`✔ ਵਧਾਈਆਂ ${name}!\nਤੁਹਾਡੀ ਨਵੀਂ ਰਜਿਸਟ੍ਰੇਸ਼ਨ ਸਫਲ ਹੋ ਗਈ ਹੈ।\n\nਤੁਹਾਡਾ Application Number: ${genAppNo}\nਕਿਰਪਾ ਕਰਕੇ ਇਸਨੂੰ ਲੌਗਇਨ ਲਈ ਸਾਂਭ ਕੇ ਰੱਖੋ।`);
-      closeRegModal();
-      document.getElementById('appNumber').value = genAppNo;
-    }
-
-    // Generate random captcha on load
-    window.onload = function() {
-      generateCaptcha();
-    };
-  </script>
 
 </body>
 </html>
