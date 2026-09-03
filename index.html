@@ -8,7 +8,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
     body { background-color: #f8fafc; color: #1e293b; line-height: 1.5; }
 
-    /* 1. National Flag Bar */
+    /* ================= MASTER OFFICIAL HEADER (EXACT ON ALL PAGES) ================= */
     .gov-flag-bar {
       height: 32px;
       background: #0f172a;
@@ -25,9 +25,8 @@
     .gov-links a { color: #cbd5e1; text-decoration: none; font-size: 0.74rem; font-weight: 600; margin-left: 14px; }
     .gov-links a:hover { color: #facc15; }
 
-    /* 2. Main Portal Header */
     .portal-header {
-      height: 95px;
+      height: 96px;
       background: #ffffff;
       padding: 0 6%;
       display: flex;
@@ -40,7 +39,7 @@
     .emblem-text { font-size: 0.70rem; font-weight: 800; color: #0f172a; line-height: 1.2; text-transform: uppercase; }
     
     .brand-logo-area { display: flex; align-items: center; gap: 14px; }
-    .brand-logo-area img { height: 75px; width: auto; object-fit: contain; }
+    .brand-logo-area img { height: 72px; width: auto; object-fit: contain; }
     .brand-names h1 { font-size: 1.55rem; color: #0f172a; font-weight: 900; text-transform: uppercase; letter-spacing: 0.3px; line-height: 1.1; margin: 0; }
     .brand-names h2 { font-size: 0.82rem; color: #1e3a8a; font-weight: 800; text-transform: uppercase; margin: 2px 0 0; }
     .brand-names p { font-size: 0.74rem; color: #0284c7; font-weight: 700; margin: 0; }
@@ -52,18 +51,16 @@
     .btn-reg { background: #b45309; color: white; border: none; padding: 8px 16px; font-size: 0.78rem; font-weight: 800; border-radius: 4px; cursor: pointer; text-decoration: none; }
     .btn-login { background: white; color: #b45309; border: 1.5px solid #b45309; padding: 7px 16px; font-size: 0.78rem; font-weight: 800; border-radius: 4px; cursor: pointer; text-decoration: none; }
 
-    /* 3. Navigation Bar */
-    nav { height: 44px; background: #1e3a8a; padding: 0 6%; display: flex; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.08); }
+    nav { height: 46px; background: #1e3a8a; padding: 0 6%; display: flex; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.08); }
     .nav-list { display: flex; list-style: none; gap: 26px; align-items: center; }
     .nav-list li a { display: block; color: #ffffff; text-decoration: none; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; }
     .nav-list li a:hover, .nav-list li a.active { color: #facc15; }
     .nav-dot { width: 7px; height: 7px; background: #dc2626; border-radius: 50%; display: inline-block; margin-left: 4px; }
 
-    /* 4. Alert Ribbon */
-    .alert-ribbon { background: #0284c7; color: white; padding: 7px 6%; font-size: 0.82rem; display: flex; align-items: center; gap: 12px; }
+    .alert-ribbon { height: 34px; background: #0284c7; color: white; padding: 0 6%; font-size: 0.82rem; display: flex; align-items: center; gap: 12px; }
     .alert-tag { background: #0c4a6e; padding: 2px 8px; border-radius: 3px; font-weight: 800; font-size: 0.72rem; white-space: nowrap; }
 
-    /* 5. Hero Section */
+    /* ================= PAGE CONTENT ================= */
     .official-hero {
       position: relative;
       background: linear-gradient(135deg, #0b1f3a 0%, #0f274a 60%, #173863 100%);
@@ -102,7 +99,6 @@
       gap: 8px;
       background: rgba(255, 255, 255, 0.12);
       border: 1px solid rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(8px);
       padding: 5px 14px;
       border-radius: 20px;
       font-size: 0.78rem;
@@ -117,12 +113,9 @@
     .accreditation-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
     .acc-badge { background: rgba(15, 23, 42, 0.75); border: 1px solid rgba(148, 163, 184, 0.4); padding: 6px 12px; border-radius: 6px; font-size: 0.78rem; font-weight: 700; color: #f1f5f9; }
     .hero-actions { display: flex; gap: 14px; align-items: center; }
-    .btn-primary-official { background: #dc2626; color: #ffffff; padding: 12px 26px; border-radius: 4px; font-weight: 800; font-size: 0.92rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(220, 38, 38, 0.4); cursor: pointer; }
-    .btn-primary-official:hover { background: #b91c1c; }
+    .btn-primary-official { background: #dc2626; color: #ffffff; padding: 12px 26px; border-radius: 4px; font-weight: 800; font-size: 0.92rem; text-decoration: none; cursor: pointer; }
     .btn-secondary-official { background: transparent; color: #ffffff; border: 1.5px solid #cbd5e1; padding: 11px 22px; border-radius: 4px; font-weight: 800; font-size: 0.92rem; text-decoration: none; }
-    .btn-secondary-official:hover { background: rgba(255, 255, 255, 0.1); }
 
-    /* Floating Status Box */
     .hero-floating-card {
       background: rgba(255, 255, 255, 0.97);
       color: #0f172a;
@@ -142,45 +135,10 @@
     .stat-number { font-size: 1.25rem; font-weight: 900; color: #0284c7; }
     .stat-label { font-size: 0.68rem; font-weight: 800; color: #64748b; }
 
-    /* Partners Strip */
     .partners-section { padding: 45px 6%; background: #ffffff; text-align: center; border-bottom: 1px solid #e2e8f0; }
     .partner-logos-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 20px; }
     .partner-card { padding: 14px 20px; border: 1px solid #e2e8f0; border-radius: 6px; background: #f8fafc; min-width: 170px; text-align: center; }
     .partner-card .p-icon { font-size: 2rem; margin-bottom: 5px; }
-
-    /* Modal */
-    .sidh-overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(15, 23, 42, 0.75);
-      backdrop-filter: blur(5px);
-      z-index: 10000;
-      justify-content: center;
-      align-items: center;
-      padding: 15px;
-    }
-    .sidh-card {
-      background: #ffffff;
-      width: 100%;
-      max-width: 650px;
-      border-radius: 12px;
-      padding: 30px 35px 25px;
-      position: relative;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
-    }
-    .sidh-close-btn { position: absolute; top: 18px; right: 20px; background: transparent; border: none; font-size: 1.8rem; color: #64748b; cursor: pointer; }
-    .sidh-brand-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-    .sidh-brand-head img { height: 35px; width: auto; }
-    .sidh-brand-title { font-size: 0.95rem; font-weight: 800; color: #1e3a8a; }
-    .sidh-heading { text-align: center; margin-bottom: 25px; }
-    .sidh-heading h2 { font-size: 1.45rem; color: #1e293b; font-weight: 800; margin-bottom: 4px; }
-    .sidh-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
-    .sidh-box { border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 16px 14px; display: flex; align-items: center; gap: 14px; cursor: pointer; text-decoration: none; transition: all 0.2s ease; background: #ffffff; }
-    .sidh-box:hover { border-color: #0284c7; transform: translateY(-2px); }
-    .sidh-icon { width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; border-radius: 50%; background: #eff6ff; }
-    .sidh-info h4 { font-size: 0.95rem; font-weight: 700; color: #1e293b; margin-bottom: 3px; }
-    .sidh-info p { font-size: 0.75rem; color: #64748b; line-height: 1.3; }
 
     footer { background: #0b132b; color: #94a3b8; padding: 30px 6%; font-size: 0.85rem; text-align: center; }
 
@@ -190,12 +148,12 @@
       .nav-list { flex-wrap: wrap; gap: 12px; }
       .hero-graphic-bg { width: 100%; opacity: 0.25; }
       .hero-floating-card { display: none; }
-      .sidh-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
+  <!-- MASTER TOP FLAG BAR -->
   <div class="gov-flag-bar">
     <div class="flag-group">
       <span class="flag-icon"></span>
@@ -203,10 +161,11 @@
     </div>
     <div class="gov-links">
       <a href="verify.html">Document Verification</a>
-      <a href="javascript:void(0)" onclick="openSidhModal()">Choose Role</a>
+      <a href="courses.html">Skill Trades</a>
     </div>
   </div>
 
+  <!-- MASTER PORTAL HEADER -->
   <header class="portal-header">
     <div class="header-logos">
       <div class="emblem-box">
@@ -217,7 +176,7 @@
         </div>
       </div>
       <div class="brand-logo-area">
-        <img src="collagelogo1.png" alt="UIHESD Logo" onerror="this.src='https://via.placeholder.com/75?text=UIHESD'">
+        <img src="collagelogo1.png" alt="UIHESD Logo" onerror="this.src='https://via.placeholder.com/72?text=UIHESD'">
         <div class="brand-names">
           <h1>UIHESD SKILL HUB</h1>
           <h2>Universal Institute of Higher Education & Skill Development</h2>
@@ -225,17 +184,17 @@
         </div>
       </div>
     </div>
-
     <div class="header-controls">
       <div class="search-box">
         🔍 <input type="text" placeholder="Search Courses, Trades...">
       </div>
-      <button class="btn-dash" onclick="openSidhModal()">DASHBOARDS</button>
+      <button class="btn-dash" onclick="window.location.href='index.html'">HOME</button>
       <button class="btn-reg" onclick="window.location.href='courses.html'">COURSES</button>
       <button class="btn-login" onclick="window.location.href='verify.html'">VERIFY</button>
     </div>
   </header>
 
+  <!-- MASTER NAVIGATION BAR -->
   <nav>
     <ul class="nav-list">
       <li><a href="index.html" class="active">MSDE <span class="nav-dot"></span></a></li>
@@ -245,6 +204,7 @@
     </ul>
   </nav>
 
+  <!-- MASTER ALERT RIBBON -->
   <div class="alert-ribbon">
     <span class="alert-tag">LATEST NOTIFICATION</span>
     <marquee onmouseover="this.stop();" onmouseout="this.start();">
@@ -252,29 +212,22 @@
     </marquee>
   </div>
 
+  <!-- HERO SECTION -->
   <section class="official-hero">
     <div class="hero-graphic-bg"></div>
     <div class="hero-container">
       <div class="hero-content">
-        <div class="official-tag">
-          <span>🏛️</span> ਨੈਸ਼ਨਲ ਸਕਿੱਲ ਮਿਸ਼ਨ • ਦਾਖ਼ਲਾ ਸੈਸ਼ਨ 2026-27
-        </div>
-
-        <h2 class="hero-title">
-          ਹੁਨਰਮੰਦ ਸਿੱਖਿਆ ਅਤੇ <span>ਆਧੁਨਿਕ ਤਕਨਾਲੋਜੀ</span> ਦਾ ਪ੍ਰਮੁੱਖ ਕੇਂਦਰ
-        </h2>
-
+        <div class="official-tag">🏛️ ਨੈਸ਼ਨਲ ਸਕਿੱਲ ਮਿਸ਼ਨ • ਦਾਖ਼ਲਾ ਸੈਸ਼ਨ 2026-27</div>
+        <h2 class="hero-title">ਹੁਨਰਮੰਦ ਸਿੱਖਿਆ ਅਤੇ <span>ਆਧੁਨਿਕ ਤਕਨਾਲੋਜੀ</span> ਦਾ ਪ੍ਰਮੁੱਖ ਕੇਂਦਰ</h2>
         <p class="hero-sub">
           ਯੂਨੀਵਰਸਲ ਇੰਸਟੀਚਿਊਟ ਆਫ਼ ਹਾਇਰ ਐਜੂਕੇਸ਼ਨ ਐਂਡ ਸਕਿੱਲ ਡਿਵੈਲਪਮੈਂਟ (UIHESD) — ਨੌਜਵਾਨਾਂ ਨੂੰ ਉਦਯੋਗਾਂ ਦੀ ਮੰਗ ਅਨੁਸਾਰ ਆਈ.ਟੀ.ਆਈ. ਟ੍ਰੇਡਾਂ, ਕੰਪਿਊਟਰ ਪ੍ਰੋਗਰਾਮਿੰਗ ਅਤੇ ਯੂਨੀਵਰਸਿਟੀ ਡਿਗਰੀਆਂ ਪ੍ਰਦਾਨ ਕਰਨ ਵਾਲਾ ਮੋਹਰੀ ਸੰਸਥਾਨ।
         </p>
-
         <div class="accreditation-row">
           <div class="acc-badge">✓ IKGPTU ਐਫੀਲੀਏਟਿਡ ਸਟੱਡੀ ਸੈਂਟਰ</div>
           <div class="acc-badge">✓ ISO 9001:2015 ਪ੍ਰਮਾਣਿਤ</div>
           <div class="acc-badge">✓ NCVT/DGT ਪੈਟਰਨ ਟ੍ਰੇਡਾਂ</div>
           <div class="acc-badge">✓ ਆਨਲਾਈਨ ਦਸਤਾਵੇਜ਼ ਪੜਤਾਲ</div>
         </div>
-
         <div class="hero-actions">
           <a href="courses.html" class="btn-primary-official">ਸਾਰੇ ਕੋਰਸ ਦੇਖੋ ➔</a>
           <a href="verify.html" class="btn-secondary-official">ਸਰਟੀਫਿਕੇਟ ਵੈਰੀਫਾਈ ਕਰੋ</a>
@@ -290,14 +243,8 @@
           </div>
         </div>
         <div class="stat-grid">
-          <div class="stat-box">
-            <div class="stat-number">60+</div>
-            <div class="stat-label">ਸਰਟੀਫਾਈਡ ਟ੍ਰੇਡਾਂ</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">ਵੈਰੀਫਾਈਡ ਰਿਕਾਰਡ</div>
-          </div>
+          <div class="stat-box"><div class="stat-number">60+</div><div class="stat-label">ਸਰਟੀਫਾਈਡ ਟ੍ਰੇਡਾਂ</div></div>
+          <div class="stat-box"><div class="stat-number">100%</div><div class="stat-label">ਵੈਰੀਫਾਈਡ ਰਿਕਾਰਡ</div></div>
         </div>
         <div style="font-size: 0.76rem; color: #166534; background: #f0fdf4; border: 1px solid #bbf7d0; padding: 8px 10px; border-radius: 4px; line-height: 1.4;">
           <strong>✔ 24x7 ਸਰਵਿਸ:</strong> ਵਿਦਿਆਰਥੀ ਰੋਲ ਨੰਬਰ ਜਾਂ UID ਰਾਹੀਂ ਆਪਣਾ ਸਰਟੀਫਿਕੇਟ ਤੁਰੰਤ ਆਨਲਾਈਨ ਚੈੱਕ ਤੇ ਪ੍ਰਿੰਟ ਕਰ ਸਕਦੇ ਹਨ।
@@ -316,57 +263,9 @@
     </div>
   </section>
 
-  <div id="sidhModal" class="sidh-overlay" onclick="closeOnOutside(event)">
-    <div class="sidh-card">
-      <button class="sidh-close-btn" onclick="closeSidhModal()">&times;</button>
-      
-      <div class="sidh-brand-head">
-        <img src="collagelogo1.png" alt="UIHESD" onerror="this.src='https://via.placeholder.com/35?text=UIHESD'">
-        <div class="sidh-brand-title">Universal Institute of Higher Education & Skill Hub</div>
-      </div>
-
-      <div class="sidh-heading">
-        <h2>Welcome to UIHESD Digital Portal</h2>
-        <p>Direct Services for Candidates & Students</p>
-      </div>
-
-      <div class="sidh-grid">
-        <a href="courses.html" class="sidh-box">
-          <div class="sidh-icon">👨‍🎓</div>
-          <div class="sidh-info">
-            <h4>Courses & Trades</h4>
-            <p>Explore ITI trades, vocational skills & degree programs</p>
-          </div>
-        </a>
-
-        <a href="about.html" class="sidh-box">
-          <div class="sidh-icon">🤝</div>
-          <div class="sidh-info">
-            <h4>About Institute</h4>
-            <p>Campus infrastructure, labs, faculty & affiliations</p>
-          </div>
-        </a>
-
-        <a href="verify.html" class="sidh-box">
-          <div class="sidh-icon">📜</div>
-          <div class="sidh-info">
-            <h4>Certificate Verification</h4>
-            <p>Verify candidate credentials & QR authenticated marksheet</p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-
   <footer>
     <p>© 2026 Universal Institute of Higher Education & Skill Development. Powered by Skill India Digital Ecosystem.</p>
   </footer>
-
-  <script>
-    function openSidhModal() { document.getElementById('sidhModal').style.display = 'flex'; document.body.style.overflow = 'hidden'; }
-    function closeSidhModal() { document.getElementById('sidhModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
-    function closeOnOutside(event) { if (event.target.id === 'sidhModal') closeSidhModal(); }
-  </script>
 
 </body>
 </html>
