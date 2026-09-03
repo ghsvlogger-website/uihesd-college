@@ -152,9 +152,9 @@
     .partner-card { padding: 12px 20px; border: 1px solid #e2e8f0; border-radius: 6px; background: #f8fafc; min-width: 160px; text-align: center; }
     .partner-card .p-icon { font-size: 2rem; margin-bottom: 5px; }
 
-    /* 6. Skill India Pop-up Modal (SIDH Style) - DEFAULT HIDDEN */
+    /* 6. Skill India Pop-up Modal (SIDH Style) */
     .sidh-overlay {
-      display: none; /* ਆਟੋਮੈਟਿਕ ਬੰਦ ਰਹੇਗਾ */
+      display: none;
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(15, 23, 42, 0.75);
@@ -206,7 +206,6 @@
 </head>
 <body>
 
-  <!-- 1. Government Top Bar -->
   <div class="gov-flag-bar">
     <div class="flag-group">
       <span class="flag-icon"></span>
@@ -218,7 +217,6 @@
     </div>
   </div>
 
-  <!-- 2. Main Portal Header -->
   <header class="portal-header">
     <div class="header-logos">
       <div class="emblem-box">
@@ -242,13 +240,11 @@
         🔍 <input type="text" placeholder="Search Skill Courses...">
       </div>
       <button class="btn-dash" onclick="openSidhModal()">DASHBOARDS</button>
-      <!-- REGISTER BUTTON -> OPENS POP-UP ON CLICK -->
       <button class="btn-reg" onclick="openSidhModal()">REGISTER</button>
       <button class="btn-login" onclick="window.location.href='verify.html'">VERIFY</button>
     </div>
   </header>
 
-  <!-- 3. Navigation Bar -->
   <nav>
     <ul class="nav-list">
       <li><a href="index.html" class="active">MSDE <span class="nav-dot"></span></a></li>
@@ -261,7 +257,6 @@
     </ul>
   </nav>
 
-  <!-- 4. Alert Ribbon -->
   <div class="alert-ribbon">
     <span class="alert-tag">LATEST NOTIFICATION</span>
     <marquee onmouseover="this.stop();" onmouseout="this.start();">
@@ -269,7 +264,6 @@
     </marquee>
   </div>
 
-  <!-- 5. Official Hero Section -->
   <section class="official-hero">
     <div class="hero-graphic-bg"></div>
     <div class="hero-container">
@@ -294,7 +288,6 @@
         </div>
 
         <div class="hero-actions">
-          <!-- Hero Button also triggers the Modal -->
           <a href="javascript:void(0)" onclick="openSidhModal()" class="btn-primary-official">ਰਜਿਸਟ੍ਰੇਸ਼ਨ / ਦਾਖ਼ਲਾ ਲਵੋ ➔</a>
           <a href="verify.html" class="btn-secondary-official">ਸਰਟੀਫਿਕੇਟ ਵੈਰੀਫਾਈ ਕਰੋ</a>
         </div>
@@ -325,7 +318,6 @@
     </div>
   </section>
 
-  <!-- 6. Partners & Recognitions -->
   <section class="partners-section">
     <h3 style="color:#1e293b; font-weight:800; font-size:1.3rem;">Our Academic & Certification Partners</h3>
     <div class="partner-logos-grid">
@@ -336,7 +328,6 @@
     </div>
   </section>
 
-  <!-- 7. Skill India Pop-up Modal (SIDH Style) -->
   <div id="sidhModal" class="sidh-overlay" onclick="closeOnOutside(event)">
     <div class="sidh-card">
       <button class="sidh-close-btn" onclick="closeSidhModal()">&times;</button>
@@ -368,7 +359,7 @@
           </div>
         </a>
 
-        <a href="about.html" class="sidh-box">
+        <a href="dgt.html" class="sidh-box">
           <div class="sidh-icon">⚙️</div>
           <div class="sidh-info">
             <h4>DGT Ecosystem</h4>
@@ -396,7 +387,6 @@
   </footer>
 
   <script>
-    /* ਖੁੱਲ੍ਹਣ ਅਤੇ ਬੰਦ ਹੋਣ ਦਾ ਫੰਕਸ਼ਨ */
     function openSidhModal() {
       document.getElementById('sidhModal').style.display = 'flex';
       document.body.style.overflow = 'hidden';
