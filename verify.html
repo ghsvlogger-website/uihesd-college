@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificate Verification Portal | UIHESD</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+    body { background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
+    .top-bar { background: #0b132b; color: #cbd5e1; padding: 7px 6%; font-size: 0.85rem; display: flex; justify-content: space-between; }
+    .top-bar a { color: #facc15; text-decoration: none; margin-left: 15px; }
+    .main-header { background: #ffffff; padding: 15px 6%; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid #1e3a8a; }
+    .header-left { display: flex; align-items: center; gap: 20px; }
+    .header-left img { height: 75px; }
+    .title-area h1 { font-size: 1.3rem; color: #1e3a8a; text-transform: uppercase; font-weight: 800; }
+    nav { background: #1e3a8a; position: sticky; top: 0; z-index: 999; }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 0 6%; }
+    .nav-links { display: flex; list-style: none; }
+    .nav-links li a { display: block; padding: 14px 16px; color: #ffffff; text-decoration: none; font-size: 0.88rem; font-weight: 600; text-transform: uppercase; }
+    .nav-links li a.active, .nav-links li a:hover { background: #0f172a; color: #facc15; }
+    .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+    .cert-box { background: white; padding: 35px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-top: 4px solid #0284c7; }
+    .cert-input-group { display: flex; gap: 10px; margin-top: 20px; }
+    .cert-input-group input { flex: 1; padding: 12px 15px; border: 1px solid #cbd5e1; border-radius: 5px; font-size: 1rem; }
+    .cert-btn { background: #1e3a8a; color: white; border: none; padding: 12px 25px; border-radius: 5px; font-weight: bold; cursor: pointer; }
+    .cert-result { display: none; margin-top: 25px; }
+    .cert-valid { border: 1px solid #bbf7d0; background: #f0fdf4; border-radius: 8px; padding: 20px; }
+    .cert-invalid { border: 1px solid #fecaca; background: #fef2f2; color: #dc2626; padding: 15px; text-align: center; font-weight: bold; border-radius: 8px; }
+    .cert-table { width: 100%; margin-top: 15px; border-collapse: collapse; background: white; }
+    .cert-table td { padding: 8px 12px; border-bottom: 1px solid #e2e8f0; font-size: 0.95rem; }
+    .cert-table td.label { font-weight: 700; color: #1e3a8a; width: 35%; }
+    .certificate-live-card { position: relative; width: 100%; max-width: 800px; margin: 25px auto 10px; border: 3px solid #0f172a; box-shadow: 0 10px 25px rgba(0,0,0,0.25); background: #fff; overflow: hidden; }
+    .certificate-live-card img { width: 100%; height: auto; display: block; }
+    .cert-overlay-text { position: absolute; font-weight: 700; color: #0f172a; font-family: 'Times New Roman', serif; }
+    .field-uid { top: 17.5%; right: 7.5%; font-size: 1.15vw; color: #b91c1c; }
+    .field-roll { top: 21.5%; right: 7.5%; font-size: 1.15vw; color: #1e3a8a; }
+    .field-name { top: 48%; left: 32%; font-size: 1.55vw; text-transform: uppercase; color: #0b132b; }
+    .field-father { top: 54%; left: 34%; font-size: 1.35vw; color: #1e293b; }
+    .field-address { top: 59.5%; left: 28%; font-size: 1.1vw; color: #334155; }
+    .field-course { top: 65.5%; left: 33%; font-size: 1.3vw; color: #0369a1; font-weight: 800; }
+    .field-date { bottom: 10%; left: 16%; font-size: 1vw; color: #334155; }
+    .btn-print { background: #16a34a; color: white; border: none; padding: 10px 22px; font-weight: bold; border-radius: 5px; cursor: pointer; margin-top: 15px; }
+    .admin-toggle { text-align: center; margin-top: 25px; }
+    .admin-toggle button { background: #64748b; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; }
+    .admin-form-box { display: none; background: #f8fafc; border: 2px dashed #94a3b8; border-radius: 8px; padding: 20px; margin-top: 20px; }
+    .form-group { margin-bottom: 10px; }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; }
+    .form-group input { width: 100%; padding: 8px; border: 1px solid #cbd5e1; border-radius: 4px; }
+    footer { background: #0b132b; color: #94a3b8; padding: 30px 6%; font-size: 0.85rem; text-align: center; margin-top: 50px; }
+    @media print {
+      body * { visibility: hidden; }
+      .certificate-live-card, .certificate-live-card * { visibility: visible; }
+      .certificate-live-card { position: absolute; left: 0; top: 0; width: 100%; border: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <div>📞 ਹੈਲਪਲਾਈਨ: +91 98XXX-XXXXX | ✉️ info@uihesd.edu.in</div>
+    <div><a href="index.html">Home</a></div>
+  </div>
+  <header class="main-header">
+    <div class="header-left">
+      <img src="collagelogo1.png" alt="Logo" onerror="this.src='https://via.placeholder.com/80?text=UIHESD'">
+      <div class="title-area">
+        <h1>Universal Institute of Higher Education & Skill Development</h1>
+        <p>ਆਨਲਾਈਨ ਸਰਟੀਫਿਕੇਟ ਵੈਰੀਫਿਕੇਸ਼ਨ ਸਿਸਟਮ</p>
+      </div>
+    </div>
+  </header>
+  <nav>
+    <div class="nav-container">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Institute</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="verify.html" class="active">Verify Certificate</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="cert-box">
+      <h2 style="text-align:center; color:#1e3a8a; margin-bottom:10px;">ਅਧਿਕਾਰਤ ਦਸਤਾਵੇਜ਼ ਪੜਤਾਲ</h2>
+      <p style="text-align:center; color:#64748b;">ਵਿਦਿਆਰਥੀ ਦਾ <strong>Roll Number</strong> ਜਾਂ <strong>Unique ID</strong> ਭਰ ਕੇ ਸਰਚ ਕਰੋ:</p>
+      <div class="cert-input-group">
+        <input type="text" id="certInput" placeholder="ਰੋਲ ਨੰਬਰ ਜਾਂ ਆਈ.ਡੀ. ਭਰੋ (ਜਿਵੇਂ ROLL-101)">
+        <button class="cert-btn" onclick="verifyCertificate()">ਪੜਤਾਲ ਕਰੋ</button>
+      </div>
+
+      <div id="certResult" class="cert-result"></div>
+
+      <div class="admin-toggle">
+        <button onclick="toggleAdmin()">⚙️ + ਨਵਾਂ ਵਿਦਿਆਰਥੀ ਦਰਜ ਕਰੋ</button>
+      </div>
+      <div id="adminPanel" class="admin-form-box">
+        <h4>ਨਵੇਂ ਰਿਕਾਰਡ ਦੀ ਐਂਟਰੀ:</h4>
+        <div class="form-group"><label>ਵਿਦਿਆਰਥੀ ਦਾ ਨਾਮ:</label><input type="text" id="addName"></div>
+        <div class="form-group"><label>ਪਿਤਾ ਦਾ ਨਾਮ:</label><input type="text" id="addFather"></div>
+        <div class="form-group"><label>ਪਤਾ:</label><input type="text" id="addAddress"></div>
+        <div class="form-group"><label>ਕੋਰਸ:</label><input type="text" id="addCourse"></div>
+        <div class="form-group"><label>ਰੋਲ ਨੰਬਰ:</label><input type="text" id="addRoll"></div>
+        <div class="form-group"><label>ਯੂਨੀਕ ਆਈ.ਡੀ.:</label><input type="text" id="addUID"></div>
+        <button class="cert-btn" style="width:100%; background:#16a34a;" onclick="saveRecord()">ਸੇਵ ਕਰੋ</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 UIHESD | All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const defaultData = {
+      "ROLL-101": { name: "Gurpreet Singh", father: "S. Harbhajan Singh", address: "Guru Har Sahai, Punjab", course: "Computer Operator & Programming Assistant (COPA)", rollNo: "ROLL-101", uniqueId: "UID-2026-001", issueDate: "15/06/2026" }
+    };
+    function getDB() {
+      const s = localStorage.getItem("uihesd_students_v3");
+      return s ? Object.assign({}, defaultData, JSON.parse(s)) : defaultData;
+    }
+    function verifyCertificate() {
+      const q = document.getElementById("certInput").value.trim().toUpperCase();
+      const res = document.getElementById("certResult");
+      if(!q) return alert("ਕਿਰਪਾ ਕਰਕੇ ਰੋਲ ਨੰਬਰ ਜਾਂ ਆਈ.ਡੀ. ਭਰੋ");
+      res.style.display = "block";
+      const db = getDB();
+      let s = null;
+      for(let k in db) { if(k === q || db[k].uniqueId === q) { s = db[k]; break; } }
+      if(s) {
+        res.className = "cert-result cert-valid";
+        res.innerHTML = `
+          <div style="text-align:center; margin-bottom:10px;"><span style="background:#16a34a; color:white; padding:4px 14px; border-radius:20px; font-weight:bold;">✔ OFFICIAL RECORD VERIFIED</span></div>
+          <table class="cert-table">
+            <tr><td class="label">ਨਾਮ:</td><td><strong>${s.name}</strong></td></tr>
+            <tr><td class="label">ਪਿਤਾ ਦਾ ਨਾਮ:</td><td>${s.father}</td></tr>
+            <tr><td class="label">ਕੋਰਸ:</td><td>${s.course}</td></tr>
+            <tr><td class="label">ਰੋਲ ਨੰਬਰ:</td><td>${s.rollNo}</td></tr>
+            <tr><td class="label">ਯੂਨੀਕ ਆਈ.ਡੀ.:</td><td>${s.uniqueId}</td></tr>
+          </table>
+          <div class="certificate-live-card">
+            <img src="colcerti1.jpg" alt="Certificate" onerror="this.src='https://dummyimage.com/800x560/e2e8f0/0f172a&text=Certificate+Template+(colcerti1.jpg)+Not+Found';">
+            <div class="cert-overlay-text field-uid">UID: ${s.uniqueId}</div>
+            <div class="cert-overlay-text field-roll">Roll No: ${s.rollNo}</div>
+            <div class="cert-overlay-text field-name">${s.name}</div>
+            <div class="cert-overlay-text field-father">${s.father}</div>
+            <div class="cert-overlay-text field-address">${s.address}</div>
+            <div class="cert-overlay-text field-course">${s.course}</div>
+            <div class="cert-overlay-text field-date">Date: ${s.issueDate || '03/09/2026'}</div>
+          </div>
+          <div style="text-align:center;"><button class="btn-print" onclick="window.print()">🖨️ ਪ੍ਰਿੰਟ ਸਰਟੀਫਿਕੇਟ</button></div>
+        `;
+      } else {
+        res.className = "cert-result cert-invalid";
+        res.innerHTML = "❌ ਕੋਈ ਰਿਕਾਰਡ ਨਹੀਂ ਮਿਲਿਆ! ਕਿਰਪਾ ਕਰਕੇ ਰੋਲ ਨੰਬਰ ਚੈੱਕ ਕਰੋ।";
+      }
+    }
+    function toggleAdmin(){ const p = document.getElementById("adminPanel"); p.style.display = p.style.display==='block'?'none':'block'; }
+    function saveRecord(){
+      const n = document.getElementById("addName").value.trim();
+      const f = document.getElementById("addFather").value.trim();
+      const a = document.getElementById("addAddress").value.trim();
+      const c = document.getElementById("addCourse").value.trim();
+      const r = document.getElementById("addRoll").value.trim().toUpperCase();
+      const u = document.getElementById("addUID").value.trim().toUpperCase();
+      if(!n||!f||!a||!c||!r||!u) return alert("ਸਾਰੀ ਜਾਣਕਾਰੀ ਭਰੋ");
+      let d = JSON.parse(localStorage.getItem("uihesd_students_v3") || "{}");
+      d[r] = { name:n, father:f, address:a, course:c, rollNo:r, uniqueId:u, issueDate:new Date().toLocaleDateString('en-GB') };
+      localStorage.setItem("uihesd_students_v3", JSON.stringify(d));
+      alert("ਰਿਕਾਰਡ ਸਫਲਤਾਪੂਰਵਕ ਸੇਵ ਹੋ ਗਿਆ!");
+      toggleAdmin();
+    }
+  </script>
+</body>
+</html>
