@@ -3,10 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DGT | Directorate General of Training - ITI Portal</title>
+  <title>DGT Ecosystem & Public Dashboard | UIHESD</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
     body { background-color: #f8fafc; color: #1e293b; line-height: 1.4; }
+
+    /* 1. Flag & Accessibility Bar (Same as Home) */
+    .gov-flag-bar {
+      background: #0f172a;
+      border-bottom: 2px solid #ff9933;
+      padding: 5px 6%;
+      font-size: 0.78rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #e2e8f0;
+    }
+    .flag-group { display: flex; align-items: center; gap: 8px; font-weight: 700; }
+    .flag-icon { width: 20px; height: 13px; border: 1px solid #cbd5e1; background: linear-gradient(#ff9933 33%, #ffffff 33%, #ffffff 66%, #128807 66%); display: inline-block; }
+    .gov-links { display: flex; align-items: center; gap: 14px; }
+    .gov-links a { color: #cbd5e1; text-decoration: none; font-size: 0.75rem; font-weight: 600; }
+    .gov-links a:hover { color: #facc15; }
+
+    /* 2. Main Portal Header (Exact Match to Home) */
+    .portal-header {
+      background: #ffffff;
+      padding: 12px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #e2e8f0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    }
+    .header-logos { display: flex; align-items: center; gap: 18px; }
+    .emblem-box { display: flex; align-items: center; gap: 8px; border-right: 2px solid #cbd5e1; padding-right: 16px; }
+    .emblem-text { font-size: 0.7rem; font-weight: 800; color: #0f172a; line-height: 1.2; text-transform: uppercase; }
+    .brand-logo-area { display: flex; align-items: center; gap: 12px; }
+    .brand-logo-area img { height: 64px; width: auto; object-fit: contain; }
+    .brand-names h1 { font-size: 1.15rem; color: #0f172a; font-weight: 900; text-transform: uppercase; letter-spacing: 0.3px; }
+    .brand-names p { font-size: 0.75rem; color: #0284c7; font-weight: 800; }
+
+    .header-controls { display: flex; align-items: center; gap: 10px; }
+    .search-box { display: flex; align-items: center; background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 4px; padding: 6px 12px; width: 230px; }
+    .search-box input { border: none; outline: none; font-size: 0.82rem; width: 100%; margin-left: 6px; }
+    .btn-dash { background: #f97316; color: white; border: none; padding: 8px 14px; font-size: 0.78rem; font-weight: 800; border-radius: 4px; cursor: pointer; }
+    .btn-reg { background: #b45309; color: white; border: none; padding: 8px 16px; font-size: 0.78rem; font-weight: 800; border-radius: 4px; cursor: pointer; text-decoration: none; }
+    .btn-login { background: #ea580c; color: white; border: none; padding: 8px 18px; font-size: 0.78rem; font-weight: 800; border-radius: 4px; cursor: pointer; }
+
+    /* 3. Navigation Bar (Exact Match) */
+    nav { background: #1e3a8a; padding: 0 6%; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+    .nav-list { display: flex; list-style: none; gap: 22px; align-items: center; }
+    .nav-list li a { display: block; padding: 12px 0; color: #ffffff; text-decoration: none; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; }
+    .nav-list li a:hover, .nav-list li a.active { color: #facc15; }
+    .nav-dot { width: 7px; height: 7px; background: #dc2626; border-radius: 50%; display: inline-block; margin-left: 4px; }
 
     /* Top Result Alert Bar */
     .result-alert {
@@ -14,118 +63,10 @@
       border-bottom: 1px solid #ffe0b2;
       padding: 7px 6%;
       text-align: center;
-      font-size: 0.95rem;
-      font-weight: 700;
+      font-size: 0.92rem;
+      font-weight: 800;
     }
-    .result-alert a {
-      color: #e65100;
-      text-decoration: underline;
-      cursor: pointer;
-    }
-
-    /* Main DGT Header */
-    .dgt-header {
-      background: #ffffff;
-      padding: 10px 6%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-    .dgt-logos {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-    .gov-seal-txt {
-      font-size: 0.65rem;
-      font-weight: 700;
-      line-height: 1.1;
-      text-transform: uppercase;
-      color: #334155;
-      border-right: 1.5px solid #cbd5e1;
-      padding-right: 12px;
-    }
-    .brand-logos {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .brand-logos img {
-      height: 48px;
-      object-fit: contain;
-    }
-    .iti-logo-text {
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: #0284c7;
-      letter-spacing: 1px;
-      border-left: 2px solid #cbd5e1;
-      padding-left: 10px;
-    }
-
-    /* Header Top Right Buttons */
-    .dgt-top-btns {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .btn-result {
-      background: #ffedd5;
-      color: #c2410c;
-      border: 1px solid #fdba74;
-      padding: 6px 14px;
-      border-radius: 4px;
-      font-weight: 700;
-      font-size: 0.75rem;
-      cursor: pointer;
-      text-decoration: none;
-    }
-    .btn-nims {
-      background: #fff7ed;
-      color: #ea580c;
-      border: 1px solid #fed7aa;
-      padding: 6px 14px;
-      border-radius: 4px;
-      font-weight: 600;
-      font-size: 0.75rem;
-      text-decoration: none;
-    }
-    .btn-login {
-      background: #ea580c;
-      color: white;
-      border: none;
-      padding: 7px 20px;
-      border-radius: 4px;
-      font-weight: 700;
-      font-size: 0.82rem;
-      cursor: pointer;
-      text-decoration: none;
-    }
-    .btn-login:hover { background: #c2410c; }
-
-    /* Navigation Bar */
-    nav {
-      background: #ffffff;
-      border-top: 1px solid #f1f5f9;
-      border-bottom: 1.5px solid #e2e8f0;
-      padding: 0 6%;
-    }
-    .nav-list {
-      display: flex;
-      list-style: none;
-      gap: 20px;
-    }
-    .nav-list li a {
-      display: block;
-      padding: 10px 0;
-      color: #475569;
-      text-decoration: none;
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-    .nav-list li a:hover { color: #0284c7; }
+    .result-alert a { color: #e65100; text-decoration: underline; cursor: pointer; }
 
     /* 4-Image Practical Workshop Collage Banner */
     .collage-banner {
@@ -136,45 +77,16 @@
       background: #0f172a;
       overflow: hidden;
     }
-    .collage-item {
-      position: relative;
-      overflow: hidden;
-      background: #1e293b;
-    }
-    .collage-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.3s;
-    }
+    .collage-item { position: relative; overflow: hidden; background: #1e293b; }
+    .collage-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
     .collage-item:hover img { transform: scale(1.03); }
     .collage-item.tall { grid-row: span 2; }
-    .collage-badge {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      background: rgba(15, 23, 42, 0.75);
-      color: #facc15;
-      padding: 4px 10px;
-      border-radius: 4px;
-      font-size: 0.75rem;
-      font-weight: 700;
-    }
+    .collage-badge { position: absolute; bottom: 10px; left: 10px; background: rgba(15, 23, 42, 0.75); color: #facc15; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; }
 
     /* Public Dashboard Section */
-    .dashboard-section {
-      padding: 40px 6%;
-      text-align: center;
-    }
-    .dashboard-title {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #1e293b;
-      margin-bottom: 25px;
-    }
+    .dashboard-section { padding: 40px 6%; text-align: center; }
+    .dashboard-title { font-size: 1.6rem; font-weight: 800; color: #1e293b; margin-bottom: 25px; }
 
-    /* Blue DGT Schemes Dashboard Strip */
     .dgt-strip {
       background: linear-gradient(90deg, #0c4a6e 0%, #0369a1 100%);
       color: white;
@@ -190,36 +102,20 @@
     }
     .strip-left { display: flex; align-items: center; gap: 20px; }
     .strip-left img { height: 40px; background: white; padding: 3px 6px; border-radius: 4px; }
-    .strip-title { font-size: 1.3rem; font-weight: 700; letter-spacing: 0.5px; }
+    .strip-title { font-size: 1.3rem; font-weight: 800; letter-spacing: 0.5px; }
     .strip-refreshed { font-size: 0.75rem; color: #bae6fd; }
 
-    /* Quick Stats Cards */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      max-width: 1100px;
-      margin: 25px auto 40px;
-    }
-    .stat-card {
-      background: white;
-      padding: 22px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      border-top: 3px solid #0284c7;
-      text-align: left;
-    }
-    .stat-card h4 { font-size: 0.85rem; color: #64748b; margin-bottom: 6px; text-transform: uppercase; }
-    .stat-card .num { font-size: 1.7rem; font-weight: 800; color: #0f172a; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1100px; margin: 25px auto 40px; }
+    .stat-card { background: white; padding: 22px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-top: 3px solid #0284c7; text-align: left; }
+    .stat-card h4 { font-size: 0.85rem; color: #64748b; margin-bottom: 6px; text-transform: uppercase; font-weight: 700; }
+    .stat-card .num { font-size: 1.7rem; font-weight: 900; color: #0f172a; }
 
-    /* ===================================================
-       EXACT DGT LOGIN SELECT SCHEME MODAL (POPUP)
-    =================================================== */
+    /* DGT Login Scheme Modal */
     .login-modal-overlay {
-      display: none; /* By default hidden, opens on login click */
+      display: none;
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(15, 23, 42, 0.7);
+      background: rgba(15, 23, 42, 0.75);
       backdrop-filter: blur(4px);
       z-index: 10000;
       justify-content: center;
@@ -236,107 +132,20 @@
       padding: 30px 35px 25px;
       position: relative;
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
-      animation: modalFade 0.2s ease-out;
     }
-    @keyframes modalFade {
-      from { transform: scale(0.95); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-    .login-modal-close {
-      position: absolute;
-      top: 18px; right: 20px;
-      background: transparent;
-      border: none;
-      font-size: 1.8rem;
-      color: #64748b;
-      cursor: pointer;
-      line-height: 1;
-    }
-    .login-modal-close:hover { color: #0f172a; }
+    .login-modal-close { position: absolute; top: 18px; right: 20px; background: transparent; border: none; font-size: 1.8rem; color: #64748b; cursor: pointer; line-height: 1; }
+    .scheme-title { text-align: center; font-size: 1.15rem; font-weight: 800; color: #1e293b; margin-bottom: 12px; }
+    .scheme-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; }
+    .scheme-btn { border: 1px solid #cbd5e1; background: #ffffff; color: #334155; padding: 6px 20px; font-weight: 700; font-size: 0.85rem; border-radius: 6px; cursor: pointer; }
+    .scheme-btn.active { border-color: #0284c7; background: #f0f9ff; color: #0284c7; }
+    .role-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .role-box { border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 16px 10px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: space-between; min-height: 125px; background: #ffffff; text-decoration: none; }
+    .role-box:hover { border-color: #0284c7; transform: translateY(-2px); }
+    .role-icon { font-size: 1.7rem; margin-bottom: 6px; }
+    .role-name { font-size: 0.78rem; font-weight: 700; color: #334155; margin-bottom: 8px; }
+    .role-link { font-size: 0.75rem; font-weight: 800; color: #ea580c; }
 
-    .scheme-title {
-      text-align: center;
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: #1e293b;
-      margin-bottom: 12px;
-    }
-    .scheme-tabs {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 25px;
-    }
-    .scheme-btn {
-      border: 1px solid #cbd5e1;
-      background: #ffffff;
-      color: #334155;
-      padding: 6px 20px;
-      font-weight: 700;
-      font-size: 0.85rem;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    .scheme-btn.active {
-      border-color: #0284c7;
-      background: #f0f9ff;
-      color: #0284c7;
-      box-shadow: 0 1px 3px rgba(2, 132, 199, 0.15);
-    }
-
-    /* Grid of 15 Portal Login Roles */
-    .role-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-    .role-box {
-      border: 1.5px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 16px 10px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 125px;
-      background: #ffffff;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-    .role-box:hover {
-      border-color: #0284c7;
-      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.12);
-      transform: translateY(-2px);
-    }
-    .role-icon {
-      font-size: 1.7rem;
-      margin-bottom: 6px;
-      color: #0284c7;
-    }
-    .role-name {
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: #334155;
-      margin-bottom: 8px;
-      line-height: 1.2;
-    }
-    .role-link {
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: #ea580c;
-      display: inline-flex;
-      align-items: center;
-      gap: 3px;
-    }
-
-    footer {
-      background: #0b132b;
-      color: #94a3b8;
-      padding: 25px 6%;
-      text-align: center;
-      font-size: 0.8rem;
-    }
+    footer { background: #0b132b; color: #94a3b8; padding: 25px 6%; text-align: center; font-size: 0.8rem; }
     footer a { color: #facc15; text-decoration: none; margin: 0 8px; }
 
     @media (max-width: 800px) {
@@ -350,46 +159,65 @@
 </head>
 <body>
 
-  <!-- 1. Top Results Notification -->
-  <div class="result-alert">
-    <a href="verify.html">Click here to view CTS AITT Mains Examination-2026 Result ➔</a>
+  <!-- 1. Top Flag Bar (Exact Home Match) -->
+  <div class="gov-flag-bar">
+    <div class="flag-group">
+      <span class="flag-icon"></span>
+      <span>ਭਾਰਤ ਸਰਕਾਰ | Government of India</span>
+    </div>
+    <div class="gov-links">
+      <a href="verify.html">Document Verification</a>
+      <a href="index.html">Main Home</a>
+    </div>
   </div>
 
-  <!-- 2. Header with Ministry & ITI Logos -->
-  <header class="dgt-header">
-    <div class="dgt-logos">
-      <div class="gov-seal-txt">
-        कौशल विकास एवं उद्यमशीलता मंत्रालय<br>
-        <span style="font-size:0.55rem; color:#64748b;">MINISTRY OF SKILL DEVELOPMENT & ENTREPRENEURSHIP</span>
+  <!-- 2. Main Portal Header (Exact Home Match) -->
+  <header class="portal-header">
+    <div class="header-logos">
+      <div class="emblem-box">
+        🏛️
+        <div class="emblem-text">
+          कौशल विकास एवं उद्यमशीलता मंत्रालय<br>
+          <span style="font-size:0.65rem; color:#64748b;">MINISTRY OF SKILL DEVELOPMENT & ENTREPRENEURSHIP</span>
+        </div>
       </div>
-      <div class="brand-logos">
-        <img src="collagelogo1.png" alt="UIHESD" onerror="this.src='https://dummyimage.com/50x50/1e3a8a/fff&text=ITI';">
-        <div class="iti-logo-text">ITI</div>
+      <div class="brand-logo-area">
+        <img src="collagelogo1.png" alt="UIHESD Logo" onerror="this.src='https://via.placeholder.com/60?text=UIHESD'">
+        <div class="brand-names">
+          <h1>UIHESD SKILL HUB</h1>
+          <p>ਕੌਸ਼ਲ ਭਾਰਤ • ਕੁਸ਼ਲ ਭਾਰਤ | Technical & Vocational Institute</p>
+        </div>
       </div>
     </div>
 
-    <div class="dgt-top-btns">
-      <a href="verify.html" class="btn-result">RESULT</a>
-      <a href="courses.html" class="btn-nims">Instructor self registration on NIMS</a>
-      <!-- Clicking LOGIN button triggers the exact modal -->
+    <div class="header-controls">
+      <div class="search-box">
+        🔍 <input type="text" placeholder="Search Trades...">
+      </div>
+      <button class="btn-dash" onclick="window.location.href='index.html'">HOME</button>
+      <button class="btn-reg" onclick="window.location.href='courses.html'">REGISTER</button>
       <button class="btn-login" onclick="openLoginModal()">LOGIN</button>
     </div>
   </header>
 
-  <!-- 3. DGT Menus -->
+  <!-- 3. Navigation Bar (Exact Home Match) -->
   <nav>
     <ul class="nav-list">
-      <li><a href="index.html">HOME</a></li>
-      <li><a href="#">GRIEVANCE ▾</a></li>
-      <li><a href="courses.html">DOWNLOAD ▾</a></li>
-      <li><a href="verify.html">VERIFICATION ▾</a></li>
-      <li><a href="about.html">IMPORTANT LINKS ▾</a></li>
-      <li><a href="verify.html">REGISTER AS EXAMINER</a></li>
-      <li><a href="about.html">HELP & SUPPORT</a></li>
+      <li><a href="index.html">MSDE <span class="nav-dot"></span></a></li>
+      <li><a href="courses.html">Schemes / Programs</a></li>
+      <li><a href="courses.html">Skill Courses</a></li>
+      <li><a href="about.html">About Institute</a></li>
+      <li><a href="dgt.html" class="active">DGT Ecosystem <span class="nav-dot"></span></a></li>
+      <li><a href="verify.html">Verify Certificate</a></li>
     </ul>
   </nav>
 
-  <!-- 4. Real 4-Image Practical Workshop Collage Banner -->
+  <!-- Result Banner -->
+  <div class="result-alert">
+    <a href="verify.html">Click here to view CTS AITT Mains Examination-2026 Result ➔</a>
+  </div>
+
+  <!-- Collage Banner -->
   <div class="collage-banner">
     <div class="collage-item tall">
       <img src="https://images.unsplash.com/photo-1508873696983-2df5293cb32f?auto=format&fit=crop&w=800&q=80" alt="Solar Training">
@@ -409,7 +237,7 @@
     </div>
   </div>
 
-  <!-- 5. ITI Public Dashboard -->
+  <!-- Dashboard Section -->
   <section class="dashboard-section">
     <h2 class="dashboard-title">ITI Public Dashboard</h2>
 
@@ -424,188 +252,57 @@
     </div>
 
     <div class="stats-grid">
-      <div class="stat-card">
-        <h4>Affiliated ITI Institutes</h4>
-        <div class="num">15,000+</div>
-      </div>
-      <div class="stat-card">
-        <h4>Enrolled Trainees (Session 2026)</h4>
-        <div class="num">25.4 Lakh</div>
-      </div>
-      <div class="stat-card">
-        <h4>Designated Vocational Trades</h4>
-        <div class="num">150+</div>
-      </div>
-      <div class="stat-card">
-        <h4>Certified Passout Candidates</h4>
-        <div class="num">94.8%</div>
-      </div>
+      <div class="stat-card"><h4>Affiliated ITI Institutes</h4><div class="num">15,000+</div></div>
+      <div class="stat-card"><h4>Enrolled Trainees (Session 2026)</h4><div class="num">25.4 Lakh</div></div>
+      <div class="stat-card"><h4>Designated Vocational Trades</h4><div class="num">150+</div></div>
+      <div class="stat-card"><h4>Certified Passout Candidates</h4><div class="num">94.8%</div></div>
     </div>
   </section>
 
-  <!-- ===================================================
-       EXACT DGT "SELECT SCHEME" LOGIN MODAL
-  =================================================== -->
+  <!-- Login Modal -->
   <div id="dgtLoginModal" class="login-modal-overlay" onclick="closeLoginOnOutside(event)">
     <div class="login-modal-card">
       <button class="login-modal-close" onclick="closeLoginModal()">&times;</button>
-      
       <div class="scheme-title">Select Scheme</div>
-
       <div class="scheme-tabs">
         <button class="scheme-btn active" id="btnCts" onclick="switchScheme('CTS')">CTS</button>
         <button class="scheme-btn" id="btnCits" onclick="switchScheme('CITS')">CITS</button>
       </div>
 
-      <!-- 15 Role Cards -->
       <div class="role-grid">
-        
-        <!-- Role 1: Trainee -->
-        <a href="verify.html" class="role-box">
-          <div class="role-icon">👨‍🎓</div>
-          <div class="role-name">Trainee</div>
-          <div class="role-link">Login ➔</div>
-        </a>
-
-        <!-- Role 2: Instructor -->
-        <a href="verify.html" class="role-box">
-          <div class="role-icon">🧑‍🏫</div>
-          <div class="role-name">Instructor</div>
-          <div class="role-link">Login ➔</div>
-        </a>
-
-        <!-- Role 3: ITI/NSTI Creator -->
-        <a href="verify.html" class="role-box">
-          <div class="role-icon">🏛️</div>
-          <div class="role-name">ITI/NSTI Creator</div>
-          <div class="role-link">Login ➔</div>
-        </a>
-
-        <!-- Role 4: ITI/NSTI Approver -->
-        <a href="verify.html" class="role-box">
-          <div class="role-icon">✍️</div>
-          <div class="role-name">ITI/NSTI Approver</div>
-          <div class="role-link">Login ➔</div>
-        </a>
-
-        <!-- Role 5: NIMI Admin -->
-        <a href="verify.html" class="role-box">
-          <div class="role-icon">💻</div>
-          <div class="role-name">NIMI Admin</div>
-          <div class="role-link">Login ➔</div>
-        </a>
-
-        <!-- Role 6: Examiner -->
-        <a href="verify.html" class="role-box">
-          <div class="role-icon">📋</div>
-          <div class="role-name">Examiner</div>
-          <div class="role-link">Login ➔</div>
-        </a>
-
-        <!-- Role 7: Nodal ITI -->
-        <a href="verify.html" class="role-box">
-          <div class="role-icon">🏫</div>
-          <div class="role-name">Nodal ITI</div>
-          <div class="role-link">Login ➔</div>
-        </a>
-
-        <!-- Role 8: State-Admission -->
-        <a href="verify.html" class="role-box">
-          <div class="role-icon">🇮🇳</div>
-          <div class="role-name">State-Admission</div>
-          <div class="role-link">Login ➔</div>
-        </a>
-
-        <!-- Role 9: State-Examination -->
-        <a href="verify.html" class="role-box">
-          <div class="role-icon">📝</div>
-          <div class="role-name">State-Examination</div>
-          <div class="role-link">Login ➔</div>
-        </a>
-
-        <!-- Role 10: RDSDE -->
-        <a href="verify.html" class="role-box">
-          <div class="role-icon">🏛️</div>
-          <div class="role-name">RDSDE</div>
-          <div class="role-link">Login ➔</div>
-        </a>
-
-        <!-- Role 11: DGT TC Cell -->
-        <a href="verify.html" class="role-box">
-          <div class="role-icon">⚙️</div>
-          <div class="role-name">DGT TC Cell</div>
-          <div class="role-link">Login ➔</div>
-        </a>
-
-        <!-- Role 12: DGT CD Cell -->
-        <a href="verify.html" class="role-box">
-          <div class="role-icon">💡</div>
-          <div class="role-name">DGT CD Cell</div>
-          <div class="role-link">Login ➔</div>
-        </a>
-
-        <!-- Role 13: DGT TT Cell -->
-        <a href="verify.html" class="role-box">
-          <div class="role-icon">🔬</div>
-          <div class="role-name">DGT TT Cell</div>
-          <div class="role-link">Login ➔</div>
-        </a>
-
-        <!-- Role 14: NPIU Creator -->
-        <a href="verify.html" class="role-box">
-          <div class="role-icon">🏢</div>
-          <div class="role-name">NPIU Creator</div>
-          <div class="role-link">Login ➔</div>
-        </a>
-
-        <!-- Role 15: Examination Controller -->
-        <a href="verify.html" class="role-box">
-          <div class="role-icon">🎓</div>
-          <div class="role-name">Examination Controller</div>
-          <div class="role-link">Login ➔</div>
-        </a>
-
+        <a href="verify.html" class="role-box"><div class="role-icon">👨‍🎓</div><div class="role-name">Trainee</div><div class="role-link">Login ➔</div></a>
+        <a href="verify.html" class="role-box"><div class="role-icon">🧑‍🏫</div><div class="role-name">Instructor</div><div class="role-link">Login ➔</div></a>
+        <a href="verify.html" class="role-box"><div class="role-icon">🏛️</div><div class="role-name">ITI/NSTI Creator</div><div class="role-link">Login ➔</div></a>
+        <a href="verify.html" class="role-box"><div class="role-icon">✍️</div><div class="role-name">ITI/NSTI Approver</div><div class="role-link">Login ➔</div></a>
+        <a href="verify.html" class="role-box"><div class="role-icon">💻</div><div class="role-name">NIMI Admin</div><div class="role-link">Login ➔</div></a>
+        <a href="verify.html" class="role-box"><div class="role-icon">📋</div><div class="role-name">Examiner</div><div class="role-link">Login ➔</div></a>
+        <a href="verify.html" class="role-box"><div class="role-icon">🏫</div><div class="role-name">Nodal ITI</div><div class="role-link">Login ➔</div></a>
+        <a href="verify.html" class="role-box"><div class="role-icon">🇮🇳</div><div class="role-name">State-Admission</div><div class="role-link">Login ➔</div></a>
+        <a href="verify.html" class="role-box"><div class="role-icon">📝</div><div class="role-name">State-Examination</div><div class="role-link">Login ➔</div></a>
+        <a href="verify.html" class="role-box"><div class="role-icon">🏛️</div><div class="role-name">RDSDE</div><div class="role-link">Login ➔</div></a>
+        <a href="verify.html" class="role-box"><div class="role-icon">⚙️</div><div class="role-name">DGT TC Cell</div><div class="role-link">Login ➔</div></a>
+        <a href="verify.html" class="role-box"><div class="role-icon">💡</div><div class="role-name">DGT CD Cell</div><div class="role-link">Login ➔</div></a>
+        <a href="verify.html" class="role-box"><div class="role-icon">🔬</div><div class="role-name">DGT TT Cell</div><div class="role-link">Login ➔</div></a>
+        <a href="verify.html" class="role-box"><div class="role-icon">🏢</div><div class="role-name">NPIU Creator</div><div class="role-link">Login ➔</div></a>
+        <a href="verify.html" class="role-box"><div class="role-icon">🎓</div><div class="role-name">Examination Controller</div><div class="role-link">Login ➔</div></a>
       </div>
     </div>
   </div>
 
-  <!-- Footer -->
   <footer>
     <p>© 2026 Directorate General of Training (DGT), Ministry of Skill Development and Entrepreneurship. All Rights Reserved.</p>
-    <p style="margin-top:8px;">
-      <a href="index.html">Main Portal</a> | 
-      <a href="verify.html">AITT Result Verification</a> | 
-      <a href="courses.html">Trade Courses</a>
-    </p>
+    <p style="margin-top:8px;"><a href="index.html">Main Portal</a> | <a href="verify.html">AITT Result Verification</a> | <a href="courses.html">Trade Courses</a></p>
   </footer>
 
   <script>
-    function openLoginModal() {
-      document.getElementById('dgtLoginModal').style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLoginModal() {
-      document.getElementById('dgtLoginModal').style.display = 'none';
-      document.body.style.overflow = 'auto';
-    }
-
-    function closeLoginOnOutside(event) {
-      if (event.target.id === 'dgtLoginModal') {
-        closeLoginModal();
-      }
-    }
-
+    function openLoginModal() { document.getElementById('dgtLoginModal').style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+    function closeLoginModal() { document.getElementById('dgtLoginModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
+    function closeLoginOnOutside(event) { if (event.target.id === 'dgtLoginModal') closeLoginModal(); }
     function switchScheme(scheme) {
       const btnCts = document.getElementById('btnCts');
       const btnCits = document.getElementById('btnCits');
-      if (scheme === 'CTS') {
-        btnCts.classList.add('active');
-        btnCits.classList.remove('active');
-      } else {
-        btnCits.classList.add('active');
-        btnCts.classList.remove('active');
-      }
+      if (scheme === 'CTS') { btnCts.classList.add('active'); btnCits.classList.remove('active'); }
+      else { btnCits.classList.add('active'); btnCits.classList.remove('active'); }
     }
   </script>
 
