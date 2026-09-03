@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Universal Institute of Higher Education & Skill Development (UIHESD) | Official Portal</title>
+  <title>Universal Institute of Higher Education & Skill Development (UIHESD)</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
     body { background-color: #f8fafc; color: #1e293b; line-height: 1.5; }
 
-    /* 1. National Official Flag & Accessibility Bar */
+    /* 1. National Flag Bar */
     .gov-flag-bar {
+      height: 32px;
       background: #0f172a;
       border-bottom: 2px solid #ff9933;
-      padding: 5px 6%;
-      font-size: 0.78rem;
+      padding: 0 6%;
+      font-size: 0.76rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -21,71 +22,48 @@
     }
     .flag-group { display: flex; align-items: center; gap: 8px; font-weight: 700; }
     .flag-icon { width: 20px; height: 13px; border: 1px solid #cbd5e1; background: linear-gradient(#ff9933 33%, #ffffff 33%, #ffffff 66%, #128807 66%); display: inline-block; }
-    .gov-links { display: flex; align-items: center; gap: 14px; }
-    .gov-links a { color: #cbd5e1; text-decoration: none; font-size: 0.75rem; font-weight: 600; }
+    .gov-links a { color: #cbd5e1; text-decoration: none; font-size: 0.74rem; font-weight: 600; margin-left: 14px; }
     .gov-links a:hover { color: #facc15; }
-    .access-tools { display: flex; gap: 6px; border-left: 1px solid #334155; padding-left: 12px; }
-    .access-btn { background: #1e3a8b; color: #f8fafc; border: 1px solid #475569; padding: 1px 6px; font-size: 0.7rem; border-radius: 3px; cursor: pointer; }
 
-    /* 2. Main Portal Header with Enlarged College Name */
+    /* 2. Main Portal Header */
     .portal-header {
+      height: 95px;
       background: #ffffff;
-      padding: 14px 6%;
+      padding: 0 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 2px solid #e2e8f0;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.03);
     }
-    .header-logos { display: flex; align-items: center; gap: 18px; }
-    .emblem-box { display: flex; align-items: center; gap: 8px; border-right: 2px solid #cbd5e1; padding-right: 18px; }
-    .emblem-text { font-size: 0.72rem; font-weight: 800; color: #0f172a; line-height: 1.25; text-transform: uppercase; }
+    .header-logos { display: flex; align-items: center; gap: 16px; }
+    .emblem-box { display: flex; align-items: center; gap: 8px; border-right: 2px solid #cbd5e1; padding-right: 16px; }
+    .emblem-text { font-size: 0.70rem; font-weight: 800; color: #0f172a; line-height: 1.2; text-transform: uppercase; }
     
-    /* ENLARGED COLLEGE BRAND AREA */
-    .brand-logo-area { display: flex; align-items: center; gap: 16px; }
-    .brand-logo-area img { height: 85px; width: auto; object-fit: contain; }
-    .brand-names h1 { 
-      font-size: 1.85rem; 
-      color: #0f172a; 
-      font-weight: 900; 
-      text-transform: uppercase; 
-      letter-spacing: 0.5px; 
-      line-height: 1.1;
-      margin-bottom: 2px;
-    }
-    .brand-names h2 {
-      font-size: 0.92rem;
-      color: #1e3a8a;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.2px;
-      margin-bottom: 2px;
-    }
-    .brand-names p { 
-      font-size: 0.8rem; 
-      color: #0284c7; 
-      font-weight: 700; 
-    }
+    .brand-logo-area { display: flex; align-items: center; gap: 14px; }
+    .brand-logo-area img { height: 75px; width: auto; object-fit: contain; }
+    .brand-names h1 { font-size: 1.55rem; color: #0f172a; font-weight: 900; text-transform: uppercase; letter-spacing: 0.3px; line-height: 1.1; margin: 0; }
+    .brand-names h2 { font-size: 0.82rem; color: #1e3a8a; font-weight: 800; text-transform: uppercase; margin: 2px 0 0; }
+    .brand-names p { font-size: 0.74rem; color: #0284c7; font-weight: 700; margin: 0; }
 
     .header-controls { display: flex; align-items: center; gap: 10px; }
-    .search-box { display: flex; align-items: center; background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 4px; padding: 6px 12px; width: 230px; }
+    .search-box { display: flex; align-items: center; background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 4px; padding: 6px 12px; width: 220px; }
     .search-box input { border: none; outline: none; font-size: 0.82rem; width: 100%; margin-left: 6px; }
-    .btn-dash { background: #f97316; color: white; border: none; padding: 9px 15px; font-size: 0.8rem; font-weight: 800; border-radius: 4px; cursor: pointer; }
-    .btn-reg { background: #b45309; color: white; border: none; padding: 9px 18px; font-size: 0.8rem; font-weight: 800; border-radius: 4px; cursor: pointer; text-decoration: none; }
-    .btn-login { background: white; color: #b45309; border: 1.5px solid #b45309; padding: 8px 18px; font-size: 0.8rem; font-weight: 800; border-radius: 4px; cursor: pointer; text-decoration: none; }
+    .btn-dash { background: #f97316; color: white; border: none; padding: 8px 14px; font-size: 0.78rem; font-weight: 800; border-radius: 4px; cursor: pointer; }
+    .btn-reg { background: #b45309; color: white; border: none; padding: 8px 16px; font-size: 0.78rem; font-weight: 800; border-radius: 4px; cursor: pointer; text-decoration: none; }
+    .btn-login { background: white; color: #b45309; border: 1.5px solid #b45309; padding: 7px 16px; font-size: 0.78rem; font-weight: 800; border-radius: 4px; cursor: pointer; text-decoration: none; }
 
     /* 3. Navigation Bar */
-    nav { background: #1e3a8a; padding: 0 6%; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-    .nav-list { display: flex; list-style: none; gap: 22px; align-items: center; }
-    .nav-list li a { display: block; padding: 13px 0; color: #ffffff; text-decoration: none; font-size: 0.84rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; }
+    nav { height: 44px; background: #1e3a8a; padding: 0 6%; display: flex; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.08); }
+    .nav-list { display: flex; list-style: none; gap: 26px; align-items: center; }
+    .nav-list li a { display: block; color: #ffffff; text-decoration: none; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; }
     .nav-list li a:hover, .nav-list li a.active { color: #facc15; }
     .nav-dot { width: 7px; height: 7px; background: #dc2626; border-radius: 50%; display: inline-block; margin-left: 4px; }
 
     /* 4. Alert Ribbon */
-    .alert-ribbon { background: #0284c7; color: white; padding: 7px 6%; font-size: 0.82rem; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #0369a1; }
+    .alert-ribbon { background: #0284c7; color: white; padding: 7px 6%; font-size: 0.82rem; display: flex; align-items: center; gap: 12px; }
     .alert-tag { background: #0c4a6e; padding: 2px 8px; border-radius: 3px; font-weight: 800; font-size: 0.72rem; white-space: nowrap; }
 
-    /* 5. Official Hero Section */
+    /* 5. Hero Section */
     .official-hero {
       position: relative;
       background: linear-gradient(135deg, #0b1f3a 0%, #0f274a 60%, #173863 100%);
@@ -144,7 +122,7 @@
     .btn-secondary-official { background: transparent; color: #ffffff; border: 1.5px solid #cbd5e1; padding: 11px 22px; border-radius: 4px; font-weight: 800; font-size: 0.92rem; text-decoration: none; }
     .btn-secondary-official:hover { background: rgba(255, 255, 255, 0.1); }
 
-    /* Floating Official Registry Card */
+    /* Floating Status Box */
     .hero-floating-card {
       background: rgba(255, 255, 255, 0.97);
       color: #0f172a;
@@ -170,7 +148,7 @@
     .partner-card { padding: 14px 20px; border: 1px solid #e2e8f0; border-radius: 6px; background: #f8fafc; min-width: 170px; text-align: center; }
     .partner-card .p-icon { font-size: 2rem; margin-bottom: 5px; }
 
-    /* SIDH Welcome Pop-up Modal */
+    /* Modal */
     .sidh-overlay {
       display: none;
       position: fixed;
@@ -185,37 +163,34 @@
     .sidh-card {
       background: #ffffff;
       width: 100%;
-      max-width: 760px;
+      max-width: 650px;
       border-radius: 12px;
       padding: 30px 35px 25px;
       position: relative;
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
-      animation: popZoom 0.25s ease-out;
     }
-    @keyframes popZoom { from { transform: scale(0.92); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-    .sidh-close-btn { position: absolute; top: 18px; right: 20px; background: transparent; border: none; font-size: 1.8rem; color: #64748b; cursor: pointer; line-height: 1; }
+    .sidh-close-btn { position: absolute; top: 18px; right: 20px; background: transparent; border: none; font-size: 1.8rem; color: #64748b; cursor: pointer; }
     .sidh-brand-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
     .sidh-brand-head img { height: 35px; width: auto; }
     .sidh-brand-title { font-size: 0.95rem; font-weight: 800; color: #1e3a8a; }
     .sidh-heading { text-align: center; margin-bottom: 25px; }
     .sidh-heading h2 { font-size: 1.45rem; color: #1e293b; font-weight: 800; margin-bottom: 4px; }
-    .sidh-heading p { font-size: 0.88rem; color: #64748b; }
     .sidh-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
     .sidh-box { border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 16px 14px; display: flex; align-items: center; gap: 14px; cursor: pointer; text-decoration: none; transition: all 0.2s ease; background: #ffffff; }
-    .sidh-box:hover { border-color: #0284c7; box-shadow: 0 6px 16px rgba(2, 132, 199, 0.12); transform: translateY(-2px); }
-    .sidh-icon { width: 52px; height: 52px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; border-radius: 50%; background: #eff6ff; }
+    .sidh-box:hover { border-color: #0284c7; transform: translateY(-2px); }
+    .sidh-icon { width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; border-radius: 50%; background: #eff6ff; }
     .sidh-info h4 { font-size: 0.95rem; font-weight: 700; color: #1e293b; margin-bottom: 3px; }
     .sidh-info p { font-size: 0.75rem; color: #64748b; line-height: 1.3; }
 
     footer { background: #0b132b; color: #94a3b8; padding: 30px 6%; font-size: 0.85rem; text-align: center; }
 
-    @media (max-width: 900px) {
+    @media (max-width: 850px) {
+      .portal-header { height: auto; padding: 10px 6%; flex-direction: column; gap: 10px; }
+      nav { height: auto; padding: 8px 6%; }
+      .nav-list { flex-wrap: wrap; gap: 12px; }
       .hero-graphic-bg { width: 100%; opacity: 0.25; }
       .hero-floating-card { display: none; }
-      .hero-title { font-size: 1.85rem; }
       .sidh-grid { grid-template-columns: 1fr; }
-      .brand-names h1 { font-size: 1.3rem; }
-      .brand-names h2 { font-size: 0.78rem; }
     }
   </style>
 </head>
@@ -229,11 +204,6 @@
     <div class="gov-links">
       <a href="verify.html">Document Verification</a>
       <a href="javascript:void(0)" onclick="openSidhModal()">Choose Role</a>
-      <div class="access-tools">
-        <button class="access-btn">A-</button>
-        <button class="access-btn">A</button>
-        <button class="access-btn">A+</button>
-      </div>
     </div>
   </div>
 
@@ -242,17 +212,16 @@
       <div class="emblem-box">
         🏛️
         <div class="emblem-text">
-          कौशल विकास एवं उद्यमशीलता मंत्रालय<br>
-          <span style="font-size:0.65rem; color:#64748b;">MINISTRY OF SKILL DEVELOPMENT & ENTREPRENEURSHIP</span>
+          ਕੌਸ਼ਲ ਵਿਕਾਸ ਮੰਤਰਾਲਾ<br>
+          <span style="font-size:0.62rem; color:#64748b;">MINISTRY OF SKILL DEV.</span>
         </div>
       </div>
-      
       <div class="brand-logo-area">
-        <img src="collagelogo1.png" alt="UIHESD Logo" onerror="this.src='https://via.placeholder.com/85?text=UIHESD'">
+        <img src="collagelogo1.png" alt="UIHESD Logo" onerror="this.src='https://via.placeholder.com/75?text=UIHESD'">
         <div class="brand-names">
           <h1>UIHESD SKILL HUB</h1>
           <h2>Universal Institute of Higher Education & Skill Development</h2>
-          <p>ਕੌਸ਼ਲ ਭਾਰਤ • ਕੁਸ਼ਲ ਭਾਰਤ | Technical, Vocational & Higher Degree Studies</p>
+          <p>ਕੌਸ਼ਲ ਭਾਰਤ • ਕੁਸ਼ਲ ਭਾਰਤ | Technical & Vocational Institute</p>
         </div>
       </div>
     </div>
@@ -262,7 +231,7 @@
         🔍 <input type="text" placeholder="Search Courses, Trades...">
       </div>
       <button class="btn-dash" onclick="openSidhModal()">DASHBOARDS</button>
-      <button class="btn-reg" onclick="window.location.href='admission.html'">REGISTER</button>
+      <button class="btn-reg" onclick="window.location.href='courses.html'">COURSES</button>
       <button class="btn-login" onclick="window.location.href='verify.html'">VERIFY</button>
     </div>
   </header>
@@ -270,10 +239,8 @@
   <nav>
     <ul class="nav-list">
       <li><a href="index.html" class="active">MSDE <span class="nav-dot"></span></a></li>
-      <li><a href="admission.html">Punjab ITI Admissions</a></li>
-      <li><a href="courses.html">Skill Courses</a></li>
+      <li><a href="courses.html">Courses & Trades</a></li>
       <li><a href="about.html">About Institute</a></li>
-      <li><a href="dgt.html">DGT Ecosystem <span class="nav-dot"></span></a></li>
       <li><a href="verify.html">Verify Certificate</a></li>
     </ul>
   </nav>
@@ -281,7 +248,7 @@
   <div class="alert-ribbon">
     <span class="alert-tag">LATEST NOTIFICATION</span>
     <marquee onmouseover="this.stop();" onmouseout="this.start();">
-      📢 Punjab ITI Admissions 2026-27 Registration OPEN on PSBTE Portal | Admissions live for ITI Trades (COPA, Electrician, Fitter) & Degree Programs | Online Document Verification active.
+      📢 Admissions open for ITI Trades (COPA, Electrician, Fitter) & Degree Programs Session 2026-27 | Online Credential & Certificate Verification active.
     </marquee>
   </div>
 
@@ -309,7 +276,7 @@
         </div>
 
         <div class="hero-actions">
-          <a href="admission.html" class="btn-primary-official">ਰਜਿਸਟ੍ਰੇਸ਼ਨ / ਦਾਖ਼ਲਾ ਲਵੋ ➔</a>
+          <a href="courses.html" class="btn-primary-official">ਸਾਰੇ ਕੋਰਸ ਦੇਖੋ ➔</a>
           <a href="verify.html" class="btn-secondary-official">ਸਰਟੀਫਿਕੇਟ ਵੈਰੀਫਾਈ ਕਰੋ</a>
         </div>
       </div>
@@ -359,40 +326,32 @@
       </div>
 
       <div class="sidh-heading">
-        <h2>Welcome to UIHESD Digital Hub</h2>
-        <p>A platform to meet all your skilling and higher educational needs digitally</p>
+        <h2>Welcome to UIHESD Digital Portal</h2>
+        <p>Direct Services for Candidates & Students</p>
       </div>
 
       <div class="sidh-grid">
-        <a href="admission.html" class="sidh-box">
+        <a href="courses.html" class="sidh-box">
           <div class="sidh-icon">👨‍🎓</div>
           <div class="sidh-info">
-            <h4>Learner / Candidate</h4>
-            <p>Explore skill courses, online admission & training centers</p>
+            <h4>Courses & Trades</h4>
+            <p>Explore ITI trades, vocational skills & degree programs</p>
           </div>
         </a>
 
         <a href="about.html" class="sidh-box">
           <div class="sidh-icon">🤝</div>
           <div class="sidh-info">
-            <h4>Partner / Campus</h4>
-            <p>About institute, training infrastructure & faculty</p>
-          </div>
-        </a>
-
-        <a href="dgt.html" class="sidh-box">
-          <div class="sidh-icon">⚙️</div>
-          <div class="sidh-info">
-            <h4>DGT Ecosystem</h4>
-            <p>IKGPTU affiliation, ISO standards & NCVT trades</p>
+            <h4>About Institute</h4>
+            <p>Campus infrastructure, labs, faculty & affiliations</p>
           </div>
         </a>
 
         <a href="verify.html" class="sidh-box">
           <div class="sidh-icon">📜</div>
           <div class="sidh-info">
-            <h4>ITI Result / Verify</h4>
-            <p>Click here to verify certificate and view credentials</p>
+            <h4>Certificate Verification</h4>
+            <p>Verify candidate credentials & QR authenticated marksheet</p>
           </div>
         </a>
       </div>
