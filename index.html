@@ -16,17 +16,17 @@
     .main-header { background: #ffffff; padding: 15px 6%; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid #1e3a8a; }
     .header-left { display: flex; align-items: center; gap: 20px; }
     .header-left img { height: 80px; width: auto; }
-    .title-area h1 { font-size: 1.45rem; color: #1e3a8a; text-transform: uppercase; font-weight: 800; letter-spacing: 0.5px; }
-    .title-area h2 { font-size: 0.95rem; color: #0284c7; font-weight: 600; margin-top: 3px; }
+    .title-area h1 { font-size: 1.4rem; color: #1e3a8a; text-transform: uppercase; font-weight: 800; letter-spacing: 0.5px; }
+    .title-area h2 { font-size: 0.92rem; color: #0284c7; font-weight: 600; margin-top: 3px; }
     .title-area p { font-size: 0.8rem; color: #64748b; font-weight: bold; }
-    .header-right { text-align: right; font-size: 0.85rem; color: #334155; }
-    .affiliation-badge { background: #eff6ff; border: 1px dashed #2563eb; padding: 6px 12px; border-radius: 4px; font-weight: 600; color: #1e40af; }
+    .header-right { text-align: right; font-size: 0.82rem; color: #334155; display: flex; gap: 10px; }
+    .affiliation-badge { background: #eff6ff; border: 1px dashed #2563eb; padding: 6px 10px; border-radius: 4px; font-weight: 600; color: #1e40af; }
 
     /* 3. Official Navigation Bar */
     nav { background: #1e3a8a; position: sticky; top: 0; z-index: 999; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
     .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 0 6%; }
     .nav-links { display: flex; list-style: none; }
-    .nav-links li a { display: block; padding: 14px 16px; color: #ffffff; text-decoration: none; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; transition: 0.2s; }
+    .nav-links li a { display: block; padding: 14px 15px; color: #ffffff; text-decoration: none; font-size: 0.88rem; font-weight: 600; text-transform: uppercase; transition: 0.2s; }
     .nav-links li a:hover { background: #0f172a; color: #facc15; }
     .apply-nav-btn { background: #dc2626; color: white !important; font-weight: bold; border-radius: 4px; margin: 6px 0; padding: 8px 16px !important; text-decoration: none; }
     .apply-nav-btn:hover { background: #b91c1c !important; }
@@ -56,6 +56,13 @@
     .container { padding: 60px 6%; }
     .section-title { text-align: center; font-size: 1.8rem; color: #1e3a8a; margin-bottom: 35px; font-weight: 800; text-transform: uppercase; position: relative; }
     .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: #dc2626; margin: 8px auto 0; }
+
+    /* Accreditations & Recognitions Grid */
+    .accredit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .accredit-card { background: white; border: 1px solid #e2e8f0; border-radius: 6px; padding: 25px 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04); border-top: 4px solid #0284c7; }
+    .accredit-icon { font-size: 2rem; margin-bottom: 10px; }
+    .accredit-card h4 { font-size: 1.1rem; color: #1e3a8a; margin-bottom: 8px; }
+    .accredit-card p { font-size: 0.85rem; color: #64748b; line-height: 1.4; }
 
     /* About Section */
     .about-wrap { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
@@ -103,17 +110,20 @@
 </head>
 <body>
 
+  <!-- 1. Top Bar -->
   <div class="top-bar">
     <div>
       <span>📞 Helpline: +91 98XXX-XXXXX</span> | 
       <span>✉️ Email: info@uihesd.edu.in</span>
     </div>
     <div>
+      <a href="#accreditations">Affiliations</a>
       <a href="#certificate">Verify Certificate</a>
       <a href="#admission">Admissions 2026-27</a>
     </div>
   </div>
 
+  <!-- 2. Official College Header -->
   <header class="main-header">
     <div class="header-left">
       <img src="collagelogo1.png" alt="UIHESD Official Seal" onerror="this.style.display='none'">
@@ -124,39 +134,75 @@
       </div>
     </div>
     <div class="header-right">
-      <div class="affiliation-badge">Approved Technical & Vocational Campus</div>
+      <div class="affiliation-badge">🎓 Affiliated to PTU (IKGPTU)</div>
+      <div class="affiliation-badge">🏅 ISO 9001:2015 Certified</div>
     </div>
   </header>
 
+  <!-- 3. Navigation Bar -->
   <nav>
     <div class="nav-container">
       <ul class="nav-links">
         <li><a href="#">Home</a></li>
         <li><a href="#about">About Institute</a></li>
+        <li><a href="#accreditations">Recognitions</a></li>
         <li><a href="#courses">Academic Courses</a></li>
-        <li><a href="#certificate">Certificate Verification</a></li>
+        <li><a href="#certificate">Verification</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <a href="#admission" class="apply-nav-btn">Apply Now</a>
     </div>
   </nav>
 
+  <!-- 4. Notice Ticker -->
   <div class="ticker">
     <div class="ticker-title">LATEST UPDATES</div>
     <marquee onmouseover="this.stop();" onmouseout="this.start();">
-      📢 Online Certificate & Diploma Verification Portal is now active. Students and employers can verify documents online.
+      📢 Admissions Open 2026-27 | Approved & Certified Programs under PTU Affiliation, ISO Standards & Skill Development Missions | Online Verification Active.
     </marquee>
   </div>
 
+  <!-- 5. Hero Section -->
   <section class="hero">
     <h2>Empowering Youth Through Quality Education & Practical Skills</h2>
-    <p>ਸਿੱਖਿਆ, ਹੁਨਰ ਅਤੇ ਸਵੈ-ਮਾਣ ਨਾਲ ਆਪਣੇ ਸੁਨਹਿਰੇ ਭਵਿੱਖ ਦੀ ਸ਼ੁਰੂਆਤ ਕਰੋ। ਉਦਯੋਗਾਂ ਦੀ ਮੰਗ ਅਨੁਸਾਰ ਪ੍ਰੈਕਟੀਕਲ ਟਰੇਨਿੰਗ।</p>
+    <p>ISO 9001:2015 ਪ੍ਰਮਾਣਿਤ ਅਤੇ ਪੰਜਾਬ ਟੈਕਨੀਕਲ ਯੂਨੀਵਰਸਿਟੀ (IKGPTU) ਨਾਲ ਮਾਨਤਾ ਪ੍ਰਾਪਤ ਉੱਚ ਸਿੱਖਿਆ ਅਤੇ ਤਕਨੀਕੀ ਹੁਨਰ ਦਾ ਪ੍ਰਮੁੱਖ ਕੇਂਦਰ।</p>
     <div class="btn-group">
       <a href="#admission" class="btn-main">Online Admission 2026</a>
-      <a href="#certificate" class="btn-outline">Verify Certificate</a>
+      <a href="#accreditations" class="btn-outline">Recognitions & Approvals</a>
     </div>
   </section>
 
+  <!-- 6. Accreditations & Certifications Section -->
+  <section class="container" id="accreditations" style="background: #ffffff;">
+    <h2 class="section-title">Recognitions & Accreditations</h2>
+    <p style="text-align: center; max-width: 750px; margin: -20px auto 40px; color: #64748b; font-size: 0.95rem;">
+      ਸਾਡਾ ਸੰਸਥਾਨ ਰਾਜ ਸਰਕਾਰ, ਰਾਸ਼ਟਰੀ ਯੂਨੀਵਰਸਿਟੀਆਂ ਅਤੇ ਅੰਤਰਰਾਸ਼ਟਰੀ ਮਿਆਰੀ ਸੰਸਥਾਵਾਂ ਤੋਂ ਮਾਨਤਾ ਪ੍ਰਾਪਤ ਹੈ:
+    </p>
+    <div class="accredit-grid">
+      <div class="accredit-card">
+        <div class="accredit-icon">🏛️</div>
+        <h4>Punjab Technical University</h4>
+        <p>I.K. Gujral Punjab Technical University (IKGPTU) ਨਾਲ ਮਾਨਤਾ ਪ੍ਰਾਪਤ ਪ੍ਰੋਗਰਾਮ ਅਤੇ ਡਿਗਰੀ ਅਧਿਐਨ।</p>
+      </div>
+      <div class="accredit-card">
+        <div class="accredit-icon">🏅</div>
+        <h4>ISO 9001:2015 Certified</h4>
+        <p>ਵਿਦਿਅਕ ਗੁਣਵੱਤਾ ਅਤੇ ਬਿਹਤਰ ਪ੍ਰਬੰਧਨ ਲਈ ਅੰਤਰਰਾਸ਼ਟਰੀ ਮਿਆਰ ਸਰਟੀਫਿਕੇਸ਼ਨ।</p>
+      </div>
+      <div class="accredit-card">
+        <div class="accredit-icon">⚙️</div>
+        <h4>NCVT / DGT Norms</h4>
+        <p>ਡਾਇਰੈਕਟੋਰੇਟ ਜਨਰਲ ਆਫ਼ ਟ੍ਰੇਨਿੰਗ (DGT) ਅਧੀਨ ਨਿਰਧਾਰਿਤ ਤਕਨੀਕੀ ਆਈ.ਟੀ.ਆਈ. ਸਿਲੇਬਸ ਤੇ ਪੈਟਰਨ।</p>
+      </div>
+      <div class="accredit-card">
+        <div class="accredit-icon">🇮🇳</div>
+        <h4>Skill India / NSDC</h4>
+        <p>ਭਾਰਤ ਸਰਕਾਰ ਦੇ ਸਕਿੱਲ ਇੰਡੀਆ ਮਿਸ਼ਨ ਅਧੀਨ ਰੋਜ਼ਗਾਰ-ਮੁਖੀ ਹੁਨਰ ਸਿਖਲਾਈ ਕੋਰਸ।</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. About Section -->
   <section class="container" id="about">
     <h2 class="section-title">About Our Institute</h2>
     <div class="about-wrap">
@@ -190,6 +236,7 @@
     </div>
   </section>
 
+  <!-- 8. Certificate Verification Section -->
   <section class="container" id="certificate" style="background: #e2e8f0;">
     <h2 class="section-title">Certificate Verification Portal</h2>
     <div class="cert-box">
@@ -200,11 +247,11 @@
         <input type="text" id="certInput" placeholder="Enter Certificate / Roll No. (e.g. UIHESD/2026/001)">
         <button class="cert-btn" onclick="verifyCertificate()">Verify</button>
       </div>
-
       <div id="certResult" class="cert-result"></div>
     </div>
   </section>
 
+  <!-- 9. Courses Section -->
   <section class="container" id="courses">
     <h2 class="section-title">Academic Programs Offered</h2>
     <div class="course-grid">
@@ -223,12 +270,13 @@
       <div class="course-card">
         <span class="badge">Higher Learning</span>
         <h4 style="margin-top: 10px;">Degree & Management Studies</h4>
-        <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 15px;">ਗ੍ਰੈਜੂਏਸ਼ਨ ਅਤੇ ਪ੍ਰੋਫੈਸ਼ਨਲ ਮੈਨੇਜਮੈਂਟ ਕਰੀਅਰ ਕੋਰਸ।</p>
+        <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 15px;">ਪੰਜਾਬ ਟੈਕਨੀਕਲ ਯੂਨੀਵਰਸਿਟੀ (PTU) ਨਾਲ ਸੰਬੰਧਿਤ ਡਿਗਰੀ ਅਤੇ ਪ੍ਰੋਫੈਸ਼ਨਲ ਕੋਰਸ।</p>
         <a href="#admission" class="action-btn">Apply Now</a>
       </div>
     </div>
   </section>
 
+  <!-- 10. Admission Section -->
   <section class="container" id="admission" style="background: #e2e8f0;">
     <h2 class="section-title">Online Admission Portal 2026</h2>
     <div class="form-wrapper">
@@ -236,11 +284,21 @@
     </div>
   </section>
 
+  <!-- 11. Official Footer -->
   <footer id="contact">
     <div class="footer-grid">
       <div class="footer-col">
         <h4>About UIHESD</h4>
-        <p style="font-size: 0.85rem;">Universal Institute of Higher Education & Skill Development is committed to creating skilled professionals for the nation.</p>
+        <p style="font-size: 0.85rem;">Universal Institute of Higher Education & Skill Development is committed to creating skilled professionals with PTU affiliations and ISO standards.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Recognitions</h4>
+        <ul>
+          <li>Punjab Technical University (IKGPTU)</li>
+          <li>ISO 9001:2015 Certified</li>
+          <li>NCVT / DGT Norms</li>
+          <li>Skill Development Initiative</li>
+        </ul>
       </div>
       <div class="footer-col">
         <h4>Quick Links</h4>
@@ -259,12 +317,12 @@
       </div>
     </div>
     <div class="bottom-bar">
-      <p>© 2026 Universal Institute of Higher Education & Skill Development. All Rights Reserved | Official Verification Portal</p>
+      <p>© 2026 Universal Institute of Higher Education & Skill Development. All Rights Reserved | Official Portal</p>
     </div>
   </footer>
 
+  <!-- Certificate Verification Script -->
   <script>
-    // ਵਿਦਿਆਰਥੀਆਂ ਦਾ ਰਿਕਾਰਡ (ਤੁਸੀਂ ਆਪਣੀ ਮਰਜ਼ੀ ਅਨੁਸਾਰ ਨਵੇਂ ਰਿਕਾਰਡ ਜੋੜ ਸਕਦੇ ਹੋ)
     const certificateDatabase = {
       "UIHESD/2026/001": {
         name: "Gurpreet Singh",
