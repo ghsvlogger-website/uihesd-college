@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eCounselling & Admission Services for ITI Courses 2026-27 | PSBTE & IT</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+    body { background-color: #ffffff; color: #1e293b; line-height: 1.4; }
+
+    /* 1. Top Govt State Header */
+    .top-state-strip {
+      background: #f1f5f9;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 4px 6%;
+      font-size: 0.72rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #334155;
+      font-weight: 700;
+    }
+    .top-state-left { display: flex; gap: 20px; }
+    .top-state-right { display: flex; gap: 12px; align-items: center; font-size: 0.85rem; }
+
+    /* 2. Main PSBTE Header */
+    .main-board-header {
+      padding: 12px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .left-logo-area { display: flex; align-items: center; gap: 14px; }
+    .tech-ed-logo {
+      width: 48px;
+      height: 48px;
+      border: 3px solid #0284c7;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: #0284c7;
+      font-size: 0.75rem;
+      text-align: center;
+      line-height: 1;
+    }
+    .board-center-text { text-align: center; flex: 1; padding: 0 15px; }
+    .board-center-text h4 { font-size: 0.95rem; color: #000000; font-weight: 800; }
+    .board-center-text h1 { font-size: 1.35rem; color: #000000; font-weight: 800; letter-spacing: 0.2px; margin: 2px 0; }
+    .board-center-text p { font-size: 0.88rem; color: #334155; font-weight: 600; }
+    
+    .right-logo-area img {
+      height: 55px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* 3. Orange / Yellowish Nav Menu */
+    nav { background: #f1f5f9; border-top: 1px solid #e2e8f0; border-bottom: 1.5px solid #cbd5e1; padding: 0 6%; }
+    .nav-list { display: flex; list-style: none; gap: 1px; }
+    .nav-list li a {
+      display: block;
+      padding: 10px 14px;
+      color: #334155;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 700;
+      transition: background 0.2s;
+    }
+    .nav-list li a:hover { background: #e2e8f0; }
+    .nav-list li a.active { background: #f59e0b; color: #ffffff; }
+
+    /* 4. Latest News Blue Ticker */
+    .news-ticker-bar {
+      background: #0f2b5c;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      padding: 6px 6%;
+      font-size: 0.82rem;
+    }
+    .ticker-badge {
+      background: #0f2b5c;
+      color: #ffffff;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      padding-right: 18px;
+      white-space: nowrap;
+      border-right: 2px solid #38bdf8;
+      margin-right: 15px;
+    }
+    .news-ticker-bar marquee { flex: 1; }
+    .new-tag { background: #dc2626; color: white; padding: 1px 5px; font-size: 0.65rem; border-radius: 2px; font-weight: bold; margin-left: 6px; }
+
+    /* 5. Main Layout Grid */
+    .portal-main-body {
+      padding: 30px 6%;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 35px;
+    }
+
+    /* Left Sidebar: News & Events Tabs */
+    .left-sidebar {
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      background: #ffffff;
+      height: fit-content;
+    }
+    .tab-headers {
+      display: flex;
+      background: #e2e8f0;
+      border-bottom: 1px solid #cbd5e1;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 10px 8px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #475569;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .tab-btn.active {
+      background: #ffffff;
+      color: #0f2b5c;
+      border-top: 2px solid #0f2b5c;
+    }
+    .links-list {
+      list-style: none;
+      padding: 15px 18px;
+      max-height: 520px;
+      overflow-y: auto;
+    }
+    .links-list li {
+      margin-bottom: 10px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      position: relative;
+      padding-left: 14px;
+    }
+    .links-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #0f172a;
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+    .links-list a {
+      color: #1e293b;
+      text-decoration: none;
+    }
+    .links-list a:hover {
+      color: #0284c7;
+      text-decoration: underline;
+    }
+
+    /* Right Main Content */
+    .right-content-area {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    /* Introduction Box */
+    .intro-box h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 10px;
+      letter-spacing: 0.3px;
+    }
+    .intro-box p {
+      font-size: 0.9rem;
+      color: #334155;
+      text-align: justify;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+    .btn-view-more {
+      background: #f59e0b;
+      color: white;
+      border: none;
+      padding: 7px 18px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      border-radius: 3px;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    /* Candidate Activity Board (Dark Blue Box) */
+    .candidate-board {
+      background: #0d274c;
+      color: white;
+      border-radius: 4px;
+      padding: 16px 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+    .candidate-board h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: 0.3px;
+    }
+    .activity-link {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+    .activity-link:hover {
+      text-decoration: underline;
+      color: #facc15;
+    }
+
+    /* Sandes Notification Banner */
+    .sandes-box {
+      border: 1.5px solid #fdba74;
+      border-radius: 4px;
+      padding: 12px 18px;
+      text-align: center;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #ea580c;
+      background: #fffaf5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    /* Admission Google Form Popup Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(4px);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+    }
+    .modal-content {
+      background: white;
+      width: 100%;
+      max-width: 820px;
+      height: 90vh;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .modal-header {
+      background: #0d274c;
+      color: white;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-header h3 { font-size: 1rem; font-weight: 800; }
+    .modal-close {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+    .modal-body { flex: 1; }
+    .modal-body iframe { width: 100%; height: 100%; border: none; }
+
+    /* Footer */
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 25px 6%;
+      font-size: 0.8rem;
+      text-align: center;
+      border-top: 3px solid #f59e0b;
+    }
+    footer a { color: #facc15; text-decoration: none; margin: 0 8px; font-weight: 600; }
+
+    @media (max-width: 850px) {
+      .portal-main-body { grid-template-columns: 1fr; }
+      .main-board-header { flex-direction: column; text-align: center; gap: 10px; }
+      .board-center-text { padding: 5px 0; }
+      .top-state-strip { flex-direction: column; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-state-strip">
+    <div class="top-state-left">
+      <span>ਪੰਜਾਬ ਸਰਕਾਰ • GOVERNMENT OF PUNJAB</span>
+      <span>ਪੰਜਾਬ ਰਾਜ ਤਕਨੀਕੀ ਸਿੱਖਿਆ ਅਤੇ ਉਦਯੋਗਿਕ ਸਿਖਲਾਈ ਬੋਰਡ</span>
+    </div>
+    <div class="top-state-right">
+      <span>🔠 A- A A+</span> |
+      <span>🌐 English / ਪੰਜਾਬੀ</span>
+    </div>
+  </div>
+
+  <header class="main-board-header">
+    <div class="left-logo-area">
+      <div class="tech-ed-logo">TECH<br>ED</div>
+      <img src="collagelogo1.png" alt="UIHESD" style="height:55px;" onerror="this.style.display='none'">
+    </div>
+
+    <div class="board-center-text">
+      <h4>ਪੰਜਾਬ ਰਾਜ ਤਕਨੀਕੀ ਸਿੱਖਿਆ ਅਤੇ ਉਦਯੋਗਿਕ ਸਿਖਲਾਈ ਬੋਰਡ</h4>
+      <h1>The Punjab State Board of Technical Education and Industrial Training</h1>
+      <p>eCounselling and Admission Services for ITI level Courses for Session 2026-27</p>
+    </div>
+
+    <div class="right-logo-area">
+      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/95/Digital_India_logo.svg/300px-Digital_India_logo.svg.png" alt="Digital India">
+    </div>
+  </header>
+
+  <nav>
+    <ul class="nav-list">
+      <li><a href="index.html">Main Home</a></li>
+      <li><a href="admission.html" class="active">Admission Home</a></li>
+      <li><a href="about.html">About ▾</a></li>
+      <li><a href="courses.html">Information</a></li>
+      <li><a href="courses.html">Schedule</a></li>
+      <li><a href="verify.html">eServices ▾</a></li>
+      <li><a href="verify.html">Certificate Format</a></li>
+      <li><a href="courses.html">Notices</a></li>
+      <li><a href="about.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <div class="news-ticker-bar">
+    <span class="ticker-badge">LATEST NEWS</span>
+    <marquee onmouseover="this.stop();" onmouseout="this.start();">
+      Registration and Document Verification is now open for Spot Round for candidates who have not registered or got their documents verified earlier.<span class="new-tag">New</span>
+      &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      Direct Admissions for Session 2026-27 at Universal Institute of Higher Education & Skill Development (UIHESD).
+    </marquee>
+  </div>
+
+  <div class="portal-main-body">
+
+    <aside class="left-sidebar">
+      <div class="tab-headers">
+        <button class="tab-btn active">NEWS & EVENTS</button>
+        <button class="tab-btn">PUBLIC NOTICES</button>
+      </div>
+
+      <ul class="links-list">
+        <li><a href="javascript:void(0)" onclick="openAdmissionModal()">ITI Date Extension</a></li>
+        <li><a href="javascript:void(0)" onclick="openAdmissionModal()">Spot Round Extension</a></li>
+        <li><a href="javascript:void(0)" onclick="openAdmissionModal()">Spot Round guidelines</a></li>
+        <li><a href="javascript:void(0)" onclick="openAdmissionModal()">Spot Round Schedule</a></li>
+        <li><a href="javascript:void(0)" onclick="openAdmissionModal()">Admission Schedule 2026-27</a></li>
+        <li><a href="javascript:void(0)" onclick="openAdmissionModal()">Final Prospectus</a></li>
+        <li><a href="javascript:void(0)" onclick="openAdmissionModal()">Fee Structure</a></li>
+        <li><a href="javascript:void(0)" onclick="openAdmissionModal()">DI Guidelines</a></li>
+        <li><a href="javascript:void(0)" onclick="openAdmissionModal()">Admission Advertisement 2026</a></li>
+        <li><a href="javascript:void(0)" onclick="openAdmissionModal()">Candidates Instructions</a></li>
+        <li><a href="javascript:void(0)" onclick="openAdmissionModal()">Revised Fee Chart</a></li>
+        <li><a href="javascript:void(0)" onclick="openAdmissionModal()">Tentative List of Pvt. ITIs</a></li>
+        <li><a href="javascript:void(0)" onclick="openAdmissionModal()">List of Govt. ITIs</a></li>
+        <li><a href="javascript:void(0)" onclick="openAdmissionModal()">Grade to percentage Conversion table</a></li>
+        <li><a href="courses.html">Trade List (COPA, Electrician, Fitter)</a></li>
+      </ul>
+    </aside>
+
+    <main class="right-content-area">
+      <div class="intro-box">
+        <h2>INTRODUCTION</h2>
+        <p>
+          Punjab State Board of Technical Education and Industrial Training (PSBTE & IT) is an autonomous statutory authority created under The Punjab State Board of Technical Education & Industrial Training 1992 Act for regulating and controlling academic standards in Institutes of Technical Education and for making admissions & conducting examinations in Polytechnics and Industrial Training Institutes located in the state of Punjab.
+        </p>
+        <button class="btn-view-more" onclick="window.location.href='about.html'">View More</button>
+      </div>
+
+      <div class="candidate-board">
+        <h3>Candidate Activity Board</h3>
+        <div>
+          • <a class="activity-link" onclick="openAdmissionModal()">
+            Registration/Login for Punjab ITI Counselling 2026 ➔
+          </a>
+        </div>
+      </div>
+
+      <div class="sandes-box">
+        Install "Sandes" 💬 to get counselling related messages.
+      </div>
+    </main>
+
+  </div>
+
+  <div id="admissionModal" class="modal-overlay" onclick="closeOnOutside(event)">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Registration / Admission Application Form (Session 2026-27)</h3>
+        <button class="modal-close" onclick="closeAdmissionModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc_EXAMPLE_FORM_ID/viewform?embedded=true">Loading Online Application Form...</iframe>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 The Punjab State Board of Technical Education & Industrial Training. Technical Partner: National Informatics Centre (NIC) & UIHESD.</p>
+    <p style="margin-top:6px;">
+      <a href="index.html">Portal Home</a> |
+      <a href="verify.html">Document Verification</a> |
+      <a href="courses.html">Offered Trades</a>
+    </p>
+  </footer>
+
+  <script>
+    function openAdmissionModal() {
+      document.getElementById('admissionModal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeAdmissionModal() {
+      document.getElementById('admissionModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+    function closeOnOutside(e) {
+      if (e.target.id === 'admissionModal') closeAdmissionModal();
+    }
+  </script>
+
+</body>
+</html>
