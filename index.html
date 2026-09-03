@@ -41,11 +41,11 @@
     .emblem-box { display: flex; align-items: center; gap: 8px; border-right: 2px solid #cbd5e1; padding-right: 18px; }
     .emblem-text { font-size: 0.72rem; font-weight: 800; color: #0f172a; line-height: 1.25; text-transform: uppercase; }
     
-    /* BRAND AREA - ENLARGED */
+    /* ENLARGED COLLEGE BRAND AREA */
     .brand-logo-area { display: flex; align-items: center; gap: 16px; }
-    .brand-logo-area img { height: 85px; width: auto; object-fit: contain; } /* ਵੱਡਾ ਲੋਗੋ */
+    .brand-logo-area img { height: 85px; width: auto; object-fit: contain; }
     .brand-names h1 { 
-      font-size: 1.85rem; /* ਵੱਡਾ ਬੋਲਡ ਟਾਈਟਲ */
+      font-size: 1.85rem; 
       color: #0f172a; 
       font-weight: 900; 
       text-transform: uppercase; 
@@ -170,7 +170,7 @@
     .partner-card { padding: 14px 20px; border: 1px solid #e2e8f0; border-radius: 6px; background: #f8fafc; min-width: 170px; text-align: center; }
     .partner-card .p-icon { font-size: 2rem; margin-bottom: 5px; }
 
-    /* SIDH Modal */
+    /* SIDH Welcome Pop-up Modal */
     .sidh-overlay {
       display: none;
       position: fixed;
@@ -221,7 +221,6 @@
 </head>
 <body>
 
-  <!-- 1. Flag & Accessibility Bar -->
   <div class="gov-flag-bar">
     <div class="flag-group">
       <span class="flag-icon"></span>
@@ -238,7 +237,6 @@
     </div>
   </div>
 
-  <!-- 2. Main Portal Header with Enlarged Name -->
   <header class="portal-header">
     <div class="header-logos">
       <div class="emblem-box">
@@ -249,7 +247,6 @@
         </div>
       </div>
       
-      <!-- ENLARGED COLLEGE BRAND NAME -->
       <div class="brand-logo-area">
         <img src="collagelogo1.png" alt="UIHESD Logo" onerror="this.src='https://via.placeholder.com/85?text=UIHESD'">
         <div class="brand-names">
@@ -265,16 +262,15 @@
         🔍 <input type="text" placeholder="Search Courses, Trades...">
       </div>
       <button class="btn-dash" onclick="openSidhModal()">DASHBOARDS</button>
-      <button class="btn-reg" onclick="openSidhModal()">REGISTER</button>
+      <button class="btn-reg" onclick="window.location.href='admission.html'">REGISTER</button>
       <button class="btn-login" onclick="window.location.href='verify.html'">VERIFY</button>
     </div>
   </header>
 
-  <!-- 3. Navigation Bar -->
   <nav>
     <ul class="nav-list">
       <li><a href="index.html" class="active">MSDE <span class="nav-dot"></span></a></li>
-      <li><a href="courses.html">Schemes / Programs</a></li>
+      <li><a href="admission.html">Punjab ITI Admissions</a></li>
       <li><a href="courses.html">Skill Courses</a></li>
       <li><a href="about.html">About Institute</a></li>
       <li><a href="dgt.html">DGT Ecosystem <span class="nav-dot"></span></a></li>
@@ -282,15 +278,13 @@
     </ul>
   </nav>
 
-  <!-- 4. Alert Ribbon -->
   <div class="alert-ribbon">
     <span class="alert-tag">LATEST NOTIFICATION</span>
     <marquee onmouseover="this.stop();" onmouseout="this.start();">
-      📢 IndiaSkills 2026-27 Competitions Registration OPEN | Admissions live for ITI Trades (COPA, Electrician, Fitter) & Degree Programs | Online Document Verification active.
+      📢 Punjab ITI Admissions 2026-27 Registration OPEN on PSBTE Portal | Admissions live for ITI Trades (COPA, Electrician, Fitter) & Degree Programs | Online Document Verification active.
     </marquee>
   </div>
 
-  <!-- 5. Official Hero Section -->
   <section class="official-hero">
     <div class="hero-graphic-bg"></div>
     <div class="hero-container">
@@ -315,7 +309,7 @@
         </div>
 
         <div class="hero-actions">
-          <a href="javascript:void(0)" onclick="openSidhModal()" class="btn-primary-official">ਰਜਿਸਟ੍ਰੇਸ਼ਨ / ਦਾਖ਼ਲਾ ਲਵੋ ➔</a>
+          <a href="admission.html" class="btn-primary-official">ਰਜਿਸਟ੍ਰੇਸ਼ਨ / ਦਾਖ਼ਲਾ ਲਵੋ ➔</a>
           <a href="verify.html" class="btn-secondary-official">ਸਰਟੀਫਿਕੇਟ ਵੈਰੀਫਾਈ ਕਰੋ</a>
         </div>
       </div>
@@ -345,7 +339,6 @@
     </div>
   </section>
 
-  <!-- 6. Partners & Recognitions -->
   <section class="partners-section">
     <h3 style="color:#1e293b; font-weight:900; font-size:1.3rem;">Our Academic & Certification Partners</h3>
     <div class="partner-logos-grid">
@@ -356,7 +349,6 @@
     </div>
   </section>
 
-  <!-- 7. Skill India Pop-up Modal (SIDH Style) -->
   <div id="sidhModal" class="sidh-overlay" onclick="closeOnOutside(event)">
     <div class="sidh-card">
       <button class="sidh-close-btn" onclick="closeSidhModal()">&times;</button>
@@ -372,7 +364,7 @@
       </div>
 
       <div class="sidh-grid">
-        <a href="courses.html" class="sidh-box">
+        <a href="admission.html" class="sidh-box">
           <div class="sidh-icon">👨‍🎓</div>
           <div class="sidh-info">
             <h4>Learner / Candidate</h4>
