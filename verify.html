@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Online Certificate Verification System | UIHESD</title>
   
+  <!-- Dynamic QR Code Script -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
   <style>
@@ -12,53 +13,62 @@
     body { background-color: #f8fafc; color: #1e293b; line-height: 1.5; }
 
     /* Top Flag Bar */
-    .gov-flag-bar { background: #f1f5f9; border-bottom: 1px solid #e2e8f0; padding: 5px 6%; font-size: 0.8rem; display: flex; justify-content: space-between; align-items: center; color: #334155; }
-    .flag-group { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+    .gov-flag-bar { background: #0f172a; border-bottom: 2px solid #ff9933; padding: 5px 6%; font-size: 0.78rem; display: flex; justify-content: space-between; align-items: center; color: #e2e8f0; }
+    .flag-group { display: flex; align-items: center; gap: 8px; font-weight: 700; }
     .flag-icon { width: 20px; height: 13px; border: 1px solid #cbd5e1; background: linear-gradient(#ff9933 33%, #ffffff 33%, #ffffff 66%, #128807 66%); display: inline-block; }
-    .gov-links a { margin-left: 15px; color: #475569; text-decoration: none; font-size: 0.78rem; font-weight: 600; }
+    .gov-links a { color: #cbd5e1; text-decoration: none; font-size: 0.75rem; font-weight: 600; margin-left: 12px; }
 
-    /* Portal Header */
-    .portal-header { background: #ffffff; padding: 12px 6%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.03); }
-    .header-logos { display: flex; align-items: center; gap: 20px; }
-    .emblem-box { display: flex; align-items: center; gap: 8px; border-right: 2px solid #e2e8f0; padding-right: 18px; }
-    .emblem-text { font-size: 0.72rem; font-weight: 700; color: #1e293b; line-height: 1.2; text-transform: uppercase; }
-    .brand-logo-area { display: flex; align-items: center; gap: 12px; }
-    .brand-logo-area img { height: 60px; width: auto; object-fit: contain; }
-    .brand-names h1 { font-size: 1.15rem; color: #0f172a; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; }
-    .brand-names p { font-size: 0.75rem; color: #0284c7; font-weight: 700; }
+    /* Header */
+    .portal-header { background: #ffffff; padding: 14px 6%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e2e8f0; box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
+    .header-logos { display: flex; align-items: center; gap: 18px; }
+    .emblem-box { display: flex; align-items: center; gap: 8px; border-right: 2px solid #cbd5e1; padding-right: 18px; }
+    .emblem-text { font-size: 0.72rem; font-weight: 800; color: #0f172a; line-height: 1.25; text-transform: uppercase; }
+    .brand-logo-area { display: flex; align-items: center; gap: 16px; }
+    .brand-logo-area img { height: 85px; width: auto; object-fit: contain; }
+    .brand-names h1 { font-size: 1.85rem; color: #0f172a; font-weight: 900; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.1; margin-bottom: 2px; }
+    .brand-names h2 { font-size: 0.92rem; color: #1e3a8a; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2px; margin-bottom: 2px; }
+    .brand-names p { font-size: 0.8rem; color: #0284c7; font-weight: 700; }
 
-    .header-controls { display: flex; align-items: center; gap: 12px; }
-    .search-box { display: flex; align-items: center; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 4px; padding: 6px 12px; width: 240px; }
-    .search-box input { border: none; outline: none; font-size: 0.85rem; width: 100%; margin-left: 6px; }
-    .btn-dash { background: #f97316; color: white; border: none; padding: 8px 14px; font-size: 0.8rem; font-weight: 700; border-radius: 4px; cursor: pointer; }
-    .btn-reg { background: #b45309; color: white; border: none; padding: 8px 16px; font-size: 0.8rem; font-weight: 700; border-radius: 4px; cursor: pointer; text-decoration: none; }
-    .btn-login { background: white; color: #b45309; border: 1px solid #b45309; padding: 7px 16px; font-size: 0.8rem; font-weight: 700; border-radius: 4px; cursor: pointer; text-decoration: none; }
+    .header-controls { display: flex; align-items: center; gap: 10px; }
+    .btn-dash { background: #f97316; color: white; border: none; padding: 9px 15px; font-size: 0.8rem; font-weight: 800; border-radius: 4px; cursor: pointer; }
 
-    /* Navigation */
-    nav { background: #ffffff; border-top: 1px solid #f1f5f9; border-bottom: 2px solid #e2e8f0; padding: 0 6%; }
-    .nav-list { display: flex; list-style: none; gap: 24px; align-items: center; }
-    .nav-list li a { display: block; padding: 12px 0; color: #334155; text-decoration: none; font-size: 0.85rem; font-weight: 600; }
-    .nav-list li a:hover, .nav-list li a.active { color: #0284c7; }
-    .nav-dot { width: 7px; height: 7px; background: #dc2626; border-radius: 50%; display: inline-block; margin-left: 4px; }
+    nav { background: #1e3a8a; padding: 0 6%; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+    .nav-list { display: flex; list-style: none; gap: 22px; align-items: center; }
+    .nav-list li a { display: block; padding: 13px 0; color: #ffffff; text-decoration: none; font-size: 0.84rem; font-weight: 700; text-transform: uppercase; }
+    .nav-list li a.active { color: #facc15; }
 
-    /* Alert Ribbon */
     .alert-ribbon { background: #0284c7; color: white; padding: 7px 6%; font-size: 0.82rem; display: flex; align-items: center; gap: 12px; }
-    .alert-tag { background: #0369a1; padding: 2px 8px; border-radius: 3px; font-weight: 700; font-size: 0.72rem; white-space: nowrap; }
+    .alert-tag { background: #0c4a6e; padding: 2px 8px; border-radius: 3px; font-weight: 800; font-size: 0.72rem; }
 
     /* Input Section */
     .container { max-width: 980px; margin: 30px auto; padding: 0 15px; }
     .cert-box { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-top: 4px solid #1e3a8a; }
     .cert-input-group { display: flex; gap: 10px; margin-top: 15px; }
     .cert-input-group input { flex: 1; padding: 12px 15px; border: 1.5px solid #cbd5e1; border-radius: 5px; font-size: 1rem; outline: none; }
-    .cert-input-group input:focus { border-color: #1e3a8a; }
     .cert-btn { background: #1e3a8a; color: white; border: none; padding: 12px 24px; border-radius: 5px; font-weight: bold; cursor: pointer; }
     .cert-btn:hover { background: #0f172a; }
     .cert-result { display: none; margin-top: 25px; }
     .cert-invalid { border: 1px solid #fecaca; background: #fef2f2; color: #dc2626; padding: 15px; text-align: center; font-weight: bold; border-radius: 6px; }
 
-    /* ===================================================
-       CERTIFICATE FRAME (AUTHENTIC & PROFESSIONAL)
-    =================================================== */
+    /* Admin Box */
+    .admin-toggle { text-align: center; margin-top: 25px; }
+    .admin-toggle button { background: #1e293b; color: white; border: none; padding: 9px 18px; border-radius: 4px; cursor: pointer; font-size: 0.9rem; font-weight: 700; }
+    .admin-form-box { display: none; background: #f8fafc; border: 2px dashed #94a3b8; border-radius: 8px; padding: 25px; margin-top: 18px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group label { display: block; font-size: 0.82rem; font-weight: 700; margin-bottom: 4px; color: #334155; }
+    .form-group input { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 0.9rem; }
+    .form-group input[readonly] { background: #e2e8f0; color: #b91c1c; font-weight: 800; }
+
+    /* Records Table */
+    .saved-records-area { margin-top: 25px; border-top: 1px solid #cbd5e1; padding-top: 15px; }
+    .records-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.85rem; }
+    .records-table th, .records-table td { padding: 8px 10px; border: 1px solid #cbd5e1; text-align: left; }
+    .records-table th { background: #1e3a8a; color: white; }
+    .btn-action { padding: 3px 8px; font-size: 0.75rem; border-radius: 3px; border: none; cursor: pointer; font-weight: bold; }
+    .btn-view { background: #0284c7; color: white; }
+    .btn-del { background: #dc2626; color: white; margin-left: 4px; }
+
+    /* CERTIFICATE FRAME */
     .certificate-frame {
       background: #ffffff;
       border: 14px solid #1e3a8a;
@@ -71,8 +81,6 @@
       background-image: radial-gradient(circle, rgba(30,58,138,0.02) 1px, transparent 1px);
       background-size: 18px 18px;
     }
-
-    /* Watermark Seal */
     .certificate-frame::before {
       content: "UIHESD VERIFIED";
       position: absolute;
@@ -87,180 +95,41 @@
       white-space: nowrap;
     }
 
-    /* Top Institute Header */
-    .cert-main-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 2px solid #b45309;
-      padding-bottom: 12px;
-      margin-bottom: 15px;
-      gap: 15px;
-    }
-    .cert-inst-logo {
-      height: 80px;
-      width: auto;
-      object-fit: contain;
-      mix-blend-mode: multiply;
-    }
-    .cert-titles-center {
-      text-align: center;
-      flex: 1;
-    }
-    .cert-titles-center h2 {
-      font-size: 1.5rem;
-      color: #1e3a8a;
-      font-family: 'Georgia', serif;
-      font-weight: 900;
-      letter-spacing: 0.5px;
-    }
-    .cert-titles-center h4 {
-      font-size: 0.95rem;
-      color: #b45309;
-      margin-top: 2px;
-      font-weight: 700;
-    }
-    .cert-titles-center p {
-      font-size: 0.74rem;
-      color: #475569;
-      margin-top: 3px;
-      font-weight: 600;
-    }
+    .cert-main-head { display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #b45309; padding-bottom: 12px; margin-bottom: 15px; gap: 15px; }
+    .cert-inst-logo { height: 80px; width: auto; object-fit: contain; mix-blend-mode: multiply; }
+    .cert-titles-center { text-align: center; flex: 1; }
+    .cert-titles-center h2 { font-size: 1.5rem; color: #1e3a8a; font-family: 'Georgia', serif; font-weight: 900; }
+    .cert-titles-center h4 { font-size: 0.95rem; color: #b45309; margin-top: 2px; font-weight: 700; }
+    .cert-titles-center p { font-size: 0.74rem; color: #475569; margin-top: 3px; font-weight: 600; }
 
-    .cert-meta-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #334155;
-      margin-bottom: 18px;
-    }
-
+    .cert-meta-row { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; color: #334155; margin-bottom: 18px; }
     .cert-badge-ribbon { text-align: center; margin: 15px 0 20px; }
-    .cert-badge-ribbon span {
-      background: #1e3a8a;
-      color: #facc15;
-      font-size: 1.15rem;
-      font-weight: 800;
-      letter-spacing: 2px;
-      padding: 6px 28px;
-      border-radius: 4px;
-      text-transform: uppercase;
-      font-family: 'Georgia', serif;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    }
+    .cert-badge-ribbon span { background: #1e3a8a; color: #facc15; font-size: 1.15rem; font-weight: 800; letter-spacing: 2px; padding: 6px 28px; border-radius: 4px; text-transform: uppercase; font-family: 'Georgia', serif; }
+    .cert-body-text { font-size: 1.05rem; line-height: 2; color: #1e293b; text-align: justify; margin-bottom: 25px; font-family: 'Times New Roman', serif; }
+    .cert-fill-data { color: #0b132b; font-weight: 800; border-bottom: 1.5px solid #1e3a8a; padding: 0 8px; font-size: 1.15rem; display: inline-block; }
 
-    .cert-body-text {
-      font-size: 1.05rem;
-      line-height: 2;
-      color: #1e293b;
-      text-align: justify;
-      margin-bottom: 25px;
-      font-family: 'Times New Roman', serif;
-    }
-    .cert-fill-data {
-      color: #0b132b;
-      font-weight: 800;
-      border-bottom: 1.5px solid #1e3a8a;
-      padding: 0 8px;
-      font-size: 1.15rem;
-      display: inline-block;
-    }
+    /* FOOTER 4 LOGOS */
+    .cert-footer-section { margin-top: 25px; padding-top: 15px; border-top: 2px dashed #cbd5e1; }
+    .footer-logos-strip { display: flex; justify-content: space-around; align-items: center; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px; margin-bottom: 18px; }
+    .footer-logo-item { display: flex; align-items: center; gap: 8px; }
+    .footer-logo-item img { height: 52px; width: auto; object-fit: contain; mix-blend-mode: multiply; }
+    .footer-logo-item span { font-size: 0.68rem; font-weight: 800; color: #1e3a8a; line-height: 1.2; text-transform: uppercase; }
 
-    /* ===================================================
-       FOOTER: 4 LOGOS + QR CODE + SIGNATURES
-    =================================================== */
-    .cert-footer-section {
-      margin-top: 25px;
-      padding-top: 15px;
-      border-top: 2px dashed #cbd5e1;
-    }
-
-    /* 4 Accreditations Logos Strip in Footer */
-    .footer-logos-strip {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 6px;
-      padding: 8px 12px;
-      margin-bottom: 18px;
-    }
-    .footer-logo-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .footer-logo-item img {
-      height: 52px;
-      width: auto;
-      object-fit: contain;
-      mix-blend-mode: multiply; /* ਬੈਕਗ੍ਰਾਊਂਡ ਪਾਰਦਰਸ਼ੀ ਕਰਨ ਲਈ */
-    }
-    .footer-logo-item span {
-      font-size: 0.68rem;
-      font-weight: 800;
-      color: #1e3a8a;
-      line-height: 1.2;
-      text-transform: uppercase;
-    }
-
-    /* Bottom Row: QR Code, Hologram Stamp, Signatures */
-    .footer-actions-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 10px;
-    }
-
-    .qr-container {
-      text-align: center;
-      background: #ffffff;
-      padding: 6px;
-      border: 1px solid #cbd5e1;
-      border-radius: 6px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.04);
-    }
-    #qrcode {
-      display: inline-block;
-      padding: 4px;
-      background: white;
-    }
+    .footer-actions-row { display: flex; justify-content: space-between; align-items: center; padding: 0 10px; }
+    .qr-container { text-align: center; background: #ffffff; padding: 6px; border: 1px solid #cbd5e1; border-radius: 6px; }
+    #qrcode { display: inline-block; padding: 4px; background: white; }
     .qr-text { font-size: 0.65rem; color: #475569; font-weight: 700; margin-top: 4px; text-transform: uppercase; }
 
-    /* Official Gold Hologram Seal */
     .gold-seal-box {
-      width: 82px;
-      height: 82px;
-      border-radius: 50%;
-      border: 3px double #b45309;
+      width: 82px; height: 82px; border-radius: 50%; border: 3px double #b45309;
       background: radial-gradient(circle, #fef08a 20%, #facc15 80%);
-      box-shadow: 0 0 10px rgba(234, 179, 8, 0.4);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #78350f;
-      font-weight: 900;
-      font-size: 0.58rem;
-      line-height: 1.1;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; color: #78350f; font-weight: 900; font-size: 0.58rem; line-height: 1.1;
     }
-
     .cert-sign-box { text-align: center; font-size: 0.8rem; font-weight: 700; color: #1e3a8a; width: 145px; }
     .sign-line { border-bottom: 1.5px solid #0f172a; margin-bottom: 4px; height: 35px; }
 
     .btn-print { background: #16a34a; color: white; border: none; padding: 12px 28px; font-weight: bold; border-radius: 5px; cursor: pointer; font-size: 0.95rem; margin: 20px auto 0; display: block; }
-    .btn-print:hover { background: #15803d; }
-
-    /* Admin Form */
-    .admin-toggle { text-align: center; margin-top: 25px; }
-    .admin-toggle button { background: #64748b; color: white; border: none; padding: 6px 14px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; }
-    .admin-form-box { display: none; background: #f8fafc; border: 2px dashed #94a3b8; border-radius: 8px; padding: 20px; margin-top: 15px; }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .form-group label { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 3px; }
-    .form-group input { width: 100%; padding: 8px; border: 1px solid #cbd5e1; border-radius: 4px; }
 
     footer { background: #0b132b; color: #94a3b8; padding: 25px 6%; font-size: 0.85rem; text-align: center; margin-top: 40px; }
 
@@ -273,16 +142,18 @@
 </head>
 <body>
 
+  <!-- Top Flag Bar -->
   <div class="gov-flag-bar">
     <div class="flag-group">
       <span class="flag-icon"></span>
       <span>ਭਾਰਤ ਸਰਕਾਰ | Government of India</span>
     </div>
     <div class="gov-links">
-      <a href="verify.html">Document Verification</a>
+      <a href="index.html">Main Home</a>
     </div>
   </div>
 
+  <!-- Header with Large Name -->
   <header class="portal-header">
     <div class="header-logos">
       <div class="emblem-box">
@@ -293,35 +164,34 @@
         </div>
       </div>
       <div class="brand-logo-area">
-        <img src="collagelogo1.png" alt="UIHESD Logo" onerror="this.src='https://via.placeholder.com/60?text=UIHESD'">
+        <img src="collagelogo1.png" alt="UIHESD Logo" onerror="this.src='https://via.placeholder.com/85?text=UIHESD'">
         <div class="brand-names">
           <h1>UIHESD SKILL HUB</h1>
+          <h2>Universal Institute of Higher Education & Skill Development</h2>
           <p>ਕੌਸ਼ਲ ਭਾਰਤ • ਕੁਸ਼ਲ ਭਾਰਤ | Technical & Vocational Institute</p>
         </div>
       </div>
     </div>
     <div class="header-controls">
-      <div class="search-box">🔍 <input type="text" placeholder="Search..."></div>
       <button class="btn-dash" onclick="window.location.href='index.html'">HOME</button>
-      <button class="btn-reg" onclick="window.location.href='courses.html'">REGISTER</button>
-      <button class="btn-login" onclick="window.location.href='verify.html'">VERIFY</button>
     </div>
   </header>
 
+  <!-- Navigation -->
   <nav>
     <ul class="nav-list">
-      <li><a href="index.html">MSDE <span class="nav-dot"></span></a></li>
+      <li><a href="index.html">MSDE</a></li>
       <li><a href="courses.html">Schemes / Programs</a></li>
       <li><a href="courses.html">Skill Courses</a></li>
       <li><a href="about.html">About Institute</a></li>
-      <li><a href="dgt.html">DGT Ecosystem <span class="nav-dot"></span></a></li>
+      <li><a href="dgt.html">DGT Ecosystem</a></li>
       <li><a href="verify.html" class="active">Verify Certificate</a></li>
     </ul>
   </nav>
 
   <div class="alert-ribbon">
     <span class="alert-tag">VERIFICATION</span>
-    <marquee>Official Certificate Verification Portal: Verify candidate credentials with instant QR Code evaluation.</marquee>
+    <marquee>Official Student Record System: Enter Roll No or Unique ID to display & print certificate with dynamic QR code.</marquee>
   </div>
 
   <div class="container">
@@ -330,29 +200,80 @@
       <p style="text-align:center; color:#64748b; font-size:0.92rem;">ਵਿਦਿਆਰਥੀ ਦਾ <strong>Roll Number</strong> ਜਾਂ <strong>Unique ID</strong> ਭਰੋ:</p>
       
       <div class="cert-input-group">
-        <input type="text" id="certInput" placeholder="Enter Roll Number or Unique ID (ਜਿਵੇਂ ROLL-101)">
+        <input type="text" id="certInput" placeholder="Enter Roll Number or Unique ID (ਜਿਵੇਂ ROLL-101 ਜਾਂ UID-2026-...)">
         <button class="cert-btn" onclick="verifyCertificate()">ਪੜਤਾਲ ਕਰੋ (Verify)</button>
       </div>
 
       <div id="certResult" class="cert-result"></div>
 
+      <!-- Admin Add/Manage Students Toggle -->
       <div class="admin-toggle">
-        <button onclick="toggleAdmin()">⚙️ + ਨਵਾਂ ਵਿਦਿਆਰਥੀ ਸ਼ਾਮਲ ਕਰੋ (Admin Entry)</button>
+        <button onclick="toggleAdmin()">⚙️ ਨਵਾਂ ਵਿਦਿਆਰਥੀ ਸ਼ਾਮਲ ਕਰੋ / ਡਾਟਾਬੇਸ ਦੇਖੋ (Admin Portal)</button>
       </div>
 
       <div id="adminPanel" class="admin-form-box">
-        <h4 style="margin-bottom:12px; color:#1e3a8a;">Add / Update Verified Student Record:</h4>
+        <h3 style="margin-bottom:15px; color:#1e3a8a; border-bottom:2px solid #0284c7; padding-bottom:5px;">
+          ➕ ਨਵੇਂ ਵਿਦਿਆਰਥੀ ਦਾ ਰਿਕਾਰਡ ਦਰਜ ਕਰੋ (ਸਦਾ ਲਈ ਸੇਵ ਹੋਵੇਗਾ)
+        </h3>
         <div class="form-grid">
-          <div class="form-group"><label>Candidate Name:</label><input type="text" id="addName" placeholder="e.g. Gurpreet Singh"></div>
-          <div class="form-group"><label>Father's Name:</label><input type="text" id="addFather" placeholder="e.g. S. Harbhajan Singh"></div>
-          <div class="form-group"><label>Address / City:</label><input type="text" id="addAddress" placeholder="e.g. Guru Har Sahai, Firozpur, Punjab"></div>
-          <div class="form-group"><label>Course Title:</label><input type="text" id="addCourse" placeholder="e.g. Computer Operator & Programming Assistant (COPA)"></div>
-          <div class="form-group"><label>Roll Number:</label><input type="text" id="addRoll" placeholder="e.g. ROLL-101"></div>
-          <div class="form-group"><label>Unique ID / Reg No:</label><input type="text" id="addUID" placeholder="e.g. UID-2026-001"></div>
-          <div class="form-group"><label>Academic Session:</label><input type="text" id="addSession" placeholder="e.g. 2025-2026"></div>
-          <div class="form-group"><label>Performance Grade:</label><input type="text" id="addGrade" placeholder="e.g. Grade A+ (Distinction)"></div>
+          <div class="form-group">
+            <label>ਯੂਨੀਕ ਆਈ.ਡੀ. (Auto-Generated Unique ID):</label>
+            <input type="text" id="addUID" readonly title="ਇਹ ਆਈ.ਡੀ. ਸਿਸਟਮ ਨੇ ਆਪਣੇ ਆਪ ਬਣਾਈ ਹੈ">
+          </div>
+          <div class="form-group">
+            <label>ਰੋਲ ਨੰਬਰ (Roll Number):</label>
+            <input type="text" id="addRoll" placeholder="ਜਿਵੇਂ ROLL-102">
+          </div>
+          <div class="form-group">
+            <label>ਵਿਦਿਆਰਥੀ ਦਾ ਪੂਰਾ ਨਾਮ (Candidate Name):</label>
+            <input type="text" id="addName" placeholder="ਜਿਵੇਂ MANPREET KAUR">
+          </div>
+          <div class="form-group">
+            <label>ਪਿਤਾ ਦਾ ਨਾਮ (Father's Name):</label>
+            <input type="text" id="addFather" placeholder="ਜਿਵੇਂ S. BALWINDER SINGH">
+          </div>
+          <div class="form-group">
+            <label>ਪਤਾ / ਸ਼ਹਿਰ (City / Address):</label>
+            <input type="text" id="addAddress" placeholder="ਜਿਵੇਂ GURU HAR SAHAI, PUNJAB">
+          </div>
+          <div class="form-group">
+            <label>ਕੋਰਸ ਦਾ ਨਾਮ (Course):</label>
+            <input type="text" id="addCourse" placeholder="ਜਿਵੇਂ Computer Operator & Programming Assistant (COPA)">
+          </div>
+          <div class="form-group">
+            <label>ਸੈਸ਼ਨ (Session):</label>
+            <input type="text" id="addSession" value="2025 - 2026">
+          </div>
+          <div class="form-group">
+            <label>ਗ੍ਰੇਡ (Grade):</label>
+            <input type="text" id="addGrade" value="Grade A+ (Distinction)">
+          </div>
         </div>
-        <button class="cert-btn" style="width:100%; margin-top:14px; background:#16a34a;" onclick="saveRecord()">ਸੇਵ ਕਰੋ (Save Student)</button>
+        <button class="cert-btn" style="width:100%; margin-top:16px; background:#16a34a; font-size:1rem;" onclick="saveRecord()">
+          💾 ਵਿਦਿਆਰਥੀ ਡਾਟਾਬੇਸ ਵਿੱਚ ਸੇਵ ਕਰੋ (Save Permanently)
+        </button>
+
+        <!-- Saved Students Database List -->
+        <div class="saved-records-area">
+          <h4 style="color:#1e3a8a;">📁 ਸੇਵ ਕੀਤੇ ਹੋਏ ਕੁੱਲ ਵਿਦਿਆਰਥੀ (Saved Students Database):</h4>
+          <div style="overflow-x:auto;">
+            <table class="records-table">
+              <thead>
+                <tr>
+                  <th>Roll No</th>
+                  <th>Unique ID</th>
+                  <th>ਨਾਮ</th>
+                  <th>ਕੋਰਸ</th>
+                  <th>ਐਕਸ਼ਨ</th>
+                </tr>
+              </thead>
+              <tbody id="dbTableBody">
+                <!-- Dynamically Populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -362,51 +283,150 @@
   </footer>
 
   <script>
-    const defaultData = {
+    // 1. Initial Default Student
+    const initialStudent = {
       "ROLL-101": {
         name: "GURPREET SINGH",
         father: "S. HARBHAJAN SINGH",
         address: "GURU HAR SAHAI, DISTT. FIROZPUR, PUNJAB",
         course: "Computer Operator & Programming Assistant (COPA)",
         rollNo: "ROLL-101",
-        uniqueId: "UID-2026-001",
+        uniqueId: "UID-2026-1001",
         session: "2025 - 2026",
         grade: "A+ (Distinction)",
         issueDate: "15/06/2026"
       }
     };
 
+    // 2. Fetch Database from LocalStorage (Permanent storage)
     function getDB() {
-      const s = localStorage.getItem("uihesd_students_footer_v1");
-      return s ? Object.assign({}, defaultData, JSON.parse(s)) : defaultData;
+      const saved = localStorage.getItem("uihesd_permanent_db_v1");
+      if (!saved) {
+        localStorage.setItem("uihesd_permanent_db_v1", JSON.stringify(initialStudent));
+        return initialStudent;
+      }
+      return JSON.parse(saved);
     }
 
+    // 3. Generate New Automatic Unique ID (e.g. UID-2026-XXXXX)
+    function generateNewUID() {
+      const year = new Date().getFullYear();
+      const randomNum = Math.floor(10000 + Math.random() * 90000);
+      return `UID-${year}-${randomNum}`;
+    }
+
+    // 4. Toggle Admin Form & Populate Saved List
+    function toggleAdmin() {
+      const p = document.getElementById("adminPanel");
+      if (p.style.display === "block") {
+        p.style.display = "none";
+      } else {
+        p.style.display = "block";
+        document.getElementById("addUID").value = generateNewUID();
+        renderTable();
+      }
+    }
+
+    // 5. Render Saved Students List Table
+    function renderTable() {
+      const db = getDB();
+      const tbody = document.getElementById("dbTableBody");
+      tbody.innerHTML = "";
+      for (let k in db) {
+        const item = db[k];
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td><strong>${item.rollNo}</strong></td>
+          <td style="color:#b91c1c; font-weight:bold;">${item.uniqueId}</td>
+          <td>${item.name}</td>
+          <td>${item.course}</td>
+          <td>
+            <button class="btn-action btn-view" onclick="quickView('${item.rollNo}')">View</button>
+            <button class="btn-action btn-del" onclick="deleteRecord('${item.rollNo}')">Delete</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      }
+    }
+
+    // 6. Save Record Permanently
+    function saveRecord() {
+      const name = document.getElementById("addName").value.trim().toUpperCase();
+      const father = document.getElementById("addFather").value.trim().toUpperCase();
+      const address = document.getElementById("addAddress").value.trim().toUpperCase();
+      const course = document.getElementById("addCourse").value.trim();
+      const rollNo = document.getElementById("addRoll").value.trim().toUpperCase();
+      const uniqueId = document.getElementById("addUID").value.trim().toUpperCase();
+      const session = document.getElementById("addSession").value.trim();
+      const grade = document.getElementById("addGrade").value.trim();
+
+      if (!name || !father || !course || !rollNo || !uniqueId) {
+        return alert("ਕਿਰਪਾ ਕਰਕੇ ਸਾਰੀ ਜਾਣਕਾਰੀ (ਨਾਮ, ਪਿਤਾ ਦਾ ਨਾਮ, ਕੋਰਸ, ਰੋਲ ਨੰਬਰ) ਭਰੋ!");
+      }
+
+      const db = getDB();
+      db[rollNo] = {
+        name, father, address, course, rollNo, uniqueId, session, grade,
+        issueDate: new Date().toLocaleDateString('en-GB')
+      };
+
+      localStorage.setItem("uihesd_permanent_db_v1", JSON.stringify(db));
+      alert(`ਵਿਦਿਆਰਥੀ ਦਾ ਰਿਕਾਰਡ ਸਫਲਤਾਪੂਰਵਕ ਸੇਵ ਹੋ ਗਿਆ!\nਯੂਨੀਕ ਆਈ.ਡੀ: ${uniqueId}\nਰੋਲ ਨੰਬਰ: ${rollNo}`);
+
+      // Reset form with a fresh UID
+      document.getElementById("addName").value = "";
+      document.getElementById("addFather").value = "";
+      document.getElementById("addAddress").value = "";
+      document.getElementById("addCourse").value = "";
+      document.getElementById("addRoll").value = "";
+      document.getElementById("addUID").value = generateNewUID();
+      renderTable();
+    }
+
+    // 7. Delete Record
+    function deleteRecord(roll) {
+      if (confirm(`ਕੀ ਤੁਸੀਂ ਰੋਲ ਨੰਬਰ ${roll} ਦਾ ਰਿਕਾਰਡ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?`)) {
+        const db = getDB();
+        delete db[roll];
+        localStorage.setItem("uihesd_permanent_db_v1", JSON.stringify(db));
+        renderTable();
+      }
+    }
+
+    // 8. Quick View from Table
+    function quickView(roll) {
+      document.getElementById("certInput").value = roll;
+      verifyCertificate();
+      window.scrollTo({ top: 300, behavior: 'smooth' });
+    }
+
+    // 9. Main Verification Function
     function verifyCertificate() {
       const q = document.getElementById("certInput").value.trim().toUpperCase();
       const res = document.getElementById("certResult");
-      if(!q) return alert("ਕਿਰਪਾ ਕਰਕੇ Roll Number ਜਾਂ UID ਦਰਜ ਕਰੋ");
-      
+      if (!q) return alert("ਕਿਰਪਾ ਕਰਕੇ Roll Number ਜਾਂ UID ਦਰਜ ਕਰੋ");
+
       res.style.display = "block";
       const db = getDB();
       let s = null;
 
-      for(let k in db) {
-        if(k === q || db[k].uniqueId.toUpperCase() === q) {
+      for (let k in db) {
+        if (k === q || db[k].uniqueId.toUpperCase() === q) {
           s = db[k];
           break;
         }
       }
 
-      if(s) {
+      if (s) {
         res.innerHTML = `
           <div style="text-align:center; margin-bottom:12px;">
             <span style="background:#16a34a; color:white; padding:4px 16px; border-radius:20px; font-weight:bold; font-size:0.85rem;">
-              ✔ OFFICIAL RECORD VERIFIED & SIGNED
+              ✔ OFFICIAL RECORD VERIFIED & ACTIVE
             </span>
           </div>
 
           <div class="certificate-frame" id="certFrame">
-
+            <!-- Top Header -->
             <div class="cert-main-head">
               <img src="collagelogo1.png" class="cert-inst-logo" alt="UIHESD" onerror="this.src='https://dummyimage.com/80x80/1e3a8a/fff&text=UIHESD'">
               <div class="cert-titles-center">
@@ -443,8 +463,8 @@
               The overall performance has been evaluated and awarded Grade: <span class="cert-fill-data">${s.grade || 'Grade A+'}</span>.
             </div>
 
+            <!-- FOOTER WITH 4 LOGOS + QR + STAMP + SIGNATURES -->
             <div class="cert-footer-section">
-              
               <div class="footer-logos-strip">
                 <div class="footer-logo-item">
                   <img src="logo_iso.png" alt="ISO 9001" onerror="this.src='https://dummyimage.com/50x50/facc15/000&text=ISO'">
@@ -487,18 +507,16 @@
                   <div>Director / Controller</div>
                 </div>
               </div>
-
             </div>
-
           </div>
 
           <button class="btn-print" onclick="window.print()">🖨️ ਪ੍ਰਿੰਟ ਸਰਟੀਫਿਕੇਟ (Print Certificate)</button>
         `;
 
-        // Live Dynamic QR Code Generation
+        // Generate QR Code with All Details
         setTimeout(() => {
           document.getElementById("qrcode").innerHTML = "";
-          const qrText = `UIHESD OFFICIAL VERIFICATION\n--------------------------\nCandidate: ${s.name}\nFather: ${s.father}\nCourse: ${s.course}\nRoll No: ${s.rollNo}\nUID: ${s.uniqueId}\nGrade: ${s.grade}\nRecognitions: ISO 9001, IAF, MSME, IKGPTU\nStatus: 100% Genuine & Verified`;
+          const qrText = `UIHESD OFFICIAL VERIFICATION\n--------------------------\nCandidate: ${s.name}\nFather: ${s.father}\nCourse: ${s.course}\nRoll No: ${s.rollNo}\nUID: ${s.uniqueId}\nGrade: ${s.grade}\nAccredited By: ISO 9001:2015, IAF, MSME, IKGPTU\nStatus: 100% Genuine & Authentic`;
           new QRCode(document.getElementById("qrcode"), {
             text: qrText,
             width: 78,
@@ -516,36 +534,6 @@
           </div>
         `;
       }
-    }
-
-    function toggleAdmin() {
-      const p = document.getElementById("adminPanel");
-      p.style.display = p.style.display === 'block' ? 'none' : 'block';
-    }
-
-    function saveRecord() {
-      const name = document.getElementById("addName").value.trim().toUpperCase();
-      const father = document.getElementById("addFather").value.trim().toUpperCase();
-      const address = document.getElementById("addAddress").value.trim().toUpperCase();
-      const course = document.getElementById("addCourse").value.trim();
-      const rollNo = document.getElementById("addRoll").value.trim().toUpperCase();
-      const uniqueId = document.getElementById("addUID").value.trim().toUpperCase();
-      const session = document.getElementById("addSession").value.trim();
-      const grade = document.getElementById("addGrade").value.trim();
-
-      if(!name || !father || !course || !rollNo || !uniqueId) {
-        return alert("ਕਿਰਪਾ ਕਰਕੇ ਸਾਰੀ ਜ਼ਰੂਰੀ ਜਾਣਕਾਰੀ ਭਰੋ!");
-      }
-
-      let db = JSON.parse(localStorage.getItem("uihesd_students_footer_v1") || "{}");
-      db[rollNo] = {
-        name, father, address, course, rollNo, uniqueId, session, grade,
-        issueDate: new Date().toLocaleDateString('en-GB')
-      };
-
-      localStorage.setItem("uihesd_students_footer_v1", JSON.stringify(db));
-      alert("ਵਿਦਿਆਰਥੀ ਦਾ ਰਿਕਾਰਡ ਸੇਵ ਹੋ ਗਿਆ!");
-      toggleAdmin();
     }
   </script>
 </body>
