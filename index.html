@@ -8,11 +8,11 @@
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; scroll-behavior: smooth; }
     body { background-color: #f1f5f9; color: #1e293b; line-height: 1.6; }
 
-    /* 1. Top Mini Bar */
+    /* Top Bar */
     .top-bar { background: #0b132b; color: #cbd5e1; padding: 6px 6%; font-size: 0.85rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1e293b; }
     .top-bar a { color: #facc15; text-decoration: none; margin-left: 15px; }
 
-    /* 2. Main Official Header */
+    /* Header */
     .main-header { background: #ffffff; padding: 15px 6%; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid #1e3a8a; }
     .header-left { display: flex; align-items: center; gap: 20px; }
     .header-left img { height: 80px; width: auto; }
@@ -22,7 +22,7 @@
     .header-right { text-align: right; font-size: 0.82rem; color: #334155; display: flex; gap: 10px; }
     .affiliation-badge { background: #eff6ff; border: 1px dashed #2563eb; padding: 6px 10px; border-radius: 4px; font-weight: 600; color: #1e40af; }
 
-    /* 3. Official Navigation Bar */
+    /* Nav Bar */
     nav { background: #1e3a8a; position: sticky; top: 0; z-index: 999; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
     .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 0 6%; }
     .nav-links { display: flex; list-style: none; }
@@ -31,12 +31,12 @@
     .apply-nav-btn { background: #dc2626; color: white !important; font-weight: bold; border-radius: 4px; margin: 6px 0; padding: 8px 16px !important; text-decoration: none; }
     .apply-nav-btn:hover { background: #b91c1c !important; }
 
-    /* 4. Notice Ticker */
+    /* Notice Ticker */
     .ticker { background: #fef08a; padding: 8px 6%; display: flex; align-items: center; border-bottom: 1px solid #fde047; font-size: 0.9rem; }
     .ticker-title { background: #dc2626; color: white; padding: 3px 10px; font-weight: bold; font-size: 0.8rem; border-radius: 3px; margin-right: 15px; white-space: nowrap; }
     .ticker marquee { font-weight: 600; color: #854d0e; }
 
-    /* 5. Hero Banner */
+    /* Hero Banner */
     .hero { 
       background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.85)), 
                   url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; 
@@ -57,35 +57,41 @@
     .section-title { text-align: center; font-size: 1.8rem; color: #1e3a8a; margin-bottom: 35px; font-weight: 800; text-transform: uppercase; position: relative; }
     .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: #dc2626; margin: 8px auto 0; }
 
-    /* Accreditations & Recognitions Grid */
+    /* Certificate Portal Styles */
+    .cert-box { max-width: 700px; margin: 0 auto; background: white; padding: 35px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-top: 4px solid #0284c7; }
+    .cert-input-group { display: flex; gap: 10px; margin-top: 20px; }
+    .cert-input-group input { flex: 1; padding: 12px 15px; border: 1px solid #cbd5e1; border-radius: 5px; font-size: 1rem; outline: none; }
+    .cert-input-group input:focus { border-color: #1e3a8a; }
+    .cert-btn { background: #1e3a8a; color: white; border: none; padding: 12px 25px; border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+    .cert-btn:hover { background: #0f172a; }
+    
+    /* Result Display Card */
+    .cert-result { display: none; margin-top: 25px; padding: 25px; border-radius: 8px; background: #ffffff; border: 1px solid #e2e8f0; }
+    .cert-valid { border-top: 5px solid #16a34a; box-shadow: 0 4px 10px rgba(22, 163, 74, 0.15); }
+    .cert-invalid { border-left: 5px solid #dc2626; color: #dc2626; font-weight: 600; text-align: center; background: #fef2f2; }
+    .cert-table { width: 100%; margin-top: 15px; border-collapse: collapse; }
+    .cert-table td { padding: 8px 12px; border-bottom: 1px solid #e2e8f0; font-size: 0.95rem; }
+    .cert-table td.label { font-weight: 700; color: #1e3a8a; width: 40%; }
+
+    /* Admin Add Form */
+    .admin-toggle { text-align: center; margin-top: 20px; }
+    .admin-toggle button { background: #64748b; color: white; border: none; padding: 6px 14px; border-radius: 4px; font-size: 0.8rem; cursor: pointer; }
+    .admin-form-box { display: none; background: #f8fafc; border: 2px dashed #94a3b8; border-radius: 8px; padding: 25px; margin-top: 20px; }
+    .admin-form-box h4 { margin-bottom: 15px; color: #1e3a8a; }
+    .form-group { margin-bottom: 12px; text-align: left; }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px; }
+    .form-group input { width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 4px; }
+    .save-btn { background: #16a34a; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer; width: 100%; margin-top: 10px; }
+    .save-btn:hover { background: #15803d; }
+
+    /* Accreditations */
     .accredit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
     .accredit-card { background: white; border: 1px solid #e2e8f0; border-radius: 6px; padding: 25px 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04); border-top: 4px solid #0284c7; }
     .accredit-icon { font-size: 2rem; margin-bottom: 10px; }
     .accredit-card h4 { font-size: 1.1rem; color: #1e3a8a; margin-bottom: 8px; }
     .accredit-card p { font-size: 0.85rem; color: #64748b; line-height: 1.4; }
 
-    /* About Section */
-    .about-wrap { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-    .about-content h3 { color: #1e3a8a; font-size: 1.6rem; margin-bottom: 15px; }
-    .about-content p { color: #475569; margin-bottom: 15px; font-size: 1rem; }
-    .about-highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
-    .highlight-card { background: #f8fafc; border-left: 4px solid #1e3a8a; padding: 12px; border-radius: 4px; }
-    .highlight-card strong { color: #0f172a; display: block; font-size: 0.95rem; margin-bottom: 4px; }
-    .highlight-card span { font-size: 0.85rem; color: #64748b; }
-    .about-image img { width: 100%; border-radius: 8px; box-shadow: 0 6px 16px rgba(0,0,0,0.12); object-fit: cover; height: 360px; }
-
-    /* Certificate Verification Box */
-    .cert-box { max-width: 650px; margin: 0 auto; background: white; padding: 35px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-top: 4px solid #0284c7; }
-    .cert-input-group { display: flex; gap: 10px; margin-top: 20px; }
-    .cert-input-group input { flex: 1; padding: 12px 15px; border: 1px solid #cbd5e1; border-radius: 5px; font-size: 1rem; outline: none; }
-    .cert-input-group input:focus { border-color: #1e3a8a; }
-    .cert-btn { background: #1e3a8a; color: white; border: none; padding: 12px 25px; border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-    .cert-btn:hover { background: #0f172a; }
-    .cert-result { display: none; margin-top: 25px; padding: 20px; border-radius: 6px; background: #f8fafc; border: 1px solid #e2e8f0; text-align: left; }
-    .cert-valid { border-left: 5px solid #16a34a; }
-    .cert-invalid { border-left: 5px solid #dc2626; color: #dc2626; font-weight: 600; text-align: center; }
-
-    /* Courses Table/Cards */
+    /* Courses */
     .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
     .course-card { background: white; border: 1px solid #e2e8f0; border-radius: 6px; padding: 25px; transition: 0.3s; }
     .course-card:hover { border-color: #1e3a8a; transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.08); }
@@ -93,9 +99,6 @@
     .badge { background: #dcfce7; color: #166534; font-size: 0.75rem; padding: 3px 8px; border-radius: 4px; font-weight: bold; }
     .action-btn { display: inline-block; padding: 6px 14px; background: #e2e8f0; color: #1e3a8a; text-decoration: none; font-size: 0.85rem; font-weight: bold; border-radius: 4px; }
     .action-btn:hover { background: #1e3a8a; color: white; }
-
-    /* Embed Form */
-    .form-wrapper { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); max-width: 800px; margin: 0 auto; }
 
     /* Footer */
     footer { background: #0b132b; color: #94a3b8; padding: 40px 6% 20px; font-size: 0.9rem; }
@@ -110,20 +113,19 @@
 </head>
 <body>
 
-  <!-- 1. Top Bar -->
+  <!-- Top Bar -->
   <div class="top-bar">
     <div>
       <span>📞 Helpline: +91 98XXX-XXXXX</span> | 
       <span>✉️ Email: info@uihesd.edu.in</span>
     </div>
     <div>
-      <a href="#accreditations">Affiliations</a>
       <a href="#certificate">Verify Certificate</a>
       <a href="#admission">Admissions 2026-27</a>
     </div>
   </div>
 
-  <!-- 2. Official College Header -->
+  <!-- Official Header -->
   <header class="main-header">
     <div class="header-left">
       <img src="collagelogo1.png" alt="UIHESD Official Seal" onerror="this.style.display='none'">
@@ -139,7 +141,7 @@
     </div>
   </header>
 
-  <!-- 3. Navigation Bar -->
+  <!-- Navigation Bar -->
   <nav>
     <div class="nav-container">
       <ul class="nav-links">
@@ -147,112 +149,113 @@
         <li><a href="#about">About Institute</a></li>
         <li><a href="#accreditations">Recognitions</a></li>
         <li><a href="#courses">Academic Courses</a></li>
-        <li><a href="#certificate">Verification</a></li>
+        <li><a href="#certificate">Verify Certificate</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <a href="#admission" class="apply-nav-btn">Apply Now</a>
     </div>
   </nav>
 
-  <!-- 4. Notice Ticker -->
+  <!-- Ticker -->
   <div class="ticker">
     <div class="ticker-title">LATEST UPDATES</div>
     <marquee onmouseover="this.stop();" onmouseout="this.start();">
-      📢 Admissions Open 2026-27 | Approved & Certified Programs under PTU Affiliation, ISO Standards & Skill Development Missions | Online Verification Active.
+      📢 Official Certificate Verification Portal is LIVE. Enter Unique ID or Roll No. to view verified candidate credentials.
     </marquee>
   </div>
 
-  <!-- 5. Hero Section -->
+  <!-- Hero Section -->
   <section class="hero">
-    <h2>Empowering Youth Through Quality Education & Practical Skills</h2>
-    <p>ISO 9001:2015 ਪ੍ਰਮਾਣਿਤ ਅਤੇ ਪੰਜਾਬ ਟੈਕਨੀਕਲ ਯੂਨੀਵਰਸਿਟੀ (IKGPTU) ਨਾਲ ਮਾਨਤਾ ਪ੍ਰਾਪਤ ਉੱਚ ਸਿੱਖਿਆ ਅਤੇ ਤਕਨੀਕੀ ਹੁਨਰ ਦਾ ਪ੍ਰਮੁੱਖ ਕੇਂਦਰ।</p>
+    <h2>Student Document & Certificate Verification Portal</h2>
+    <p>ਵਿਦਿਆਰਥੀਆਂ ਦੀਆਂ ਡਿਗਰੀਆਂ, ਡਿਪਲੋਮੇ ਅਤੇ ਤਕਨੀਕੀ ਸਰਟੀਫਿਕੇਟਾਂ ਦੀ ਅਧਿਕਾਰਤ ਆਨਲਾਈਨ ਪੜਤਾਲ।</p>
     <div class="btn-group">
-      <a href="#admission" class="btn-main">Online Admission 2026</a>
-      <a href="#accreditations" class="btn-outline">Recognitions & Approvals</a>
+      <a href="#certificate" class="btn-main">Verify Certificate Now</a>
+      <a href="#admission" class="btn-outline">Online Admissions 2026</a>
     </div>
   </section>
 
-  <!-- 6. Accreditations & Certifications Section -->
+  <!-- CERTIFICATE VERIFICATION PORTAL SECTION -->
+  <section class="container" id="certificate" style="background: #e2e8f0;">
+    <h2 class="section-title">Certificate & Credential Verification</h2>
+    <div class="cert-box">
+      <p style="color: #475569; font-size: 0.95rem; text-align: center;">
+        ਵਿਦਿਆਰਥੀ ਦਾ <strong>Roll Number</strong> ਜਾਂ <strong>Unique Certificate ID</strong> ਭਰ ਕੇ ਸਰਚ ਕਰੋ।
+      </p>
+      
+      <div class="cert-input-group">
+        <input type="text" id="certInput" placeholder="Enter Roll No. or Unique ID (e.g. ROLL-101 / UID-2026-01)">
+        <button class="cert-btn" onclick="verifyCertificate()">Verify Document</button>
+      </div>
+
+      <!-- Verification Card Details -->
+      <div id="certResult" class="cert-result"></div>
+
+      <!-- Admin Panel Toggle (For adding new students) -->
+      <div class="admin-toggle">
+        <button onclick="toggleAdminPanel()">⚙️ + Add New Student Record</button>
+      </div>
+
+      <!-- Admin Form (Add Details) -->
+      <div id="adminPanel" class="admin-form-box">
+        <h4>ਨਵੇਂ ਵਿਦਿਆਰਥੀ ਦਾ ਰਿਕਾਰਡ ਦਰਜ ਕਰੋ:</h4>
+        <div class="form-group">
+          <label>Student Name (ਵਿਦਿਆਰਥੀ ਦਾ ਨਾਮ):</label>
+          <input type="text" id="addName" placeholder="Full Name">
+        </div>
+        <div class="form-group">
+          <label>Father's Name (ਪਿਤਾ ਦਾ ਨਾਮ):</label>
+          <input type="text" id="addFather" placeholder="Father's Full Name">
+        </div>
+        <div class="form-group">
+          <label>Address (ਪੂਰਾ ਪਤਾ):</label>
+          <input type="text" id="addAddress" placeholder="Village / City, District, Punjab">
+        </div>
+        <div class="form-group">
+          <label>Course / Trade (ਕੋਰਸ):</label>
+          <input type="text" id="addCourse" placeholder="e.g. COPA, Electrician, B.Sc IT">
+        </div>
+        <div class="form-group">
+          <label>Roll Number (ਰੋਲ ਨੰਬਰ):</label>
+          <input type="text" id="addRoll" placeholder="e.g. ROLL-101">
+        </div>
+        <div class="form-group">
+          <label>Unique Certificate ID (ਯੂਨੀਕ ਆਈ.ਡੀ.):</label>
+          <input type="text" id="addUID" placeholder="e.g. UID-2026-01">
+        </div>
+        <button class="save-btn" onclick="saveStudentRecord()">Save Student to Portal</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recognitions -->
   <section class="container" id="accreditations" style="background: #ffffff;">
     <h2 class="section-title">Recognitions & Accreditations</h2>
-    <p style="text-align: center; max-width: 750px; margin: -20px auto 40px; color: #64748b; font-size: 0.95rem;">
-      ਸਾਡਾ ਸੰਸਥਾਨ ਰਾਜ ਸਰਕਾਰ, ਰਾਸ਼ਟਰੀ ਯੂਨੀਵਰਸਿਟੀਆਂ ਅਤੇ ਅੰਤਰਰਾਸ਼ਟਰੀ ਮਿਆਰੀ ਸੰਸਥਾਵਾਂ ਤੋਂ ਮਾਨਤਾ ਪ੍ਰਾਪਤ ਹੈ:
-    </p>
     <div class="accredit-grid">
       <div class="accredit-card">
         <div class="accredit-icon">🏛️</div>
         <h4>Punjab Technical University</h4>
-        <p>I.K. Gujral Punjab Technical University (IKGPTU) ਨਾਲ ਮਾਨਤਾ ਪ੍ਰਾਪਤ ਪ੍ਰੋਗਰਾਮ ਅਤੇ ਡਿਗਰੀ ਅਧਿਐਨ।</p>
+        <p>Affiliated to I.K. Gujral Punjab Technical University (IKGPTU).</p>
       </div>
       <div class="accredit-card">
         <div class="accredit-icon">🏅</div>
         <h4>ISO 9001:2015 Certified</h4>
-        <p>ਵਿਦਿਅਕ ਗੁਣਵੱਤਾ ਅਤੇ ਬਿਹਤਰ ਪ੍ਰਬੰਧਨ ਲਈ ਅੰਤਰਰਾਸ਼ਟਰੀ ਮਿਆਰ ਸਰਟੀਫਿਕੇਸ਼ਨ।</p>
+        <p>Certified Quality Management System for technical training.</p>
       </div>
       <div class="accredit-card">
         <div class="accredit-icon">⚙️</div>
         <h4>NCVT / DGT Norms</h4>
-        <p>ਡਾਇਰੈਕਟੋਰੇਟ ਜਨਰਲ ਆਫ਼ ਟ੍ਰੇਨਿੰਗ (DGT) ਅਧੀਨ ਨਿਰਧਾਰਿਤ ਤਕਨੀਕੀ ਆਈ.ਟੀ.ਆਈ. ਸਿਲੇਬਸ ਤੇ ਪੈਟਰਨ।</p>
+        <p>Practical industrial trades aligned with National Standards.</p>
       </div>
       <div class="accredit-card">
         <div class="accredit-icon">🇮🇳</div>
-        <h4>Skill India / NSDC</h4>
-        <p>ਭਾਰਤ ਸਰਕਾਰ ਦੇ ਸਕਿੱਲ ਇੰਡੀਆ ਮਿਸ਼ਨ ਅਧੀਨ ਰੋਜ਼ਗਾਰ-ਮੁਖੀ ਹੁਨਰ ਸਿਖਲਾਈ ਕੋਰਸ।</p>
+        <h4>Skill India Mission</h4>
+        <p>Recognized technical skill development initiative.</p>
       </div>
     </div>
   </section>
 
-  <!-- 7. About Section -->
-  <section class="container" id="about">
-    <h2 class="section-title">About Our Institute</h2>
-    <div class="about-wrap">
-      <div class="about-content">
-        <h3>Welcome to UIHESD Campus</h3>
-        <p>
-          <strong>Universal Institute of Higher Education & Skill Development (UIHESD)</strong> ਇੱਕ ਮੋਹਰੀ ਵਿੱਦਿਅਕ ਸੰਸਥਾ ਹੈ ਜੋ ਨੌਜਵਾਨਾਂ ਨੂੰ ਆਧੁਨਿਕ ਤਕਨੀਕੀ ਗਿਆਨ, ਪ੍ਰੈਕਟੀਕਲ ਹੁਨਰ ਅਤੇ ਉੱਚ ਪੱਧਰੀ ਸਿੱਖਿਆ ਪ੍ਰਦਾਨ ਕਰਨ ਲਈ ਵਚਨਬੱਧ ਹੈ।
-        </p>
-        <div class="about-highlights">
-          <div class="highlight-card">
-            <strong>🎯 ਸਾਡਾ ਮਿਸ਼ਨ</strong>
-            <span>ਰੋਜ਼ਗਾਰ-ਮੁਖੀ ਤਕਨੀਕੀ ਅਤੇ ਵਿਵਹਾਰਕ ਸਿੱਖਿਆ ਦੇਣਾ।</span>
-          </div>
-          <div class="highlight-card">
-            <strong>💡 ਸਾਡੀ ਸੋਚ</strong>
-            <span>ਹੁਨਰ ਅਤੇ ਉੱਚ ਸਿੱਖਿਆ ਦਾ ਮੋਹਰੀ ਕੇਂਦਰ ਬਣਨਾ।</span>
-          </div>
-          <div class="highlight-card">
-            <strong>⚙️ ਹਾਈ-ਟੈਕ ਲੈਬਾਂ</strong>
-            <span>ਆਧੁਨਿਕ ਕੰਪਿਊਟਰ ਲੈਬ ਅਤੇ ਪ੍ਰੈਕਟੀਕਲ ਵਰਕਸ਼ਾਪ।</span>
-          </div>
-          <div class="highlight-card">
-            <strong>👨‍🏫 ਤਜਰਬੇਕਾਰ ਸਟਾਫ਼</strong>
-            <span>ਸਮਰਪਿਤ ਫੈਕਲਟੀ ਵੱਲੋਂ ਨਿੱਜੀ ਅਗਵਾਈ।</span>
-          </div>
-        </div>
-      </div>
-      <div class="about-image">
-        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80" alt="UIHESD Students">
-      </div>
-    </div>
-  </section>
-
-  <!-- 8. Certificate Verification Section -->
-  <section class="container" id="certificate" style="background: #e2e8f0;">
-    <h2 class="section-title">Certificate Verification Portal</h2>
-    <div class="cert-box">
-      <p style="color: #475569; font-size: 0.95rem; text-align: center;">
-        ਵਿਦਿਆਰਥੀ ਦਾ ਰੋਲ ਨੰਬਰ ਜਾਂ ਸਰਟੀਫਿਕੇਟ ਸੀਰੀਅਲ ਨੰਬਰ ਭਰ ਕੇ ਵੈਧਤਾ (Authenticity) ਚੈੱਕ ਕਰੋ।
-      </p>
-      <div class="cert-input-group">
-        <input type="text" id="certInput" placeholder="Enter Certificate / Roll No. (e.g. UIHESD/2026/001)">
-        <button class="cert-btn" onclick="verifyCertificate()">Verify</button>
-      </div>
-      <div id="certResult" class="cert-result"></div>
-    </div>
-  </section>
-
-  <!-- 9. Courses Section -->
-  <section class="container" id="courses">
+  <!-- Courses -->
+  <section class="container" id="courses" style="background: #f1f5f9;">
     <h2 class="section-title">Academic Programs Offered</h2>
     <div class="course-grid">
       <div class="course-card">
@@ -270,42 +273,33 @@
       <div class="course-card">
         <span class="badge">Higher Learning</span>
         <h4 style="margin-top: 10px;">Degree & Management Studies</h4>
-        <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 15px;">ਪੰਜਾਬ ਟੈਕਨੀਕਲ ਯੂਨੀਵਰਸਿਟੀ (PTU) ਨਾਲ ਸੰਬੰਧਿਤ ਡਿਗਰੀ ਅਤੇ ਪ੍ਰੋਫੈਸ਼ਨਲ ਕੋਰਸ।</p>
+        <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 15px;">PTU ਐਫੀਲੀਏਟਿਡ ਪ੍ਰੋਫੈਸ਼ਨਲ ਡਿਗਰੀ ਪ੍ਰੋਗਰਾਮ।</p>
         <a href="#admission" class="action-btn">Apply Now</a>
       </div>
     </div>
   </section>
 
-  <!-- 10. Admission Section -->
-  <section class="container" id="admission" style="background: #e2e8f0;">
-    <h2 class="section-title">Online Admission Portal 2026</h2>
-    <div class="form-wrapper">
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc-DUMMY_FORM_ID_HERE/viewform?embedded=true" width="100%" height="750" frameborder="0" marginheight="0" marginwidth="0">ਦਾਖ਼ਲਾ ਫਾਰਮ ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ…</iframe>
+  <!-- Admission Section -->
+  <section class="container" id="admission" style="background: #ffffff;">
+    <h2 class="section-title">Online Admission Form</h2>
+    <div style="max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc-DUMMY_FORM_ID_HERE/viewform?embedded=true" width="100%" height="700" frameborder="0" marginheight="0" marginwidth="0">ਫਾਰਮ ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ…</iframe>
     </div>
   </section>
 
-  <!-- 11. Official Footer -->
+  <!-- Footer -->
   <footer id="contact">
     <div class="footer-grid">
       <div class="footer-col">
         <h4>About UIHESD</h4>
-        <p style="font-size: 0.85rem;">Universal Institute of Higher Education & Skill Development is committed to creating skilled professionals with PTU affiliations and ISO standards.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Recognitions</h4>
-        <ul>
-          <li>Punjab Technical University (IKGPTU)</li>
-          <li>ISO 9001:2015 Certified</li>
-          <li>NCVT / DGT Norms</li>
-          <li>Skill Development Initiative</li>
-        </ul>
+        <p style="font-size: 0.85rem;">Universal Institute of Higher Education & Skill Development is committed to creating certified, skilled youth with PTU and ISO standards.</p>
       </div>
       <div class="footer-col">
         <h4>Quick Links</h4>
         <ul>
           <li><a href="#about">About Campus</a></li>
           <li><a href="#certificate">Verify Certificate</a></li>
-          <li><a href="#courses">Courses & Fee</a></li>
+          <li><a href="#accreditations">Accreditations</a></li>
           <li><a href="#admission">Apply Online</a></li>
         </ul>
       </div>
@@ -317,55 +311,126 @@
       </div>
     </div>
     <div class="bottom-bar">
-      <p>© 2026 Universal Institute of Higher Education & Skill Development. All Rights Reserved | Official Portal</p>
+      <p>© 2026 Universal Institute of Higher Education & Skill Development. All Rights Reserved | Document Verification System</p>
     </div>
   </footer>
 
-  <!-- Certificate Verification Script -->
+  <!-- Certificate Verification & Storage Script -->
   <script>
-    const certificateDatabase = {
-      "UIHESD/2026/001": {
+    // 1. ਡਿਫਾਲਟ ਡਾਟਾਬੇਸ
+    const defaultStudents = {
+      "UID-2026-01": {
         name: "Gurpreet Singh",
+        father: "S. Harbhajan Singh",
+        address: "VPO Jalalabad, Dist. Fazilka, Punjab",
         course: "Computer Operator & Programming Assistant (COPA)",
-        session: "2024 - 2026",
-        grade: "A+ (Distinction)",
-        status: "Verified & Authentic"
-      },
-      "UIHESD/2026/002": {
-        name: "Amanpreet Kaur",
-        course: "Electrician Trade (ITI)",
-        session: "2024 - 2026",
-        grade: "A (First Division)",
-        status: "Verified & Authentic"
+        rollNo: "ROLL-101",
+        uniqueId: "UID-2026-01",
+        status: "Verified & Issued"
       }
     };
 
+    // ਲੋਕਲ ਸਟੋਰੇਜ ਵਿੱਚੋਂ ਡਾਟਾ ਲੋਡ ਕਰਨਾ
+    function getStoredDatabase() {
+      const stored = localStorage.getItem("uihesd_students");
+      if (stored) {
+        return Object.assign({}, defaultStudents, JSON.parse(stored));
+      }
+      return defaultStudents;
+    }
+
+    // 2. ਵੈਰੀਫਾਈ ਕਰਨ ਵਾਲਾ ਫੰਕਸ਼ਨ
     function verifyCertificate() {
-      const inputVal = document.getElementById("certInput").value.trim().toUpperCase();
+      const query = document.getElementById("certInput").value.trim().toUpperCase();
       const resultBox = document.getElementById("certResult");
 
-      if (!inputVal) {
-        alert("ਕਿਰਪਾ ਕਰਕੇ ਸਰਟੀਫਿਕੇਟ ਜਾਂ ਰੋਲ ਨੰਬਰ ਦਰਜ ਕਰੋ।");
+      if (!query) {
+        alert("ਕਿਰਪਾ ਕਰਕੇ ਰੋਲ ਨੰਬਰ ਜਾਂ ਯੂਨੀਕ ਆਈ.ਡੀ. ਦਰਜ ਕਰੋ।");
         return;
       }
 
       resultBox.style.display = "block";
+      const db = getStoredDatabase();
 
-      if (certificateDatabase[inputVal]) {
-        const student = certificateDatabase[inputVal];
+      // ਚੈੱਕ ਕਰੋ ਕਿ ਯੂਨੀਕ ਆਈ.ਡੀ. ਜਾਂ ਰੋਲ ਨੰਬਰ ਨਾਲ ਮੈਚ ਹੁੰਦਾ ਹੈ
+      let foundStudent = null;
+      for (let key in db) {
+        if (key.toUpperCase() === query || db[key].rollNo.toUpperCase() === query) {
+          foundStudent = db[key];
+          break;
+        }
+      }
+
+      if (foundStudent) {
         resultBox.className = "cert-result cert-valid";
         resultBox.innerHTML = `
-          <h4 style="color: #166534; margin-bottom: 10px;">✅ Record Found & Verified</h4>
-          <p><strong>Candidate Name:</strong> ${student.name}</p>
-          <p><strong>Course / Trade:</strong> ${student.course}</p>
-          <p><strong>Academic Session:</strong> ${student.session}</p>
-          <p><strong>Result / Grade:</strong> ${student.grade}</p>
-          <p><strong>Status:</strong> <span style="color: #16a34a; font-weight: bold;">${student.status}</span></p>
+          <div style="text-align:center; margin-bottom:15px;">
+            <span style="background:#16a34a; color:white; padding:4px 12px; border-radius:20px; font-weight:bold; font-size:0.85rem;">
+              ✔ OFFICIAL RECORD VERIFIED
+            </span>
+          </div>
+          <table class="cert-table">
+            <tr><td class="label">Student Name:</td><td><strong>${foundStudent.name}</strong></td></tr>
+            <tr><td class="label">Father's Name:</td><td>${foundStudent.father}</td></tr>
+            <tr><td class="label">Address:</td><td>${foundStudent.address}</td></tr>
+            <tr><td class="label">Course / Trade:</td><td>${foundStudent.course}</td></tr>
+            <tr><td class="label">Roll Number:</td><td><strong>${foundStudent.rollNo}</strong></td></tr>
+            <tr><td class="label">Unique Certificate ID:</td><td><span style="color:#0284c7; font-weight:bold;">${foundStudent.uniqueId}</span></td></tr>
+            <tr><td class="label">Institute:</td><td>UIHESD (PTU Affiliated & ISO Certified)</td></tr>
+            <tr><td class="label">Verification Status:</td><td><strong style="color:#16a34a;">${foundStudent.status}</strong></td></tr>
+          </table>
         `;
       } else {
         resultBox.className = "cert-result cert-invalid";
-        resultBox.innerHTML = `❌ ਕੋਈ ਰਿਕਾਰਡ ਨਹੀਂ ਮਿਲਿਆ! ਕਿਰਪਾ ਕਰਕੇ ਰੋਲ ਨੰਬਰ ਚੈੱਕ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ ਜਾਂ ਦਫ਼ਤਰ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।`;
+        resultBox.innerHTML = `❌ ਕੋਈ ਰਿਕਾਰਡ ਨਹੀਂ ਮਿਲਿਆ! ਦਰਜ ਕੀਤਾ ਰੋਲ ਨੰਬਰ ਜਾਂ ਯੂਨੀਕ ਆਈ.ਡੀ. ਗਲਤ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਜਾਂਚ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।`;
       }
+    }
+
+    // 3. ਐਡਮਿਨ ਫਾਰਮ ਦਿਖਾਉਣ / ਲੁਕਾਉਣ ਲਈ
+    function toggleAdminPanel() {
+      const panel = document.getElementById("adminPanel");
+      panel.style.display = (panel.style.display === "block") ? "none" : "block";
+    }
+
+    // 4. ਨਵੇਂ ਬੱਚੇ ਦਾ ਰਿਕਾਰਡ ਸੇਵ ਕਰਨ ਵਾਲਾ ਫੰਕਸ਼ਨ
+    function saveStudentRecord() {
+      const name = document.getElementById("addName").value.trim();
+      const father = document.getElementById("addFather").value.trim();
+      const address = document.getElementById("addAddress").value.trim();
+      const course = document.getElementById("addCourse").value.trim();
+      const rollNo = document.getElementById("addRoll").value.trim().toUpperCase();
+      const uniqueId = document.getElementById("addUID").value.trim().toUpperCase();
+
+      if (!name || !father || !address || !course || !rollNo || !uniqueId) {
+        alert("ਕਿਰਪਾ ਕਰਕੇ ਸਾਰੀਆਂ ਜਾਣਕਾਰੀਆਂ (ਨਾਮ, ਪਿਤਾ ਦਾ ਨਾਮ, ਪਤਾ, ਕੋਰਸ, ਰੋਲ ਨੰਬਰ, ਯੂਨੀਕ ਆਈ.ਡੀ.) ਭਰੋ।");
+        return;
+      }
+
+      let stored = localStorage.getItem("uihesd_students");
+      let currentDB = stored ? JSON.parse(stored) : {};
+
+      // ਨਵਾਂ ਰਿਕਾਰਡ ਸ਼ਾਮਲ ਕਰਨਾ
+      currentDB[uniqueId] = {
+        name: name,
+        father: father,
+        address: address,
+        course: course,
+        rollNo: rollNo,
+        uniqueId: uniqueId,
+        status: "Verified & Issued"
+      };
+
+      localStorage.setItem("uihesd_students", JSON.stringify(currentDB));
+      alert("ਸਫਲਤਾਪੂਰਵਕ ਰਿਕਾਰਡ ਦਰਜ ਹੋ ਗਿਆ ਹੈ! ਹੁਣ ਤੁਸੀਂ ਉੱਪਰ ਰੋਲ ਨੰਬਰ ਜਾਂ ਆਈ.ਡੀ. ਭਰ ਕੇ ਇਸਦੀ ਜਾਂਚ ਕਰ ਸਕਦੇ ਹੋ।");
+
+      // ਇਨਪੁਟ ਬਕਸੇ ਸਾਫ਼ ਕਰਨਾ
+      document.getElementById("addName").value = "";
+      document.getElementById("addFather").value = "";
+      document.getElementById("addAddress").value = "";
+      document.getElementById("addCourse").value = "";
+      document.getElementById("addRoll").value = "";
+      document.getElementById("addUID").value = "";
+      toggleAdminPanel();
     }
   </script>
 
