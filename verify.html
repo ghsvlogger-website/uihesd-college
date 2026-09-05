@@ -231,7 +231,7 @@
     #qrcode { display: inline-block; background: #ffffff; padding: 2px; }
     .qr-text-tag { font-size: 0.62rem; color: #0f172a; font-weight: 800; margin-top: 4px; text-transform: uppercase; }
 
-    /* ================= USER UPLOADED SEAL (seal.jpg) ================= */
+    /* ================= EXACT USER-UPLOADED seal.jpg ================= */
     .user-uploaded-red-seal {
       width: 125px;
       height: 125px;
@@ -309,10 +309,8 @@
 </head>
 <body>
 
-  <!-- WEBSITE ROOT LAYOUT -->
   <div id="fullSiteLayout">
 
-    <!-- 1. TOP UTILITY BAR -->
     <div class="top-utility-bar">
       <div class="top-left-text">Government of India | Ministry of Skill Development and Entrepreneurship</div>
       <div class="top-right-tools">
@@ -323,7 +321,6 @@
       </div>
     </div>
 
-    <!-- 2. MAIN HEADER -->
     <header class="dgt-main-header">
       <div class="header-left-emblem">
         <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150'><path fill='%231e3a8a' d='M40,5 C40,2 60,2 60,5 C62,15 75,25 75,40 C75,55 60,65 60,75 L65,85 L35,85 L40,75 C40,65 25,55 25,40 C25,25 38,15 40,5 Z'/><circle cx='50' cy='105' r='14' fill='none' stroke='%231e3a8a' stroke-width='3'/><circle cx='50' cy='105' r='3' fill='%231e3a8a'/><path fill='%23b45309' d='M20,125 L80,125 L75,140 L25,140 Z'/><text x='50' y='136' font-size='8' font-weight='bold' text-anchor='middle' fill='%23ffffff'>सत्यमेव जयते</text></svg>" class="ashok-emblem-svg" alt="Emblem of India">
@@ -341,7 +338,6 @@
       </div>
     </header>
 
-    <!-- 3. NAVIGATION BAR -->
     <nav class="dgt-navbar">
       <ul class="dgt-nav-list">
         <li><a href="index.html">HOME</a></li>
@@ -356,7 +352,6 @@
       </ul>
     </nav>
 
-    <!-- 4. SOCIAL MEDIA STRIP -->
     <div class="floating-social-strip">
       <a href="#" class="social-btn sb-fb">f</a>
       <a href="#" class="social-btn sb-tw">𝕏</a>
@@ -365,7 +360,6 @@
       <a href="#" class="social-btn sb-wa">💬</a>
     </div>
 
-    <!-- 5. WORKSPACE CONTAINER -->
     <div class="container">
       <div class="cert-box">
         <h2 style="text-align:center; color:#172b53; margin-bottom:6px;">ਅਧਿਕਾਰਤ ਸਰਟੀਫਿਕੇਟ ਪੜਤਾਲ (Online Verification)</h2>
@@ -376,7 +370,6 @@
           <button class="cert-btn" onclick="verifyCertificate()">ਪੜਤਾਲ ਕਰੋ (Verify)</button>
         </div>
 
-        <!-- ACTION BAR -->
         <div class="action-control-bar">
           <div class="action-text">
             <h4>👥 Student Database Management Portal</h4>
@@ -392,7 +385,6 @@
 
         <div id="certResult" class="cert-result"></div>
 
-        <!-- Student Records Table -->
         <div style="margin-top:25px; border-top:1px solid #cbd5e1; padding-top:15px;">
           <h4 style="color:#172b53; margin-bottom:8px;">📁 ਸੇਵ ਕੀਤੇ ਹੋਏ ਕੁੱਲ ਵਿਦਿਆਰਥੀ (Database):</h4>
           <table class="records-table">
@@ -412,7 +404,6 @@
       </div>
     </div>
 
-    <!-- CHATBOT -->
     <div class="dgt-ai-bot" onclick="alert('Welcome to DGT & UIHESD Online Helpdesk!')">
       <div class="bot-speech-bubble">HI!</div>
       <div class="bot-avatar-wrap">🤖</div>
@@ -429,10 +420,8 @@
 
   </div>
 
-  <!-- 100% STRICT ISOLATED VIEW ON QR SCAN -->
   <div id="qrScanIsolatedContainer" style="display:none;" class="qr-standalone-wrapper"></div>
 
-  <!-- ADD NEW STUDENT MODAL -->
   <div id="addStudentModal" class="modal-overlay">
     <div class="modal-card">
       <button class="modal-close-btn" onclick="closeStudentModal()">&times;</button>
@@ -717,14 +706,12 @@
                   </div>
                 </div>
 
-                <!-- BOTTOM CONTROLS WITH YOUR EXACT UPLOADED seal.jpg -->
                 <div class="cert-bottom-controls">
                   <div class="qr-box-wrap">
                     <div id="qrcode"></div>
                     <div class="qr-text-tag">Scan To Verify</div>
                   </div>
 
-                  <!-- YOUR UPLOADED SEAL IMAGE (seal.jpg) -->
                   <img src="seal.jpg" class="user-uploaded-red-seal" alt="Official Seal" onerror="this.src='collagelogo1.png';">
 
                   <div class="sign-col">
