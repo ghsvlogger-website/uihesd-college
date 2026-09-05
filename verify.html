@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Online Certificate Verification System | UIHESD</title>
   
-  <!-- Dynamic QR Code Script -->
+  <!-- Fast Dynamic QR Code Library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
   <style>
@@ -210,6 +210,7 @@
       display: inline-block;
     }
 
+    /* FOOTER PANEL */
     .cert-landscape-footer {
       position: relative;
       z-index: 2;
@@ -252,15 +253,29 @@
       align-items: flex-end;
       padding: 0 5px;
     }
+    
+    /* ENLARGED CLEAN QR BOX FOR INSTANT CAMERA SCANNING */
     .qr-box-wrap {
       text-align: center;
       background: #ffffff;
-      padding: 4px;
-      border: 1px solid #cbd5e1;
-      border-radius: 4px;
+      padding: 6px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
-    #qrcode { display: inline-block; }
-    .qr-text-tag { font-size: 0.58rem; color: #475569; font-weight: 800; margin-top: 2px; text-transform: uppercase; }
+    #qrcode { 
+      display: inline-block; 
+      background: #ffffff;
+      padding: 2px;
+    }
+    .qr-text-tag { 
+      font-size: 0.62rem; 
+      color: #0f172a; 
+      font-weight: 800; 
+      margin-top: 4px; 
+      text-transform: uppercase; 
+      letter-spacing: 0.5px;
+    }
 
     .gold-seal-badge {
       width: 78px; height: 78px;
@@ -338,7 +353,7 @@
 
   <div class="alert-ribbon">
     <span class="alert-tag">VERIFICATION</span>
-    <marquee>Official Institutional Database Connected: Enter Roll Number or Unique ID to Verify.</marquee>
+    <marquee>Online Credential Verification: Instant Camera Scannable QR Code Activated.</marquee>
   </div>
 
   <div class="container">
@@ -360,7 +375,6 @@
   </footer>
 
   <script>
-    // Embedded Official Fallback Database
     const embeddedDatabase = [
       {
         rollNo: "ROLL-101",
@@ -374,7 +388,6 @@
       }
     ];
 
-    // Fetch Database from students.json (Fallback to embedded)
     async function getStudentDatabase() {
       try {
         const response = await fetch('students.json?v=' + Date.now());
@@ -387,11 +400,12 @@
       return embeddedDatabase;
     }
 
-    async function verifyCertificate() {
-      const q = document.getElementById("certInput").value.trim().toUpperCase();
+    async function verifyCertificate(forcedQuery) {
+      const q = (forcedQuery || document.getElementById("certInput").value).trim().toUpperCase();
       const res = document.getElementById("certResult");
       if (!q) return alert("ਕਿਰਪਾ ਕਰਕੇ Roll Number ਜਾਂ UID ਦਰਜ ਕਰੋ");
 
+      document.getElementById("certInput").value = q;
       res.style.display = "block";
       res.innerHTML = "<p style='text-align:center; color:#0284c7;'>ਪੜਤਾਲ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ... ਕਿਰਪਾ ਕਰਕੇ ਉਡੀਕ ਕਰੋ।</p>";
 
@@ -475,11 +489,11 @@
 
                 </div>
 
-                <!-- Bottom Row: QR + Gold Seal + Signatures -->
+                <!-- Bottom Row: Clean Scannable QR + Seal + Signatures -->
                 <div class="cert-bottom-controls">
                   <div class="qr-box-wrap">
                     <div id="qrcode"></div>
-                    <div class="qr-text-tag">Scan to Verify</div>
+                    <div class="qr-text-tag">Scan To Verify</div>
                   </div>
 
                   <div class="gold-seal-badge">
@@ -507,16 +521,21 @@
           <button class="btn-print" onclick="window.print()">🖨️ ਪ੍ਰਿੰਟ ਸਰਟੀਫਿਕੇਟ (Print Certificate - A4 Landscape)</button>
         `;
 
+        // Generate Ultra-Scannable Live URL QR Code
         setTimeout(() => {
           document.getElementById("qrcode").innerHTML = "";
-          const qrText = `UIHESD OFFICIAL RECORD VERIFICATION\n================================\nCandidate: ${s.name}\nFather: ${s.father}\nCourse: ${s.course}\nRoll No: ${s.rollNo}\nUID: ${s.uniqueId}\nGrade: ${s.grade}\nSession: ${s.session}\nAccredited By: ISO 9001, IAF, MSME, IKGPTU\nVerification Status: 100% Genuine & Authentic`;
+          
+          // Absolute Web Portal URL with Student UID Parameter
+          const currentUrl = window.location.origin + window.location.pathname;
+          const verifyLink = `${currentUrl}?verify=${encodeURIComponent(s.uniqueId)}`;
+
           new QRCode(document.getElementById("qrcode"), {
-            text: qrText,
-            width: 72,
-            height: 72,
-            colorDark: "#0b1f3a",
+            text: verifyLink,
+            width: 95,
+            height: 95,
+            colorDark: "#000000",
             colorLight: "#ffffff",
-            correctLevel: QRCode.CorrectLevel.H
+            correctLevel: QRCode.CorrectLevel.M
           });
         }, 50);
 
@@ -528,6 +547,15 @@
         `;
       }
     }
+
+    // Auto-Verify when someone opens link by scanning QR Code
+    window.onload = function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const verifyId = urlParams.get('verify');
+      if (verifyId) {
+        verifyCertificate(verifyId);
+      }
+    };
   </script>
 </body>
 </html>
