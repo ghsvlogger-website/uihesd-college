@@ -74,7 +74,7 @@
     .sb-yt { background: #ff0000; }
     .sb-wa { background: #25d366; }
 
-    /* ================= 5. MAIN CONTAINER & ADMIN DATA ENTRY ================= */
+    /* ================= 5. MAIN CONTAINER ================= */
     .container { max-width: 1120px; margin: 30px auto; padding: 0 15px; }
     .cert-box { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-top: 4px solid #172b53; }
     .cert-input-group { display: flex; gap: 10px; margin-top: 15px; }
@@ -84,65 +84,168 @@
     .cert-result { display: none; margin-top: 25px; }
     .cert-invalid { border: 1px solid #fecaca; background: #fef2f2; color: #dc2626; padding: 15px; text-align: center; font-weight: bold; border-radius: 6px; }
 
-    /* Data Entry Box */
-    .admin-entry-card {
-      margin-top: 30px;
-      background: #f8fafc;
-      border: 2px dashed #0284c7;
-      border-radius: 8px;
-      padding: 24px;
-    }
-    .admin-entry-card h3 { color: #172b53; margin-bottom: 6px; font-size: 1.15rem; font-weight: 800; }
-    .admin-entry-card p { color: #64748b; font-size: 0.8rem; margin-bottom: 16px; }
-    
-    .entry-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .entry-group label { display: block; font-size: 0.82rem; font-weight: 700; margin-bottom: 4px; color: #334155; }
-    .entry-group input { width: 100%; padding: 10px; border: 1.5px solid #cbd5e1; border-radius: 4px; font-size: 0.9rem; outline: none; }
-    .entry-group input:focus { border-color: #0284c7; }
-    
-    .btn-save-record {
-      width: 100%;
-      background: #16a34a;
-      color: white;
-      border: none;
-      padding: 12px;
-      font-size: 1rem;
-      font-weight: 800;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-top: 15px;
-    }
-    .btn-save-record:hover { background: #15803d; }
-
-    /* Excel Management Bar */
-    .excel-mgmt-box {
-      margin-top: 20px;
-      background: #ffffff;
-      border: 1px solid #cbd5e1;
-      padding: 14px;
+    /* ACTION BAR WITH "ADD STUDENT" AND "EXCEL" */
+    .action-control-bar {
+      margin-top: 22px;
+      background: #f0fdf4;
+      border: 1.5px solid #bbf7d0;
       border-radius: 6px;
+      padding: 16px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 15px;
     }
-    .btn-excel-act {
+    .action-text h4 { color: #166534; font-size: 0.95rem; margin-bottom: 2px; }
+    .action-text p { color: #475569; font-size: 0.78rem; }
+    .action-btn-group { display: flex; gap: 10px; flex-wrap: wrap; }
+    
+    .btn-add-student {
+      background: #b45309;
+      color: white;
+      border: none;
+      padding: 9px 18px;
+      border-radius: 4px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 6px rgba(180, 83, 9, 0.3);
+    }
+    .btn-add-student:hover { background: #92400e; }
+    
+    .btn-excel-export {
+      background: #15803d;
+      color: white;
+      border: none;
+      padding: 9px 16px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-excel-export:hover { background: #166534; }
+    
+    .btn-excel-import {
       background: #0284c7;
       color: white;
       border: none;
-      padding: 8px 15px;
+      padding: 9px 16px;
       border-radius: 4px;
       font-weight: 700;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-excel-import:hover { background: #0369a1; }
+
+    /* ================= DGT VERIFIED DATA CARD (SHOWN ON QR SCAN) ================= */
+    .qr-verify-card {
+      background: #ffffff;
+      border: 2px solid #10b981;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.15);
+      max-width: 680px;
+      margin: 15px auto 30px;
+      overflow: hidden;
+      animation: fadeIn 0.4s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .qr-verify-top {
+      background: #10b981;
+      color: #ffffff;
+      padding: 16px 20px;
+      text-align: center;
+    }
+    .qr-verify-top .shield-icon { font-size: 2.2rem; margin-bottom: 2px; }
+    .qr-verify-top h3 { font-size: 1.25rem; font-weight: 900; letter-spacing: 0.5px; text-transform: uppercase; margin: 0; }
+    .qr-verify-top p { font-size: 0.76rem; font-weight: 700; color: #ecfdf5; margin-top: 3px; }
+
+    .qr-gov-authority {
+      background: #f0fdf4;
+      border-bottom: 1px solid #dcfce7;
+      padding: 12px 20px;
+      text-align: center;
+    }
+    .qr-gov-authority .gov-name {
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: #065f46;
+      text-transform: uppercase;
+      line-height: 1.3;
+    }
+    .qr-gov-authority .inst-name {
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: #0b1f3a;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+    .qr-gov-authority .meta-badge {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1e3a8a;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-top: 6px;
     }
 
-    .records-table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.85rem; background: white; }
-    .records-table th, .records-table td { padding: 9px 12px; border: 1px solid #cbd5e1; text-align: left; }
-    .records-table th { background: #172b53; color: white; }
-    .btn-table-view { background: #0284c7; color: white; border: none; padding: 4px 10px; border-radius: 3px; cursor: pointer; font-weight: bold; }
-    .btn-table-del { background: #dc2626; color: white; border: none; padding: 4px 10px; border-radius: 3px; cursor: pointer; font-weight: bold; margin-left: 4px; }
+    .qr-data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+    }
+    .qr-data-table tr { border-bottom: 1px solid #f1f5f9; }
+    .qr-data-table td {
+      padding: 11px 24px;
+      font-size: 0.9rem;
+    }
+    .qr-data-table td.label-col {
+      width: 38%;
+      color: #64748b;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+    }
+    .qr-data-table td.val-col {
+      width: 62%;
+      color: #0f172a;
+      font-weight: 800;
+    }
+
+    .qr-card-footer {
+      background: #f8fafc;
+      padding: 14px 20px;
+      text-align: center;
+      border-top: 1px solid #e2e8f0;
+    }
+    .btn-full-cert-toggle {
+      background: #1e3a8a;
+      color: #ffffff;
+      border: none;
+      padding: 9px 20px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-full-cert-toggle:hover { background: #0f1d38; }
 
     /* ================= A4 LANDSCAPE CERTIFICATE ================= */
     .cert-landscape-wrapper {
@@ -235,6 +338,46 @@
 
     .btn-print { background: #16a34a; color: white; border: none; padding: 12px 28px; font-weight: bold; border-radius: 5px; cursor: pointer; font-size: 0.95rem; margin: 20px auto 0; display: block; }
 
+    /* POPUP MODAL */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(4px);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+    }
+    .modal-card {
+      background: #ffffff;
+      width: 100%;
+      max-width: 650px;
+      border-radius: 8px;
+      padding: 25px 30px;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+      border-top: 5px solid #172b53;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .modal-close-btn { position: absolute; top: 15px; right: 18px; background: transparent; border: none; font-size: 1.6rem; color: #64748b; cursor: pointer; line-height: 1; }
+    .entry-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 15px; }
+    .entry-group label { display: block; font-size: 0.82rem; font-weight: 700; margin-bottom: 4px; color: #334155; }
+    .entry-group input { width: 100%; padding: 10px; border: 1.5px solid #cbd5e1; border-radius: 4px; font-size: 0.9rem; outline: none; }
+    .entry-group input:focus { border-color: #0284c7; }
+    
+    .btn-save-record { width: 100%; background: #16a34a; color: white; border: none; padding: 12px; font-size: 1rem; font-weight: 800; border-radius: 4px; cursor: pointer; margin-top: 18px; text-transform: uppercase; }
+    .btn-save-record:hover { background: #15803d; }
+
+    /* Student Database Table */
+    .records-table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.85rem; background: white; }
+    .records-table th, .records-table td { padding: 9px 12px; border: 1px solid #cbd5e1; text-align: left; }
+    .records-table th { background: #172b53; color: white; }
+    .btn-table-view { background: #0284c7; color: white; border: none; padding: 4px 10px; border-radius: 3px; cursor: pointer; font-weight: bold; }
+    .btn-table-del { background: #dc2626; color: white; border: none; padding: 4px 10px; border-radius: 3px; cursor: pointer; font-weight: bold; margin-left: 4px; }
+
     /* CHATBOT */
     .dgt-ai-bot { position: fixed; right: 25px; bottom: 25px; z-index: 9999; cursor: pointer; display: flex; flex-direction: column; align-items: center; }
     .bot-speech-bubble { background: #10b981; color: white; font-size: 0.7rem; font-weight: 900; padding: 2px 8px; border-radius: 10px; margin-bottom: 2px; }
@@ -250,7 +393,7 @@
       .cert-landscape-wrapper, .cert-landscape-wrapper * { visibility: visible; }
       .cert-landscape-wrapper { position: fixed; left: 0; top: 0; width: 100% !important; height: 100% !important; margin: 0 !important; padding: 0 !important; border: none !important; box-shadow: none !important; }
       .cert-inner-border { height: 100% !important; box-sizing: border-box; padding: 16mm 18mm 12mm !important; }
-      .btn-print, header, nav, .top-utility-bar, .floating-social-strip, .dgt-ai-bot, footer, .cert-input-group, .admin-entry-card, h2, p { display: none !important; }
+      .btn-print, header, nav, .top-utility-bar, .floating-social-strip, .dgt-ai-bot, footer, .cert-input-group, .action-control-bar, .qr-verify-card, h2, p { display: none !important; }
     }
     @media (max-width: 992px) {
       .college-bold-title { font-size: 1.15rem; }
@@ -325,83 +468,93 @@
         <button class="cert-btn" onclick="verifyCertificate()">ਪੜਤਾਲ ਕਰੋ (Verify)</button>
       </div>
 
-      <div id="certResult" class="cert-result"></div>
-
-      <!-- ================= 6. DIRECT STUDENT DATA ENTRY PORTAL ================= -->
-      <div class="admin-entry-card">
-        <h3>➕ ਨਵੇਂ ਵਿਦਿਆਰਥੀ ਦਾ ਰਿਕਾਰਡ ਦਰਜ ਕਰੋ (Enter Student Details)</h3>
-        <p>ਇੱਥੇ ਵੇਰਵੇ ਭਰ ਕੇ ਸੇਵ ਕਰੋ, ਵਿਦਿਆਰਥੀ ਦਾ ਸਰਟੀਫਿਕੇਟ ਤੁਰੰਤ ਆਨਲਾਈਨ ਵੈਰੀਫਾਈ ਹੋਣ ਲਈ ਤਿਆਰ ਹੋ ਜਾਵੇਗਾ।</p>
-        
-        <div class="entry-grid">
-          <div class="entry-group">
-            <label>ਯੂਨੀਕ ਆਈ.ਡੀ. (Auto Generated UID):</label>
-            <input type="text" id="inUID" readonly style="background:#e2e8f0; font-weight:bold; color:#b91c1c;">
-          </div>
-          <div class="entry-group">
-            <label>ਰੋਲ ਨੰਬਰ (Roll Number):</label>
-            <input type="text" id="inRoll" placeholder="ਜਿਵੇਂ ROLL-102">
-          </div>
-          <div class="entry-group">
-            <label>ਵਿਦਿਆਰਥੀ ਦਾ ਪੂਰਾ ਨਾਮ (Candidate Name):</label>
-            <input type="text" id="inName" placeholder="ਜਿਵੇਂ GURPREET SINGH">
-          </div>
-          <div class="entry-group">
-            <label>ਪਿਤਾ ਦਾ ਨਾਮ (Father's Name):</label>
-            <input type="text" id="inFather" placeholder="ਜਿਵੇਂ S. HARBHAJAN SINGH">
-          </div>
-          <div class="entry-group">
-            <label>ਪਤਾ / ਸ਼ਹਿਰ (City / Address):</label>
-            <input type="text" id="inAddress" placeholder="ਜਿਵੇਂ GURU HAR SAHAI, FIROZPUR, PUNJAB">
-          </div>
-          <div class="entry-group">
-            <label>ਕੋਰਸ ਦਾ ਨਾਮ (Course Title):</label>
-            <input type="text" id="inCourse" placeholder="ਜਿਵੇਂ Mechanic Diesel / COPA / Electrician">
-          </div>
-          <div class="entry-group">
-            <label>ਸੈਸ਼ਨ (Academic Session):</label>
-            <input type="text" id="inSession" value="2025 - 2026">
-          </div>
-          <div class="entry-group">
-            <label>ਗ੍ਰੇਡ (Performance Grade):</label>
-            <input type="text" id="inGrade" value="Grade A+ (Distinction)">
-          </div>
+      <!-- ACTION BAR -->
+      <div class="action-control-bar">
+        <div class="action-text">
+          <h4>👥 Student Database Management Portal</h4>
+          <p>ਨਵਾਂ ਵਿਦਿਆਰਥੀ ਸ਼ਾਮਲ ਕਰੋ ਜਾਂ ਸਿੱਧੀ Excel (CSV) ਫ਼ਾਈਲ ਡਾਊਨਲੋਡ/ਅੱਪਲੋਡ ਕਰੋ।</p>
         </div>
-
-        <button class="btn-save-record" onclick="saveNewStudent()">
-          💾 ਵਿਦਿਆਰਥੀ ਡਾਟਾ ਸੇਵ ਕਰੋ (Save Student Record)
-        </button>
-
-        <!-- Excel Actions Inside Portal -->
-        <div class="excel-mgmt-box">
-          <div>
-            <strong style="color:#172b53; font-size:0.88rem;">📊 Excel (CSV) ਫ਼ਾਈਲ ਰਾਹੀਂ ਡਾਟਾ ਸੰਭਾਲੋ:</strong>
-            <span style="font-size:0.75rem; color:#64748b; display:block;">ਸਿੱਧੀ Excel ਫ਼ਾਈਲ ਡਾਊਨਲੋਡ ਕਰੋ ਜਾਂ ਆਪਣੀ ਫ਼ਾਈਲ ਚੜ੍ਹਾਓ।</span>
-          </div>
-          <div style="display:flex; gap:8px;">
-            <button class="btn-excel-act" style="background:#15803d;" onclick="exportToExcel()">📥 Export Excel</button>
-            <button class="btn-excel-act" onclick="document.getElementById('excelUpload').click()">📤 Import Excel</button>
-            <input type="file" id="excelUpload" style="display:none;" accept=".csv, .txt" onchange="importFromExcel(event)">
-          </div>
-        </div>
-
-        <!-- Student Database Table -->
-        <div style="margin-top:20px;">
-          <h4 style="color:#172b53; margin-bottom:8px;">📁 ਸੇਵ ਕੀਤੇ ਹੋਏ ਵਿਦਿਆਰਥੀਆਂ ਦੀ ਲਿਸਟ:</h4>
-          <table class="records-table">
-            <thead>
-              <tr>
-                <th>Roll No</th>
-                <th>UID</th>
-                <th>ਨਾਮ</th>
-                <th>ਕੋਰਸ</th>
-                <th>ਐਕਸ਼ਨ</th>
-              </tr>
-            </thead>
-            <tbody id="studentTableBody"></tbody>
-          </table>
+        <div class="action-btn-group">
+          <button class="btn-add-student" onclick="openStudentModal()">
+            ➕ Add New Student
+          </button>
+          <button class="btn-excel-export" onclick="exportToExcel()">
+            📥 Export Excel
+          </button>
+          <button class="btn-excel-import" onclick="document.getElementById('excelUpload').click()">
+            📤 Import Excel
+          </button>
+          <input type="file" id="excelUpload" style="display:none;" accept=".csv, .txt" onchange="importFromExcel(event)">
         </div>
       </div>
 
+      <div id="certResult" class="cert-result"></div>
+
+      <!-- Student Records Table -->
+      <div style="margin-top:25px; border-top:1px solid #cbd5e1; padding-top:15px;">
+        <h4 style="color:#172b53; margin-bottom:8px;">📁 ਸੇਵ ਕੀਤੇ ਹੋਏ ਕੁੱਲ ਵਿਦਿਆਰਥੀ (Database):</h4>
+        <table class="records-table">
+          <thead>
+            <tr>
+              <th>Roll No</th>
+              <th>UID</th>
+              <th>ਨਾਮ</th>
+              <th>ਕੋਰਸ</th>
+              <th>ਐਕਸ਼ਨ</th>
+            </tr>
+          </thead>
+          <tbody id="studentTableBody"></tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ADD NEW STUDENT MODAL -->
+  <div id="addStudentModal" class="modal-overlay">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeStudentModal()">&times;</button>
+      <h3 style="color:#172b53; font-size:1.2rem; font-weight:800;">➕ ਨਵੇਂ ਵਿਦਿਆਰਥੀ ਦਾ ਰਿਕਾਰਡ ਦਰਜ ਕਰੋ</h3>
+      <p style="font-size:0.8rem; color:#64748b; margin-top:2px;">UIHESD Student Data Entry Form</p>
+      
+      <div class="entry-grid">
+        <div class="entry-group">
+          <label>ਯੂਨੀਕ ਆਈ.ਡੀ. (Auto Generated UID):</label>
+          <input type="text" id="inUID" readonly style="background:#e2e8f0; font-weight:bold; color:#b91c1c;">
+        </div>
+        <div class="entry-group">
+          <label>ਰੋਲ ਨੰਬਰ (Roll Number):</label>
+          <input type="text" id="inRoll" placeholder="ਜਿਵੇਂ ROLL-102">
+        </div>
+        <div class="entry-group">
+          <label>ਵਿਦਿਆਰਥੀ ਦਾ ਪੂਰਾ ਨਾਮ (Candidate Name):</label>
+          <input type="text" id="inName" placeholder="ਜਿਵੇਂ GURPREET SINGH">
+        </div>
+        <div class="entry-group">
+          <label>ਪਿਤਾ ਦਾ ਨਾਮ (Father's Name):</label>
+          <input type="text" id="inFather" placeholder="ਜਿਵੇਂ S. HARBHAJAN SINGH">
+        </div>
+        <div class="entry-group">
+          <label>ਪਤਾ / ਸ਼ਹਿਰ (City / Address):</label>
+          <input type="text" id="inAddress" placeholder="ਜਿਵੇਂ GURU HAR SAHAI, FIROZPUR, PUNJAB">
+        </div>
+        <div class="entry-group">
+          <label>ਕੋਰਸ ਦਾ ਨਾਮ (Course Title):</label>
+          <input type="text" id="inCourse" placeholder="ਜਿਵੇਂ Mechanic Diesel / COPA / Electrician">
+        </div>
+        <div class="entry-group">
+          <label>ਸੈਸ਼ਨ (Academic Session):</label>
+          <input type="text" id="inSession" value="2025 - 2026">
+        </div>
+        <div class="entry-group">
+          <label>ਗ੍ਰੇਡ (Performance Grade):</label>
+          <input type="text" id="inGrade" value="Grade A+ (Distinction)">
+        </div>
+      </div>
+
+      <button class="btn-save-record" onclick="saveNewStudent()">
+        💾 ਵਿਦਿਆਰਥੀ ਡਾਟਾ ਸੇਵ ਕਰੋ (Save Student Record)
+      </button>
     </div>
   </div>
 
@@ -449,6 +602,17 @@
       const yr = new Date().getFullYear();
       const rnd = Math.floor(1000 + Math.random() * 9000);
       return `UID-${yr}-${rnd}`;
+    }
+
+    function openStudentModal() {
+      document.getElementById("inUID").value = generateUID();
+      document.getElementById("addStudentModal").style.display = "flex";
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeStudentModal() {
+      document.getElementById("addStudentModal").style.display = "none";
+      document.body.style.overflow = "auto";
     }
 
     function renderTable() {
@@ -501,7 +665,8 @@
       document.getElementById("inFather").value = "";
       document.getElementById("inAddress").value = "";
       document.getElementById("inCourse").value = "";
-      document.getElementById("inUID").value = generateUID();
+      
+      closeStudentModal();
       renderTable();
     }
 
@@ -564,7 +729,8 @@
       reader.readAsText(file);
     }
 
-    function verifyCertificate(forcedQuery) {
+    // ================= VERIFICATION FUNCTION (HANDLES QR SCAN & SEARCH) =================
+    function verifyCertificate(forcedQuery, fromScan) {
       const q = (forcedQuery || document.getElementById("certInput").value).trim().toUpperCase();
       const res = document.getElementById("certResult");
       if (!q) return alert("ਕਿਰਪਾ ਕਰਕੇ Roll Number ਜਾਂ UID ਦਰਜ ਕਰੋ");
@@ -579,116 +745,79 @@
       );
 
       if (s) {
-        res.innerHTML = `
-          <div style="text-align:center; margin-bottom:14px;">
-            <span style="background:#16a34a; color:white; padding:5px 20px; border-radius:20px; font-weight:bold; font-size:0.85rem; letter-spacing:0.5px;">
-              ✔ OFFICIAL RECORD DIGITALLY VERIFIED
-            </span>
-          </div>
-
-          <div class="cert-landscape-wrapper">
-            <div class="cert-inner-border" id="certFrame">
-              
-              <div class="cert-top-meta">
-                <div>SR. NO: <strong style="color:#0f172a;">UIHESD/${s.session ? s.session.replace(/\s+/g,'') : '2026'}/${Math.floor(1000 + Math.random()*9000)}</strong></div>
-                <div>ENROLLMENT / ROLL NO: <strong style="color:#1e3a8a;">${s.rollNo}</strong></div>
-                <div>CERTIFICATE UID: <strong style="color:#b91c1c;">${s.uniqueId}</strong></div>
+        // IF OPENED VIA QR SCAN: SHOW CLEAN DGT VERIFIED DATA CARD
+        if (fromScan) {
+          res.innerHTML = `
+            <div class="qr-verify-card">
+              <div class="qr-verify-top">
+                <div class="shield-icon">🛡️</div>
+                <h3>100% Digitally Verified Record</h3>
+                <p>Central Credential Registry • Government of India</p>
               </div>
 
-              <div class="cert-header-layout">
-                <img src="collagelogo1.png" class="cert-college-logo" alt="UIHESD Emblem" onerror="this.onerror=null;this.src='collagelogo1.PNG';">
-                <div class="cert-college-details">
-                  <h3>GOVT. REGD. TECHNICAL & VOCATIONAL INSTITUTE</h3>
-                  <h1>UNIVERSAL INSTITUTE OF HIGHER EDUCATION & SKILL DEVELOPMENT</h1>
-                  <p>ਯੂਨੀਵਰਸਲ ਇੰਸਟੀਚਿਊਟ ਆਫ਼ ਹਾਇਰ ਐਜੂਕੇਸ਼ਨ ਐਂਡ ਸਕਿੱਲ ਡਿਵੈਲਪਮੈਂਟ</p>
-                  <div class="statutory-line">ESTABLISHED UNDER STATUTORY VOCATIONAL FRAMEWORK • GOVT. OF INDIA</div>
+              <div class="qr-gov-authority">
+                <div class="gov-name">
+                  Verified by Directorate General of Training (DGT)<br>
+                  Ministry of Skill Development and Entrepreneurship (MSDE), Govt. of India
+                </div>
+                <div class="inst-name">
+                  Universal Institute of Higher Education & Skill Development
+                </div>
+                <div class="meta-badge">
+                  Accredited under ISO 9001:2015, IAF & MSME Standards
                 </div>
               </div>
 
-              <div class="cert-title-container">
-                <h2>Certificate of Proficiency</h2>
+              <table class="qr-data-table">
+                <tr>
+                  <td class="label-col">Candidate Name</td>
+                  <td class="val-col">${s.name}</td>
+                </tr>
+                <tr>
+                  <td class="label-col">Father's Name</td>
+                  <td class="val-col">${s.father}</td>
+                </tr>
+                <tr>
+                  <td class="label-col">Roll Number</td>
+                  <td class="val-col" style="color:#1e3a8a;">${s.rollNo}</td>
+                </tr>
+                <tr>
+                  <td class="label-col">Certificate UID</td>
+                  <td class="val-col" style="color:#b91c1c;">${s.uniqueId}</td>
+                </tr>
+                <tr>
+                  <td class="label-col">Trade / Course</td>
+                  <td class="val-col">${s.course}</td>
+                </tr>
+                <tr>
+                  <td class="label-col">Academic Session</td>
+                  <td class="val-col">${s.session || '2025 - 2026'}</td>
+                </tr>
+                <tr>
+                  <td class="label-col">Result / Grade</td>
+                  <td class="val-col" style="color:#16a34a;">${s.grade || 'Grade A+ (Distinction)'}</td>
+                </tr>
+                <tr>
+                  <td class="label-col">Status</td>
+                  <td class="val-col" style="color:#15803d;">✔ Genuine & Certified Passout</td>
+                </tr>
+              </table>
+
+              <div class="qr-card-footer">
+                <button class="btn-full-cert-toggle" onclick="showFullCertificate('${s.rollNo}')">
+                  📄 View Full Certificate
+                </button>
               </div>
-
-              <div class="cert-body-statement">
-                This is to certify that Mr./Ms. <span class="cert-highlight-field">${s.name}</span>, 
-                Son/Daughter of <span class="cert-highlight-field">${s.father}</span>, 
-                Resident of <span class="cert-highlight-field">${s.address}</span>, 
-                having successfully fulfilled all academic curriculum, workshop practices, and examination standards, is hereby awarded this certificate for the vocational trade / program of:
-                <br>
-                <div style="text-align:center; margin: 6px 0;">
-                  <span class="cert-highlight-field" style="font-size:1.3rem; color:#0b1f3a; letter-spacing:0.5px;">
-                    ${s.course}
-                  </span>
-                </div>
-                Conducted during the academic session <span class="cert-highlight-field">${s.session || '2025 - 2026'}</span>.
-                The overall performance of the candidate has been evaluated by the Examination Board and awarded <span class="cert-highlight-field">${s.grade || 'Grade A+ (Distinction)'}</span>.
-              </div>
-
-              <div class="cert-landscape-footer">
-                <div class="footer-logos-strip">
-                  <div class="f-logo-item">
-                    <img src="logo_iso.png" alt="ISO 9001" onerror="this.onerror=null;this.src='https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L2pvYjE4NDYtMjctcC0wMDdhLXgucG5n.png';">
-                    <span>ISO 9001:2015<br>Certified</span>
-                  </div>
-                  <div class="f-logo-item">
-                    <img src="logo_iaf.png" alt="IAF" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/IAF_logo.png/320px-IAF_logo.png';">
-                    <span>IAF<br>Accredited</span>
-                  </div>
-                  <div class="f-logo-item">
-                    <img src="logo_certi.png" alt="MSME" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/MSME_logo.png/320px-MSME_logo.png';">
-                    <span>MSME<br>Govt. of India</span>
-                  </div>
-                  <div class="f-logo-item">
-                    <img src="logo_ptu.png" alt="IKGPTU" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/en/thumb/2/25/I._K._Gujral_Punjab_Technical_University_logo.png/220px-I._K._Gujral_Punjab_Technical_University_logo.png';">
-                    <span>IKGPTU<br>Affiliated</span>
-                  </div>
-                </div>
-
-                <div class="cert-bottom-controls">
-                  <div class="qr-box-wrap">
-                    <div id="qrcode"></div>
-                    <div class="qr-text-tag">Scan To Verify</div>
-                  </div>
-
-                  <div class="gold-seal-badge">
-                    ★ SEAL OF ★<br>
-                    UIHESD<br>
-                    EXCELLENCE<br>
-                    ★ VERIFIED ★
-                  </div>
-
-                  <div class="sign-col">
-                    <div class="sign-underline"></div>
-                    <div>Course Coordinator</div>
-                  </div>
-
-                  <div class="sign-col">
-                    <div class="sign-underline"></div>
-                    <div>Director / Examination Cell</div>
-                  </div>
-                </div>
-              </div>
-
             </div>
-          </div>
 
-          <button class="btn-print" onclick="window.print()">🖨️ ਪ੍ਰਿੰਟ ਸਰਟੀਫਿਕੇਟ (Print Certificate - A4 Landscape)</button>
-        `;
-
-        setTimeout(() => {
-          document.getElementById("qrcode").innerHTML = "";
-          const currentUrl = window.location.origin + window.location.pathname;
-          const verifyLink = `${currentUrl}?verify=${encodeURIComponent(s.uniqueId)}`;
-
-          new QRCode(document.getElementById("qrcode"), {
-            text: verifyLink,
-            width: 95,
-            height: 95,
-            colorDark: "#000000",
-            colorLight: "#ffffff",
-            correctLevel: QRCode.CorrectLevel.M
-          });
-        }, 50);
+            <!-- Placeholder for full certificate if user clicks button -->
+            <div id="fullCertBox" style="display:none;"></div>
+          `;
+          window.scrollTo({ top: 180, behavior: 'smooth' });
+        } else {
+          // NORMAL WEBSITE SEARCH: SHOW FULL A4 CERTIFICATE DIRECTLY
+          renderFullCertificateHtml(s);
+        }
 
       } else {
         res.innerHTML = `
@@ -699,13 +828,148 @@
       }
     }
 
+    function showFullCertificate(rollNo) {
+      const db = getStudentDatabase();
+      const s = db.find(item => item.rollNo === rollNo);
+      if (!s) return;
+      const box = document.getElementById("fullCertBox");
+      box.style.display = "block";
+      renderFullCertificateHtml(s, "fullCertBox");
+      box.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function renderFullCertificateHtml(s, targetId) {
+      const htmlContent = `
+        <div style="text-align:center; margin-bottom:14px;">
+          <span style="background:#16a34a; color:white; padding:5px 20px; border-radius:20px; font-weight:bold; font-size:0.85rem; letter-spacing:0.5px;">
+            ✔ OFFICIAL RECORD DIGITALLY VERIFIED
+          </span>
+        </div>
+
+        <div class="cert-landscape-wrapper">
+          <div class="cert-inner-border" id="certFrame">
+            
+            <div class="cert-top-meta">
+              <div>SR. NO: <strong style="color:#0f172a;">UIHESD/${s.session ? s.session.replace(/\s+/g,'') : '2026'}/${Math.floor(1000 + Math.random()*9000)}</strong></div>
+              <div>ENROLLMENT / ROLL NO: <strong style="color:#1e3a8a;">${s.rollNo}</strong></div>
+              <div>CERTIFICATE UID: <strong style="color:#b91c1c;">${s.uniqueId}</strong></div>
+            </div>
+
+            <div class="cert-header-layout">
+              <img src="collagelogo1.png" class="cert-college-logo" alt="UIHESD Emblem" onerror="this.onerror=null;this.src='collagelogo1.PNG';">
+              <div class="cert-college-details">
+                <h3>GOVT. REGD. TECHNICAL & VOCATIONAL INSTITUTE</h3>
+                <h1>UNIVERSAL INSTITUTE OF HIGHER EDUCATION & SKILL DEVELOPMENT</h1>
+                <p>ਯੂਨੀਵਰਸਲ ਇੰਸਟੀਚਿਊਟ ਆਫ਼ ਹਾਇਰ ਐਜੂਕੇਸ਼ਨ ਐਂਡ ਸਕਿੱਲ ਡਿਵੈਲਪਮੈਂਟ</p>
+                <div class="statutory-line">ESTABLISHED UNDER STATUTORY VOCATIONAL FRAMEWORK • GOVT. OF INDIA</div>
+              </div>
+            </div>
+
+            <div class="cert-title-container">
+              <h2>Certificate of Proficiency</h2>
+            </div>
+
+            <div class="cert-body-statement">
+              This is to certify that Mr./Ms. <span class="cert-highlight-field">${s.name}</span>, 
+              Son/Daughter of <span class="cert-highlight-field">${s.father}</span>, 
+              Resident of <span class="cert-highlight-field">${s.address}</span>, 
+              having successfully fulfilled all academic curriculum, workshop practices, and examination standards, is hereby awarded this certificate for the vocational trade / program of:
+              <br>
+              <div style="text-align:center; margin: 6px 0;">
+                <span class="cert-highlight-field" style="font-size:1.3rem; color:#0b1f3a; letter-spacing:0.5px;">
+                  ${s.course}
+                </span>
+              </div>
+              Conducted during the academic session <span class="cert-highlight-field">${s.session || '2025 - 2026'}</span>.
+              The overall performance of the candidate has been evaluated by the Examination Board and awarded <span class="cert-highlight-field">${s.grade || 'Grade A+ (Distinction)'}</span>.
+            </div>
+
+            <div class="cert-landscape-footer">
+              <div class="footer-logos-strip">
+                <div class="f-logo-item">
+                  <img src="logo_iso.png" alt="ISO 9001" onerror="this.onerror=null;this.src='https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L2pvYjE4NDYtMjctcC0wMDdhLXgucG5n.png';">
+                  <span>ISO 9001:2015<br>Certified</span>
+                </div>
+                <div class="f-logo-item">
+                  <img src="logo_iaf.png" alt="IAF" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/IAF_logo.png/320px-IAF_logo.png';">
+                  <span>IAF<br>Accredited</span>
+                </div>
+                <div class="f-logo-item">
+                  <img src="logo_certi.png" alt="MSME" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/MSME_logo.png/320px-MSME_logo.png';">
+                  <span>MSME<br>Govt. of India</span>
+                </div>
+                <div class="f-logo-item">
+                  <img src="logo_ptu.png" alt="IKGPTU" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/en/thumb/2/25/I._K._Gujral_Punjab_Technical_University_logo.png/220px-I._K._Gujral_Punjab_Technical_University_logo.png';">
+                  <span>IKGPTU<br>Affiliated</span>
+                </div>
+              </div>
+
+              <div class="cert-bottom-controls">
+                <div class="qr-box-wrap">
+                  <div id="qrcode"></div>
+                  <div class="qr-text-tag">Scan To Verify</div>
+                </div>
+
+                <div class="gold-seal-badge">
+                  ★ SEAL OF ★<br>
+                  UIHESD<br>
+                  EXCELLENCE<br>
+                  ★ VERIFIED ★
+                </div>
+
+                <div class="sign-col">
+                  <div class="sign-underline"></div>
+                  <div>Course Coordinator</div>
+                </div>
+
+                <div class="sign-col">
+                  <div class="sign-underline"></div>
+                  <div>Director / Examination Cell</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <button class="btn-print" onclick="window.print()">🖨️ ਪ੍ਰਿੰਟ ਸਰਟੀਫਿਕੇਟ (Print Certificate - A4 Landscape)</button>
+      `;
+
+      if (targetId) {
+        document.getElementById(targetId).innerHTML = htmlContent;
+      } else {
+        document.getElementById("certResult").innerHTML = htmlContent;
+      }
+
+      setTimeout(() => {
+        const qrEl = document.getElementById("qrcode");
+        if (qrEl) {
+          qrEl.innerHTML = "";
+          // Live link with `scan=1` to ensure scanning displays verification card only
+          const currentUrl = window.location.origin + window.location.pathname;
+          const verifyLink = `${currentUrl}?verify=${encodeURIComponent(s.uniqueId)}&scan=1`;
+
+          new QRCode(qrEl, {
+            text: verifyLink,
+            width: 95,
+            height: 95,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.M
+          });
+        }
+      }, 50);
+    }
+
+    // Auto-Verify when URL contains query parameter
     window.onload = function() {
-      document.getElementById("inUID").value = generateUID();
       renderTable();
       const urlParams = new URLSearchParams(window.location.search);
       const verifyId = urlParams.get('verify');
+      const fromScan = urlParams.get('scan') === '1';
+
       if (verifyId) {
-        verifyCertificate(verifyId);
+        verifyCertificate(verifyId, fromScan);
       }
     };
   </script>
