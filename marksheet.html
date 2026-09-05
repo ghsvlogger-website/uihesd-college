@@ -43,7 +43,7 @@
     .college-punjabi-sub { font-size: 0.88rem; color: #1e3a8a; font-weight: 800; margin-top: 2px; }
     .college-accreditation-line { font-size: 0.72rem; color: #166534; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
 
-    /* SEARCH CONTAINER */
+    /* CONTAINER */
     .container { max-width: 1120px; margin: 30px auto; padding: 0 15px; }
     .cert-box { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-top: 4px solid #172b53; }
     .cert-input-group { display: flex; gap: 10px; margin-top: 15px; }
@@ -254,6 +254,7 @@
   </footer>
 
   <script>
+    // Connected to the same Permanent Master Database as Certificate Page
     const STORAGE_KEY = "UIHESD_MASTER_LIVE_DB";
 
     const defaultRecords = [
@@ -262,7 +263,7 @@
         uniqueId: "UID-2026-1001",
         name: "GURPREET SINGH",
         father: "S. HARBHAJAN SINGH",
-        address: "GURU HAR SAHAI, FIROZPUR, PUNJAB",
+        address: "GURU HAR SAHAI, DISTT. FIROZPUR, PUNJAB",
         course: "Mechanic Diesel (NCVT / DGT Aligned Trade)",
         session: "2025 - 2026",
         grade: "Grade A+ (Distinction)"
@@ -271,7 +272,10 @@
 
     function getDatabase() {
       const saved = localStorage.getItem(STORAGE_KEY);
-      if (!saved) return defaultRecords;
+      if (!saved) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultRecords));
+        return defaultRecords;
+      }
       try { return JSON.parse(saved); } catch(e) { return defaultRecords; }
     }
 
@@ -448,7 +452,10 @@
     window.onload = function() {
       const params = new URLSearchParams(window.location.search);
       const v = params.get('verify') || params.get('roll');
-      if (v) generateMarksheet(v);
+      if (v) {
+        document.getElementById("marksInput").value = v;
+        generateMarksheet(v);
+      }
     };
   </script>
 </body>
