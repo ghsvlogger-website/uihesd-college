@@ -34,8 +34,8 @@
     .college-punjabi-sub { font-size: 0.88rem; color: #1e3a8a; font-weight: 800; margin-top: 2px; }
     .college-accreditation-line { font-size: 0.72rem; color: #166534; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
 
-    /* CONTAINER */
-    .container { max-width: 1120px; margin: 30px auto; padding: 0 15px; }
+    /* WORKSPACE */
+    .container { max-width: 1120px; margin: 25px auto; padding: 0 15px; }
     .cert-box { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-top: 4px solid #172b53; }
     .cert-input-group { display: flex; gap: 10px; margin-top: 15px; }
     .cert-input-group input { flex: 1; padding: 12px 15px; border: 1.5px solid #cbd5e1; border-radius: 5px; font-size: 1rem; outline: none; }
@@ -46,23 +46,82 @@
     /* ACTION BAR */
     .action-control-bar {
       margin-top: 22px; background: #f0fdf4; border: 1.5px solid #bbf7d0;
-      border-radius: 6px; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;
+      border-radius: 6px; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
     }
     .action-text h4 { color: #166534; font-size: 0.95rem; margin-bottom: 2px; }
     .action-text p { color: #475569; font-size: 0.78rem; }
-    .action-btn-group { display: flex; gap: 10px; flex-wrap: wrap; }
+    .action-btn-group { display: flex; gap: 8px; flex-wrap: wrap; }
     
-    .btn-add-student { background: #b45309; color: white; border: none; padding: 9px 18px; border-radius: 4px; font-weight: 800; font-size: 0.85rem; cursor: pointer; }
-    .btn-excel-export { background: #15803d; color: white; border: none; padding: 9px 16px; border-radius: 4px; font-weight: 700; font-size: 0.82rem; cursor: pointer; }
-    .btn-excel-import { background: #0284c7; color: white; border: none; padding: 9px 16px; border-radius: 4px; font-weight: 700; font-size: 0.82rem; cursor: pointer; }
+    .btn-add-student { background: #b45309; color: white; border: none; padding: 8px 16px; border-radius: 4px; font-weight: 800; font-size: 0.85rem; cursor: pointer; }
+    .btn-excel-export { background: #15803d; color: white; border: none; padding: 8px 14px; border-radius: 4px; font-weight: 700; font-size: 0.82rem; cursor: pointer; }
+    .btn-excel-import { background: #0284c7; color: white; border: none; padding: 8px 14px; border-radius: 4px; font-weight: 700; font-size: 0.82rem; cursor: pointer; }
 
     /* RECORDS TABLE */
     .records-table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.85rem; background: white; }
-    .records-table th, .records-table td { padding: 9px 12px; border: 1px solid #cbd5e1; text-align: left; }
+    .records-table th, .records-table td { padding: 8px 12px; border: 1px solid #cbd5e1; text-align: left; }
     .records-table th { background: #172b53; color: white; }
     .btn-table-view { background: #0284c7; color: white; border: none; padding: 4px 10px; border-radius: 3px; cursor: pointer; font-weight: bold; }
     .btn-table-marks { background: #7b1113; color: white; border: none; padding: 4px 10px; border-radius: 3px; cursor: pointer; font-weight: bold; margin-left: 4px; }
     .btn-table-del { background: #dc2626; color: white; border: none; padding: 4px 10px; border-radius: 3px; cursor: pointer; font-weight: bold; margin-left: 4px; }
+
+    /* ================= 100% PERFECT FIT STYLISH CERTIFICATE ================= */
+    .stylish-cert-wrapper {
+      width: 1040px; max-width: 100%; margin: 15px auto; background: #fcfbf7;
+      padding: 12px; border: 1px solid #d4af37; box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      box-sizing: border-box; position: relative; overflow: hidden;
+    }
+    .stylish-cert-wrapper::before {
+      content: ""; position: absolute; top: 0; right: 0; width: 140px; height: 140px;
+      background: linear-gradient(135deg, transparent 40%, #c5a059 40%, #c5a059 50%, #7b1113 50%); z-index: 2; pointer-events: none;
+    }
+    .stylish-cert-wrapper::after {
+      content: ""; position: absolute; bottom: 0; left: 0; width: 140px; height: 140px;
+      background: linear-gradient(135deg, #7b1113 50%, #c5a059 50%, #c5a059 60%, transparent 60%); z-index: 2; pointer-events: none;
+    }
+    .stylish-inner-frame { border: 2px solid #c5a059; padding: 16px 28px 12px; position: relative; background: #fffdf9; z-index: 3; }
+    .ornament-tl { position: absolute; top: 6px; left: 6px; width: 32px; height: 32px; border-top: 2.5px solid #c5a059; border-left: 2.5px solid #c5a059; }
+    .ornament-br { position: absolute; bottom: 6px; right: 6px; width: 32px; height: 32px; border-bottom: 2.5px solid #c5a059; border-right: 2.5px solid #c5a059; }
+
+    .sc-header { display: flex; align-items: center; gap: 12px; border-bottom: 2px solid #c5a059; padding-bottom: 6px; margin-bottom: 6px; }
+    .sc-titles { flex: 1; text-align: center; }
+    .sc-titles h4 { font-size: 0.62rem; color: #b45309; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+    .sc-titles h2 { font-size: 1.08rem; color: #0b1f3a; font-family: 'Cinzel', serif; font-weight: 900; }
+    .sc-titles p { font-size: 0.55rem; color: #166534; font-weight: 800; text-transform: uppercase; margin-top: 1px; }
+
+    .sc-main-title-box { text-align: center; margin: 4px 0 2px; }
+    .sc-cert-word { font-family: 'Cinzel', serif; font-size: 2rem; font-weight: 900; color: #7b1113; letter-spacing: 3px; line-height: 1; }
+    .sc-achieve-word { font-family: 'Cinzel', serif; font-size: 0.82rem; font-weight: 700; color: #334155; letter-spacing: 2px; margin-top: 2px; text-transform: uppercase; }
+    .sc-presented-to { font-size: 0.62rem; color: #64748b; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-top: 3px; }
+
+    .name-container { text-align: center; margin: 2px 0; }
+    .sc-candidate-name {
+      font-family: 'Cinzel', serif; font-size: 1.85rem; font-weight: 900; color: #9a3412;
+      text-align: center; margin: 2px 0; letter-spacing: 2px; text-transform: uppercase;
+      border-bottom: 2px solid #c5a059; display: inline-block; padding: 0 18px;
+    }
+
+    .sc-statement { font-family: 'Montserrat', sans-serif; font-size: 0.76rem; color: #1e293b; text-align: center; max-width: 740px; margin: 4px auto 8px; line-height: 1.38; font-weight: 500; }
+    .sc-highlight { font-weight: 800; color: #0b1f3a; border-bottom: 1.5px solid #c5a059; padding: 0 2px; }
+
+    /* EMBEDDED GOVT LOGOS STRIP */
+    .footer-logos-strip {
+      display: flex; justify-content: space-around; align-items: center;
+      background: #fafafa; border: 1px solid #e2e8f0; border-radius: 4px;
+      padding: 4px 8px; margin-bottom: 6px;
+    }
+    .f-logo-item { display: flex; align-items: center; gap: 6px; }
+    .f-logo-item span { font-size: 0.52rem; font-weight: 800; color: #1e3a8a; line-height: 1.1; text-transform: uppercase; }
+
+    .sc-footer-grid { display: flex; justify-content: space-between; align-items: flex-end; border-top: 1.5px dashed #cbd5e1; padding-top: 6px; margin-top: 4px; }
+    .sc-qr-wrap { text-align: center; background: white; padding: 2px; border: 1px solid #cbd5e1; border-radius: 4px; }
+    #qrcode { display: inline-block; }
+    .sc-qr-lbl { font-size: 0.45rem; font-weight: 800; margin-top: 1px; text-transform: uppercase; }
+
+    .user-uploaded-red-seal { width: 72px; height: 72px; object-fit: contain; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.25)); }
+    .sc-sign-col { text-align: center; font-size: 0.62rem; font-weight: 800; color: #1e3a8a; width: 130px; }
+    .sc-sign-line { border-bottom: 1.5px solid #0f172a; margin-bottom: 2px; height: 18px; }
+
+    .btn-print { background: #16a34a; color: white; border: none; padding: 11px 26px; font-weight: bold; border-radius: 5px; cursor: pointer; font-size: 0.95rem; margin: 20px auto 0; display: block; }
 
     /* MODAL */
     .modal-overlay {
@@ -72,105 +131,25 @@
     }
     .modal-card {
       background: #ffffff; width: 100%; max-width: 650px; border-radius: 8px;
-      padding: 25px 30px; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+      padding: 22px 26px; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.35);
       border-top: 5px solid #172b53; max-height: 90vh; overflow-y: auto;
     }
-    .modal-close-btn { position: absolute; top: 15px; right: 18px; background: transparent; border: none; font-size: 1.6rem; color: #64748b; cursor: pointer; }
-    .entry-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 15px; }
-    .entry-group label { display: block; font-size: 0.82rem; font-weight: 700; margin-bottom: 4px; color: #334155; }
-    .entry-group input { width: 100%; padding: 10px; border: 1.5px solid #cbd5e1; border-radius: 4px; font-size: 0.9rem; outline: none; }
-    .btn-save-record { width: 100%; background: #16a34a; color: white; border: none; padding: 12px; font-size: 1rem; font-weight: 800; border-radius: 4px; cursor: pointer; margin-top: 18px; text-transform: uppercase; }
+    .modal-close-btn { position: absolute; top: 12px; right: 16px; background: transparent; border: none; font-size: 1.6rem; color: #64748b; cursor: pointer; }
+    .entry-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+    .entry-group label { display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 3px; color: #334155; }
+    .entry-group input { width: 100%; padding: 8px 10px; border: 1.5px solid #cbd5e1; border-radius: 4px; font-size: 0.88rem; outline: none; }
+    .btn-save-record { width: 100%; background: #16a34a; color: white; border: none; padding: 11px; font-size: 0.95rem; font-weight: 800; border-radius: 4px; cursor: pointer; margin-top: 15px; text-transform: uppercase; }
 
-    /* ================= ORIGINAL FULL SIZE A4 LANDSCAPE CERTIFICATE ================= */
-    .stylish-cert-wrapper {
-      width: 1060px; max-width: 100%; margin: 20px auto; background: #fcfbf7;
-      padding: 16px; border: 1px solid #d4af37; box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-      box-sizing: border-box; position: relative; overflow: hidden;
-    }
-    .stylish-cert-wrapper::before {
-      content: ""; position: absolute; top: 0; right: 0; width: 180px; height: 180px;
-      background: linear-gradient(135deg, transparent 40%, #c5a059 40%, #c5a059 50%, #7b1113 50%); z-index: 2; pointer-events: none;
-    }
-    .stylish-cert-wrapper::after {
-      content: ""; position: absolute; bottom: 0; left: 0; width: 180px; height: 180px;
-      background: linear-gradient(135deg, #7b1113 50%, #c5a059 50%, #c5a059 60%, transparent 60%); z-index: 2; pointer-events: none;
-    }
-    .stylish-inner-frame { border: 2px solid #c5a059; padding: 25px 40px 20px; position: relative; background: #fffdf9; z-index: 3; }
-    .ornament-tl { position: absolute; top: 12px; left: 12px; width: 50px; height: 50px; border-top: 3px solid #c5a059; border-left: 3px solid #c5a059; }
-    .ornament-br { position: absolute; bottom: 12px; right: 12px; width: 50px; height: 50px; border-bottom: 3px solid #c5a059; border-right: 3px solid #c5a059; }
-
-    .sc-header { display: flex; align-items: center; gap: 15px; border-bottom: 2px solid #c5a059; padding-bottom: 10px; margin-bottom: 12px; }
-    .sc-logo { height: 68px; width: 68px; object-fit: contain; }
-    .sc-titles { flex: 1; text-align: center; }
-    .sc-titles h4 { font-size: 0.72rem; color: #b45309; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
-    .sc-titles h2 { font-size: 1.25rem; color: #0b1f3a; font-family: 'Cinzel', serif; font-weight: 900; }
-    .sc-titles p { font-size: 0.66rem; color: #166534; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
-
-    .sc-main-title-box { text-align: center; margin: 10px 0 6px; }
-    .sc-cert-word { font-family: 'Cinzel', serif; font-size: 2.5rem; font-weight: 900; color: #7b1113; letter-spacing: 4px; line-height: 1; }
-    .sc-achieve-word { font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 700; color: #334155; letter-spacing: 4px; margin-top: 4px; text-transform: uppercase; }
-    .sc-presented-to { font-size: 0.78rem; color: #64748b; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-top: 6px; }
-
-    .sc-candidate-name {
-      font-family: 'Cinzel', serif; font-size: 2.4rem; font-weight: 900; color: #9a3412;
-      text-align: center; margin: 6px 0; letter-spacing: 2px; text-transform: uppercase;
-      border-bottom: 2px solid #c5a059; display: inline-block; padding: 0 25px;
-    }
-    .name-container { text-align: center; margin: 4px 0; }
-
-    .sc-statement { font-family: 'Montserrat', sans-serif; font-size: 0.92rem; color: #1e293b; text-align: center; max-width: 780px; margin: 10px auto 15px; line-height: 1.5; font-weight: 500; }
-    .sc-highlight { font-weight: 800; color: #0b1f3a; border-bottom: 1.5px solid #c5a059; padding: 0 4px; }
-
-    /* FOOTER LOGOS STRIP */
-    .footer-logos-strip {
-      display: flex; justify-content: space-around; align-items: center;
-      background: #fafafa; border: 1px solid #e2e8f0; border-radius: 4px;
-      padding: 6px 10px; margin-bottom: 10px;
-    }
-    .f-logo-item { display: flex; align-items: center; gap: 6px; }
-    .f-logo-item img { height: 36px; width: auto; max-width: 75px; object-fit: contain; }
-    .f-logo-item span { font-size: 0.58rem; font-weight: 800; color: #1e3a8a; line-height: 1.1; text-transform: uppercase; }
-
-    .sc-footer-grid { display: flex; justify-content: space-between; align-items: flex-end; border-top: 1.5px dashed #cbd5e1; padding-top: 10px; margin-top: 5px; }
-    .sc-qr-wrap { text-align: center; background: white; padding: 3px; border: 1px solid #cbd5e1; border-radius: 4px; }
-    #qrcode { display: inline-block; }
-    .sc-qr-lbl { font-size: 0.55rem; font-weight: 800; margin-top: 2px; text-transform: uppercase; }
-
-    .user-uploaded-red-seal { width: 95px; height: 95px; object-fit: contain; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25)); }
-    .sc-sign-col { text-align: center; font-size: 0.72rem; font-weight: 800; color: #1e3a8a; width: 150px; }
-    .sc-sign-line { border-bottom: 1.5px solid #0f172a; margin-bottom: 3px; height: 26px; }
-
-    .btn-print { background: #16a34a; color: white; border: none; padding: 12px 28px; font-weight: bold; border-radius: 5px; cursor: pointer; font-size: 0.95rem; margin: 25px auto 0; display: block; }
-
-    /* STRICT ISOLATED QR VIEW */
-    .qr-standalone-wrapper { min-height: 90vh; display: flex; align-items: center; justify-content: center; padding: 20px 10px; background: #f1f5f9; }
-    .gov-qr-card { background: #ffffff; border: 2px solid #0f766e; border-radius: 12px; box-shadow: 0 16px 40px rgba(15, 118, 110, 0.2); width: 100%; max-width: 580px; overflow: hidden; }
-    .gov-qr-top-strip { background: #0f766e; color: #ffffff; padding: 16px 20px; text-align: center; border-bottom: 3px solid #f59e0b; }
-    .gov-qr-top-strip h3 { font-size: 1.22rem; font-weight: 900; text-transform: uppercase; margin: 0; }
-    .gov-qr-top-strip p { font-size: 0.74rem; font-weight: 700; color: #ccfbf1; margin-top: 3px; }
-    .gov-institution-banner { background: #f0fdf4; border-bottom: 1.5px dashed #0f766e; padding: 14px 18px; text-align: center; }
-    .gov-institution-banner .gov-dept-tag { font-size: 0.72rem; font-weight: 800; color: #047857; text-transform: uppercase; }
-    .gov-institution-banner .gov-clg-name { font-size: 1.12rem; font-weight: 900; color: #0f172a; text-transform: uppercase; margin-top: 4px; }
-    .gov-institution-banner .gov-manta-tag { display: inline-block; background: #1e3a8a; color: #ffffff; font-size: 0.70rem; font-weight: 800; padding: 4px 12px; border-radius: 20px; margin-top: 8px; text-transform: uppercase; }
-    .gov-qr-table { width: 100%; border-collapse: collapse; margin: 6px 0; }
-    .gov-qr-table tr { border-bottom: 1px solid #f1f5f9; }
-    .gov-qr-table td { padding: 10px 20px; font-size: 0.88rem; }
-    .gov-qr-table td.gov-field-lbl { width: 40%; color: #64748b; font-weight: 800; text-transform: uppercase; font-size: 0.72rem; }
-    .gov-qr-table td.gov-field-val { width: 60%; color: #0f172a; font-weight: 800; }
-    .gov-qr-footer-seal { background: #f8fafc; padding: 14px 20px; text-align: center; border-top: 1px solid #e2e8f0; font-size: 0.75rem; font-weight: 800; color: #065f46; }
-
-    footer { background: #0b132b; color: #94a3b8; padding: 25px 5%; font-size: 0.8rem; text-align: center; border-top: 2px solid #f59e0b; margin-top: 40px; }
-    footer a { color: #facc15; text-decoration: none; margin: 0 8px; }
-
-    @page { size: A4 landscape; margin: 0mm; }
+    /* PRINT RULES: EXACT 1 PAGE A4 LANDSCAPE */
+    @page { size: A4 landscape; margin: 0; }
     @media print {
-      html, body { width: 297mm; height: 210mm; background: #ffffff !important; margin: 0; padding: 0; overflow: hidden; }
+      html, body { width: 297mm; height: 210mm; margin: 0 !important; padding: 0 !important; background: #ffffff !important; overflow: hidden; }
       body * { visibility: hidden; }
       .stylish-cert-wrapper, .stylish-cert-wrapper * { visibility: visible; }
       .stylish-cert-wrapper {
-        position: fixed; left: 0; top: 0;
+        position: absolute; left: 0; top: 0;
         width: 297mm !important; height: 210mm !important;
-        margin: 0 !important; padding: 8mm 12mm !important;
+        margin: 0 !important; padding: 6mm 10mm !important;
         border: none !important; box-shadow: none !important;
         page-break-after: avoid; page-break-inside: avoid;
       }
@@ -181,7 +160,6 @@
 <body>
 
   <div id="fullSiteLayout">
-    <!-- TOP UTILITY BAR -->
     <div class="top-utility-bar">
       <div>Government of India | Ministry of Skill Development and Entrepreneurship</div>
       <div class="top-right-tools">
@@ -190,10 +168,15 @@
       </div>
     </div>
 
-    <!-- MAIN HEADER -->
     <header class="dgt-main-header">
       <div class="header-left-emblem">
-        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150'><path fill='%231e3a8a' d='M40,5 C40,2 60,2 60,5 C62,15 75,25 75,40 C75,55 60,65 60,75 L65,85 L35,85 L40,75 C40,65 25,55 25,40 C25,25 38,15 40,5 Z'/><circle cx='50' cy='105' r='14' fill='none' stroke='%231e3a8a' stroke-width='3'/><circle cx='50' cy='105' r='3' fill='%231e3a8a'/><path fill='%23b45309' d='M20,125 L80,125 L75,140 L25,140 Z'/><text x='50' y='136' font-size='8' font-weight='bold' text-anchor='middle' fill='%23ffffff'>सत्यमेव जयते</text></svg>" class="ashok-emblem-svg" alt="Emblem">
+        <svg class="ashok-emblem-svg" viewBox="0 0 100 150">
+          <path fill="#1e3a8a" d="M40,5 C40,2 60,2 60,5 C62,15 75,25 75,40 C75,55 60,65 60,75 L65,85 L35,85 L40,75 C40,65 25,55 25,40 C25,25 38,15 40,5 Z"/>
+          <circle cx="50" cy="105" r="14" fill="none" stroke="#1e3a8a" stroke-width="3"/>
+          <circle cx="50" cy="105" r="3" fill="#1e3a8a"/>
+          <path fill="#b45309" d="M20,125 L80,125 L75,140 L25,140 Z"/>
+          <text x="50" y="136" font-size="8" font-weight="bold" text-anchor="middle" fill="#ffffff">सत्यमेव जयते</text>
+        </svg>
         <div class="college-highlight-cluster">
           <div class="dgt-sub-tag">प्रशिक्षण महानिदेशालय • DIRECTORATE GENERAL OF TRAINING</div>
           <div class="college-bold-title">UNIVERSAL INSTITUTE OF <span>HIGHER EDUCATION & SKILL DEVELOPMENT</span></div>
@@ -213,7 +196,6 @@
           <button class="cert-btn" onclick="verifyCertificate()">ਪੜਤਾਲ ਕਰੋ (Verify)</button>
         </div>
 
-        <!-- ACTION BAR -->
         <div class="action-control-bar">
           <div class="action-text">
             <h4>👥 Student Database Management Portal</h4>
@@ -229,7 +211,6 @@
 
         <div id="certResult" class="cert-result"></div>
 
-        <!-- Student Records Table -->
         <div style="margin-top:25px; border-top:1px solid #cbd5e1; padding-top:15px;">
           <h4 style="color:#172b53; margin-bottom:8px;">📁 ਸੇਵ ਕੀਤੇ ਹੋਏ ਕੁੱਲ ਵਿਦਿਆਰਥੀ (Database):</h4>
           <table class="records-table">
@@ -249,53 +230,26 @@
       </div>
     </div>
 
-    <footer>
+    <footer style="background:#0b132b; color:#94a3b8; padding:25px 5%; font-size:0.8rem; text-align:center; border-top:2px solid #f59e0b; margin-top:40px;">
       <p>© 2026 Directorate General of Training (DGT), Ministry of Skill Development and Entrepreneurship & UIHESD.</p>
     </footer>
   </div>
-
-  <!-- STRICT ISOLATED QR VIEW -->
-  <div id="qrScanIsolatedContainer" style="display:none;" class="qr-standalone-wrapper"></div>
 
   <!-- ADD STUDENT MODAL -->
   <div id="addStudentModal" class="modal-overlay">
     <div class="modal-card">
       <button class="modal-close-btn" onclick="closeStudentModal()">&times;</button>
-      <h3 style="color:#172b53; font-size:1.2rem; font-weight:800;">➕ ਨਵੇਂ ਵਿਦਿਆਰਥੀ ਦਾ ਰਿਕਾਰਡ ਦਰਜ ਕਰੋ</h3>
+      <h3 style="color:#172b53; font-size:1.15rem; font-weight:800;">➕ ਨਵੇਂ ਵਿਦਿਆਰਥੀ ਦਾ ਰਿਕਾਰਡ ਦਰਜ ਕਰੋ</h3>
       
       <div class="entry-grid">
-        <div class="entry-group">
-          <label>UID:</label>
-          <input type="text" id="inUID" readonly style="background:#e2e8f0; font-weight:bold; color:#b91c1c;">
-        </div>
-        <div class="entry-group">
-          <label>Roll Number:</label>
-          <input type="text" id="inRoll" placeholder="ROLL-102">
-        </div>
-        <div class="entry-group">
-          <label>Candidate Name:</label>
-          <input type="text" id="inName" placeholder="GURPREET SINGH">
-        </div>
-        <div class="entry-group">
-          <label>Father's Name:</label>
-          <input type="text" id="inFather" placeholder="S. HARBHAJAN SINGH">
-        </div>
-        <div class="entry-group">
-          <label>Address:</label>
-          <input type="text" id="inAddress" placeholder="GURU HAR SAHAI">
-        </div>
-        <div class="entry-group">
-          <label>Course / Trade:</label>
-          <input type="text" id="inCourse" placeholder="Mechanic Diesel">
-        </div>
-        <div class="entry-group">
-          <label>Session:</label>
-          <input type="text" id="inSession" value="2025 - 2026">
-        </div>
-        <div class="entry-group">
-          <label>Grade:</label>
-          <input type="text" id="inGrade" value="Grade A+ (Distinction)">
-        </div>
+        <div class="entry-group"><label>UID:</label><input type="text" id="inUID" readonly style="background:#e2e8f0; font-weight:bold; color:#b91c1c;"></div>
+        <div class="entry-group"><label>Roll Number:</label><input type="text" id="inRoll" placeholder="ROLL-102"></div>
+        <div class="entry-group"><label>Candidate Name:</label><input type="text" id="inName" placeholder="GURPREET SINGH"></div>
+        <div class="entry-group"><label>Father's Name:</label><input type="text" id="inFather" placeholder="S. HARBHAJAN SINGH"></div>
+        <div class="entry-group"><label>Address:</label><input type="text" id="inAddress" placeholder="GURU HAR SAHAI"></div>
+        <div class="entry-group"><label>Course / Trade:</label><input type="text" id="inCourse" placeholder="Mechanic Diesel"></div>
+        <div class="entry-group"><label>Session:</label><input type="text" id="inSession" value="2025 - 2026"></div>
+        <div class="entry-group"><label>Grade:</label><input type="text" id="inGrade" value="Grade A+ (Distinction)"></div>
       </div>
       <button class="btn-save-record" onclick="saveNewStudent()">💾 Save Record</button>
     </div>
@@ -377,9 +331,7 @@
       }
 
       const db = getStudentDatabase();
-      if (db.find(s => s.rollNo === rollNo)) {
-        return alert("ਇह Roll Number ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ!");
-      }
+      if (db.find(s => s.rollNo === rollNo)) return alert("ਇਹ Roll Number ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ!");
 
       db.push({ rollNo, uniqueId, name, father, address, course, session, grade });
       localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
@@ -390,8 +342,7 @@
 
     function deleteStudent(roll) {
       if (confirm(`Delete roll number ${roll}?`)) {
-        let db = getStudentDatabase();
-        db = db.filter(s => s.rollNo !== roll);
+        let db = getStudentDatabase().filter(s => s.rollNo !== roll);
         localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
         renderTable();
       }
@@ -400,7 +351,7 @@
     function quickView(roll) {
       document.getElementById("certInput").value = roll;
       verifyCertificate();
-      window.scrollTo({ top: 150, behavior: 'smooth' });
+      window.scrollTo({ top: 140, behavior: 'smooth' });
     }
 
     function exportToExcel() {
@@ -446,8 +397,8 @@
 
       if (s) {
         res.innerHTML = `
-          <div style="text-align:center; margin-bottom:14px;">
-            <span style="background:#16a34a; color:white; padding:5px 20px; border-radius:20px; font-weight:bold; font-size:0.85rem;">
+          <div style="text-align:center; margin-bottom:12px;">
+            <span style="background:#16a34a; color:white; padding:4px 18px; border-radius:20px; font-weight:bold; font-size:0.82rem;">
               ✔ OFFICIAL RECORD DIGITALLY VERIFIED
             </span>
           </div>
@@ -458,7 +409,14 @@
               <div class="ornament-br"></div>
 
               <div class="sc-header">
-                <img src="collagelogo1.png" class="sc-logo" alt="Logo" onerror="this.onerror=null;this.src='collagelogo1.PNG';">
+                <!-- 100% EMBEDDED LOGO (NEVER DISAPPEARS) -->
+                <svg width="48" height="48" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="46" fill="#1e3a8a" stroke="#c5a059" stroke-width="4"/>
+                  <path d="M50 20 L75 35 L75 65 L50 80 L25 65 L25 35 Z" fill="#b45309" stroke="#ffffff" stroke-width="2"/>
+                  <path d="M50 30 L50 70 M30 50 L70 50" stroke="#ffffff" stroke-width="3"/>
+                  <circle cx="50" cy="50" r="10" fill="#facc15"/>
+                </svg>
+                
                 <div class="sc-titles">
                   <h4>GOVT. REGD. TECHNICAL & VOCATIONAL INSTITUTE</h4>
                   <h2>UNIVERSAL INSTITUTE OF HIGHER EDUCATION & SKILL DEVELOPMENT</h2>
@@ -483,22 +441,22 @@
                 during the academic session <span class="sc-highlight">${s.session || '2025 - 2026'}</span> with <span class="sc-highlight">${s.grade || 'Grade A+'}</span>.
               </div>
 
-              <!-- OFFICIAL GOVERNMENT ACCREDITATION LOGOS STRIP -->
+              <!-- 100% EMBEDDED GOVT LOGOS (NEVER BREAK) -->
               <div class="footer-logos-strip">
                 <div class="f-logo-item">
-                  <img src="logo_iso.png" alt="ISO 9001" onerror="this.onerror=null;this.src='https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L2pvYjE4NDYtMjctcC0wMDdhLXgucG5n.png';">
+                  <svg width="26" height="26" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#ca8a04"/><circle cx="50" cy="50" r="38" fill="#ffffff"/><text x="50" y="56" font-size="18" font-weight="bold" fill="#ca8a04" text-anchor="middle">ISO</text></svg>
                   <span>ISO 9001:2015<br>Certified</span>
                 </div>
                 <div class="f-logo-item">
-                  <img src="logo_iaf.png" alt="IAF" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/IAF_logo.png/320px-IAF_logo.png';">
+                  <svg width="26" height="26" viewBox="0 0 100 100"><rect width="90" height="90" rx="15" fill="#1e3a8a"/><text x="50" y="58" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">IAF</text></svg>
                   <span>IAF<br>Accredited</span>
                 </div>
                 <div class="f-logo-item">
-                  <img src="logo_certi.png" alt="MSME" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/MSME_logo.png/320px-MSME_logo.png';">
+                  <svg width="26" height="26" viewBox="0 0 100 100"><rect width="90" height="90" rx="12" fill="#b91c1c"/><text x="50" y="58" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">MSME</text></svg>
                   <span>MSME<br>Govt. of India</span>
                 </div>
                 <div class="f-logo-item">
-                  <img src="logo_ptu.png" alt="NITI Aayog" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/NITI_Aayog_logo.svg/320px-NITI_Aayog_logo.svg.png';">
+                  <svg width="26" height="26" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#0284c7"/><text x="50" y="56" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">NITI</text></svg>
                   <span>NITI AAYOG<br>Govt. of India</span>
                 </div>
               </div>
@@ -509,7 +467,7 @@
                   <div class="sc-qr-lbl">Scan To Verify</div>
                 </div>
 
-                <img src="seal.png" class="user-uploaded-red-seal" alt="Seal" onerror="this.src='collagelogo1.png';">
+                <img src="seal.png" class="user-uploaded-red-seal" alt="Seal" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Seal_of_the_United_States_Department_of_the_Treasury.svg/200px-Seal_of_the_United_States_Department_of_the_Treasury.svg.png';">
 
                 <div class="sc-sign-col">
                   <div class="sc-sign-line"></div>
@@ -524,7 +482,7 @@
             </div>
           </div>
 
-          <button class="btn-print" onclick="window.print()">🖨️ ਪ੍ਰਿੰਟ ਸਰਟੀਫਿਕੇਟ (Print Certificate)</button>
+          <button class="btn-print" onclick="window.print()">🖨️ ਪ੍ਰਿੰਟ ਸਰਟੀਫਿਕੇਟ (Print Certificate - A4 Landscape)</button>
         `;
 
         setTimeout(() => {
@@ -533,8 +491,8 @@
             qrEl.innerHTML = "";
             new QRCode(qrEl, {
               text: window.location.origin + window.location.pathname + "?verify=" + encodeURIComponent(s.uniqueId),
-              width: 85,
-              height: 85,
+              width: 65,
+              height: 65,
               colorDark: "#000000",
               colorLight: "#ffffff",
               correctLevel: QRCode.CorrectLevel.M
@@ -550,58 +508,9 @@
     window.onload = function() {
       const urlParams = new URLSearchParams(window.location.search);
       const scanVerifyUID = urlParams.get('verify') || urlParams.get('roll');
-
       if (scanVerifyUID) {
-        document.getElementById("fullSiteLayout").style.display = "none";
-        const isolatedBox = document.getElementById("qrScanIsolatedContainer");
-        isolatedBox.style.display = "flex";
-
-        const db = getStudentDatabase();
-        const s = db.find(item => item.uniqueId.toUpperCase() === scanVerifyUID.trim().toUpperCase() || item.rollNo.toUpperCase() === scanVerifyUID.trim().toUpperCase());
-
-        if (s) {
-          isolatedBox.innerHTML = `
-            <div class="gov-qr-card">
-              <div class="gov-qr-top-strip">
-                <h3>✔ DIGITALLY VERIFIED CREDENTIAL</h3>
-                <p>Central Credential Registry • Government of India</p>
-              </div>
-
-              <div class="gov-institution-banner">
-                <div class="gov-dept-tag">DIRECTORATE GENERAL OF TRAINING (DGT) • GOVT. OF INDIA</div>
-                <div class="gov-clg-name">UNIVERSAL INSTITUTE OF HIGHER EDUCATION & SKILL DEVELOPMENT</div>
-                <div class="gov-manta-tag">🏛️ RECOGNIZED UNDER STATUTORY NCVT / DGT CTS FRAMEWORK</div>
-              </div>
-
-              <table class="gov-qr-table">
-                <tr><td class="gov-field-lbl">CANDIDATE NAME</td><td class="gov-field-val">${s.name}</td></tr>
-                <tr><td class="gov-field-lbl">FATHER'S NAME</td><td class="gov-field-val">${s.father}</td></tr>
-                <tr><td class="gov-field-lbl">ROLL NO</td><td class="gov-field-val" style="color:#1e3a8a;">${s.rollNo}</td></tr>
-                <tr><td class="gov-field-lbl">CERTIFICATE UID</td><td class="gov-field-val" style="color:#b91c1c;">${s.uniqueId}</td></tr>
-                <tr><td class="gov-field-lbl">TRADE / PROGRAM</td><td class="gov-field-val">${s.course}</td></tr>
-                <tr><td class="gov-field-lbl">SESSION</td><td class="gov-field-val">${s.session || '2025 - 2026'}</td></tr>
-                <tr><td class="gov-field-lbl">GRADE</td><td class="gov-field-val" style="color:#15803d;">${s.grade || 'Grade A+'}</td></tr>
-                <tr><td class="gov-field-lbl">STATUS</td><td class="gov-field-val" style="color:#166534;">✔ 100% Genuine Passout</td></tr>
-              </table>
-
-              <div class="gov-qr-footer-seal">
-                Digitally authenticated and verified by UIHESD Examination Cell under DGT Institutional Guidelines.
-              </div>
-            </div>
-          `;
-        } else {
-          isolatedBox.innerHTML = `
-            <div class="gov-qr-card" style="border-color:#dc2626;">
-              <div class="gov-qr-top-strip" style="background:#dc2626;">
-                <h3>❌ RECORD NOT FOUND</h3>
-                <p>National Credential Registry</p>
-              </div>
-              <div style="padding:30px; text-align:center; color:#64748b; font-weight:bold;">
-                The scanned certificate Unique ID does not exist in the official student registry.
-              </div>
-            </div>
-          `;
-        }
+        document.getElementById("certInput").value = scanVerifyUID;
+        verifyCertificate(scanVerifyUID);
       } else {
         renderTable();
       }
