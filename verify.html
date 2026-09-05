@@ -161,7 +161,7 @@
     .sb-yt { background: #ff0000; }
     .sb-wa { background: #25d366; }
 
-    /* ================= 5. VERIFICATION SECTION ================= */
+    /* ================= 5. VERIFICATION & EXCEL EXPORT WORKSPACE ================= */
     .container { max-width: 1120px; margin: 30px auto; padding: 0 15px; }
     .cert-box { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-top: 4px solid #172b53; }
     .cert-input-group { display: flex; gap: 10px; margin-top: 15px; }
@@ -170,6 +170,51 @@
     .cert-btn:hover { background: #0f1d38; }
     .cert-result { display: none; margin-top: 25px; }
     .cert-invalid { border: 1px solid #fecaca; background: #fef2f2; color: #dc2626; padding: 15px; text-align: center; font-weight: bold; border-radius: 6px; }
+
+    /* Excel Action Bar */
+    .excel-action-bar {
+      margin-top: 25px;
+      background: #f0fdf4;
+      border: 1.5px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .excel-text h4 { color: #166534; font-size: 0.95rem; margin-bottom: 2px; }
+    .excel-text p { color: #475569; font-size: 0.78rem; }
+    .excel-buttons { display: flex; gap: 10px; }
+    .btn-excel-export {
+      background: #15803d;
+      color: white;
+      border: none;
+      padding: 9px 16px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-excel-export:hover { background: #166534; }
+    .btn-excel-import {
+      background: #0284c7;
+      color: white;
+      border: none;
+      padding: 9px 16px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-excel-import:hover { background: #0369a1; }
 
     /* ================= A4 LANDSCAPE CERTIFICATE ================= */
     .cert-landscape-wrapper {
@@ -307,7 +352,6 @@
       display: inline-block;
     }
 
-    /* FOOTER PANEL */
     .cert-landscape-footer {
       position: relative;
       z-index: 2;
@@ -445,7 +489,7 @@
         border: none !important; box-shadow: none !important;
       }
       .cert-inner-border { height: 100% !important; box-sizing: border-box; padding: 16mm 18mm 12mm !important; }
-      .btn-print, header, nav, .top-utility-bar, .floating-social-strip, .dgt-ai-bot, footer, .cert-input-group, h2, p {
+      .btn-print, header, nav, .top-utility-bar, .floating-social-strip, .dgt-ai-bot, footer, .cert-input-group, .excel-action-bar, h2, p {
         display: none !important;
       }
     }
@@ -538,6 +582,23 @@
         <button class="cert-btn" onclick="verifyCertificate()">ਪੜਤਾਲ ਕਰੋ (Verify)</button>
       </div>
 
+      <!-- DIRECT EXCEL EXPORT & IMPORT BAR -->
+      <div class="excel-action-bar">
+        <div class="excel-text">
+          <h4>📊 Excel Database Direct Management</h4>
+          <p>ਵੈੱਬਸਾਈਟ ਤੋਂ ਸਿੱਧੀ Excel (CSV) ਫ਼ਾਈਲ ਡਾਊਨਲੋਡ ਕਰੋ ਜਾਂ ਆਪਣੀ Excel ਫ਼ਾਈਲ ਅੱਪਲੋਡ ਕਰੋ।</p>
+        </div>
+        <div class="excel-buttons">
+          <button class="btn-excel-export" onclick="exportToExcel()">
+            📥 Export to Excel
+          </button>
+          <button class="btn-excel-import" onclick="document.getElementById('excelFileInput').click()">
+            📤 Import Excel / CSV
+          </button>
+          <input type="file" id="excelFileInput" style="display:none;" accept=".csv, .txt" onchange="importFromExcel(event)">
+        </div>
+      </div>
+
       <div id="certResult" class="cert-result"></div>
     </div>
   </div>
@@ -571,7 +632,15 @@
       }
     ];
 
+    // Read students from students.json or fallback
     async function getStudentDatabase() {
+      // 1. Check if user recently imported data in session
+      const tempImport = localStorage.getItem("UIHESD_IMPORTED_DB");
+      if (tempImport) {
+        try { return JSON.parse(tempImport); } catch(e){}
+      }
+
+      // 2. Fetch from students.json
       try {
         const response = await fetch('students.json?v=' + Date.now());
         if (response.ok) {
@@ -583,6 +652,85 @@
       return embeddedDatabase;
     }
 
+    // ================= DIRECT EXCEL EXPORT =================
+    async function exportToExcel() {
+      const db = await getStudentDatabase();
+      if (!db || db.length === 0) return alert("ਕੋਈ ਡਾਟਾ ਮੌਜੂਦ ਨਹੀਂ ਹੈ!");
+
+      // CSV Header Row
+      const headers = ["rollNo", "uniqueId", "name", "father", "address", "course", "session", "grade"];
+      let csvContent = headers.join(",") + "\r\n";
+
+      // CSV Data Rows
+      db.forEach(item => {
+        const row = [
+          `"${item.rollNo || ''}"`,
+          `"${item.uniqueId || ''}"`,
+          `"${item.name || ''}"`,
+          `"${item.father || ''}"`,
+          `"${item.address || ''}"`,
+          `"${item.course || ''}"`,
+          `"${item.session || ''}"`,
+          `"${item.grade || ''}"`
+        ];
+        csvContent += row.join(",") + "\r\n";
+      });
+
+      // Trigger Direct Browser Download as Excel compatible CSV
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement("a");
+      const url = URL.createObjectURL(blob);
+      link.setAttribute("href", url);
+      link.setAttribute("download", `UIHESD_Students_Data_${new Date().toISOString().slice(0,10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      alert("✔ Excel (CSV) ਫ਼ਾਈਲ ਸਫਲਤਾਪੂਰਵਕ ਡਾਊਨਲੋਡ ਹੋ ਗਈ ਹੈ!");
+    }
+
+    // ================= DIRECT EXCEL/CSV IMPORT =================
+    function importFromExcel(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const text = e.target.result;
+        const lines = text.split(/\r\n|\n/).filter(line => line.trim().length > 0);
+
+        if (lines.length <= 1) {
+          return alert("ਫ਼ਾਈਲ ਖ਼ਾਲੀ ਹੈ ਜਾਂ ਇਸ ਵਿੱਚ ਕੋਈ ਰਿਕਾਰਡ ਨਹੀਂ ਹੈ!");
+        }
+
+        const newDatabase = [];
+        // Skip header row (line 0)
+        for (let i = 1; i < lines.length; i++) {
+          const cols = lines[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/).map(val => val.replace(/^"|"$/g, '').trim());
+          if (cols.length >= 6) {
+            newDatabase.push({
+              rollNo: cols[0] || `ROLL-${100 + i}`,
+              uniqueId: cols[1] || `UID-2026-${1000 + i}`,
+              name: cols[2] || '',
+              father: cols[3] || '',
+              address: cols[4] || '',
+              course: cols[5] || '',
+              session: cols[6] || '2025 - 2026',
+              grade: cols[7] || 'Grade A+'
+            });
+          }
+        }
+
+        if (newDatabase.length > 0) {
+          localStorage.setItem("UIHESD_IMPORTED_DB", JSON.stringify(newDatabase));
+          alert(`✔ ਵਧਾਈਆਂ! Excel ਫ਼ਾਈਲ ਵਿੱਚੋਂ ਕੁੱਲ ${newDatabase.length} ਵਿਦਿਆਰਥੀਆਂ ਦਾ ਡਾਟਾ ਵੈੱਬਸਾਈਟ 'ਤੇ ਚੜ੍ਹ ਗਿਆ ਹੈ। ਹੁਣ ਤੁਸੀਂ ਕਿਸੇ ਦਾ ਵੀ Roll No ਭਰ ਕੇ ਚੈੱਕ ਕਰ ਸਕਦੇ ਹੋ!`);
+        } else {
+          alert("❌ ਡਾਟਾ ਪੜ੍ਹਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ। ਕਿਰਪਾ ਕਰਕੇ ਸਹੀ CSV ਫ਼ਾਈਲ ਚੁਣੋ।");
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    // ================= CERTIFICATE VERIFICATION =================
     async function verifyCertificate(forcedQuery) {
       const q = (forcedQuery || document.getElementById("certInput").value).trim().toUpperCase();
       const res = document.getElementById("certResult");
@@ -594,8 +742,8 @@
 
       const db = await getStudentDatabase();
       const s = db.find(item => 
-        item.rollNo.toUpperCase() === q || 
-        item.uniqueId.toUpperCase() === q
+        (item.rollNo && item.rollNo.toUpperCase() === q) || 
+        (item.uniqueId && item.uniqueId.toUpperCase() === q)
       );
 
       if (s) {
