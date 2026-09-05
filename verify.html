@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Online Certificate Verification System | UIHESD</title>
   
-  <!-- Dynamic QR Code Script -->
+  <!-- Dynamic QR Code Library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
     body { background-color: #f1f5f9; color: #1e293b; line-height: 1.5; }
 
-    /* MASTER TOP FLAG BAR */
+    /* MASTER WEBSITE HEADER */
     .gov-flag-bar {
       height: 32px;
       background: #0f172a;
@@ -29,7 +29,6 @@
     .gov-links a { color: #cbd5e1; text-decoration: none; font-size: 0.74rem; font-weight: 600; margin-left: 14px; }
     .gov-links a:hover { color: #facc15; }
 
-    /* PORTAL HEADER */
     .portal-header {
       height: 96px;
       background: #ffffff;
@@ -50,6 +49,8 @@
     .brand-names p { font-size: 0.74rem; color: #0284c7; font-weight: 700; margin: 0; }
 
     .header-controls { display: flex; align-items: center; gap: 10px; }
+    .search-box { display: flex; align-items: center; background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 4px; padding: 6px 12px; width: 220px; }
+    .search-box input { border: none; outline: none; font-size: 0.82rem; width: 100%; margin-left: 6px; }
     .btn-dash { background: #f97316; color: white; border: none; padding: 8px 14px; font-size: 0.78rem; font-weight: 800; border-radius: 4px; cursor: pointer; }
     .btn-reg { background: #b45309; color: white; border: none; padding: 8px 16px; font-size: 0.78rem; font-weight: 800; border-radius: 4px; cursor: pointer; text-decoration: none; }
     .btn-login { background: white; color: #b45309; border: 1.5px solid #b45309; padding: 7px 16px; font-size: 0.78rem; font-weight: 800; border-radius: 4px; cursor: pointer; text-decoration: none; }
@@ -63,8 +64,8 @@
     .alert-ribbon { height: 34px; background: #0284c7; color: white; padding: 0 6%; font-size: 0.82rem; display: flex; align-items: center; gap: 12px; }
     .alert-tag { background: #0c4a6e; padding: 2px 8px; border-radius: 3px; font-weight: 800; font-size: 0.72rem; }
 
-    /* Input Section */
-    .container { max-width: 1050px; margin: 30px auto; padding: 0 15px; }
+    /* Input Card */
+    .container { max-width: 1120px; margin: 30px auto; padding: 0 15px; }
     .cert-box { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-top: 4px solid #1e3a8a; }
     .cert-input-group { display: flex; gap: 10px; margin-top: 15px; }
     .cert-input-group input { flex: 1; padding: 12px 15px; border: 1.5px solid #cbd5e1; border-radius: 5px; font-size: 1rem; outline: none; }
@@ -74,34 +75,36 @@
     .cert-invalid { border: 1px solid #fecaca; background: #fef2f2; color: #dc2626; padding: 15px; text-align: center; font-weight: bold; border-radius: 6px; }
 
     /* ===================================================
-       AUTHENTIC UNIVERSITY CERTIFICATE (PERFECT STYLING)
+       A4 LANDSCAPE CERTIFICATE (EXACT PROPORTIONS)
     =================================================== */
-    .cert-outer-card {
+    .cert-landscape-wrapper {
+      width: 1060px;
+      max-width: 100%;
+      margin: 20px auto;
       background: #ffffff;
-      padding: 16px;
+      padding: 14px;
       border: 1px solid #94a3b8;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
-      margin-top: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      box-sizing: border-box;
     }
 
-    .cert-inner-frame {
-      border: 8px double #1e3a8a;
+    .cert-inner-border {
+      border: 6px double #1e3a8a;
       outline: 2px solid #b45309;
-      outline-offset: -5px;
-      padding: 35px 45px 30px;
+      outline-offset: -4px;
+      padding: 24px 35px 20px;
       position: relative;
       background: #fffdfa;
       background-image: radial-gradient(#1e3a8a 0.35px, transparent 0.35px);
-      background-size: 20px 20px;
+      background-size: 18px 18px;
     }
 
-    /* Watermark */
-    .cert-inner-frame::before {
+    .cert-inner-border::before {
       content: "UIHESD VERIFIED";
       position: absolute;
       top: 50%; left: 50%;
-      transform: translate(-50%, -50%) rotate(-25deg);
-      font-size: 4.8rem;
+      transform: translate(-50%, -50%) rotate(-20deg);
+      font-size: 4.5rem;
       font-weight: 900;
       color: rgba(30, 58, 138, 0.035);
       pointer-events: none;
@@ -110,78 +113,75 @@
       z-index: 1;
     }
 
-    /* Top Metadata */
-    .cert-meta-strip {
+    .cert-top-meta {
       display: flex;
       justify-content: space-between;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 800;
       color: #334155;
       border-bottom: 1.5px solid #cbd5e1;
-      padding-bottom: 8px;
-      margin-bottom: 20px;
+      padding-bottom: 6px;
+      margin-bottom: 14px;
       position: relative;
       z-index: 2;
     }
 
-    /* Certificate Header with Single Left College Logo */
-    .cert-top-header {
+    .cert-header-layout {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 18px;
       border-bottom: 2px solid #b45309;
-      padding-bottom: 16px;
+      padding-bottom: 12px;
       position: relative;
       z-index: 2;
     }
     .cert-college-logo {
-      height: 98px;
-      width: 98px;
+      height: 85px;
+      width: 85px;
       object-fit: contain;
-      border-radius: 6px;
+      border-radius: 4px;
     }
     .cert-college-details {
       flex: 1;
       text-align: center;
     }
     .cert-college-details h3 {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: #b45309;
       font-weight: 900;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }
     .cert-college-details h1 {
-      font-size: 1.7rem;
+      font-size: 1.5rem;
       color: #0b1f3a;
       font-family: 'Times New Roman', serif;
       font-weight: 900;
       line-height: 1.15;
     }
     .cert-college-details p {
-      font-size: 0.84rem;
+      font-size: 0.78rem;
       color: #334155;
       font-weight: 700;
-      margin-top: 3px;
+      margin-top: 2px;
     }
-    .cert-college-details .statutory-note {
-      font-size: 0.72rem;
+    .cert-college-details .statutory-line {
+      font-size: 0.68rem;
       color: #166534;
       font-weight: 800;
       text-transform: uppercase;
       margin-top: 2px;
     }
 
-    /* Title */
-    .cert-heading {
+    .cert-title-container {
       text-align: center;
-      margin: 24px 0 18px;
+      margin: 14px 0 12px;
       position: relative;
       z-index: 2;
     }
-    .cert-heading h2 {
-      font-size: 1.45rem;
+    .cert-title-container h2 {
+      font-size: 1.35rem;
       color: #b45309;
       font-family: 'Georgia', serif;
       font-weight: 900;
@@ -189,97 +189,94 @@
       text-transform: uppercase;
       display: inline-block;
       border-bottom: 2px double #b45309;
-      padding-bottom: 4px;
+      padding-bottom: 3px;
     }
 
-    /* Statement */
-    .cert-statement {
-      font-size: 1.05rem;
-      line-height: 2.1;
+    .cert-body-statement {
+      font-size: 0.98rem;
+      line-height: 1.85;
       color: #1e293b;
       text-align: justify;
-      margin-bottom: 25px;
+      margin-bottom: 16px;
       font-family: 'Times New Roman', serif;
       position: relative;
       z-index: 2;
     }
-    .cert-field {
+    .cert-highlight-field {
       color: #0b1f3a;
       font-weight: 900;
       border-bottom: 1.5px solid #1e3a8a;
-      padding: 0 8px;
-      font-size: 1.15rem;
+      padding: 0 6px;
+      font-size: 1.08rem;
       font-family: 'Georgia', serif;
       display: inline-block;
     }
 
-    /* FOOTER PANEL: 4 REAL GRAPHICAL LOGOS */
-    .cert-footer-panel {
+    /* FOOTER PANEL */
+    .cert-landscape-footer {
       position: relative;
       z-index: 2;
       border-top: 1.5px dashed #cbd5e1;
-      padding-top: 16px;
+      padding-top: 12px;
     }
 
-    .footer-accreditations-strip {
+    .footer-logos-strip {
       display: flex;
       justify-content: space-around;
       align-items: center;
       background: #fafafa;
       border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 10px 15px;
-      margin-bottom: 20px;
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin-bottom: 14px;
     }
-    .f-logo-box {
+    .f-logo-item {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
-    .f-logo-box img {
-      height: 56px;
+    .f-logo-item img {
+      height: 46px;
       width: auto;
-      max-width: 95px;
+      max-width: 85px;
       object-fit: contain;
-      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.08));
     }
-    .f-logo-box span {
-      font-size: 0.68rem;
+    .f-logo-item span {
+      font-size: 0.64rem;
       font-weight: 800;
       color: #1e3a8a;
-      line-height: 1.25;
+      line-height: 1.2;
       text-transform: uppercase;
     }
 
-    /* Bottom: QR + Gold Seal + Signatures */
-    .cert-controls-bottom {
+    .cert-bottom-controls {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
       padding: 0 5px;
     }
-    .qr-holder {
+    .qr-box-wrap {
       text-align: center;
       background: #ffffff;
-      padding: 6px;
+      padding: 4px;
       border: 1px solid #cbd5e1;
       border-radius: 4px;
     }
-    #qrcode { display: inline-block; padding: 2px; }
-    .qr-tag { font-size: 0.62rem; color: #475569; font-weight: 800; margin-top: 3px; text-transform: uppercase; }
+    #qrcode { display: inline-block; }
+    .qr-text-tag { font-size: 0.58rem; color: #475569; font-weight: 800; margin-top: 2px; text-transform: uppercase; }
 
-    .gold-medal-seal {
-      width: 90px; height: 90px;
+    .gold-seal-badge {
+      width: 78px; height: 78px;
       border-radius: 50%;
       border: 3px double #b45309;
       background: radial-gradient(circle, #fef08a 10%, #facc15 80%);
-      box-shadow: 0 0 14px rgba(234, 179, 8, 0.45);
+      box-shadow: 0 0 10px rgba(234, 179, 8, 0.4);
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center; color: #78350f; font-weight: 900; font-size: 0.58rem; line-height: 1.15;
+      text-align: center; color: #78350f; font-weight: 900; font-size: 0.52rem; line-height: 1.1;
     }
 
-    .sign-container { text-align: center; font-size: 0.78rem; font-weight: 800; color: #1e3a8a; width: 155px; }
-    .sign-divider { border-bottom: 1.5px solid #0f172a; margin-bottom: 6px; height: 35px; }
+    .sign-col { text-align: center; font-size: 0.74rem; font-weight: 800; color: #1e3a8a; width: 150px; }
+    .sign-underline { border-bottom: 1.5px solid #0f172a; margin-bottom: 4px; height: 30px; }
 
     .btn-print { background: #16a34a; color: white; border: none; padding: 12px 28px; font-weight: bold; border-radius: 5px; cursor: pointer; font-size: 0.95rem; margin: 20px auto 0; display: block; }
     .btn-print:hover { background: #15803d; }
@@ -302,16 +299,46 @@
 
     footer { background: #0b132b; color: #94a3b8; padding: 25px 6%; font-size: 0.85rem; text-align: center; margin-top: 40px; }
 
-    @media print {
-      body * { visibility: hidden; }
-      .cert-outer-card, .cert-outer-card * { visibility: visible; }
-      .cert-outer-card { position: absolute; left: 0; top: 0; width: 100%; margin: 0; padding: 0; border: none; box-shadow: none; }
+    /* ===================================================
+       EXACT A4 LANDSCAPE PRINT RULES
+    =================================================== */
+    @page {
+      size: A4 landscape;
+      margin: 6mm;
     }
-    @media (max-width: 850px) {
-      .portal-header { height: auto; padding: 10px 6%; flex-direction: column; gap: 10px; }
-      nav { height: auto; padding: 8px 6%; }
-      .nav-list { flex-wrap: wrap; gap: 12px; }
-      .footer-accreditations-strip { flex-direction: column; gap: 12px; }
+    @media print {
+      html, body {
+        width: 297mm;
+        height: 210mm;
+        background: #ffffff !important;
+        margin: 0;
+        padding: 0;
+      }
+      body * {
+        visibility: hidden;
+      }
+      .cert-landscape-wrapper, .cert-landscape-wrapper * {
+        visibility: visible;
+      }
+      .cert-landscape-wrapper {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+      }
+      .cert-inner-border {
+        height: 100% !important;
+        box-sizing: border-box;
+        padding: 16mm 18mm 12mm !important;
+      }
+      .btn-print, .admin-toggle, .admin-form-box, header, nav, .alert-ribbon, .gov-flag-bar, footer, .cert-input-group, h2, p {
+        display: none !important;
+      }
     }
   </style>
 </head>
@@ -358,7 +385,7 @@
 
   <div class="alert-ribbon">
     <span class="alert-tag">VERIFICATION</span>
-    <marquee>National Credential Registry: Instant Online Certificate Verification with Encrypted QR Code.</marquee>
+    <marquee>A4 Landscape Format Enabled: One-Click Full Page Official Certificate Print & Verification.</marquee>
   </div>
 
   <div class="container">
@@ -387,7 +414,7 @@
           <div class="form-group"><label>ਵਿਦਿਆਰਥੀ ਦਾ ਨਾਮ (Candidate Name):</label><input type="text" id="addName" placeholder="e.g. GURPREET SINGH"></div>
           <div class="form-group"><label>ਪਿਤਾ ਦਾ ਨਾਮ (Father's Name):</label><input type="text" id="addFather" placeholder="e.g. S. HARBHAJAN SINGH"></div>
           <div class="form-group"><label>ਪਤਾ (City / Address):</label><input type="text" id="addAddress" placeholder="e.g. GURU HAR SAHAI, PUNJAB"></div>
-          <div class="form-group"><label>ਕੋਰਸ ਦਾ ਨਾਮ (Course Title):</label><input type="text" id="addCourse" placeholder="e.g. Computer Operator & Programming Assistant (COPA)"></div>
+          <div class="form-group"><label>ਕੋਰਸ ਦਾ ਨਾਮ (Course Title):</label><input type="text" id="addCourse" placeholder="e.g. Mechanic Diesel / COPA / Electrician"></div>
           <div class="form-group"><label>ਸੈਸ਼ਨ (Session):</label><input type="text" id="addSession" value="2025 - 2026"></div>
           <div class="form-group"><label>ਗ੍ਰੇਡ (Grade):</label><input type="text" id="addGrade" value="Grade A+ (Distinction)"></div>
         </div>
@@ -418,7 +445,7 @@
         name: "GURPREET SINGH",
         father: "S. HARBHAJAN SINGH",
         address: "GURU HAR SAHAI, DISTT. FIROZPUR, PUNJAB",
-        course: "Computer Operator & Programming Assistant (COPA)",
+        course: "Mechanic Diesel (NCVT / DGT Aligned Trade)",
         rollNo: "ROLL-101",
         uniqueId: "UID-2026-1001",
         session: "2025 - 2026",
@@ -428,9 +455,9 @@
     };
 
     function getDB() {
-      const saved = localStorage.getItem("uihesd_authentic_v7");
+      const saved = localStorage.getItem("uihesd_a4_landscape_v8");
       if (!saved) {
-        localStorage.setItem("uihesd_authentic_v7", JSON.stringify(defaultRecord));
+        localStorage.setItem("uihesd_a4_landscape_v8", JSON.stringify(defaultRecord));
         return defaultRecord;
       }
       return JSON.parse(saved);
@@ -494,7 +521,7 @@
         issueDate: new Date().toLocaleDateString('en-GB')
       };
 
-      localStorage.setItem("uihesd_authentic_v7", JSON.stringify(db));
+      localStorage.setItem("uihesd_a4_landscape_v8", JSON.stringify(db));
       alert(`ਰਿਕਾਰਡ ਸੇਵ ਹੋ ਗਿਆ!\nਰੋਲ ਨੰਬਰ: ${rollNo}\nUnique ID: ${uniqueId}`);
 
       document.getElementById("addName").value = "";
@@ -510,7 +537,7 @@
       if (confirm(`ਕੀ ਤੁਸੀਂ ਰੋਲ ਨੰਬਰ ${roll} ਦਾ ਰਿਕਾਰਡ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?`)) {
         const db = getDB();
         delete db[roll];
-        localStorage.setItem("uihesd_authentic_v7", JSON.stringify(db));
+        localStorage.setItem("uihesd_a4_landscape_v8", JSON.stringify(db));
         renderTable();
       }
     }
@@ -545,98 +572,93 @@
             </span>
           </div>
 
-          <!-- AUTHENTIC CERTIFICATE CONTAINER -->
-          <div class="cert-outer-card">
-            <div class="cert-inner-frame" id="certFrame">
+          <!-- A4 LANDSCAPE CERTIFICATE CONTAINER -->
+          <div class="cert-landscape-wrapper">
+            <div class="cert-inner-border" id="certFrame">
               
-              <div class="cert-meta-strip">
+              <div class="cert-top-meta">
                 <div>SR. NO: <strong style="color:#0f172a;">UIHESD/${s.session ? s.session.replace(/\s+/g,'') : '2026'}/${Math.floor(1000 + Math.random()*9000)}</strong></div>
                 <div>ENROLLMENT / ROLL NO: <strong style="color:#1e3a8a;">${s.rollNo}</strong></div>
                 <div>CERTIFICATE UID: <strong style="color:#b91c1c;">${s.uniqueId}</strong></div>
               </div>
 
-              <!-- Header: Only College Logo on the Left Side -->
-              <div class="cert-top-header">
+              <!-- Header: Left Single Logo -->
+              <div class="cert-header-layout">
                 <img src="collagelogo1.png" class="cert-college-logo" alt="UIHESD Emblem" onerror="this.onerror=null;this.src='collagelogo1.PNG';">
                 <div class="cert-college-details">
                   <h3>GOVT. REGD. TECHNICAL & VOCATIONAL INSTITUTE</h3>
                   <h1>UNIVERSAL INSTITUTE OF HIGHER EDUCATION & SKILL DEVELOPMENT</h1>
                   <p>ਯੂਨੀਵਰਸਲ ਇੰਸਟੀਚਿਊਟ ਆਫ਼ ਹਾਇਰ ਐਜੂਕੇਸ਼ਨ ਐਂਡ ਸਕਿੱਲ ਡਿਵੈਲਪਮੈਂਟ</p>
-                  <div class="statutory-note">ESTABLISHED UNDER STATUTORY VOCATIONAL FRAMEWORK • GOVT. OF INDIA</div>
+                  <div class="statutory-line">ESTABLISHED UNDER STATUTORY VOCATIONAL FRAMEWORK • GOVT. OF INDIA</div>
                 </div>
               </div>
 
-              <div class="cert-heading">
+              <div class="cert-title-container">
                 <h2>Certificate of Proficiency</h2>
               </div>
 
-              <div class="cert-statement">
-                This is to certify that Mr./Ms. <span class="cert-field">${s.name}</span>, 
-                Son/Daughter of <span class="cert-field">${s.father}</span>, 
-                Resident of <span class="cert-field">${s.address}</span>, 
-                having successfully fulfilled all academic curriculum, practical workshops, and examination requirements, is hereby awarded this certificate for the professional trade / course of:
-                <br><br>
-                <div style="text-align:center;">
-                  <span class="cert-field" style="font-size:1.4rem; color:#0b1f3a; letter-spacing:0.5px;">
+              <div class="cert-body-statement">
+                This is to certify that Mr./Ms. <span class="cert-highlight-field">${s.name}</span>, 
+                Son/Daughter of <span class="cert-highlight-field">${s.father}</span>, 
+                Resident of <span class="cert-highlight-field">${s.address}</span>, 
+                having successfully fulfilled all academic curriculum, workshop practices, and examination standards, is hereby awarded this certificate for the vocational trade / program of:
+                <br>
+                <div style="text-align:center; margin: 5px 0;">
+                  <span class="cert-highlight-field" style="font-size:1.3rem; color:#0b1f3a; letter-spacing:0.5px;">
                     ${s.course}
                   </span>
                 </div>
-                <br>
-                Conducted during the academic session <span class="cert-field">${s.session || '2025 - 2026'}</span>.
-                The overall performance of the candidate has been evaluated by the Examination Board and awarded <span class="cert-field">${s.grade || 'Grade A+ (Distinction)'}</span>.
+                Conducted during the academic session <span class="cert-highlight-field">${s.session || '2025 - 2026'}</span>.
+                The overall performance of the candidate has been evaluated by the Examination Board and awarded <span class="cert-highlight-field">${s.grade || 'Grade A+ (Distinction)'}</span>.
               </div>
 
-              <!-- FOOTER: 4 REAL GRAPHICAL ACCREDITATION LOGOS -->
-              <div class="cert-footer-panel">
-                <div class="footer-accreditations-strip">
+              <!-- FOOTER: 4 ACCREDITATION LOGOS -->
+              <div class="cert-landscape-footer">
+                <div class="footer-logos-strip">
                   
-                  <!-- 1. ISO 9001 Gold Seal Logo -->
-                  <div class="f-logo-box">
-                    <img src="logo_iso.png" alt="ISO 9001:2015" onerror="this.onerror=null;this.src='https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L2pvYjE4NDYtMjctcC0wMDdhLXgucG5n.png';">
+                  <div class="f-logo-item">
+                    <img src="logo_iso.png" alt="ISO 9001" onerror="this.onerror=null;this.src='https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L2pvYjE4NDYtMjctcC0wMDdhLXgucG5n.png';">
                     <span>ISO 9001:2015<br>Certified</span>
                   </div>
 
-                  <!-- 2. IAF Blue Oval Logo -->
-                  <div class="f-logo-box">
-                    <img src="logo_iaf.png" alt="IAF Accredited" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/IAF_logo.png/320px-IAF_logo.png';">
+                  <div class="f-logo-item">
+                    <img src="logo_iaf.png" alt="IAF" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/IAF_logo.png/320px-IAF_logo.png';">
                     <span>IAF<br>Accredited</span>
                   </div>
 
-                  <!-- 3. MSME Govt of India Logo -->
-                  <div class="f-logo-box">
-                    <img src="logo_certi.png" alt="MSME Govt of India" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/MSME_logo.png/320px-MSME_logo.png';">
+                  <div class="f-logo-item">
+                    <img src="logo_certi.png" alt="MSME" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/MSME_logo.png/320px-MSME_logo.png';">
                     <span>MSME<br>Govt. of India</span>
                   </div>
 
-                  <!-- 4. PTU University Circular Logo -->
-                  <div class="f-logo-box">
-                    <img src="logo_ptu.png" alt="IKGPTU Affiliated" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/en/thumb/2/25/I._K._Gujral_Punjab_Technical_University_logo.png/220px-I._K._Gujral_Punjab_Technical_University_logo.png';">
+                  <div class="f-logo-item">
+                    <img src="logo_ptu.png" alt="IKGPTU" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/en/thumb/2/25/I._K._Gujral_Punjab_Technical_University_logo.png/220px-I._K._Gujral_Punjab_Technical_University_logo.png';">
                     <span>IKGPTU<br>Affiliated</span>
                   </div>
 
                 </div>
 
-                <!-- Bottom Row: QR Code, Gold Seal, Signatures -->
-                <div class="cert-controls-bottom">
-                  <div class="qr-holder">
+                <!-- Bottom Row: QR + Gold Seal + Signatures -->
+                <div class="cert-bottom-controls">
+                  <div class="qr-box-wrap">
                     <div id="qrcode"></div>
-                    <div class="qr-tag">Scan to Verify</div>
+                    <div class="qr-text-tag">Scan to Verify</div>
                   </div>
 
-                  <div class="gold-medal-seal">
+                  <div class="gold-seal-badge">
                     ★ SEAL OF ★<br>
                     UIHESD<br>
                     EXCELLENCE<br>
                     ★ VERIFIED ★
                   </div>
 
-                  <div class="sign-container">
-                    <div class="sign-divider"></div>
+                  <div class="sign-col">
+                    <div class="sign-underline"></div>
                     <div>Course Coordinator</div>
                   </div>
 
-                  <div class="sign-container">
-                    <div class="sign-divider"></div>
+                  <div class="sign-col">
+                    <div class="sign-underline"></div>
                     <div>Director / Examination Cell</div>
                   </div>
                 </div>
@@ -645,17 +667,17 @@
             </div>
           </div>
 
-          <button class="btn-print" onclick="window.print()">🖨️ ਪ੍ਰਿੰਟ ਸਰਟੀਫਿਕੇਟ (Print Certificate)</button>
+          <button class="btn-print" onclick="window.print()">🖨️ ਪ੍ਰਿੰਟ ਸਰਟੀਫਿਕੇਟ (Print Certificate - A4 Landscape)</button>
         `;
 
-        // Generate Live Authentic QR Code
+        // Live Dynamic QR Code
         setTimeout(() => {
           document.getElementById("qrcode").innerHTML = "";
-          const qrText = `UIHESD OFFICIAL RECORD VERIFICATION\n================================\nCandidate: ${s.name}\nFather: ${s.father}\nCourse: ${s.course}\nRoll No: ${s.rollNo}\nUID: ${s.uniqueId}\nGrade: ${s.grade}\nSession: ${s.session}\nAccreditation: ISO 9001, IAF, MSME, IKGPTU\nVerification Status: 100% Genuine & Authentic`;
+          const qrText = `UIHESD OFFICIAL RECORD VERIFICATION\n================================\nCandidate: ${s.name}\nFather: ${s.father}\nCourse: ${s.course}\nRoll No: ${s.rollNo}\nUID: ${s.uniqueId}\nGrade: ${s.grade}\nSession: ${s.session}\nAccredited By: ISO 9001, IAF, MSME, IKGPTU\nVerification Status: 100% Genuine & Authentic`;
           new QRCode(document.getElementById("qrcode"), {
             text: qrText,
-            width: 80,
-            height: 80,
+            width: 72,
+            height: 72,
             colorDark: "#0b1f3a",
             colorLight: "#ffffff",
             correctLevel: QRCode.CorrectLevel.H
