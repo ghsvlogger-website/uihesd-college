@@ -8,7 +8,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
     body { background-color: #f8fafc; color: #1e293b; line-height: 1.5; }
 
-    /* ================= MASTER OFFICIAL HEADER (100% UNIFIED) ================= */
+    /* ================= MASTER OFFICIAL HEADER ================= */
     .gov-flag-bar {
       height: 32px;
       background: #0f172a;
@@ -63,9 +63,84 @@
     /* Page Content */
     .content-container { max-width: 1100px; margin: 35px auto; padding: 0 20px; }
     .courses-table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; }
-    .courses-table th, .courses-table td { padding: 14px 16px; border-bottom: 1px solid #e2e8f0; text-align: left; font-size: 0.92rem; }
+    .courses-table th, .courses-table td { padding: 14px 16px; border-bottom: 1px solid #e2e8f0; text-align: left; font-size: 0.92rem; vertical-align: middle; }
     .courses-table th { background: #1e3a8a; color: white; font-weight: 700; }
-    .badge-open { background: #dcfce7; color: #166534; font-size: 0.78rem; padding: 4px 10px; border-radius: 4px; font-weight: bold; }
+    
+    /* Active Course Buttons */
+    .btn-apply-course {
+      background: #16a34a;
+      color: white;
+      border: none;
+      padding: 7px 14px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .btn-apply-course:hover { background: #15803d; transform: translateY(-1px); }
+    .btn-apply-course:active { transform: translateY(0); }
+
+    /* Course Admission Modal */
+    .course-modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(4px);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+    }
+    .course-modal-card {
+      background: #ffffff;
+      width: 100%;
+      max-width: 550px;
+      border-radius: 8px;
+      padding: 25px 30px;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+      border-top: 5px solid #1e3a8a;
+    }
+    .modal-close-btn {
+      position: absolute;
+      top: 15px; right: 18px;
+      background: transparent;
+      border: none;
+      font-size: 1.6rem;
+      color: #64748b;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .form-group-modal { margin-bottom: 12px; }
+    .form-group-modal label { display: block; font-size: 0.82rem; font-weight: 700; margin-bottom: 4px; color: #334155; }
+    .form-group-modal input, .form-group-modal select {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      outline: none;
+    }
+    .form-group-modal input:focus, .form-group-modal select:focus { border-color: #1e3a8a; }
+    .btn-submit-app {
+      width: 100%;
+      background: #16a34a;
+      color: white;
+      border: none;
+      padding: 11px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+      text-transform: uppercase;
+    }
+    .btn-submit-app:hover { background: #15803d; }
 
     footer { background: #0b132b; color: #94a3b8; padding: 30px 6%; font-size: 0.85rem; text-align: center; margin-top: 40px; }
 
@@ -79,11 +154,13 @@
 </head>
 <body>
 
+  <!-- MASTER TOP FLAG BAR -->
   <div class="gov-flag-bar">
     <div class="flag-group"><span class="flag-icon"></span><span>ਭਾਰਤ ਸਰਕਾਰ | Government of India</span></div>
     <div class="gov-links"><a href="verify.html">Document Verification</a><a href="index.html">Main Home</a></div>
   </div>
 
+  <!-- MASTER PORTAL HEADER -->
   <header class="portal-header">
     <div class="header-logos">
       <div class="emblem-box">
@@ -107,6 +184,7 @@
     </div>
   </header>
 
+  <!-- MASTER NAVIGATION BAR -->
   <nav>
     <ul class="nav-list">
       <li><a href="index.html">MSDE</a></li>
@@ -116,9 +194,10 @@
     </ul>
   </nav>
 
+  <!-- MASTER ALERT RIBBON -->
   <div class="alert-ribbon">
     <span class="alert-tag">ADMISSIONS 2026-27</span>
-    <marquee>Admissions Open: Mechanic Diesel, COPA, Electrician, Fitter, Software Diplomas & Professional Certifications.</marquee>
+    <marquee>Online Registration Open for ITI & Skill Trades: Click "Apply Now" on any course to register instantly.</marquee>
   </div>
 
   <div class="content-container">
@@ -130,7 +209,7 @@
           <th>ਟ੍ਰੇਡ / ਖੇਤਰ (Stream)</th>
           <th>ਸਮਾਂ (Duration)</th>
           <th>ਯੋਗਤਾ (Eligibility)</th>
-          <th>ਸਥਿਤੀ (Admission Status)</th>
+          <th>ਐਕਸ਼ਨ (Action)</th>
         </tr>
       </thead>
       <tbody>
@@ -139,50 +218,148 @@
           <td>ਆਟੋਮੋਬਾਈਲ / ਇੰਜੀਨੀਅਰਿੰਗ (ITI Trade)</td>
           <td>1 ਸਾਲ</td>
           <td>10ਵੀਂ ਪਾਸ (Science & Maths)</td>
-          <td><span class="badge-open">ਦਾਖ਼ਲਾ ਸ਼ੁਰੂ</span></td>
+          <td>
+            <button class="btn-apply-course" onclick="openApplyModal('Mechanic Diesel (ITI Trade)')">
+              ✍️ ਦਾਖ਼ਲਾ ਲਵੋ (Apply)
+            </button>
+          </td>
         </tr>
         <tr>
           <td><strong>COPA</strong> (Computer Operator & Programming Assistant)</td>
           <td>ਆਈ.ਟੀ. ਅਤੇ ਸਾਫਟਵੇਅਰ</td>
           <td>1 ਸਾਲ</td>
           <td>10ਵੀਂ ਪਾਸ</td>
-          <td><span class="badge-open">ਦਾਖ਼ਲਾ ਸ਼ੁਰੂ</span></td>
+          <td>
+            <button class="btn-apply-course" onclick="openApplyModal('COPA (Computer Operator & Programming Assistant)')">
+              ✍️ ਦਾਖ਼ਲਾ ਲਵੋ (Apply)
+            </button>
+          </td>
         </tr>
         <tr>
           <td><strong>Electrician (ਇਲੈਕਟ੍ਰੀਸ਼ੀਅਨ)</strong></td>
           <td>ਇੰਡਸਟ੍ਰੀਅਲ ਟ੍ਰੇਡ (ITI)</td>
           <td>2 ਸਾਲ</td>
           <td>10ਵੀਂ ਪਾਸ</td>
-          <td><span class="badge-open">ਦਾਖ਼ਲਾ ਸ਼ੁਰੂ</span></td>
+          <td>
+            <button class="btn-apply-course" onclick="openApplyModal('Electrician (ITI Industrial Trade)')">
+              ✍️ ਦਾਖ਼ਲਾ ਲਵੋ (Apply)
+            </button>
+          </td>
         </tr>
         <tr>
           <td><strong>Fitter (ਫਿਟਰ)</strong></td>
           <td>ਮਕੈਨੀਕਲ ਟ੍ਰੇਡ (ITI)</td>
           <td>2 ਸਾਲ</td>
           <td>10ਵੀਂ ਪਾਸ</td>
-          <td><span class="badge-open">ਦਾਖ਼ਲਾ ਸ਼ੁਰੂ</span></td>
+          <td>
+            <button class="btn-apply-course" onclick="openApplyModal('Fitter (Mechanical ITI Trade)')">
+              ✍️ ਦਾਖ਼ਲਾ ਲਵੋ (Apply)
+            </button>
+          </td>
         </tr>
         <tr>
           <td><strong>B.Sc (Information Technology)</strong></td>
           <td>ਯੂਨੀਵਰਸਿਟੀ ਡਿਗਰੀ (IKGPTU)</td>
           <td>3 ਸਾਲ</td>
           <td>12ਵੀਂ ਪਾਸ</td>
-          <td><span class="badge-open">ਦਾਖ਼ਲਾ ਸ਼ੁਰੂ</span></td>
+          <td>
+            <button class="btn-apply-course" onclick="openApplyModal('B.Sc (Information Technology)')">
+              ✍️ ਦਾਖ਼ਲਾ ਲਵੋ (Apply)
+            </button>
+          </td>
         </tr>
         <tr>
           <td><strong>DCA</strong> (Diploma in Computer Applications)</td>
           <td>ਕੰਪਿਊਟਰ ਡਿਪਲੋਮਾ</td>
           <td>1 ਸਾਲ</td>
           <td>12ਵੀਂ ਪਾਸ</td>
-          <td><span class="badge-open">ਦਾਖ਼ਲਾ ਸ਼ੁਰੂ</span></td>
+          <td>
+            <button class="btn-apply-course" onclick="openApplyModal('DCA (Diploma in Computer Applications)')">
+              ✍️ ਦਾਖ਼ਲਾ ਲਵੋ (Apply)
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
 
+  <!-- Interactive Online Admission Application Modal -->
+  <div id="courseModal" class="course-modal-overlay" onclick="closeModalOnOutside(event)">
+    <div class="course-modal-card">
+      <button class="modal-close-btn" onclick="closeApplyModal()">&times;</button>
+      <h3 style="color:#1e3a8a; margin-bottom:4px; font-weight:800;">ਆਨਲਾਈਨ ਦਾਖ਼ਲਾ ਫਾਰਮ (Session 2026-27)</h3>
+      <p style="font-size:0.8rem; color:#64748b; margin-bottom:16px;">UIHESD Skill Hub Registration Portal</p>
+      
+      <form onsubmit="handleCourseApplication(event)">
+        <div class="form-group-modal">
+          <label>ਚੁਣਿਆ ਗਿਆ ਕੋਰਸ (Selected Course):</label>
+          <input type="text" id="modalCourseName" readonly style="background:#f1f5f9; font-weight:bold; color:#1e3a8a;">
+        </div>
+
+        <div class="form-group-modal">
+          <label>ਵਿਦਿਆਰਥੀ ਦਾ ਪੂਰਾ ਨਾਮ (Candidate Full Name):</label>
+          <input type="text" id="candName" required placeholder="ਜਿਵੇਂ Gurpreet Singh">
+        </div>
+
+        <div class="form-group-modal">
+          <label>ਪਿਤਾ ਦਾ ਨਾਮ (Father's Name):</label>
+          <input type="text" id="candFather" required placeholder="ਜਿਵੇਂ S. Harbhajan Singh">
+        </div>
+
+        <div class="form-group-modal">
+          <label>ਮੋਬਾਈਲ ਨੰਬਰ (Mobile Number):</label>
+          <input type="tel" id="candPhone" pattern="[0-9]{10}" required placeholder="10 ਅੰਕਾਂ ਦਾ ਮੋਬਾਈਲ ਨੰਬਰ">
+        </div>
+
+        <div class="form-group-modal">
+          <label>ਸ਼ਹਿਰ / ਪਤਾ (City / Village):</label>
+          <input type="text" id="candAddress" required placeholder="ਜਿਵੇਂ Guru Har Sahai, Firozpur">
+        </div>
+
+        <button type="submit" class="btn-submit-app">ਜਮ੍ਹਾਂ ਕਰੋ (Submit Application)</button>
+      </form>
+    </div>
+  </div>
+
   <footer>
     <p>© 2026 Universal Institute of Higher Education & Skill Development. Powered by Skill India Digital Ecosystem.</p>
   </footer>
+
+  <script>
+    function openApplyModal(courseName) {
+      document.getElementById('modalCourseName').value = courseName;
+      document.getElementById('courseModal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeApplyModal() {
+      document.getElementById('courseModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    function closeModalOnOutside(event) {
+      if (event.target.id === 'courseModal') {
+        closeApplyModal();
+      }
+    }
+
+    function handleCourseApplication(event) {
+      event.preventDefault();
+      const course = document.getElementById('modalCourseName').value;
+      const name = document.getElementById('candName').value;
+      const phone = document.getElementById('candPhone').value;
+      const refNo = 'APP-2026-' + Math.floor(10000 + Math.random() * 90000);
+
+      alert(`✔ ਧੰਨਵਾਦ ${name} ਜੀ!\nਤੁਹਾਡੀ ਦਾਖ਼ਲਾ ਅਰਜ਼ੀ ਸਫਲਤਾਪੂਰਵਕ ਜਮ੍ਹਾਂ ਹੋ ਗਈ ਹੈ।\n\nਕੋਰਸ: ${course}\nਰੈਫ਼ਰੈਂਸ ਨੰਬਰ: ${refNo}\nਸਾਡੀ ਦਾਖ਼ਲਾ ਟੀਮ ਜਲਦੀ ਹੀ ਤੁਹਾਡੇ ਨੰਬਰ (${phone}) 'ਤੇ ਸੰਪਰਕ ਕਰੇਗੀ।`);
+
+      // Reset & Close
+      document.getElementById('candName').value = '';
+      document.getElementById('candFather').value = '';
+      document.getElementById('candPhone').value = '';
+      document.getElementById('candAddress').value = '';
+      closeApplyModal();
+    }
+  </script>
 
 </body>
 </html>
