@@ -231,12 +231,12 @@
     #qrcode { display: inline-block; background: #ffffff; padding: 2px; }
     .qr-text-tag { font-size: 0.62rem; color: #0f172a; font-weight: 800; margin-top: 4px; text-transform: uppercase; }
 
-    /* ================= USER UPLOADED REALISTIC SEAL STAMP ================= */
+    /* ================= USER UPLOADED SEAL (seal.jpg) ================= */
     .user-uploaded-red-seal {
-      width: 120px;
-      height: 120px;
+      width: 125px;
+      height: 125px;
       object-fit: contain;
-      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.35));
       user-select: none;
       margin-bottom: -10px;
     }
@@ -717,15 +717,15 @@
                   </div>
                 </div>
 
-                <!-- BOTTOM CONTROLS WITH YOUR EXACT UPLOADED RED RIBBON SEAL -->
+                <!-- BOTTOM CONTROLS WITH YOUR EXACT UPLOADED seal.jpg -->
                 <div class="cert-bottom-controls">
                   <div class="qr-box-wrap">
                     <div id="qrcode"></div>
                     <div class="qr-text-tag">Scan To Verify</div>
                   </div>
 
-                  <!-- YOUR CUSTOM SEAL IMAGE (Upload seal.png to GitHub) -->
-                  <img src="seal.png" class="user-uploaded-red-seal" alt="Official Red Ribbon Gold Seal" onerror="this.src='collagelogo1.png';">
+                  <!-- YOUR UPLOADED SEAL IMAGE (seal.jpg) -->
+                  <img src="seal.jpg" class="user-uploaded-red-seal" alt="Official Seal" onerror="this.src='collagelogo1.png';">
 
                   <div class="sign-col">
                     <div class="sign-underline"></div>
@@ -829,7 +829,7 @@
                 </tr>
                 <tr>
                   <td class="gov-field-lbl">ACADEMIC SESSION</td>
-                  <td class="gov-field-val">${s.session || '2025 - 2026'}</i></td>
+                  <td class="gov-field-val">${s.session || '2025 - 2026'}</td>
                 </tr>
                 <tr>
                   <td class="gov-field-lbl">PERFORMANCE / GRADE</td>
