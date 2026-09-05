@@ -25,7 +25,6 @@
     .top-left-text { font-weight: 600; }
     .top-right-tools { display: flex; align-items: center; gap: 14px; }
     .top-right-tools a { color: #334155; text-decoration: none; font-weight: 600; }
-    .top-right-tools a:hover { color: #0284c7; }
     
     .font-resizers { display: flex; gap: 4px; border-left: 1px solid #cbd5e1; border-right: 1px solid #cbd5e1; padding: 0 8px; }
     .f-btn { background: #ffffff; border: 1px solid #94a3b8; border-radius: 2px; padding: 1px 5px; font-size: 0.68rem; cursor: pointer; font-weight: bold; }
@@ -47,121 +46,35 @@
       align-items: center;
       border-bottom: 2px solid #e2e8f0;
     }
-    .header-left-emblem {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .ashok-emblem-svg {
-      height: 68px;
-      width: auto;
-      object-fit: contain;
-    }
+    .header-left-emblem { display: flex; align-items: center; gap: 16px; }
+    .ashok-emblem-svg { height: 68px; width: auto; object-fit: contain; }
     
-    .college-highlight-cluster {
-      border-left: 3.5px solid #b45309;
-      padding-left: 14px;
-    }
-    .dgt-sub-tag {
-      font-size: 0.72rem;
-      font-weight: 800;
-      color: #64748b;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 2px;
-    }
-    .college-bold-title {
-      font-size: 1.45rem;
-      color: #0b1f3a;
-      font-weight: 900;
-      letter-spacing: 0.3px;
-      line-height: 1.15;
-      text-transform: uppercase;
-    }
-    .college-bold-title span {
-      color: #b45309;
-    }
-    .college-punjabi-sub {
-      font-size: 0.88rem;
-      color: #1e3a8a;
-      font-weight: 800;
-      margin-top: 2px;
-    }
-    .college-accreditation-line {
-      font-size: 0.72rem;
-      color: #166534;
-      font-weight: 800;
-      text-transform: uppercase;
-      margin-top: 2px;
-    }
+    .college-highlight-cluster { border-left: 3.5px solid #b45309; padding-left: 14px; }
+    .dgt-sub-tag { font-size: 0.72rem; font-weight: 800; color: #64748b; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; }
+    .college-bold-title { font-size: 1.45rem; color: #0b1f3a; font-weight: 900; letter-spacing: 0.3px; line-height: 1.15; text-transform: uppercase; }
+    .college-bold-title span { color: #b45309; }
+    .college-punjabi-sub { font-size: 0.88rem; color: #1e3a8a; font-weight: 800; margin-top: 2px; }
+    .college-accreditation-line { font-size: 0.72rem; color: #166534; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
 
-    .header-right-tri-logos {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .right-logo-img {
-      height: 54px;
-      width: auto;
-      max-width: 90px;
-      object-fit: contain;
-    }
+    .header-right-tri-logos { display: flex; align-items: center; gap: 16px; }
+    .right-logo-img { height: 54px; width: auto; max-width: 90px; object-fit: contain; }
 
     /* ================= 3. DARK BLUE NAVIGATION BAR ================= */
-    .dgt-navbar {
-      background: #172b53;
-      padding: 0 5%;
-    }
-    .dgt-nav-list {
-      display: flex;
-      list-style: none;
-      align-items: center;
-      gap: 1px;
-      flex-wrap: wrap;
-    }
-    .dgt-nav-list li a {
-      display: block;
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 0.76rem;
-      font-weight: 700;
-      padding: 11px 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.3px;
-      transition: background 0.2s;
-    }
-    .dgt-nav-list li a:hover, .dgt-nav-list li a.active {
-      background: #0f1d38;
-      color: #facc15;
-    }
+    .dgt-navbar { background: #172b53; padding: 0 5%; }
+    .dgt-nav-list { display: flex; list-style: none; align-items: center; gap: 1px; flex-wrap: wrap; }
+    .dgt-nav-list li a { display: block; color: #ffffff; text-decoration: none; font-size: 0.76rem; font-weight: 700; padding: 11px 12px; text-transform: uppercase; letter-spacing: 0.3px; }
+    .dgt-nav-list li a:hover, .dgt-nav-list li a.active { background: #0f1d38; color: #facc15; }
 
     /* ================= 4. SOCIAL MEDIA FLOATING STRIP ================= */
-    .floating-social-strip {
-      position: fixed;
-      left: 0;
-      top: 42%;
-      z-index: 999;
-      display: flex;
-      flex-direction: column;
-    }
-    .social-btn {
-      width: 34px;
-      height: 34px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: bold;
-    }
+    .floating-social-strip { position: fixed; left: 0; top: 42%; z-index: 999; display: flex; flex-direction: column; }
+    .social-btn { width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; font-size: 1rem; font-weight: bold; }
     .sb-fb { background: #3b5998; }
     .sb-tw { background: #1da1f2; }
     .sb-insta { background: #e1306c; }
     .sb-yt { background: #ff0000; }
     .sb-wa { background: #25d366; }
 
-    /* ================= 5. VERIFICATION & EXCEL EXPORT WORKSPACE ================= */
+    /* ================= 5. MAIN CONTAINER & ADMIN DATA ENTRY ================= */
     .container { max-width: 1120px; margin: 30px auto; padding: 0 15px; }
     .cert-box { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-top: 4px solid #172b53; }
     .cert-input-group { display: flex; gap: 10px; margin-top: 15px; }
@@ -171,50 +84,65 @@
     .cert-result { display: none; margin-top: 25px; }
     .cert-invalid { border: 1px solid #fecaca; background: #fef2f2; color: #dc2626; padding: 15px; text-align: center; font-weight: bold; border-radius: 6px; }
 
-    /* Excel Action Bar */
-    .excel-action-bar {
-      margin-top: 25px;
-      background: #f0fdf4;
-      border: 1.5px solid #bbf7d0;
+    /* Data Entry Box */
+    .admin-entry-card {
+      margin-top: 30px;
+      background: #f8fafc;
+      border: 2px dashed #0284c7;
+      border-radius: 8px;
+      padding: 24px;
+    }
+    .admin-entry-card h3 { color: #172b53; margin-bottom: 6px; font-size: 1.15rem; font-weight: 800; }
+    .admin-entry-card p { color: #64748b; font-size: 0.8rem; margin-bottom: 16px; }
+    
+    .entry-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .entry-group label { display: block; font-size: 0.82rem; font-weight: 700; margin-bottom: 4px; color: #334155; }
+    .entry-group input { width: 100%; padding: 10px; border: 1.5px solid #cbd5e1; border-radius: 4px; font-size: 0.9rem; outline: none; }
+    .entry-group input:focus { border-color: #0284c7; }
+    
+    .btn-save-record {
+      width: 100%;
+      background: #16a34a;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 1rem;
+      font-weight: 800;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    .btn-save-record:hover { background: #15803d; }
+
+    /* Excel Management Bar */
+    .excel-mgmt-box {
+      margin-top: 20px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 14px;
       border-radius: 6px;
-      padding: 16px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 15px;
+      gap: 10px;
     }
-    .excel-text h4 { color: #166534; font-size: 0.95rem; margin-bottom: 2px; }
-    .excel-text p { color: #475569; font-size: 0.78rem; }
-    .excel-buttons { display: flex; gap: 10px; }
-    .btn-excel-export {
-      background: #15803d;
-      color: white;
-      border: none;
-      padding: 9px 16px;
-      border-radius: 4px;
-      font-weight: 700;
-      font-size: 0.82rem;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .btn-excel-export:hover { background: #166534; }
-    .btn-excel-import {
+    .btn-excel-act {
       background: #0284c7;
       color: white;
       border: none;
-      padding: 9px 16px;
+      padding: 8px 15px;
       border-radius: 4px;
       font-weight: 700;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
     }
-    .btn-excel-import:hover { background: #0369a1; }
+
+    .records-table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.85rem; background: white; }
+    .records-table th, .records-table td { padding: 9px 12px; border: 1px solid #cbd5e1; text-align: left; }
+    .records-table th { background: #172b53; color: white; }
+    .btn-table-view { background: #0284c7; color: white; border: none; padding: 4px 10px; border-radius: 3px; cursor: pointer; font-weight: bold; }
+    .btn-table-del { background: #dc2626; color: white; border: none; padding: 4px 10px; border-radius: 3px; cursor: pointer; font-weight: bold; margin-left: 4px; }
 
     /* ================= A4 LANDSCAPE CERTIFICATE ================= */
     .cert-landscape-wrapper {
@@ -227,7 +155,6 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.12);
       box-sizing: border-box;
     }
-
     .cert-inner-border {
       border: 6px double #1e3a8a;
       outline: 2px solid #b45309;
@@ -238,7 +165,6 @@
       background-image: radial-gradient(#1e3a8a 0.35px, transparent 0.35px);
       background-size: 18px 18px;
     }
-
     .cert-inner-border::before {
       content: "UIHESD VERIFIED";
       position: absolute;
@@ -252,7 +178,6 @@
       white-space: nowrap;
       z-index: 1;
     }
-
     .cert-top-meta {
       display: flex;
       justify-content: space-between;
@@ -265,7 +190,6 @@
       position: relative;
       z-index: 2;
     }
-
     .cert-header-layout {
       display: flex;
       align-items: center;
@@ -275,206 +199,48 @@
       position: relative;
       z-index: 2;
     }
-    .cert-college-logo {
-      height: 85px;
-      width: 85px;
-      object-fit: contain;
-      border-radius: 4px;
-    }
-    .cert-college-details {
-      flex: 1;
-      text-align: center;
-    }
-    .cert-college-details h3 {
-      font-size: 0.8rem;
-      color: #b45309;
-      font-weight: 900;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 2px;
-    }
-    .cert-college-details h1 {
-      font-size: 1.5rem;
-      color: #0b1f3a;
-      font-family: 'Times New Roman', serif;
-      font-weight: 900;
-      line-height: 1.15;
-    }
-    .cert-college-details p {
-      font-size: 0.78rem;
-      color: #334155;
-      font-weight: 700;
-      margin-top: 2px;
-    }
-    .cert-college-details .statutory-line {
-      font-size: 0.68rem;
-      color: #166534;
-      font-weight: 800;
-      text-transform: uppercase;
-      margin-top: 2px;
-    }
+    .cert-college-logo { height: 85px; width: 85px; object-fit: contain; border-radius: 4px; }
+    .cert-college-details { flex: 1; text-align: center; }
+    .cert-college-details h3 { font-size: 0.8rem; color: #b45309; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 2px; }
+    .cert-college-details h1 { font-size: 1.5rem; color: #0b1f3a; font-family: 'Times New Roman', serif; font-weight: 900; line-height: 1.15; }
+    .cert-college-details p { font-size: 0.78rem; color: #334155; font-weight: 700; margin-top: 2px; }
+    .cert-college-details .statutory-line { font-size: 0.68rem; color: #166534; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
 
-    .cert-title-container {
-      text-align: center;
-      margin: 14px 0 12px;
-      position: relative;
-      z-index: 2;
-    }
-    .cert-title-container h2 {
-      font-size: 1.35rem;
-      color: #b45309;
-      font-family: 'Georgia', serif;
-      font-weight: 900;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      display: inline-block;
-      border-bottom: 2px double #b45309;
-      padding-bottom: 3px;
-    }
+    .cert-title-container { text-align: center; margin: 14px 0 12px; position: relative; z-index: 2; }
+    .cert-title-container h2 { font-size: 1.35rem; color: #b45309; font-family: 'Georgia', serif; font-weight: 900; letter-spacing: 3px; text-transform: uppercase; display: inline-block; border-bottom: 2px double #b45309; padding-bottom: 3px; }
 
-    .cert-body-statement {
-      font-size: 0.98rem;
-      line-height: 1.85;
-      color: #1e293b;
-      text-align: justify;
-      margin-bottom: 16px;
-      font-family: 'Times New Roman', serif;
-      position: relative;
-      z-index: 2;
-    }
-    .cert-highlight-field {
-      color: #0b1f3a;
-      font-weight: 900;
-      border-bottom: 1.5px solid #1e3a8a;
-      padding: 0 6px;
-      font-size: 1.08rem;
-      font-family: 'Georgia', serif;
-      display: inline-block;
-    }
+    .cert-body-statement { font-size: 0.98rem; line-height: 1.85; color: #1e293b; text-align: justify; margin-bottom: 16px; font-family: 'Times New Roman', serif; position: relative; z-index: 2; }
+    .cert-highlight-field { color: #0b1f3a; font-weight: 900; border-bottom: 1.5px solid #1e3a8a; padding: 0 6px; font-size: 1.08rem; font-family: 'Georgia', serif; display: inline-block; }
 
-    .cert-landscape-footer {
-      position: relative;
-      z-index: 2;
-      border-top: 1.5px dashed #cbd5e1;
-      padding-top: 12px;
-    }
+    .cert-landscape-footer { position: relative; z-index: 2; border-top: 1.5px dashed #cbd5e1; padding-top: 12px; }
+    .footer-logos-strip { display: flex; justify-content: space-around; align-items: center; background: #fafafa; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px; margin-bottom: 14px; }
+    .f-logo-item { display: flex; align-items: center; gap: 8px; }
+    .f-logo-item img { height: 46px; width: auto; max-width: 85px; object-fit: contain; }
+    .f-logo-item span { font-size: 0.64rem; font-weight: 800; color: #1e3a8a; line-height: 1.2; text-transform: uppercase; }
 
-    .footer-logos-strip {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      background: #fafafa;
-      border: 1px solid #e2e8f0;
-      border-radius: 6px;
-      padding: 8px 12px;
-      margin-bottom: 14px;
-    }
-    .f-logo-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .f-logo-item img {
-      height: 46px;
-      width: auto;
-      max-width: 85px;
-      object-fit: contain;
-    }
-    .f-logo-item span {
-      font-size: 0.64rem;
-      font-weight: 800;
-      color: #1e3a8a;
-      line-height: 1.2;
-      text-transform: uppercase;
-    }
-
-    .cert-bottom-controls {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      padding: 0 5px;
-    }
-    .qr-box-wrap {
-      text-align: center;
-      background: #ffffff;
-      padding: 6px;
-      border: 1.5px solid #cbd5e1;
-      border-radius: 6px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-    #qrcode { 
-      display: inline-block; 
-      background: #ffffff;
-      padding: 2px;
-    }
-    .qr-text-tag { 
-      font-size: 0.62rem; 
-      color: #0f172a; 
-      font-weight: 800; 
-      margin-top: 4px; 
-      text-transform: uppercase; 
-      letter-spacing: 0.5px;
-    }
+    .cert-bottom-controls { display: flex; justify-content: space-between; align-items: flex-end; padding: 0 5px; }
+    .qr-box-wrap { text-align: center; background: #ffffff; padding: 6px; border: 1.5px solid #cbd5e1; border-radius: 6px; }
+    #qrcode { display: inline-block; background: #ffffff; padding: 2px; }
+    .qr-text-tag { font-size: 0.62rem; color: #0f172a; font-weight: 800; margin-top: 4px; text-transform: uppercase; }
 
     .gold-seal-badge {
-      width: 78px; height: 78px;
-      border-radius: 50%;
-      border: 3px double #b45309;
+      width: 78px; height: 78px; border-radius: 50%; border: 3px double #b45309;
       background: radial-gradient(circle, #fef08a 10%, #facc15 80%);
       box-shadow: 0 0 10px rgba(234, 179, 8, 0.4);
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       text-align: center; color: #78350f; font-weight: 900; font-size: 0.52rem; line-height: 1.1;
     }
-
     .sign-col { text-align: center; font-size: 0.74rem; font-weight: 800; color: #1e3a8a; width: 150px; }
     .sign-underline { border-bottom: 1.5px solid #0f172a; margin-bottom: 4px; height: 30px; }
 
     .btn-print { background: #16a34a; color: white; border: none; padding: 12px 28px; font-weight: bold; border-radius: 5px; cursor: pointer; font-size: 0.95rem; margin: 20px auto 0; display: block; }
-    .btn-print:hover { background: #15803d; }
 
     /* CHATBOT */
-    .dgt-ai-bot {
-      position: fixed;
-      right: 25px;
-      bottom: 25px;
-      z-index: 9999;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .bot-speech-bubble {
-      background: #10b981;
-      color: white;
-      font-size: 0.7rem;
-      font-weight: 900;
-      padding: 2px 8px;
-      border-radius: 10px;
-      margin-bottom: 2px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-    .bot-avatar-wrap {
-      width: 65px;
-      height: 65px;
-      border-radius: 50%;
-      background: #0f172a;
-      border: 3px solid #38bdf8;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-    }
+    .dgt-ai-bot { position: fixed; right: 25px; bottom: 25px; z-index: 9999; cursor: pointer; display: flex; flex-direction: column; align-items: center; }
+    .bot-speech-bubble { background: #10b981; color: white; font-size: 0.7rem; font-weight: 900; padding: 2px 8px; border-radius: 10px; margin-bottom: 2px; }
+    .bot-avatar-wrap { width: 65px; height: 65px; border-radius: 50%; background: #0f172a; border: 3px solid #38bdf8; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
 
-    footer {
-      background: #0b132b;
-      color: #94a3b8;
-      padding: 25px 5%;
-      font-size: 0.8rem;
-      text-align: center;
-      border-top: 2px solid #f59e0b;
-      margin-top: 40px;
-    }
+    footer { background: #0b132b; color: #94a3b8; padding: 25px 5%; font-size: 0.8rem; text-align: center; border-top: 2px solid #f59e0b; margin-top: 40px; }
     footer a { color: #facc15; text-decoration: none; margin: 0 8px; }
 
     @page { size: A4 landscape; margin: 6mm; }
@@ -482,41 +248,26 @@
       html, body { width: 297mm; height: 210mm; background: #ffffff !important; margin: 0; padding: 0; }
       body * { visibility: hidden; }
       .cert-landscape-wrapper, .cert-landscape-wrapper * { visibility: visible; }
-      .cert-landscape-wrapper {
-        position: fixed; left: 0; top: 0;
-        width: 100% !important; height: 100% !important;
-        margin: 0 !important; padding: 0 !important;
-        border: none !important; box-shadow: none !important;
-      }
+      .cert-landscape-wrapper { position: fixed; left: 0; top: 0; width: 100% !important; height: 100% !important; margin: 0 !important; padding: 0 !important; border: none !important; box-shadow: none !important; }
       .cert-inner-border { height: 100% !important; box-sizing: border-box; padding: 16mm 18mm 12mm !important; }
-      .btn-print, header, nav, .top-utility-bar, .floating-social-strip, .dgt-ai-bot, footer, .cert-input-group, .excel-action-bar, h2, p {
-        display: none !important;
-      }
+      .btn-print, header, nav, .top-utility-bar, .floating-social-strip, .dgt-ai-bot, footer, .cert-input-group, .admin-entry-card, h2, p { display: none !important; }
     }
     @media (max-width: 992px) {
       .college-bold-title { font-size: 1.15rem; }
       .header-right-tri-logos { display: none; }
+      .entry-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- 1. TOP GOVT UTILITY BAR -->
+  <!-- 1. TOP UTILITY BAR -->
   <div class="top-utility-bar">
-    <div class="top-left-text">
-      Government of India | Ministry of Skill Development and Entrepreneurship
-    </div>
+    <div class="top-left-text">Government of India | Ministry of Skill Development and Entrepreneurship</div>
     <div class="top-right-tools">
       <a href="index.html">Main Home</a>
-      <div class="font-resizers">
-        <button class="f-btn">A-</button>
-        <button class="f-btn">A</button>
-        <button class="f-btn">A+</button>
-      </div>
-      <div class="top-search-box">
-        <input type="text" placeholder="Search...">
-        <button>🔍</button>
-      </div>
+      <div class="font-resizers"><button class="f-btn">A-</button><button class="f-btn">A</button><button class="f-btn">A+</button></div>
+      <div class="top-search-box"><input type="text" placeholder="Search..."><button>🔍</button></div>
       <div class="lang-select">ਪੰਜਾਬੀ / English</div>
     </div>
   </div>
@@ -525,21 +276,13 @@
   <header class="dgt-main-header">
     <div class="header-left-emblem">
       <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150'><path fill='%231e3a8a' d='M40,5 C40,2 60,2 60,5 C62,15 75,25 75,40 C75,55 60,65 60,75 L65,85 L35,85 L40,75 C40,65 25,55 25,40 C25,25 38,15 40,5 Z'/><circle cx='50' cy='105' r='14' fill='none' stroke='%231e3a8a' stroke-width='3'/><circle cx='50' cy='105' r='3' fill='%231e3a8a'/><path fill='%23b45309' d='M20,125 L80,125 L75,140 L25,140 Z'/><text x='50' y='136' font-size='8' font-weight='bold' text-anchor='middle' fill='%23ffffff'>सत्यमेव जयते</text></svg>" class="ashok-emblem-svg" alt="Emblem of India">
-      
       <div class="college-highlight-cluster">
         <div class="dgt-sub-tag">प्रशिक्षण महानिदेशालय • DIRECTORATE GENERAL OF TRAINING</div>
-        <div class="college-bold-title">
-          UNIVERSAL INSTITUTE OF <span>HIGHER EDUCATION & SKILL DEVELOPMENT</span>
-        </div>
-        <div class="college-punjabi-sub">
-          ਯੂਨੀਵਰਸਲ ਇੰਸਟੀਚਿਊਟ ਆਫ਼ ਹਾਇਰ ਐਜੂਕੇਸ਼ਨ ਐਂਡ ਸਕਿੱਲ ਡਿਵੈਲਪਮੈਂਟ (UIHESD SKILL HUB)
-        </div>
-        <div class="college-accreditation-line">
-          Accredited under ISO 9001:2015, IAF, MSME & University Affiliated Guidelines
-        </div>
+        <div class="college-bold-title">UNIVERSAL INSTITUTE OF <span>HIGHER EDUCATION & SKILL DEVELOPMENT</span></div>
+        <div class="college-punjabi-sub">ਯੂਨੀਵਰਸਲ ਇੰਸਟੀਚਿਊਟ ਆਫ਼ ਹਾਇਰ ਐਜੂਕੇਸ਼ਨ ਐਂਡ ਸਕਿੱਲ ਡਿਵੈਲਪਮੈਂਟ (UIHESD SKILL HUB)</div>
+        <div class="college-accreditation-line">Accredited under ISO 9001:2015, IAF, MSME & University Affiliated Guidelines</div>
       </div>
     </div>
-
     <div class="header-right-tri-logos">
       <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%23ffffff' stroke='%231e3a8a' stroke-width='4'/><path d='M44,12 L56,12 L54,24 L46,24 Z M44,76 L56,76 L54,88 L46,88 Z M12,44 L12,56 L24,54 L24,46 Z M76,44 L76,56 L88,54 L88,46 Z' fill='%230284c7'/><circle cx='50' cy='50' r='20' fill='%23f97316'/><text x='50' y='55' font-size='15' font-weight='900' text-anchor='middle' fill='%23ffffff'>DGT</text></svg>" class="right-logo-img" alt="DGT Logo">
       <img src="logo_certi.png" class="right-logo-img" alt="MSME Govt of India" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><rect width=\'100\' height=\'100\' rx=\'10\' fill=\'%23dc2626\'/><text x=\'50\' y=\'60\' font-size=\'22\' font-weight=\'bold\' text-anchor=\'middle\' fill=\'%23ffffff\'>MSME</text></svg>';">
@@ -571,7 +314,7 @@
     <a href="#" class="social-btn sb-wa">💬</a>
   </div>
 
-  <!-- 5. VERIFICATION WORKSPACE -->
+  <!-- 5. WORKSPACE CONTAINER -->
   <div class="container">
     <div class="cert-box">
       <h2 style="text-align:center; color:#172b53; margin-bottom:6px;">ਅਧਿਕਾਰਤ ਸਰਟੀਫਿਕੇਟ ਪੜਤਾਲ (Online Verification)</h2>
@@ -582,24 +325,83 @@
         <button class="cert-btn" onclick="verifyCertificate()">ਪੜਤਾਲ ਕਰੋ (Verify)</button>
       </div>
 
-      <!-- DIRECT EXCEL EXPORT & IMPORT BAR -->
-      <div class="excel-action-bar">
-        <div class="excel-text">
-          <h4>📊 Excel Database Direct Management</h4>
-          <p>ਵੈੱਬਸਾਈਟ ਤੋਂ ਸਿੱਧੀ Excel (CSV) ਫ਼ਾਈਲ ਡਾਊਨਲੋਡ ਕਰੋ ਜਾਂ ਆਪਣੀ Excel ਫ਼ਾਈਲ ਅੱਪਲੋਡ ਕਰੋ।</p>
+      <div id="certResult" class="cert-result"></div>
+
+      <!-- ================= 6. DIRECT STUDENT DATA ENTRY PORTAL ================= -->
+      <div class="admin-entry-card">
+        <h3>➕ ਨਵੇਂ ਵਿਦਿਆਰਥੀ ਦਾ ਰਿਕਾਰਡ ਦਰਜ ਕਰੋ (Enter Student Details)</h3>
+        <p>ਇੱਥੇ ਵੇਰਵੇ ਭਰ ਕੇ ਸੇਵ ਕਰੋ, ਵਿਦਿਆਰਥੀ ਦਾ ਸਰਟੀਫਿਕੇਟ ਤੁਰੰਤ ਆਨਲਾਈਨ ਵੈਰੀਫਾਈ ਹੋਣ ਲਈ ਤਿਆਰ ਹੋ ਜਾਵੇਗਾ।</p>
+        
+        <div class="entry-grid">
+          <div class="entry-group">
+            <label>ਯੂਨੀਕ ਆਈ.ਡੀ. (Auto Generated UID):</label>
+            <input type="text" id="inUID" readonly style="background:#e2e8f0; font-weight:bold; color:#b91c1c;">
+          </div>
+          <div class="entry-group">
+            <label>ਰੋਲ ਨੰਬਰ (Roll Number):</label>
+            <input type="text" id="inRoll" placeholder="ਜਿਵੇਂ ROLL-102">
+          </div>
+          <div class="entry-group">
+            <label>ਵਿਦਿਆਰਥੀ ਦਾ ਪੂਰਾ ਨਾਮ (Candidate Name):</label>
+            <input type="text" id="inName" placeholder="ਜਿਵੇਂ GURPREET SINGH">
+          </div>
+          <div class="entry-group">
+            <label>ਪਿਤਾ ਦਾ ਨਾਮ (Father's Name):</label>
+            <input type="text" id="inFather" placeholder="ਜਿਵੇਂ S. HARBHAJAN SINGH">
+          </div>
+          <div class="entry-group">
+            <label>ਪਤਾ / ਸ਼ਹਿਰ (City / Address):</label>
+            <input type="text" id="inAddress" placeholder="ਜਿਵੇਂ GURU HAR SAHAI, FIROZPUR, PUNJAB">
+          </div>
+          <div class="entry-group">
+            <label>ਕੋਰਸ ਦਾ ਨਾਮ (Course Title):</label>
+            <input type="text" id="inCourse" placeholder="ਜਿਵੇਂ Mechanic Diesel / COPA / Electrician">
+          </div>
+          <div class="entry-group">
+            <label>ਸੈਸ਼ਨ (Academic Session):</label>
+            <input type="text" id="inSession" value="2025 - 2026">
+          </div>
+          <div class="entry-group">
+            <label>ਗ੍ਰੇਡ (Performance Grade):</label>
+            <input type="text" id="inGrade" value="Grade A+ (Distinction)">
+          </div>
         </div>
-        <div class="excel-buttons">
-          <button class="btn-excel-export" onclick="exportToExcel()">
-            📥 Export to Excel
-          </button>
-          <button class="btn-excel-import" onclick="document.getElementById('excelFileInput').click()">
-            📤 Import Excel / CSV
-          </button>
-          <input type="file" id="excelFileInput" style="display:none;" accept=".csv, .txt" onchange="importFromExcel(event)">
+
+        <button class="btn-save-record" onclick="saveNewStudent()">
+          💾 ਵਿਦਿਆਰਥੀ ਡਾਟਾ ਸੇਵ ਕਰੋ (Save Student Record)
+        </button>
+
+        <!-- Excel Actions Inside Portal -->
+        <div class="excel-mgmt-box">
+          <div>
+            <strong style="color:#172b53; font-size:0.88rem;">📊 Excel (CSV) ਫ਼ਾਈਲ ਰਾਹੀਂ ਡਾਟਾ ਸੰਭਾਲੋ:</strong>
+            <span style="font-size:0.75rem; color:#64748b; display:block;">ਸਿੱਧੀ Excel ਫ਼ਾਈਲ ਡਾਊਨਲੋਡ ਕਰੋ ਜਾਂ ਆਪਣੀ ਫ਼ਾਈਲ ਚੜ੍ਹਾਓ।</span>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <button class="btn-excel-act" style="background:#15803d;" onclick="exportToExcel()">📥 Export Excel</button>
+            <button class="btn-excel-act" onclick="document.getElementById('excelUpload').click()">📤 Import Excel</button>
+            <input type="file" id="excelUpload" style="display:none;" accept=".csv, .txt" onchange="importFromExcel(event)">
+          </div>
+        </div>
+
+        <!-- Student Database Table -->
+        <div style="margin-top:20px;">
+          <h4 style="color:#172b53; margin-bottom:8px;">📁 ਸੇਵ ਕੀਤੇ ਹੋਏ ਵਿਦਿਆਰਥੀਆਂ ਦੀ ਲਿਸਟ:</h4>
+          <table class="records-table">
+            <thead>
+              <tr>
+                <th>Roll No</th>
+                <th>UID</th>
+                <th>ਨਾਮ</th>
+                <th>ਕੋਰਸ</th>
+                <th>ਐਕਸ਼ਨ</th>
+              </tr>
+            </thead>
+            <tbody id="studentTableBody"></tbody>
+          </table>
         </div>
       </div>
 
-      <div id="certResult" class="cert-result"></div>
     </div>
   </div>
 
@@ -619,7 +421,9 @@
   </footer>
 
   <script>
-    const embeddedDatabase = [
+    const STORAGE_KEY = "UIHESD_MASTER_LIVE_DB";
+
+    const defaultRecords = [
       {
         rollNo: "ROLL-101",
         uniqueId: "UID-2026-1001",
@@ -632,82 +436,116 @@
       }
     ];
 
-    // Read students from students.json or fallback
-    async function getStudentDatabase() {
-      // 1. Check if user recently imported data in session
-      const tempImport = localStorage.getItem("UIHESD_IMPORTED_DB");
-      if (tempImport) {
-        try { return JSON.parse(tempImport); } catch(e){}
+    function getStudentDatabase() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (!saved) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultRecords));
+        return defaultRecords;
       }
-
-      // 2. Fetch from students.json
-      try {
-        const response = await fetch('students.json?v=' + Date.now());
-        if (response.ok) {
-          return await response.json();
-        }
-      } catch (err) {
-        console.log("Loading embedded database...");
-      }
-      return embeddedDatabase;
+      try { return JSON.parse(saved); } catch(e) { return defaultRecords; }
     }
 
-    // ================= DIRECT EXCEL EXPORT =================
-    async function exportToExcel() {
-      const db = await getStudentDatabase();
-      if (!db || db.length === 0) return alert("ਕੋਈ ਡਾਟਾ ਮੌਜੂਦ ਨਹੀਂ ਹੈ!");
+    function generateUID() {
+      const yr = new Date().getFullYear();
+      const rnd = Math.floor(1000 + Math.random() * 9000);
+      return `UID-${yr}-${rnd}`;
+    }
 
-      // CSV Header Row
-      const headers = ["rollNo", "uniqueId", "name", "father", "address", "course", "session", "grade"];
-      let csvContent = headers.join(",") + "\r\n";
-
-      // CSV Data Rows
+    function renderTable() {
+      const db = getStudentDatabase();
+      const tbody = document.getElementById("studentTableBody");
+      tbody.innerHTML = "";
       db.forEach(item => {
-        const row = [
-          `"${item.rollNo || ''}"`,
-          `"${item.uniqueId || ''}"`,
-          `"${item.name || ''}"`,
-          `"${item.father || ''}"`,
-          `"${item.address || ''}"`,
-          `"${item.course || ''}"`,
-          `"${item.session || ''}"`,
-          `"${item.grade || ''}"`
-        ];
-        csvContent += row.join(",") + "\r\n";
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td><strong>${item.rollNo}</strong></td>
+          <td style="color:#b91c1c; font-weight:bold;">${item.uniqueId}</td>
+          <td>${item.name}</td>
+          <td>${item.course}</td>
+          <td>
+            <button class="btn-table-view" onclick="quickView('${item.rollNo}')">View</button>
+            <button class="btn-table-del" onclick="deleteStudent('${item.rollNo}')">Delete</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
       });
-
-      // Trigger Direct Browser Download as Excel compatible CSV
-      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-      const link = document.createElement("a");
-      const url = URL.createObjectURL(blob);
-      link.setAttribute("href", url);
-      link.setAttribute("download", `UIHESD_Students_Data_${new Date().toISOString().slice(0,10)}.csv`);
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      alert("✔ Excel (CSV) ਫ਼ਾਈਲ ਸਫਲਤਾਪੂਰਵਕ ਡਾਊਨਲੋਡ ਹੋ ਗਈ ਹੈ!");
     }
 
-    // ================= DIRECT EXCEL/CSV IMPORT =================
+    function saveNewStudent() {
+      const rollNo = document.getElementById("inRoll").value.trim().toUpperCase();
+      const uniqueId = document.getElementById("inUID").value.trim().toUpperCase();
+      const name = document.getElementById("inName").value.trim().toUpperCase();
+      const father = document.getElementById("inFather").value.trim().toUpperCase();
+      const address = document.getElementById("inAddress").value.trim().toUpperCase();
+      const course = document.getElementById("inCourse").value.trim();
+      const session = document.getElementById("inSession").value.trim();
+      const grade = document.getElementById("inGrade").value.trim();
+
+      if (!rollNo || !name || !father || !course) {
+        return alert("ਕਿਰਪਾ ਕਰਕੇ ਰੋਲ ਨੰਬਰ, ਵਿਦਿਆਰਥੀ ਦਾ ਨਾਮ, ਪਿਤਾ ਦਾ ਨਾਮ ਅਤੇ ਕੋਰਸ ਜ਼ਰੂਰ ਭਰੋ!");
+      }
+
+      const db = getStudentDatabase();
+      const exists = db.find(s => s.rollNo === rollNo);
+      if (exists) {
+        return alert("ਇਹ ਰੋਲ ਨੰਬਰ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ! ਕਿਰਪਾ ਕਰਕੇ ਦੂਜਾ ਰੋਲ ਨੰਬਰ ਦਿਓ।");
+      }
+
+      db.push({ rollNo, uniqueId, name, father, address, course, session, grade });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
+
+      alert(`✔ ਵਿਦਿਆਰਥੀ ਦਾ ਡਾਟਾ ਸੇਵ ਹੋ ਗਿਆ!\nRoll No: ${rollNo}\nUID: ${uniqueId}`);
+
+      document.getElementById("inRoll").value = "";
+      document.getElementById("inName").value = "";
+      document.getElementById("inFather").value = "";
+      document.getElementById("inAddress").value = "";
+      document.getElementById("inCourse").value = "";
+      document.getElementById("inUID").value = generateUID();
+      renderTable();
+    }
+
+    function deleteStudent(roll) {
+      if (confirm(`ਕੀ ਤੁਸੀਂ ਰੋਲ ਨੰਬਰ ${roll} ਦਾ ਰਿਕਾਰਡ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?`)) {
+        let db = getStudentDatabase();
+        db = db.filter(s => s.rollNo !== roll);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
+        renderTable();
+      }
+    }
+
+    function quickView(roll) {
+      document.getElementById("certInput").value = roll;
+      verifyCertificate();
+      window.scrollTo({ top: 150, behavior: 'smooth' });
+    }
+
+    function exportToExcel() {
+      const db = getStudentDatabase();
+      let csv = "rollNo,uniqueId,name,father,address,course,session,grade\r\n";
+      db.forEach(item => {
+        csv += `"${item.rollNo}","${item.uniqueId}","${item.name}","${item.father}","${item.address}","${item.course}","${item.session}","${item.grade}"\r\n`;
+      });
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = `UIHESD_Students_List.csv`;
+      a.click();
+    }
+
     function importFromExcel(event) {
       const file = event.target.files[0];
       if (!file) return;
-
       const reader = new FileReader();
       reader.onload = function(e) {
-        const text = e.target.result;
-        const lines = text.split(/\r\n|\n/).filter(line => line.trim().length > 0);
+        const lines = e.target.result.split(/\r\n|\n/).filter(l => l.trim().length > 0);
+        if (lines.length <= 1) return alert("ਫ਼ਾਈਲ ਵਿੱਚ ਕੋਈ ਡਾਟਾ ਨਹੀਂ ਹੈ!");
 
-        if (lines.length <= 1) {
-          return alert("ਫ਼ਾਈਲ ਖ਼ਾਲੀ ਹੈ ਜਾਂ ਇਸ ਵਿੱਚ ਕੋਈ ਰਿਕਾਰਡ ਨਹੀਂ ਹੈ!");
-        }
-
-        const newDatabase = [];
-        // Skip header row (line 0)
+        const db = getStudentDatabase();
         for (let i = 1; i < lines.length; i++) {
-          const cols = lines[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/).map(val => val.replace(/^"|"$/g, '').trim());
+          const cols = lines[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/).map(v => v.replace(/^"|"$/g, '').trim());
           if (cols.length >= 6) {
-            newDatabase.push({
+            db.push({
               rollNo: cols[0] || `ROLL-${100 + i}`,
               uniqueId: cols[1] || `UID-2026-${1000 + i}`,
               name: cols[2] || '',
@@ -719,28 +557,22 @@
             });
           }
         }
-
-        if (newDatabase.length > 0) {
-          localStorage.setItem("UIHESD_IMPORTED_DB", JSON.stringify(newDatabase));
-          alert(`✔ ਵਧਾਈਆਂ! Excel ਫ਼ਾਈਲ ਵਿੱਚੋਂ ਕੁੱਲ ${newDatabase.length} ਵਿਦਿਆਰਥੀਆਂ ਦਾ ਡਾਟਾ ਵੈੱਬਸਾਈਟ 'ਤੇ ਚੜ੍ਹ ਗਿਆ ਹੈ। ਹੁਣ ਤੁਸੀਂ ਕਿਸੇ ਦਾ ਵੀ Roll No ਭਰ ਕੇ ਚੈੱਕ ਕਰ ਸਕਦੇ ਹੋ!`);
-        } else {
-          alert("❌ ਡਾਟਾ ਪੜ੍ਹਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ। ਕਿਰਪਾ ਕਰਕੇ ਸਹੀ CSV ਫ਼ਾਈਲ ਚੁਣੋ।");
-        }
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
+        alert("✔ Excel ਫ਼ਾਈਲ ਵਿੱਚੋਂ ਸਾਰੇ ਵਿਦਿਆਰਥੀ ਸਫਲਤਾਪੂਰਵਕ ਸ਼ਾਮਲ ਹੋ ਗਏ ਹਨ!");
+        renderTable();
       };
       reader.readAsText(file);
     }
 
-    // ================= CERTIFICATE VERIFICATION =================
-    async function verifyCertificate(forcedQuery) {
+    function verifyCertificate(forcedQuery) {
       const q = (forcedQuery || document.getElementById("certInput").value).trim().toUpperCase();
       const res = document.getElementById("certResult");
       if (!q) return alert("ਕਿਰਪਾ ਕਰਕੇ Roll Number ਜਾਂ UID ਦਰਜ ਕਰੋ");
 
       document.getElementById("certInput").value = q;
       res.style.display = "block";
-      res.innerHTML = "<p style='text-align:center; color:#0284c7;'>ਪੜਤਾਲ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ... ਕਿਰਪਾ ਕਰਕੇ ਉਡੀਕ ਕਰੋ।</p>";
 
-      const db = await getStudentDatabase();
+      const db = getStudentDatabase();
       const s = db.find(item => 
         (item.rollNo && item.rollNo.toUpperCase() === q) || 
         (item.uniqueId && item.uniqueId.toUpperCase() === q)
@@ -868,6 +700,8 @@
     }
 
     window.onload = function() {
+      document.getElementById("inUID").value = generateUID();
+      renderTable();
       const urlParams = new URLSearchParams(window.location.search);
       const verifyId = urlParams.get('verify');
       if (verifyId) {
