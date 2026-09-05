@@ -165,10 +165,6 @@
       letter-spacing: 0.5px;
       text-transform: uppercase;
       margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
     }
     .gov-qr-top-strip p {
       font-size: 0.74rem;
@@ -396,7 +392,7 @@
 </head>
 <body>
 
-  <!-- ================= WEBSITE ROOT LAYOUT ================= -->
+  <!-- WEBSITE ROOT LAYOUT -->
   <div id="fullSiteLayout">
 
     <!-- 1. TOP UTILITY BAR -->
@@ -418,7 +414,7 @@
           <div class="dgt-sub-tag">प्रशिक्षण महानिदेशालय • DIRECTORATE GENERAL OF TRAINING</div>
           <div class="college-bold-title">UNIVERSAL INSTITUTE OF <span>HIGHER EDUCATION & SKILL DEVELOPMENT</span></div>
           <div class="college-punjabi-sub">ਯੂਨੀਵਰਸਲ ਇੰਸਟੀਚਿਊਟ ਆਫ਼ ਹਾਇਰ ਐਜੂਕੇਸ਼ਨ ਐਂਡ ਸਕਿੱਲ ਡਿਵੈਲਪਮੈਂਟ (UIHESD SKILL HUB)</div>
-          <div class="college-accreditation-line">Accredited under ISO 9001:2015, IAF, MSME & University Affiliated Guidelines</div>
+          <div class="college-accreditation-line">Accredited under ISO 9001:2015, IAF, MSME & NITI Aayog Recognized</div>
         </div>
       </div>
       <div class="header-right-tri-logos">
@@ -516,7 +512,7 @@
 
   </div>
 
-  <!-- ================= 100% STRICT ISOLATED VIEW ON QR SCAN ================= -->
+  <!-- 100% STRICT ISOLATED VIEW ON QR SCAN -->
   <div id="qrScanIsolatedContainer" style="display:none;" class="qr-standalone-wrapper"></div>
 
   <!-- ADD NEW STUDENT MODAL -->
@@ -583,7 +579,7 @@
       }
     ];
 
-    // Ultra-Realistic 3D Embossed Metallic Gold Foil Seal (Official Heraldic Standard)
+    // Real 3D Metallic Embossed Foil Seal (Not CSS, High Resolution SVG Ribbon Seal)
     const REAL_GOLD_SEAL_IMG = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'><defs><radialGradient id='g1' cx='35%' cy='30%' r='70%'><stop offset='0%' stop-color='%23ffffff'/><stop offset='15%' stop-color='%23fffbeb'/><stop offset='35%' stop-color='%23fef08a'/><stop offset='60%' stop-color='%23eab308'/><stop offset='85%' stop-color='%23ca8a04'/><stop offset='100%' stop-color='%2378350f'/></radialGradient><linearGradient id='ribbon' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%23eab308'/><stop offset='50%' stop-color='%23854d0e'/><stop offset='100%' stop-color='%23ca8a04'/></linearGradient><filter id='f-shadow' x='-20%' y='-20%' width='150%' height='150%'><feDropShadow dx='0' dy='6' stdDeviation='5' flood-color='%23582404' flood-opacity='0.45'/></filter></defs><g filter='url(%23f-shadow)'><path d='M85,160 L60,230 L95,205 L120,230 L110,165' fill='url(%23ribbon)'/><path d='M155,160 L180,230 L145,205 L120,230 L130,165' fill='url(%23ribbon)'/><polygon points='120,8 127,20 141,12 144,26 159,20 160,35 175,32 173,47 188,48 183,62 196,66 188,79 200,86 190,98 200,107 188,118 195,129 181,137 184,151 169,155 168,169 153,170 148,183 133,180 125,193 115,185 107,193 99,180 84,183 79,170 64,169 63,155 48,151 51,137 37,129 44,118 32,107 42,98 32,86 44,79 36,66 49,62 44,48 59,47 57,32 72,35 73,20 88,26 91,12 105,20' fill='url(%23g1)'/><circle cx='120' cy='100' r='75' fill='url(%23g1)' stroke='%23854d0e' stroke-width='3'/><circle cx='120' cy='100' r='68' fill='none' stroke='%2378350f' stroke-width='1.5' stroke-dasharray='3,2'/><circle cx='120' cy='100' r='62' fill='none' stroke='%23854d0e' stroke-width='2'/><path d='M95,68 Q120,58 145,68' fill='none' stroke='%2378350f' stroke-width='1.5'/><text x='120' y='64' font-size='9' font-weight='900' fill='%23582404' text-anchor='middle' letter-spacing='2'>★ OFFICIAL ★</text><path d='M120,72 L124,82 L134,82 L126,88 L129,98 L120,92 L111,98 L114,88 L106,82 L116,82 Z' fill='%2378350f'/><text x='120' y='116' font-size='16' font-weight='900' fill='%23582404' text-anchor='middle' letter-spacing='1.5'>UIHESD</text><text x='120' y='130' font-size='9' font-weight='900' fill='%2378350f' text-anchor='middle' letter-spacing='3'>EXCELLENCE</text><text x='120' y='144' font-size='8' font-weight='800' fill='%23582404' text-anchor='middle' letter-spacing='2'>SEAL OF MERIT</text><path d='M95,150 Q120,158 145,150' fill='none' stroke='%2378350f' stroke-width='1.5'/></g></svg>";
 
     function getStudentDatabase() {
@@ -787,6 +783,7 @@
                 The overall performance of the candidate has been evaluated by the Examination Board and awarded <span class="cert-highlight-field">${s.grade || 'Grade A+ (Distinction)'}</span>.
               </div>
 
+              <!-- FOOTER LOGOS STRIP WITH NITI AAYOG INSTEAD OF IKGPTU -->
               <div class="cert-landscape-footer">
                 <div class="footer-logos-strip">
                   <div class="f-logo-item">
@@ -801,13 +798,14 @@
                     <img src="logo_certi.png" alt="MSME" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/MSME_logo.png/320px-MSME_logo.png';">
                     <span>MSME<br>Govt. of India</span>
                   </div>
+                  <!-- CORRECTED NITI AAYOG / DARPAN LOGO -->
                   <div class="f-logo-item">
-                    <img src="logo_ptu.png" alt="IKGPTU" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/en/thumb/2/25/I._K._Gujral_Punjab_Technical_University_logo.png/220px-I._K._Gujral_Punjab_Technical_University_logo.png';">
-                    <span>IKGPTU<br>Affiliated</span>
+                    <img src="logo_ptu.png" alt="NITI Aayog" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/NITI_Aayog_logo.svg/320px-NITI_Aayog_logo.svg.png';">
+                    <span>NITI AAYOG<br>Govt. of India</span>
                   </div>
                 </div>
 
-                <!-- BOTTOM ROW WITH PHOTOREALISTIC 3D GOLD EMBOSSED FOIL SEAL -->
+                <!-- BOTTOM CONTROLS WITH 100% REALISTIC 3D METALLIC EMBOSSED FOIL SEAL -->
                 <div class="cert-bottom-controls">
                   <div class="qr-box-wrap">
                     <div id="qrcode"></div>
@@ -867,7 +865,6 @@
       const urlParams = new URLSearchParams(window.location.search);
       const scanVerifyUID = urlParams.get('scan_verify');
 
-      // IF SCANNED VIA QR: HIDE WEBSITE AND DISPLAY OFFICIAL GOVT / DGT CREDENTIAL CARD
       if (scanVerifyUID) {
         document.getElementById("fullSiteLayout").style.display = "none";
         const isolatedBox = document.getElementById("qrScanIsolatedContainer");
