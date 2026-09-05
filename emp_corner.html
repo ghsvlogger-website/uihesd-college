@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Employee Corner | Directorate General of Training (DGT)</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: #f1f5f9; color: #1e293b; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; }
+
+    /* ================= 1. TOP GOVT MINISTRY STRIP ================= */
+    .top-ministry-bar {
+      background: #ffffff;
+      padding: 6px 5%;
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 0.76rem;
+      color: #334155;
+      font-weight: 700;
+      display: flex;
+      justify-content: flex-start;
+      gap: 30px;
+    }
+
+    /* ================= 2. MAIN HEADER (EMBLEM & 4 LOGOS) ================= */
+    .dgt-emp-header {
+      background: #ffffff;
+      padding: 12px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #cbd5e1;
+    }
+    .emp-head-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .ashok-emblem-svg {
+      height: 64px;
+      width: auto;
+    }
+    .emp-title-text h2 {
+      font-size: 1.15rem;
+      color: #1e3a8a;
+      font-weight: 800;
+      line-height: 1.15;
+    }
+    .emp-title-text h1 {
+      font-size: 1.35rem;
+      color: #0b1f3a;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+    }
+    .emp-title-text p {
+      font-size: 0.72rem;
+      color: #b45309;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+
+    .emp-head-right-logos {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .emp-head-right-logos img {
+      height: 52px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* ================= 3. MAIN TWO-COLUMN LAYOUT ================= */
+    .emp-workspace-container {
+      max-width: 1200px;
+      width: 100%;
+      margin: 30px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 35px;
+      align-items: start;
+    }
+
+    /* LEFT SIDEBAR: OFFICIAL ORDERS & NOTICES LIST */
+    .emp-orders-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .order-item-btn {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 10px 14px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #334155;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.2s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+      display: block;
+    }
+    .order-item-btn:hover {
+      background: #f8fafc;
+      border-color: #0284c7;
+      color: #0284c7;
+      transform: translateX(4px);
+    }
+
+    /* RIGHT SIDE: EMPLOYEE CORNER LOGIN BOX */
+    .emp-login-card-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .emp-corner-heading {
+      font-size: 1.85rem;
+      color: #334155;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .emp-login-box {
+      width: 100%;
+      max-width: 520px;
+      background: #cfd8dc; /* Official Ash Grey Tint */
+      border-radius: 4px;
+      padding: 30px 35px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    }
+    .form-group-emp {
+      margin-bottom: 16px;
+    }
+    .form-group-emp label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #374151;
+      margin-bottom: 6px;
+    }
+    .form-control-emp {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #94a3b8;
+      border-radius: 3px;
+      background: #ffffff;
+      font-size: 0.95rem;
+      outline: none;
+    }
+    .form-control-emp:focus {
+      border-color: #0284c7;
+    }
+
+    /* Captcha Section */
+    .captcha-row-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .captcha-display-badge {
+      background: #ffffff;
+      border: 1px solid #94a3b8;
+      padding: 6px 20px;
+      font-size: 1.35rem;
+      font-weight: 900;
+      font-family: 'Courier New', Courier, monospace;
+      letter-spacing: 6px;
+      color: #0f172a;
+      user-select: none;
+      background-image: repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(0,0,0,0.04) 4px, rgba(0,0,0,0.04) 8px);
+    }
+    .captcha-refresh-link {
+      color: #0284c7;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .captcha-refresh-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Links & Checkbox */
+    .login-options-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 14px;
+      font-size: 0.82rem;
+    }
+    .remember-lbl {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #475569;
+      font-weight: 600;
+    }
+    .forgot-link-emp {
+      color: #dc2626;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .forgot-link-emp:hover {
+      text-decoration: underline;
+    }
+
+    .btn-emp-login {
+      background: #4ade80;
+      color: #065f46;
+      border: 1px solid #22c55e;
+      padding: 8px 30px;
+      font-size: 0.92rem;
+      font-weight: 800;
+      border-radius: 3px;
+      cursor: pointer;
+      display: block;
+      margin: 18px auto 0;
+      transition: background 0.2s;
+    }
+    .btn-emp-login:hover {
+      background: #22c55e;
+      color: #ffffff;
+    }
+
+    .register-footer-text {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #475569;
+      font-weight: 600;
+      margin-top: 18px;
+    }
+    .register-footer-text a {
+      color: #0284c7;
+      text-decoration: none;
+      font-weight: 800;
+      margin-left: 4px;
+    }
+    .register-footer-text a:hover {
+      text-decoration: underline;
+    }
+
+    /* ================= 4. OFFICIAL FOOTER ================= */
+    .emp-corner-footer {
+      background: #172b53;
+      color: #cbd5e1;
+      padding: 16px 5%;
+      font-size: 0.78rem;
+      text-align: center;
+      border-top: 2px solid #f59e0b;
+    }
+    .emp-corner-footer p { margin-bottom: 2px; }
+
+    @media (max-width: 900px) {
+      .dgt-emp-header { flex-direction: column; gap: 15px; }
+      .emp-workspace-container { grid-template-columns: 1fr; }
+      .emp-head-right-logos { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= 1. TOP GOVT MINISTRY STRIP ================= -->
+  <div class="top-ministry-bar">
+    <div>भारत सरकार / Government of India</div>
+    <div>कौशल विकास और उद्यमशीलता मंत्रालय / Ministry of Skill Development and Entrepreneurship</div>
+  </div>
+
+  <!-- ================= 2. MAIN HEADER ================= -->
+  <header class="dgt-emp-header">
+    <div class="emp-head-left">
+      <!-- National Emblem -->
+      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150'><path fill='%231e3a8a' d='M40,5 C40,2 60,2 60,5 C62,15 75,25 75,40 C75,55 60,65 60,75 L65,85 L35,85 L40,75 C40,65 25,55 25,40 C25,25 38,15 40,5 Z'/><circle cx='50' cy='105' r='14' fill='none' stroke='%231e3a8a' stroke-width='3'/><circle cx='50' cy='105' r='3' fill='%231e3a8a'/><path fill='%23b45309' d='M20,125 L80,125 L75,140 L25,140 Z'/><text x='50' y='136' font-size='8' font-weight='bold' text-anchor='middle' fill='%23ffffff'>सत्यमेव जयते</text></svg>" class="ashok-emblem-svg" alt="Emblem of India">
+      
+      <div class="emp-title-text">
+        <h2>प्रशिक्षण महानिदेशालय</h2>
+        <h1>DIRECTORATE GENERAL OF TRAINING</h1>
+        <p>UNIVERSAL INSTITUTE OF HIGHER EDUCATION & SKILL DEVELOPMENT (UIHESD)</p>
+      </div>
+    </div>
+
+    <!-- 4 Official Right Logos: DGT, Skill India, ITI, G20 -->
+    <div class="emp-head-right-logos">
+      <!-- DGT Logo -->
+      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%23ffffff' stroke='%231e3a8a' stroke-width='4'/><path d='M44,12 L56,12 L54,24 L46,24 Z M44,76 L56,76 L54,88 L46,88 Z M12,44 L12,56 L24,54 L24,46 Z M76,44 L76,56 L88,54 L88,46 Z' fill='%230284c7'/><circle cx='50' cy='50' r='20' fill='%23f97316'/><text x='50' y='55' font-size='15' font-weight='900' text-anchor='middle' fill='%23ffffff'>DGT</text></svg>" alt="DGT">
+      
+      <!-- Skill India Logo -->
+      <img src="logo_certi.png" alt="Skill India MSME" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><rect width=\'100\' height=\'100\' rx=\'8\' fill=\'%23dc2626\'/><text x=\'50\' y=\'58\' font-size=\'18\' font-weight=\'bold\' text-anchor=\'middle\' fill=\'%23ffffff\'>MSME</text></svg>';">
+      
+      <!-- ITI Brand Logo -->
+      <img src="collagelogo1.png" alt="ITI" onerror="this.onerror=null;this.src='collagelogo1.PNG';">
+      
+      <!-- G20 Official Badge -->
+      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 70'><text x='5' y='50' font-size='42' font-weight='900' fill='%231e3a8a'>G2</text><circle cx='80' cy='36' r='18' fill='%23ff9933'/><circle cx='80' cy='36' r='12' fill='%23ffffff'/><circle cx='80' cy='36' r='6' fill='%23128807'/><text x='105' y='46' font-size='11' font-weight='bold' fill='%23b45309'>भारत 2026</text></svg>" alt="G20 Bharat">
+    </div>
+  </header>
+
+  <!-- ================= 3. MAIN WORKSPACE ================= -->
+  <main class="emp-workspace-container">
+    
+    <!-- Left Orders & Circulars Sidebar -->
+    <aside class="emp-orders-menu">
+      <a href="javascript:void(0)" onclick="alert('Viewing Seniority List - Directorate General of Training')" class="order-item-btn">Seniority List</a>
+      <a href="javascript:void(0)" onclick="alert('Viewing Transfer Orders')" class="order-item-btn">Transfer Orders</a>
+      <a href="javascript:void(0)" onclick="alert('Viewing Promotion Orders')" class="order-item-btn">Promotion Orders</a>
+      <a href="javascript:void(0)" onclick="alert('Viewing Seniority List-WT')" class="order-item-btn">Seniority List-WT</a>
+      <a href="javascript:void(0)" onclick="alert('Viewing Recruitment Rules')" class="order-item-btn">Recruitment Rules</a>
+      <a href="javascript:void(0)" onclick="alert('Viewing Remuneration Report April - 2026')" class="order-item-btn">Remuneration Report April - 2026</a>
+      <a href="javascript:void(0)" onclick="alert('Viewing RTI - List of CPIOs and AAs in DGT')" class="order-item-btn">RTI - List of CPIOs and AAs in DGT</a>
+      <a href="javascript:void(0)" onclick="alert('Viewing SHeBox - Complaints of Sexual Harassment at workplace')" class="order-item-btn">SHeBox-Complaints of Sexual Harassment at workplace</a>
+      <a href="javascript:void(0)" onclick="alert('Suo Motu Disclosure Under Section 4 of RTI Act, 2005')" class="order-item-btn">Foreign and Domestic Tours under Suo Motu Disclosure Under Section 4 of RTI Act, 2005</a>
+      <a href="javascript:void(0)" onclick="alert('Rotational Transfer Guidelines of Group A Officers')" class="order-item-btn">Rotational Transfer Guidelines in respect of Group 'A' Officers of ISDS & Women's Training Cadres.</a>
+    </aside>
+
+    <!-- Right Login Area -->
+    <div class="emp-login-card-area">
+      <h2 class="emp-corner-heading">Welcome to Employee Corner</h2>
+
+      <div class="emp-login-box">
+        <form onsubmit="handleEmpLogin(event)">
+          <!-- Attendance Id -->
+          <div class="form-group-emp">
+            <label>Attendance Id</label>
+            <input type="text" id="attId" class="form-control-emp" required placeholder="Enter your Attendance / Employee Id">
+          </div>
+
+          <!-- Password -->
+          <div class="form-group-emp">
+            <label>Password</label>
+            <input type="password" id="attPass" class="form-control-emp" required placeholder="Enter password">
+          </div>
+
+          <!-- Captcha Box -->
+          <div class="captcha-row-box">
+            <div class="captcha-display-badge" id="empCaptchaText">29DC12</div>
+            <a class="captcha-refresh-link" onclick="generateEmpCaptcha()">Refresh</a>
+          </div>
+
+          <!-- Captcha Input -->
+          <div class="form-group-emp">
+            <input type="text" id="capInput" class="form-control-emp" required placeholder="Enter captcha as shown above">
+          </div>
+
+          <!-- Options -->
+          <div class="login-options-row">
+            <label class="remember-lbl">
+              <input type="checkbox"> Remember me
+            </label>
+            <a href="javascript:void(0)" onclick="alert('Password reset OTP sent to registered mobile!')" class="forgot-link-emp">Forgot Your Password?</a>
+          </div>
+
+          <!-- Green Login Button -->
+          <button type="submit" class="btn-emp-login">LOGIN</button>
+
+          <!-- Register Link -->
+          <div class="register-footer-text">
+            Do not have an account <a href="javascript:void(0)" onclick="alert('Please contact DGT Administration Cell to register your Employee Attendance ID.')">Register Here</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ================= 4. FOOTER ================= -->
+  <footer class="emp-corner-footer">
+    <p>Site Administrated by Directorate General of Training.</p>
+    <p style="font-size:0.72rem; color:#94a3b8;">Last Updated: 05 Sep 2026</p>
+  </footer>
+
+  <script>
+    // Generate Random Captcha
+    function generateEmpCaptcha() {
+      const chars = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
+      let result = "";
+      for (let i = 0; i < 6; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      document.getElementById("empCaptchaText").innerText = result;
+    }
+
+    function handleEmpLogin(e) {
+      e.preventDefault();
+      const enteredCap = document.getElementById("capInput").value.trim().toUpperCase();
+      const actualCap = document.getElementById("empCaptchaText").innerText.trim();
+      const attId = document.getElementById("attId").value.trim();
+
+      if (enteredCap !== actualCap) {
+        alert("❌ ਗਲਤ ਕੈਪਚਾ (Invalid Captcha Code)! ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।");
+        generateEmpCaptcha();
+        document.getElementById("capInput").value = "";
+        return;
+      }
+
+      alert(`✔ ਲੌਗਇਨ ਸਫਲ!\nAttendance ID: ${attId}\nWelcome to DGT & UIHESD Employee Corner.`);
+      window.location.href = "verify.html";
+    }
+
+    window.onload = function() {
+      generateEmpCaptcha();
+    };
+  </script>
+
+</body>
+</html>
