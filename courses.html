@@ -1,90 +1,225 @@
 <!DOCTYPE html>
-<html lang="pa">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Courses & Trades | UIHESD</title>
+  <title>Courses & Trades | Directorate General of Training (DGT) & UIHESD</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
-    body { background-color: #f8fafc; color: #1e293b; line-height: 1.5; }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, Helvetica, sans-serif; }
+    body { background-color: #f8fafc; color: #1e293b; overflow-x: hidden; }
 
-    /* ================= MASTER OFFICIAL HEADER ================= */
-    .gov-flag-bar {
-      height: 32px;
-      background: #0f172a;
-      border-bottom: 2px solid #ff9933;
-      padding: 0 6%;
-      font-size: 0.76rem;
+    /* ================= 1. TOP GOVT UTILITY BAR ================= */
+    .top-utility-bar {
+      background: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 4px 5%;
+      font-size: 0.72rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: #e2e8f0;
+      color: #334155;
     }
-    .flag-group { display: flex; align-items: center; gap: 8px; font-weight: 700; }
-    .flag-icon { width: 20px; height: 13px; border: 1px solid #cbd5e1; background: linear-gradient(#ff9933 33%, #ffffff 33%, #ffffff 66%, #128807 66%); display: inline-block; }
-    .gov-links a { color: #cbd5e1; text-decoration: none; font-size: 0.74rem; font-weight: 600; margin-left: 14px; }
-    .gov-links a:hover { color: #facc15; }
+    .top-left-text { font-weight: 600; }
+    .top-right-tools { display: flex; align-items: center; gap: 14px; }
+    .top-right-tools a { color: #334155; text-decoration: none; font-weight: 600; }
+    .top-right-tools a:hover { color: #0284c7; }
+    
+    .font-resizers { display: flex; gap: 4px; border-left: 1px solid #cbd5e1; border-right: 1px solid #cbd5e1; padding: 0 8px; }
+    .f-btn { background: #ffffff; border: 1px solid #94a3b8; border-radius: 2px; padding: 1px 5px; font-size: 0.68rem; cursor: pointer; font-weight: bold; }
+    .theme-toggle { display: flex; gap: 3px; }
+    .t-black { background: #000000; color: #ffffff; border-radius: 50%; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.6rem; font-weight: bold; cursor: pointer; }
+    .t-white { background: #ffffff; color: #000000; border: 1px solid #94a3b8; border-radius: 50%; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.6rem; font-weight: bold; cursor: pointer; }
 
-    .portal-header {
-      height: 96px;
+    .top-search-box { display: flex; align-items: center; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 3px; padding: 2px 6px; }
+    .top-search-box input { border: none; outline: none; font-size: 0.72rem; width: 130px; }
+    .top-search-box button { background: transparent; border: none; cursor: pointer; font-size: 0.75rem; color: #64748b; }
+    .lang-select { font-weight: bold; color: #0f172a; cursor: pointer; }
+
+    /* ================= 2. MAIN HEADER ================= */
+    .dgt-main-header {
+      padding: 10px 5%;
       background: #ffffff;
-      padding: 0 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 2px solid #e2e8f0;
     }
-    .header-logos { display: flex; align-items: center; gap: 16px; }
-    .emblem-box { display: flex; align-items: center; gap: 8px; border-right: 2px solid #cbd5e1; padding-right: 16px; }
-    .emblem-text { font-size: 0.70rem; font-weight: 800; color: #0f172a; line-height: 1.2; text-transform: uppercase; }
+    .header-left-emblem {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .ashok-emblem-svg {
+      height: 68px;
+      width: auto;
+      object-fit: contain;
+    }
     
-    .brand-logo-area { display: flex; align-items: center; gap: 14px; }
-    .brand-logo-area img { height: 72px; width: auto; object-fit: contain; }
-    .brand-names h1 { font-size: 1.55rem; color: #0f172a; font-weight: 900; text-transform: uppercase; letter-spacing: 0.3px; line-height: 1.1; margin: 0; }
-    .brand-names h2 { font-size: 0.82rem; color: #1e3a8a; font-weight: 800; text-transform: uppercase; margin: 2px 0 0; }
-    .brand-names p { font-size: 0.74rem; color: #0284c7; font-weight: 700; margin: 0; }
+    .college-highlight-cluster {
+      border-left: 3.5px solid #b45309;
+      padding-left: 14px;
+    }
+    .dgt-sub-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #64748b;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .college-bold-title {
+      font-size: 1.45rem;
+      color: #0b1f3a;
+      font-weight: 900;
+      letter-spacing: 0.3px;
+      line-height: 1.15;
+      text-transform: uppercase;
+    }
+    .college-bold-title span {
+      color: #b45309;
+    }
+    .college-punjabi-sub {
+      font-size: 0.88rem;
+      color: #1e3a8a;
+      font-weight: 800;
+      margin-top: 2px;
+    }
+    .college-accreditation-line {
+      font-size: 0.72rem;
+      color: #166534;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
 
-    .header-controls { display: flex; align-items: center; gap: 10px; }
-    .search-box { display: flex; align-items: center; background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 4px; padding: 6px 12px; width: 220px; }
-    .search-box input { border: none; outline: none; font-size: 0.82rem; width: 100%; margin-left: 6px; }
-    .btn-dash { background: #f97316; color: white; border: none; padding: 8px 14px; font-size: 0.78rem; font-weight: 800; border-radius: 4px; cursor: pointer; }
-    .btn-reg { background: #b45309; color: white; border: none; padding: 8px 16px; font-size: 0.78rem; font-weight: 800; border-radius: 4px; cursor: pointer; text-decoration: none; }
-    .btn-login { background: white; color: #b45309; border: 1.5px solid #b45309; padding: 7px 16px; font-size: 0.78rem; font-weight: 800; border-radius: 4px; cursor: pointer; text-decoration: none; }
+    .header-right-tri-logos {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .right-logo-img {
+      height: 54px;
+      width: auto;
+      max-width: 90px;
+      object-fit: contain;
+    }
 
-    nav { height: 46px; background: #1e3a8a; padding: 0 6%; display: flex; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.08); }
-    .nav-list { display: flex; list-style: none; gap: 26px; align-items: center; }
-    .nav-list li a { display: block; color: #ffffff; text-decoration: none; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; }
-    .nav-list li a:hover, .nav-list li a.active { color: #facc15; }
-    .nav-dot { width: 7px; height: 7px; background: #dc2626; border-radius: 50%; display: inline-block; margin-left: 4px; }
+    /* ================= 3. DARK BLUE NAVIGATION BAR ================= */
+    .dgt-navbar {
+      background: #172b53;
+      padding: 0 5%;
+    }
+    .dgt-nav-list {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      gap: 1px;
+      flex-wrap: wrap;
+    }
+    .dgt-nav-list li a {
+      display: block;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 11px 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .dgt-nav-list li a:hover, .dgt-nav-list li a.active {
+      background: #0f1d38;
+      color: #facc15;
+    }
 
-    .alert-ribbon { height: 34px; background: #0284c7; color: white; padding: 0 6%; font-size: 0.82rem; display: flex; align-items: center; gap: 12px; }
-    .alert-tag { background: #0c4a6e; padding: 2px 8px; border-radius: 3px; font-weight: 800; font-size: 0.72rem; }
+    /* ================= 4. SOCIAL MEDIA FLOATING STRIP ================= */
+    .floating-social-strip {
+      position: fixed;
+      left: 0;
+      top: 42%;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+    }
+    .social-btn {
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    .sb-fb { background: #3b5998; }
+    .sb-tw { background: #1da1f2; }
+    .sb-insta { background: #e1306c; }
+    .sb-yt { background: #ff0000; }
+    .sb-wa { background: #25d366; }
 
-    /* Page Content */
-    .content-container { max-width: 1100px; margin: 35px auto; padding: 0 20px; }
-    .courses-table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; }
-    .courses-table th, .courses-table td { padding: 14px 16px; border-bottom: 1px solid #e2e8f0; text-align: left; font-size: 0.92rem; vertical-align: middle; }
-    .courses-table th { background: #1e3a8a; color: white; font-weight: 700; }
-    
-    /* Active Course Buttons */
+    /* ================= 5. PAGE CONTENT ================= */
+    .content-stage {
+      max-width: 1180px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    .page-title-box {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 6px;
+      border-left: 5px solid #1e3a8a;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+    }
+    .page-title-box h2 {
+      font-size: 1.3rem;
+      color: #0f172a;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .page-title-box p {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    .courses-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffff;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      border: 1px solid #cbd5e1;
+    }
+    .courses-table th, .courses-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #e2e8f0;
+      text-align: left;
+      font-size: 0.88rem;
+      vertical-align: middle;
+    }
+    .courses-table th {
+      background: #172b53;
+      color: #ffffff;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
     .btn-apply-course {
       background: #16a34a;
       color: white;
       border: none;
       padding: 7px 14px;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 700;
       border-radius: 4px;
       cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      transition: background 0.2s, transform 0.1s;
     }
-    .btn-apply-course:hover { background: #15803d; transform: translateY(-1px); }
-    .btn-apply-course:active { transform: translateY(0); }
+    .btn-apply-course:hover { background: #15803d; }
 
-    /* Course Admission Modal */
+    /* Interactive Online Admission Application Modal */
     .course-modal-overlay {
       display: none;
       position: fixed;
@@ -104,7 +239,7 @@
       padding: 25px 30px;
       position: relative;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
-      border-top: 5px solid #1e3a8a;
+      border-top: 5px solid #172b53;
     }
     .modal-close-btn {
       position: absolute;
@@ -118,7 +253,7 @@
     }
     .form-group-modal { margin-bottom: 12px; }
     .form-group-modal label { display: block; font-size: 0.82rem; font-weight: 700; margin-bottom: 4px; color: #334155; }
-    .form-group-modal input, .form-group-modal select {
+    .form-group-modal input {
       width: 100%;
       padding: 9px 12px;
       border: 1.5px solid #cbd5e1;
@@ -126,7 +261,6 @@
       font-size: 0.9rem;
       outline: none;
     }
-    .form-group-modal input:focus, .form-group-modal select:focus { border-color: #1e3a8a; }
     .btn-submit-app {
       width: 100%;
       background: #16a34a;
@@ -140,68 +274,138 @@
       margin-top: 10px;
       text-transform: uppercase;
     }
-    .btn-submit-app:hover { background: #15803d; }
 
-    footer { background: #0b132b; color: #94a3b8; padding: 30px 6%; font-size: 0.85rem; text-align: center; margin-top: 40px; }
+    /* ================= 6. CHATBOT MASCOT ================= */
+    .dgt-ai-bot {
+      position: fixed;
+      right: 25px;
+      bottom: 25px;
+      z-index: 9999;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .bot-speech-bubble {
+      background: #10b981;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 900;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-bottom: 2px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .bot-avatar-wrap {
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      background: #0f172a;
+      border: 3px solid #38bdf8;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
 
-    @media (max-width: 850px) {
-      .portal-header { height: auto; padding: 10px 6%; flex-direction: column; gap: 10px; }
-      nav { height: auto; padding: 8px 6%; }
-      .nav-list { flex-wrap: wrap; gap: 12px; }
+    footer {
+      background: #0b132b;
+      color: #94a3b8;
+      padding: 25px 5%;
+      font-size: 0.8rem;
+      text-align: center;
+      border-top: 2px solid #f59e0b;
+      margin-top: 40px;
+    }
+    footer a { color: #facc15; text-decoration: none; margin: 0 8px; }
+
+    @media (max-width: 992px) {
+      .college-bold-title { font-size: 1.15rem; }
+      .header-right-tri-logos { display: none; }
       .courses-table { display: block; overflow-x: auto; }
     }
   </style>
 </head>
 <body>
 
-  <!-- MASTER TOP FLAG BAR -->
-  <div class="gov-flag-bar">
-    <div class="flag-group"><span class="flag-icon"></span><span>ਭਾਰਤ ਸਰਕਾਰ | Government of India</span></div>
-    <div class="gov-links"><a href="verify.html">Document Verification</a><a href="index.html">Main Home</a></div>
+  <!-- 1. TOP GOVT UTILITY BAR -->
+  <div class="top-utility-bar">
+    <div class="top-left-text">
+      Government of India | Ministry of Skill Development and Entrepreneurship
+    </div>
+    <div class="top-right-tools">
+      <a href="index.html">Main Home</a>
+      <div class="font-resizers">
+        <button class="f-btn">A-</button>
+        <button class="f-btn">A</button>
+        <button class="f-btn">A+</button>
+      </div>
+      <div class="top-search-box">
+        <input type="text" placeholder="Search Trades...">
+        <button>🔍</button>
+      </div>
+      <div class="lang-select">ਪੰਜਾਬੀ / English</div>
+    </div>
   </div>
 
-  <!-- MASTER PORTAL HEADER -->
-  <header class="portal-header">
-    <div class="header-logos">
-      <div class="emblem-box">
-        🏛️
-        <div class="emblem-text">ਕੌਸ਼ਲ ਵਿਕਾਸ ਮੰਤਰਾਲਾ<br><span style="font-size:0.62rem; color:#64748b;">MINISTRY OF SKILL DEV.</span></div>
-      </div>
-      <div class="brand-logo-area">
-        <img src="collagelogo1.png" alt="UIHESD Logo" onerror="this.src='https://via.placeholder.com/72?text=UIHESD'">
-        <div class="brand-names">
-          <h1>UIHESD SKILL HUB</h1>
-          <h2>Universal Institute of Higher Education & Skill Development</h2>
-          <p>ਕੌਸ਼ਲ ਭਾਰਤ • ਕੁਸ਼ਲ ਭਾਰਤ | Technical & Vocational Institute</p>
+  <!-- 2. MAIN HEADER -->
+  <header class="dgt-main-header">
+    <div class="header-left-emblem">
+      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150'><path fill='%231e3a8a' d='M40,5 C40,2 60,2 60,5 C62,15 75,25 75,40 C75,55 60,65 60,75 L65,85 L35,85 L40,75 C40,65 25,55 25,40 C25,25 38,15 40,5 Z'/><circle cx='50' cy='105' r='14' fill='none' stroke='%231e3a8a' stroke-width='3'/><circle cx='50' cy='105' r='3' fill='%231e3a8a'/><path fill='%23b45309' d='M20,125 L80,125 L75,140 L25,140 Z'/><text x='50' y='136' font-size='8' font-weight='bold' text-anchor='middle' fill='%23ffffff'>सत्यमेव जयते</text></svg>" class="ashok-emblem-svg" alt="Emblem of India">
+      
+      <div class="college-highlight-cluster">
+        <div class="dgt-sub-tag">प्रशिक्षण महानिदेशालय • DIRECTORATE GENERAL OF TRAINING</div>
+        <div class="college-bold-title">
+          UNIVERSAL INSTITUTE OF <span>HIGHER EDUCATION & SKILL DEVELOPMENT</span>
+        </div>
+        <div class="college-punjabi-sub">
+          ਯੂਨੀਵਰਸਲ ਇੰਸਟੀਚਿਊਟ ਆਫ਼ ਹਾਇਰ ਐਜੂਕੇਸ਼ਨ ਐਂਡ ਸਕਿੱਲ ਡਿਵੈਲਪਮੈਂਟ (UIHESD SKILL HUB)
+        </div>
+        <div class="college-accreditation-line">
+          Accredited under ISO 9001:2015, IAF, MSME & University Affiliated Guidelines
         </div>
       </div>
     </div>
-    <div class="header-controls">
-      <div class="search-box">🔍 <input type="text" placeholder="Search Courses, Trades..."></div>
-      <button class="btn-dash" onclick="window.location.href='index.html'">HOME</button>
-      <button class="btn-reg" onclick="window.location.href='courses.html'">COURSES</button>
-      <button class="btn-login" onclick="window.location.href='verify.html'">VERIFY</button>
+
+    <div class="header-right-tri-logos">
+      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%23ffffff' stroke='%231e3a8a' stroke-width='4'/><path d='M44,12 L56,12 L54,24 L46,24 Z M44,76 L56,76 L54,88 L46,88 Z M12,44 L12,56 L24,54 L24,46 Z M76,44 L76,56 L88,54 L88,46 Z' fill='%230284c7'/><circle cx='50' cy='50' r='20' fill='%23f97316'/><text x='50' y='55' font-size='15' font-weight='900' text-anchor='middle' fill='%23ffffff'>DGT</text></svg>" class="right-logo-img" alt="DGT Logo">
+      <img src="logo_certi.png" class="right-logo-img" alt="MSME Govt of India" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><rect width=\'100\' height=\'100\' rx=\'10\' fill=\'%23dc2626\'/><text x=\'50\' y=\'60\' font-size=\'22\' font-weight=\'bold\' text-anchor=\'middle\' fill=\'%23ffffff\'>MSME</text></svg>';">
+      <img src="collagelogo1.png" class="right-logo-img" alt="UIHESD ITI" onerror="this.onerror=null;this.src='collagelogo1.PNG';">
     </div>
   </header>
 
-  <!-- MASTER NAVIGATION BAR -->
-  <nav>
-    <ul class="nav-list">
-      <li><a href="index.html">MSDE</a></li>
-      <li><a href="courses.html" class="active">Courses & Trades <span class="nav-dot"></span></a></li>
-      <li><a href="about.html">About Institute</a></li>
-      <li><a href="verify.html">Verify Certificate</a></li>
+  <!-- 3. NAVIGATION BAR -->
+  <nav class="dgt-navbar">
+    <ul class="dgt-nav-list">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="about.html">ABOUT US ▾</a></li>
+      <li><a href="courses.html" class="active">SCHEMES/PROGRAMMES ▾</a></li>
+      <li><a href="courses.html" class="active">COURSES & TRADES</a></li>
+      <li><a href="verify.html">EXAMINATION ▾</a></li>
+      <li><a href="verify.html">USEFUL LINKS ▾</a></li>
+      <li><a href="about.html">MEDIA CENTER ▾</a></li>
+      <li><a href="about.html">RAJBHASHA CORNER</a></li>
+      <li><a href="verify.html">VERIFY CERTIFICATE</a></li>
     </ul>
   </nav>
 
-  <!-- MASTER ALERT RIBBON -->
-  <div class="alert-ribbon">
-    <span class="alert-tag">ADMISSIONS 2026-27</span>
-    <marquee>Online Registration Open for ITI & Skill Trades: Click "Apply Now" on any course to register instantly.</marquee>
+  <!-- 4. SOCIAL MEDIA STRIP -->
+  <div class="floating-social-strip">
+    <a href="#" class="social-btn sb-fb">f</a>
+    <a href="#" class="social-btn sb-tw">𝕏</a>
+    <a href="#" class="social-btn sb-insta">📷</a>
+    <a href="#" class="social-btn sb-yt">▶</a>
+    <a href="#" class="social-btn sb-wa">💬</a>
   </div>
 
-  <div class="content-container">
-    <h2 style="color:#1e3a8a; margin-bottom:15px; font-weight:800;">Academic & Vocational Programs Offered</h2>
+  <!-- 5. CONTENT AREA -->
+  <main class="content-stage">
+    <div class="page-title-box">
+      <h2>Vocational & Technical Trades (Session 2026-27)</h2>
+      <p>Directorate General of Training (DGT) / Craftsmen Training Scheme (CTS) Aligned Courses</p>
+    </div>
+
     <table class="courses-table">
       <thead>
         <tr>
@@ -281,85 +485,61 @@
         </tr>
       </tbody>
     </table>
-  </div>
+  </main>
 
-  <!-- Interactive Online Admission Application Modal -->
-  <div id="courseModal" class="course-modal-overlay" onclick="closeModalOnOutside(event)">
+  <!-- Admission Modal -->
+  <div id="courseModal" class="course-modal-overlay">
     <div class="course-modal-card">
       <button class="modal-close-btn" onclick="closeApplyModal()">&times;</button>
-      <h3 style="color:#1e3a8a; margin-bottom:4px; font-weight:800;">ਆਨਲਾਈਨ ਦਾਖ਼ਲਾ ਫਾਰਮ (Session 2026-27)</h3>
-      <p style="font-size:0.8rem; color:#64748b; margin-bottom:16px;">UIHESD Skill Hub Registration Portal</p>
+      <h3 style="color:#172b53; margin-bottom:4px; font-weight:800;">ਆਨਲਾਈਨ ਦਾਖ਼ਲਾ ਫਾਰਮ (Session 2026-27)</h3>
+      <p style="font-size:0.8rem; color:#64748b; margin-bottom:16px;">UIHESD Skill Hub Admission Cell</p>
       
       <form onsubmit="handleCourseApplication(event)">
         <div class="form-group-modal">
           <label>ਚੁਣਿਆ ਗਿਆ ਕੋਰਸ (Selected Course):</label>
-          <input type="text" id="modalCourseName" readonly style="background:#f1f5f9; font-weight:bold; color:#1e3a8a;">
+          <input type="text" id="modalCourseName" readonly style="background:#f1f5f9; font-weight:bold; color:#172b53;">
         </div>
-
         <div class="form-group-modal">
           <label>ਵਿਦਿਆਰਥੀ ਦਾ ਪੂਰਾ ਨਾਮ (Candidate Full Name):</label>
-          <input type="text" id="candName" required placeholder="ਜਿਵੇਂ Gurpreet Singh">
+          <input type="text" id="candName" required placeholder="e.g. Gurpreet Singh">
         </div>
-
-        <div class="form-group-modal">
-          <label>ਪਿਤਾ ਦਾ ਨਾਮ (Father's Name):</label>
-          <input type="text" id="candFather" required placeholder="ਜਿਵੇਂ S. Harbhajan Singh">
-        </div>
-
         <div class="form-group-modal">
           <label>ਮੋਬਾਈਲ ਨੰਬਰ (Mobile Number):</label>
-          <input type="tel" id="candPhone" pattern="[0-9]{10}" required placeholder="10 ਅੰਕਾਂ ਦਾ ਮੋਬਾਈਲ ਨੰਬਰ">
+          <input type="tel" id="candPhone" pattern="[0-9]{10}" required placeholder="10 Digit Mobile Number">
         </div>
-
-        <div class="form-group-modal">
-          <label>ਸ਼ਹਿਰ / ਪਤਾ (City / Village):</label>
-          <input type="text" id="candAddress" required placeholder="ਜਿਵੇਂ Guru Har Sahai, Firozpur">
-        </div>
-
         <button type="submit" class="btn-submit-app">ਜਮ੍ਹਾਂ ਕਰੋ (Submit Application)</button>
       </form>
     </div>
   </div>
 
+  <!-- CHATBOT -->
+  <div class="dgt-ai-bot" onclick="alert('Welcome to DGT & UIHESD Online Helpdesk!')">
+    <div class="bot-speech-bubble">HI!</div>
+    <div class="bot-avatar-wrap">🤖</div>
+  </div>
+
   <footer>
-    <p>© 2026 Universal Institute of Higher Education & Skill Development. Powered by Skill India Digital Ecosystem.</p>
+    <p>© 2026 Directorate General of Training (DGT), Ministry of Skill Development and Entrepreneurship & UIHESD Skill Hub.</p>
+    <p style="margin-top:8px;">
+      <a href="index.html">Home</a> | 
+      <a href="courses.html">Courses & Trades</a> | 
+      <a href="verify.html">Verify Certificate</a>
+    </p>
   </footer>
 
   <script>
     function openApplyModal(courseName) {
       document.getElementById('modalCourseName').value = courseName;
       document.getElementById('courseModal').style.display = 'flex';
-      document.body.style.overflow = 'hidden';
     }
-
     function closeApplyModal() {
       document.getElementById('courseModal').style.display = 'none';
-      document.body.style.overflow = 'auto';
     }
-
-    function closeModalOnOutside(event) {
-      if (event.target.id === 'courseModal') {
-        closeApplyModal();
-      }
-    }
-
     function handleCourseApplication(event) {
       event.preventDefault();
-      const course = document.getElementById('modalCourseName').value;
-      const name = document.getElementById('candName').value;
-      const phone = document.getElementById('candPhone').value;
-      const refNo = 'APP-2026-' + Math.floor(10000 + Math.random() * 90000);
-
-      alert(`✔ ਧੰਨਵਾਦ ${name} ਜੀ!\nਤੁਹਾਡੀ ਦਾਖ਼ਲਾ ਅਰਜ਼ੀ ਸਫਲਤਾਪੂਰਵਕ ਜਮ੍ਹਾਂ ਹੋ ਗਈ ਹੈ।\n\nਕੋਰਸ: ${course}\nਰੈਫ਼ਰੈਂਸ ਨੰਬਰ: ${refNo}\nਸਾਡੀ ਦਾਖ਼ਲਾ ਟੀਮ ਜਲਦੀ ਹੀ ਤੁਹਾਡੇ ਨੰਬਰ (${phone}) 'ਤੇ ਸੰਪਰਕ ਕਰੇਗੀ।`);
-
-      // Reset & Close
-      document.getElementById('candName').value = '';
-      document.getElementById('candFather').value = '';
-      document.getElementById('candPhone').value = '';
-      document.getElementById('candAddress').value = '';
+      alert('Application Submitted Successfully!');
       closeApplyModal();
     }
   </script>
-
 </body>
 </html>
