@@ -6,39 +6,30 @@
   <title>Official Statement of Marks | UIHESD & DGT</title>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, Helvetica, sans-serif; }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
     body { background-color: #f8fafc; color: #1e293b; overflow-x: hidden; }
 
     /* TOP UTILITY BAR */
     .top-utility-bar {
-      background: #f8fafc;
-      border-bottom: 1px solid #e2e8f0;
-      padding: 4px 5%;
-      font-size: 0.72rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: #334155;
+      background: #f8fafc; border-bottom: 1px solid #e2e8f0; padding: 4px 5%;
+      font-size: 0.72rem; display: flex; justify-content: space-between; align-items: center; color: #334155;
     }
     .top-right-tools { display: flex; align-items: center; gap: 14px; }
     .top-right-tools a { color: #334155; text-decoration: none; font-weight: 600; }
+    .top-right-tools a:hover { color: #0284c7; }
 
     /* MAIN HEADER */
     .dgt-main-header {
-      padding: 10px 5%;
-      background: #ffffff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 2px solid #e2e8f0;
+      padding: 10px 5%; background: #ffffff; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e2e8f0;
     }
     .header-left-emblem { display: flex; align-items: center; gap: 16px; }
     .ashok-emblem-svg { height: 68px; width: auto; object-fit: contain; }
     .college-highlight-cluster { border-left: 3.5px solid #b45309; padding-left: 14px; }
     .dgt-sub-tag { font-size: 0.72rem; font-weight: 800; color: #64748b; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; }
-    .college-bold-title { font-size: 1.45rem; color: #0b1f3a; font-weight: 900; line-height: 1.15; text-transform: uppercase; }
+    .college-bold-title { font-size: 1.45rem; color: #0b1f3a; font-weight: 900; text-transform: uppercase; }
     .college-bold-title span { color: #b45309; }
     .college-punjabi-sub { font-size: 0.88rem; color: #1e3a8a; font-weight: 800; margin-top: 2px; }
     .college-accreditation-line { font-size: 0.72rem; color: #166534; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
@@ -54,156 +45,87 @@
 
     /* ================= A4 PORTRAIT MARKSHEET ================= */
     .marksheet-wrapper {
-      width: 794px;
-      max-width: 100%;
-      margin: 20px auto;
-      background: #ffffff;
-      padding: 12px;
-      border: 1px solid #94a3b8;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-      box-sizing: border-box;
+      width: 794px; max-width: 100%; margin: 20px auto; background: #ffffff;
+      padding: 12px; border: 1px solid #94a3b8; box-shadow: 0 10px 30px rgba(0,0,0,0.12); box-sizing: border-box;
     }
     .marksheet-inner {
-      border: 5px double #1e3a8a;
-      outline: 2px solid #b45309;
-      outline-offset: -3px;
-      padding: 22px 25px 18px;
-      position: relative;
-      background: #fffdfa;
-      background-image: radial-gradient(#1e3a8a 0.3px, transparent 0.3px);
-      background-size: 16px 16px;
+      border: 5px double #1e3a8a; outline: 2px solid #b45309; outline-offset: -3px;
+      padding: 22px 25px 18px; position: relative; background: #fffdfa;
+      background-image: radial-gradient(#1e3a8a 0.3px, transparent 0.3px); background-size: 16px 16px;
     }
     .marksheet-inner::before {
-      content: "STATEMENT OF MARKS";
-      position: absolute;
-      top: 52%; left: 50%;
-      transform: translate(-50%, -50%) rotate(-25deg);
-      font-size: 3.8rem;
-      font-weight: 900;
-      color: rgba(30, 58, 138, 0.03);
-      pointer-events: none;
-      white-space: nowrap;
-      z-index: 1;
+      content: "STATEMENT OF MARKS"; position: absolute; top: 52%; left: 50%;
+      transform: translate(-50%, -50%) rotate(-25deg); font-size: 3.8rem; font-weight: 900;
+      color: rgba(30, 58, 138, 0.03); pointer-events: none; white-space: nowrap; z-index: 1;
     }
 
     .ms-top-meta {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.74rem;
-      font-weight: 800;
-      color: #334155;
-      border-bottom: 1.5px solid #cbd5e1;
-      padding-bottom: 5px;
-      margin-bottom: 12px;
-      position: relative;
-      z-index: 2;
+      display: flex; justify-content: space-between; font-size: 0.74rem; font-weight: 800;
+      color: #334155; border-bottom: 1.5px solid #cbd5e1; padding-bottom: 5px; margin-bottom: 10px; position: relative; z-index: 2;
     }
 
     .ms-header-layout {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      border-bottom: 2px solid #b45309;
-      padding-bottom: 10px;
-      position: relative;
-      z-index: 2;
+      display: flex; align-items: center; gap: 15px; border-bottom: 2px solid #b45309; padding-bottom: 8px; position: relative; z-index: 2;
     }
-    .ms-logo { height: 70px; width: 70px; object-fit: contain; }
+    .ms-logo { height: 65px; width: 65px; object-fit: contain; }
     .ms-title-block { flex: 1; text-align: center; }
-    .ms-title-block h3 { font-size: 0.72rem; color: #b45309; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; }
-    .ms-title-block h1 { font-size: 1.18rem; color: #0b1f3a; font-family: 'Times New Roman', serif; font-weight: 900; }
-    .ms-title-block p { font-size: 0.68rem; color: #166534; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
+    .ms-title-block h3 { font-size: 0.68rem; color: #b45309; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; }
+    .ms-title-block h1 { font-size: 1.1rem; color: #0b1f3a; font-family: 'Cinzel', serif; font-weight: 900; }
+    .ms-title-block p { font-size: 0.62rem; color: #166534; font-weight: 800; text-transform: uppercase; margin-top: 1px; }
 
-    .ms-doc-title {
-      text-align: center;
-      margin: 12px 0 10px;
-      position: relative;
-      z-index: 2;
-    }
+    .ms-doc-title { text-align: center; margin: 10px 0 8px; position: relative; z-index: 2; }
     .ms-doc-title h2 {
-      font-size: 1.15rem;
-      color: #172b53;
-      font-family: 'Georgia', serif;
-      font-weight: 900;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      border-bottom: 2px double #172b53;
-      display: inline-block;
-      padding-bottom: 2px;
+      font-size: 1.05rem; color: #172b53; font-family: 'Cinzel', serif; font-weight: 900;
+      letter-spacing: 2px; text-transform: uppercase; border-bottom: 2px double #172b53; display: inline-block; padding-bottom: 2px;
     }
 
     /* CANDIDATE INFO TABLE */
     .candidate-info-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 14px;
-      font-size: 0.8rem;
-      position: relative;
-      z-index: 2;
-      background: rgba(255,255,255,0.9);
+      width: 100%; border-collapse: collapse; margin-bottom: 10px; font-size: 0.78rem; position: relative; z-index: 2; background: rgba(255,255,255,0.9);
     }
-    .candidate-info-table td {
-      padding: 6px 10px;
-      border: 1px solid #cbd5e1;
-    }
+    .candidate-info-table td { padding: 5px 8px; border: 1px solid #cbd5e1; }
     .candidate-info-table td.lbl { font-weight: 800; color: #475569; width: 25%; background: #f8fafc; }
     .candidate-info-table td.val { font-weight: 900; color: #0b1f3a; width: 25%; }
 
     /* MARKS TABLE */
     .marks-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 15px;
-      font-size: 0.8rem;
-      position: relative;
-      z-index: 2;
-      background: rgba(255,255,255,0.95);
+      width: 100%; border-collapse: collapse; margin-bottom: 10px; font-size: 0.78rem; position: relative; z-index: 2; background: rgba(255,255,255,0.95);
     }
-    .marks-table th, .marks-table td {
-      border: 1px solid #94a3b8;
-      padding: 8px 10px;
-      text-align: center;
-    }
-    .marks-table th {
-      background: #172b53;
-      color: #ffffff;
-      font-size: 0.76rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
+    .marks-table th, .marks-table td { border: 1px solid #94a3b8; padding: 6px 8px; text-align: center; }
+    .marks-table th { background: #172b53; color: #ffffff; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.5px; }
     .marks-table td.sub-name { text-align: left; font-weight: 800; color: #0f172a; }
+
+    /* FOOTER LOGOS STRIP */
+    .footer-logos-strip {
+      display: flex; justify-content: space-around; align-items: center;
+      background: #fafafa; border: 1px solid #e2e8f0; border-radius: 4px;
+      padding: 4px 8px; margin-bottom: 8px; position: relative; z-index: 2;
+    }
+    .f-logo-item { display: flex; align-items: center; gap: 5px; }
+    .f-logo-item img { height: 28px; width: auto; max-width: 60px; object-fit: contain; }
+    .f-logo-item span { font-size: 0.5rem; font-weight: 800; color: #1e3a8a; line-height: 1; text-transform: uppercase; }
 
     /* FOOTER CONTROLS */
     .ms-footer-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      position: relative;
-      z-index: 2;
-      margin-top: 15px;
-      border-top: 1px dashed #cbd5e1;
-      padding-top: 12px;
+      display: flex; justify-content: space-between; align-items: flex-end; position: relative; z-index: 2; border-top: 1px dashed #cbd5e1; padding-top: 8px;
     }
-    .qr-box-wrap { text-align: center; background: white; padding: 4px; border: 1px solid #cbd5e1; border-radius: 4px; }
+    .qr-box-wrap { text-align: center; background: white; padding: 3px; border: 1px solid #cbd5e1; border-radius: 4px; }
     #qrcodeMs { display: inline-block; }
-    .qr-lbl { font-size: 0.55rem; font-weight: 800; margin-top: 2px; text-transform: uppercase; }
+    .qr-lbl { font-size: 0.5rem; font-weight: 800; margin-top: 1px; text-transform: uppercase; }
 
     .user-uploaded-seal {
-      width: 90px;
-      height: 90px;
-      object-fit: contain;
-      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.3));
+      width: 75px; height: 75px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.3));
     }
 
-    .sign-col { text-align: center; font-size: 0.72rem; font-weight: 800; color: #1e3a8a; width: 130px; }
-    .sign-line { border-bottom: 1.5px solid #0f172a; margin-bottom: 3px; height: 26px; }
+    .sign-col { text-align: center; font-size: 0.68rem; font-weight: 800; color: #1e3a8a; width: 120px; }
+    .sign-line { border-bottom: 1.5px solid #0f172a; margin-bottom: 2px; height: 22px; }
 
     .btn-print { background: #16a34a; color: white; border: none; padding: 11px 26px; font-weight: bold; border-radius: 5px; cursor: pointer; font-size: 0.9rem; margin: 20px auto 0; display: block; }
 
     footer { background: #0b132b; color: #94a3b8; padding: 25px 5%; font-size: 0.8rem; text-align: center; border-top: 2px solid #f59e0b; margin-top: 40px; }
     footer a { color: #facc15; text-decoration: none; margin: 0 8px; }
 
-    @page { size: A4 portrait; margin: 8mm; }
+    @page { size: A4 portrait; margin: 6mm; }
     @media print {
       body * { visibility: hidden; }
       .marksheet-wrapper, .marksheet-wrapper * { visibility: visible; }
@@ -262,7 +184,7 @@
         uniqueId: "UID-2026-1001",
         name: "GURPREET SINGH",
         father: "S. HARBHAJAN SINGH",
-        address: "GURU HAR SAHAI, FIROZPUR, PUNJAB",
+        address: "GURU HAR SAHAI, DISTT. FIROZPUR, PUNJAB",
         course: "Mechanic Diesel (NCVT / DGT Aligned Trade)",
         session: "2025 - 2026",
         grade: "Grade A+ (Distinction)"
@@ -398,14 +320,34 @@
                     <td colspan="2" style="text-align:right;">TOTAL AGGREGATE MARKS:</td>
                     <td>650</td>
                     <td>337</td>
-                    <td style="color:#b91c1c; font-size:0.95rem;">571</td>
-                    <td style="color:#16a34a; font-size:0.95rem;">91.5% (Distinction)</td>
+                    <td style="color:#b91c1c; font-size:0.9rem;">571</td>
+                    <td style="color:#16a34a; font-size:0.9rem;">91.5% (Distinction)</td>
                   </tr>
                 </tbody>
               </table>
 
-              <div style="font-size:0.78rem; font-weight:800; color:#1e293b; margin-bottom:10px; text-align:center;">
-                Overall Final Result: <span style="color:#15803d; font-size:0.9rem;">PASSED WITH DISTINCTION (${s.grade || 'Grade A+'})</span>
+              <div style="font-size:0.75rem; font-weight:800; color:#1e293b; margin-bottom:8px; text-align:center;">
+                Overall Final Result: <span style="color:#15803d;">PASSED WITH DISTINCTION (${s.grade || 'Grade A+'})</span>
+              </div>
+
+              <!-- OFFICIAL GOVERNMENT ACCREDITATION LOGOS STRIP -->
+              <div class="footer-logos-strip">
+                <div class="f-logo-item">
+                  <img src="logo_iso.png" alt="ISO 9001" onerror="this.onerror=null;this.src='https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L2pvYjE4NDYtMjctcC0wMDdhLXgucG5n.png';">
+                  <span>ISO 9001:2015<br>Certified</span>
+                </div>
+                <div class="f-logo-item">
+                  <img src="logo_iaf.png" alt="IAF" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/IAF_logo.png/320px-IAF_logo.png';">
+                  <span>IAF<br>Accredited</span>
+                </div>
+                <div class="f-logo-item">
+                  <img src="logo_certi.png" alt="MSME" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/MSME_logo.png/320px-MSME_logo.png';">
+                  <span>MSME<br>Govt. of India</span>
+                </div>
+                <div class="f-logo-item">
+                  <img src="logo_ptu.png" alt="NITI Aayog" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/NITI_Aayog_logo.svg/320px-NITI_Aayog_logo.svg.png';">
+                  <span>NITI AAYOG<br>Govt. of India</span>
+                </div>
               </div>
 
               <div class="ms-footer-row">
@@ -434,8 +376,8 @@
             qr.innerHTML = "";
             new QRCode(qr, {
               text: window.location.origin + window.location.pathname + "?verify=" + s.uniqueId,
-              width: 80,
-              height: 80,
+              width: 70,
+              height: 70,
               colorDark: "#000000",
               colorLight: "#ffffff",
               correctLevel: QRCode.CorrectLevel.M
