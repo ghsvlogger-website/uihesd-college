@@ -1,0 +1,32 @@
+[
+  {
+    "rollNo": "ROLL-101",
+    "uniqueId": "UID-2026-1001",
+    "name": "GURPREET SINGH",
+    "father": "S. HARBHAJAN SINGH",
+    "address": "GURU HAR SAHAI, DISTT. FIROZPUR, PUNJAB",
+    "course": "Mechanic Diesel (NCVT / DGT Aligned Trade)",
+    "session": "2025 - 2026",
+    "grade": "Grade A+ (Distinction)"
+  },
+  {
+    "rollNo": "ROLL-102",
+    "uniqueId": "UID-2026-1002",
+    "name": "MANPREET KAUR",
+    "father": "S. BALWINDER SINGH",
+    "address": "FIROZPUR, PUNJAB",
+    "course": "Computer Operator & Programming Assistant (COPA)",
+    "session": "2025 - 2026",
+    "grade": "Grade A+"
+  },
+  {
+    "rollNo": "ROLL-103",
+    "uniqueId": "UID-2026-1003",
+    "name": "HARPREET SINGH",
+    "father": "S. JASWANT SINGH",
+    "address": "JALALABAD, PUNJAB",
+    "course": "Electrician (NCVT / DGT Aligned Trade)",
+    "session": "2025 - 2026",
+    "grade": "Grade A"
+  }
+]
