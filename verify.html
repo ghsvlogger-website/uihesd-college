@@ -6,7 +6,6 @@
   <title>Official Certificate Verification | UIHESD & DGT</title>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-  <!-- Google Fonts for Professional Academic Look -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
@@ -93,73 +92,64 @@
     .entry-group input { width: 100%; padding: 10px; border: 1.5px solid #cbd5e1; border-radius: 4px; font-size: 0.9rem; outline: none; }
     .btn-save-record { width: 100%; background: #16a34a; color: white; border: none; padding: 12px; font-size: 1rem; font-weight: 800; border-radius: 4px; cursor: pointer; margin-top: 18px; text-transform: uppercase; }
 
-    /* ================= STYLISH PROFESSIONAL CERTIFICATE ================= */
+    /* ================= OPTIMIZED A4 LANDSCAPE CERTIFICATE ================= */
     .stylish-cert-wrapper {
       width: 1060px; max-width: 100%; margin: 20px auto; background: #fcfbf7;
-      padding: 16px; border: 1px solid #d4af37; box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+      padding: 12px; border: 1px solid #d4af37; box-shadow: 0 15px 40px rgba(0,0,0,0.15);
       box-sizing: border-box; position: relative; overflow: hidden;
     }
     .stylish-cert-wrapper::before {
-      content: ""; position: absolute; top: 0; right: 0; width: 180px; height: 180px;
+      content: ""; position: absolute; top: 0; right: 0; width: 150px; height: 150px;
       background: linear-gradient(135deg, transparent 40%, #c5a059 40%, #c5a059 50%, #7b1113 50%); z-index: 2; pointer-events: none;
     }
     .stylish-cert-wrapper::after {
-      content: ""; position: absolute; bottom: 0; left: 0; width: 180px; height: 180px;
+      content: ""; position: absolute; bottom: 0; left: 0; width: 150px; height: 150px;
       background: linear-gradient(135deg, #7b1113 50%, #c5a059 50%, #c5a059 60%, transparent 60%); z-index: 2; pointer-events: none;
     }
-    .stylish-inner-frame { border: 2px solid #c5a059; padding: 25px 40px 20px; position: relative; background: #fffdf9; z-index: 3; }
-    .ornament-tl { position: absolute; top: 12px; left: 12px; width: 50px; height: 50px; border-top: 3px solid #c5a059; border-left: 3px solid #c5a059; }
-    .ornament-br { position: absolute; bottom: 12px; right: 12px; width: 50px; height: 50px; border-bottom: 3px solid #c5a059; border-right: 3px solid #c5a059; }
+    .stylish-inner-frame { border: 2px solid #c5a059; padding: 18px 30px 14px; position: relative; background: #fffdf9; z-index: 3; }
+    .ornament-tl { position: absolute; top: 8px; left: 8px; width: 40px; height: 40px; border-top: 3px solid #c5a059; border-left: 3px solid #c5a059; }
+    .ornament-br { position: absolute; bottom: 8px; right: 8px; width: 40px; height: 40px; border-bottom: 3px solid #c5a059; border-right: 3px solid #c5a059; }
 
-    .sc-header { display: flex; align-items: center; gap: 15px; border-bottom: 2px solid #c5a059; padding-bottom: 10px; margin-bottom: 12px; }
-    .sc-logo { height: 68px; width: 68px; object-fit: contain; }
+    .sc-header { display: flex; align-items: center; gap: 12px; border-bottom: 2px solid #c5a059; padding-bottom: 8px; margin-bottom: 8px; }
+    .sc-logo { height: 58px; width: 58px; object-fit: contain; }
     .sc-titles { flex: 1; text-align: center; }
-    .sc-titles h4 { font-size: 0.72rem; color: #b45309; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
-    .sc-titles h2 { font-size: 1.25rem; color: #0b1f3a; font-family: 'Cinzel', serif; font-weight: 900; }
-    .sc-titles p { font-size: 0.66rem; color: #166534; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
+    .sc-titles h4 { font-size: 0.65rem; color: #b45309; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+    .sc-titles h2 { font-size: 1.12rem; color: #0b1f3a; font-family: 'Cinzel', serif; font-weight: 900; }
+    .sc-titles p { font-size: 0.58rem; color: #166534; font-weight: 800; text-transform: uppercase; margin-top: 1px; }
 
-    .sc-main-title-box { text-align: center; margin: 10px 0 6px; }
-    .sc-cert-word { font-family: 'Cinzel', serif; font-size: 2.5rem; font-weight: 900; color: #7b1113; letter-spacing: 4px; line-height: 1; }
-    .sc-achieve-word { font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 700; color: #334155; letter-spacing: 4px; margin-top: 4px; text-transform: uppercase; }
-    .sc-presented-to { font-size: 0.78rem; color: #64748b; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-top: 6px; }
+    .sc-main-title-box { text-align: center; margin: 6px 0 4px; }
+    .sc-cert-word { font-family: 'Cinzel', serif; font-size: 2.1rem; font-weight: 900; color: #7b1113; letter-spacing: 4px; line-height: 1; }
+    .sc-achieve-word { font-family: 'Cinzel', serif; font-size: 0.95rem; font-weight: 700; color: #334155; letter-spacing: 3px; margin-top: 3px; text-transform: uppercase; }
+    .sc-presented-to { font-size: 0.7rem; color: #64748b; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
 
-    /* PROFESSIONAL ACADEMIC NAME FONT (CINZEL BOLD & CLEAR) */
     .sc-candidate-name {
-      font-family: 'Cinzel', serif;
-      font-size: 2.4rem;
-      font-weight: 900;
-      color: #9a3412;
-      text-align: center;
-      margin: 6px 0;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      border-bottom: 2px solid #c5a059;
-      display: inline-block;
-      padding: 0 25px;
+      font-family: 'Cinzel', serif; font-size: 2.1rem; font-weight: 900; color: #9a3412;
+      text-align: center; margin: 4px 0; letter-spacing: 2px; text-transform: uppercase;
+      border-bottom: 2px solid #c5a059; display: inline-block; padding: 0 20px;
     }
-    .name-container { text-align: center; margin: 4px 0; }
+    .name-container { text-align: center; margin: 2px 0; }
 
-    .sc-statement { font-family: 'Montserrat', sans-serif; font-size: 0.92rem; color: #1e293b; text-align: center; max-width: 780px; margin: 10px auto 15px; line-height: 1.5; font-weight: 500; }
-    .sc-highlight { font-weight: 800; color: #0b1f3a; border-bottom: 1.5px solid #c5a059; padding: 0 4px; }
+    .sc-statement { font-family: 'Montserrat', sans-serif; font-size: 0.82rem; color: #1e293b; text-align: center; max-width: 760px; margin: 4px auto 10px; line-height: 1.45; font-weight: 500; }
+    .sc-highlight { font-weight: 800; color: #0b1f3a; border-bottom: 1.5px solid #c5a059; padding: 0 3px; }
 
     /* FOOTER LOGOS STRIP */
     .footer-logos-strip {
       display: flex; justify-content: space-around; align-items: center;
       background: #fafafa; border: 1px solid #e2e8f0; border-radius: 4px;
-      padding: 6px 10px; margin-bottom: 10px;
+      padding: 4px 8px; margin-bottom: 6px;
     }
-    .f-logo-item { display: flex; align-items: center; gap: 6px; }
-    .f-logo-item img { height: 36px; width: auto; max-width: 75px; object-fit: contain; }
-    .f-logo-item span { font-size: 0.58rem; font-weight: 800; color: #1e3a8a; line-height: 1.1; text-transform: uppercase; }
+    .f-logo-item { display: flex; align-items: center; gap: 5px; }
+    .f-logo-item img { height: 30px; width: auto; max-width: 65px; object-fit: contain; }
+    .f-logo-item span { font-size: 0.52rem; font-weight: 800; color: #1e3a8a; line-height: 1.05; text-transform: uppercase; }
 
-    .sc-footer-grid { display: flex; justify-content: space-between; align-items: flex-end; border-top: 1.5px dashed #cbd5e1; padding-top: 10px; margin-top: 5px; }
-    .sc-qr-wrap { text-align: center; background: white; padding: 3px; border: 1px solid #cbd5e1; border-radius: 4px; }
+    .sc-footer-grid { display: flex; justify-content: space-between; align-items: flex-end; border-top: 1.5px dashed #cbd5e1; padding-top: 8px; margin-top: 4px; }
+    .sc-qr-wrap { text-align: center; background: white; padding: 2px; border: 1px solid #cbd5e1; border-radius: 4px; }
     #qrcode { display: inline-block; }
-    .sc-qr-lbl { font-size: 0.55rem; font-weight: 800; margin-top: 2px; text-transform: uppercase; }
+    .sc-qr-lbl { font-size: 0.5rem; font-weight: 800; margin-top: 1px; text-transform: uppercase; }
 
-    .user-uploaded-red-seal { width: 95px; height: 95px; object-fit: contain; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25)); }
-    .sc-sign-col { text-align: center; font-size: 0.72rem; font-weight: 800; color: #1e3a8a; width: 150px; }
-    .sc-sign-line { border-bottom: 1.5px solid #0f172a; margin-bottom: 3px; height: 26px; }
+    .user-uploaded-red-seal { width: 80px; height: 80px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.25)); }
+    .sc-sign-col { text-align: center; font-size: 0.65rem; font-weight: 800; color: #1e3a8a; width: 130px; }
+    .sc-sign-line { border-bottom: 1.5px solid #0f172a; margin-bottom: 2px; height: 22px; }
 
     .btn-print { background: #16a34a; color: white; border: none; padding: 12px 28px; font-weight: bold; border-radius: 5px; cursor: pointer; font-size: 0.95rem; margin: 25px auto 0; display: block; }
 
@@ -183,11 +173,12 @@
     footer { background: #0b132b; color: #94a3b8; padding: 25px 5%; font-size: 0.8rem; text-align: center; border-top: 2px solid #f59e0b; margin-top: 40px; }
     footer a { color: #facc15; text-decoration: none; margin: 0 8px; }
 
-    @page { size: A4 landscape; margin: 6mm; }
+    @page { size: A4 landscape; margin: 5mm; }
     @media print {
+      html, body { width: 297mm; height: 210mm; background: #ffffff !important; margin: 0; padding: 0; }
       body * { visibility: hidden; }
       .stylish-cert-wrapper, .stylish-cert-wrapper * { visibility: visible; }
-      .stylish-cert-wrapper { position: fixed; left: 0; top: 0; width: 100% !important; border: none !important; box-shadow: none !important; margin: 0; padding: 0; }
+      .stylish-cert-wrapper { position: fixed; left: 0; top: 0; width: 100% !important; height: 100% !important; margin: 0 !important; padding: 4mm !important; border: none !important; box-shadow: none !important; }
       .btn-print, header, nav, .top-utility-bar, footer, .cert-input-group, h2, p, .action-control-bar, .records-table { display: none !important; }
     }
   </style>
@@ -547,8 +538,8 @@
             qrEl.innerHTML = "";
             new QRCode(qrEl, {
               text: window.location.origin + window.location.pathname + "?verify=" + encodeURIComponent(s.uniqueId),
-              width: 85,
-              height: 85,
+              width: 75,
+              height: 75,
               colorDark: "#000000",
               colorLight: "#ffffff",
               correctLevel: QRCode.CorrectLevel.M
