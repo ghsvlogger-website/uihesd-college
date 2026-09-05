@@ -64,7 +64,7 @@
     .alert-ribbon { height: 34px; background: #0284c7; color: white; padding: 0 6%; font-size: 0.82rem; display: flex; align-items: center; gap: 12px; }
     .alert-tag { background: #0c4a6e; padding: 2px 8px; border-radius: 3px; font-weight: 800; font-size: 0.72rem; }
 
-    /* Input Card */
+    /* Container */
     .container { max-width: 1120px; margin: 30px auto; padding: 0 15px; }
     .cert-box { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-top: 4px solid #1e3a8a; }
     .cert-input-group { display: flex; gap: 10px; margin-top: 15px; }
@@ -74,9 +74,7 @@
     .cert-result { display: none; margin-top: 25px; }
     .cert-invalid { border: 1px solid #fecaca; background: #fef2f2; color: #dc2626; padding: 15px; text-align: center; font-weight: bold; border-radius: 6px; }
 
-    /* ===================================================
-       A4 LANDSCAPE CERTIFICATE (EXACT PROPORTIONS)
-    =================================================== */
+    /* ================= A4 LANDSCAPE CERTIFICATE ================= */
     .cert-landscape-wrapper {
       width: 1060px;
       max-width: 100%;
@@ -212,7 +210,6 @@
       display: inline-block;
     }
 
-    /* FOOTER PANEL */
     .cert-landscape-footer {
       position: relative;
       z-index: 2;
@@ -281,7 +278,7 @@
     .btn-print { background: #16a34a; color: white; border: none; padding: 12px 28px; font-weight: bold; border-radius: 5px; cursor: pointer; font-size: 0.95rem; margin: 20px auto 0; display: block; }
     .btn-print:hover { background: #15803d; }
 
-    /* Admin Panel */
+    /* Admin Panel with Backup/Restore */
     .admin-toggle { text-align: center; margin-top: 25px; }
     .admin-toggle button { background: #1e293b; color: white; border: none; padding: 9px 18px; border-radius: 4px; cursor: pointer; font-size: 0.9rem; font-weight: 700; }
     .admin-form-box { display: none; background: #f8fafc; border: 2px dashed #94a3b8; border-radius: 8px; padding: 25px; margin-top: 18px; }
@@ -297,45 +294,43 @@
     .btn-view { background: #0284c7; color: white; }
     .btn-del { background: #dc2626; color: white; margin-left: 4px; }
 
+    /* Backup Buttons */
+    .backup-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+      padding: 12px;
+      background: #e2e8f0;
+      border-radius: 6px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .btn-backup {
+      background: #0284c7;
+      color: white;
+      border: none;
+      padding: 7px 14px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+
     footer { background: #0b132b; color: #94a3b8; padding: 25px 6%; font-size: 0.85rem; text-align: center; margin-top: 40px; }
 
-    /* ===================================================
-       EXACT A4 LANDSCAPE PRINT RULES
-    =================================================== */
-    @page {
-      size: A4 landscape;
-      margin: 6mm;
-    }
+    @page { size: A4 landscape; margin: 6mm; }
     @media print {
-      html, body {
-        width: 297mm;
-        height: 210mm;
-        background: #ffffff !important;
-        margin: 0;
-        padding: 0;
-      }
-      body * {
-        visibility: hidden;
-      }
-      .cert-landscape-wrapper, .cert-landscape-wrapper * {
-        visibility: visible;
-      }
+      html, body { width: 297mm; height: 210mm; background: #ffffff !important; margin: 0; padding: 0; }
+      body * { visibility: hidden; }
+      .cert-landscape-wrapper, .cert-landscape-wrapper * { visibility: visible; }
       .cert-landscape-wrapper {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100% !important;
-        height: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        border: none !important;
-        box-shadow: none !important;
+        position: fixed; left: 0; top: 0;
+        width: 100% !important; height: 100% !important;
+        margin: 0 !important; padding: 0 !important;
+        border: none !important; box-shadow: none !important;
       }
-      .cert-inner-border {
-        height: 100% !important;
-        box-sizing: border-box;
-        padding: 16mm 18mm 12mm !important;
-      }
+      .cert-inner-border { height: 100% !important; box-sizing: border-box; padding: 16mm 18mm 12mm !important; }
       .btn-print, .admin-toggle, .admin-form-box, header, nav, .alert-ribbon, .gov-flag-bar, footer, .cert-input-group, h2, p {
         display: none !important;
       }
@@ -344,13 +339,11 @@
 </head>
 <body>
 
-  <!-- Top Flag Bar -->
   <div class="gov-flag-bar">
     <div class="flag-group"><span class="flag-icon"></span><span>ਭਾਰਤ ਸਰਕਾਰ | Government of India</span></div>
     <div class="gov-links"><a href="index.html">Main Home</a></div>
   </div>
 
-  <!-- Header -->
   <header class="portal-header">
     <div class="header-logos">
       <div class="emblem-box">
@@ -373,7 +366,6 @@
     </div>
   </header>
 
-  <!-- Navigation -->
   <nav>
     <ul class="nav-list">
       <li><a href="index.html">MSDE</a></li>
@@ -385,7 +377,7 @@
 
   <div class="alert-ribbon">
     <span class="alert-tag">VERIFICATION</span>
-    <marquee>A4 Landscape Format Enabled: One-Click Full Page Official Certificate Print & Verification.</marquee>
+    <marquee>National Credential Registry: Permanent Student Database Enabled with One-Click Backup & Restore.</marquee>
   </div>
 
   <div class="container">
@@ -394,7 +386,7 @@
       <p style="text-align:center; color:#64748b; font-size:0.92rem;">ਵਿਦਿਆਰਥੀ ਦਾ <strong>Roll Number</strong> ਜਾਂ <strong>Unique ID</strong> ਭਰੋ:</p>
       
       <div class="cert-input-group">
-        <input type="text" id="certInput" placeholder="Enter Roll Number or Unique ID (e.g. ROLL-101)">
+        <input type="text" id="certInput" placeholder="Enter Roll Number or Unique ID (ਜਿਵੇਂ ROLL-101)">
         <button class="cert-btn" onclick="verifyCertificate()">ਪੜਤਾਲ ਕਰੋ (Verify)</button>
       </div>
 
@@ -406,7 +398,7 @@
 
       <div id="adminPanel" class="admin-form-box">
         <h3 style="margin-bottom:15px; color:#1e3a8a; border-bottom:2px solid #0284c7; padding-bottom:5px;">
-          ➕ ਨਵੇਂ ਵਿਦਿਆਰਥੀ ਦਾ ਰਿਕਾਰਡ ਦਰਜ ਕਰੋ (ਸਦਾ ਲਈ ਸੇਵ ਹੋਵੇਗਾ)
+          ➕ ਨਵੇਂ ਵਿਦਿਆਰਥੀ ਦਾ ਰਿਕਾਰਡ ਦਰਜ ਕਰੋ (ਸਦਾ ਲਈ ਸੇਵ ਰਹੇਗਾ)
         </h3>
         <div class="form-grid">
           <div class="form-group"><label>ਯੂਨੀਕ ਆਈ.ਡੀ. (Auto Generated):</label><input type="text" id="addUID" readonly></div>
@@ -419,11 +411,24 @@
           <div class="form-group"><label>ਗ੍ਰੇਡ (Grade):</label><input type="text" id="addGrade" value="Grade A+ (Distinction)"></div>
         </div>
         <button class="cert-btn" style="width:100%; margin-top:16px; background:#16a34a; font-size:1rem;" onclick="saveRecord()">
-          💾 ਸੇਵ ਕਰੋ (Save Record Permanently)
+          💾 ਵਿਦਿਆਰਥੀ ਨੂੰ ਪੱਕਾ ਸੇਵ ਕਰੋ (Save Permanently)
         </button>
 
-        <div style="margin-top:25px; border-top:1px solid #cbd5e1; padding-top:15px;">
-          <h4 style="color:#1e3a8a;">📁 ਸੇਵ ਕੀਤੇ ਹੋਏ ਵਿਦਿਆਰਥੀ (Database):</h4>
+        <!-- Permanent Backup & Restore Controls -->
+        <div class="backup-row">
+          <div>
+            <strong style="font-size:0.85rem; color:#0f172a;">💾 ਡਾਟਾ ਸੁਰੱਖਿਆ ਬੈਕਅੱਪ:</strong>
+            <span style="font-size:0.75rem; color:#475569; display:block;">ਫ਼ਾਈਲ ਡਾਊਨਲੋਡ ਕਰਕੇ ਆਪਣੇ ਕੰਪਿਊਟਰ 'ਚ ਸਾਂਭ ਲਵੋ।</span>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <button class="btn-backup" onclick="exportData()">⬇️ ਬੈਕਅੱਪ ਡਾਊਨਲੋਡ ਕਰੋ</button>
+            <button class="btn-backup" style="background:#475569;" onclick="document.getElementById('importFile').click()">⬆️ ਬੈਕਅੱਪ ਅੱਪਲੋਡ ਕਰੋ</button>
+            <input type="file" id="importFile" style="display:none;" accept=".json" onchange="importData(event)">
+          </div>
+        </div>
+
+        <div style="margin-top:20px; border-top:1px solid #cbd5e1; padding-top:15px;">
+          <h4 style="color:#1e3a8a;">📁 ਸੇਵ ਕੀਤੇ ਹੋਏ ਕੁੱਲ ਵਿਦਿਆਰਥੀ (Database):</h4>
           <table class="records-table">
             <thead>
               <tr><th>Roll No</th><th>Unique ID</th><th>ਨਾਮ</th><th>ਕੋਰਸ</th><th>ਐਕਸ਼ਨ</th></tr>
@@ -440,7 +445,10 @@
   </footer>
 
   <script>
-    const defaultRecord = {
+    // 1. Permanent Locked Storage Key (Never changes)
+    const STORAGE_KEY = "UIHESD_MASTER_DATABASE";
+
+    const defaultRecords = {
       "ROLL-101": {
         name: "GURPREET SINGH",
         father: "S. HARBHAJAN SINGH",
@@ -449,18 +457,22 @@
         rollNo: "ROLL-101",
         uniqueId: "UID-2026-1001",
         session: "2025 - 2026",
-        grade: "A+ (Distinction)",
+        grade: "Grade A+ (Distinction)",
         issueDate: "15/06/2026"
       }
     };
 
     function getDB() {
-      const saved = localStorage.getItem("uihesd_a4_landscape_v8");
+      const saved = localStorage.getItem(STORAGE_KEY);
       if (!saved) {
-        localStorage.setItem("uihesd_a4_landscape_v8", JSON.stringify(defaultRecord));
-        return defaultRecord;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultRecords));
+        return defaultRecords;
       }
-      return JSON.parse(saved);
+      try {
+        return JSON.parse(saved);
+      } catch (e) {
+        return defaultRecords;
+      }
     }
 
     function generateNewUID() {
@@ -521,8 +533,8 @@
         issueDate: new Date().toLocaleDateString('en-GB')
       };
 
-      localStorage.setItem("uihesd_a4_landscape_v8", JSON.stringify(db));
-      alert(`ਰਿਕਾਰਡ ਸੇਵ ਹੋ ਗਿਆ!\nਰੋਲ ਨੰਬਰ: ${rollNo}\nUnique ID: ${uniqueId}`);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
+      alert(`ਵਿਦਿਆਰਥੀ ਦਾ ਰਿਕਾਰਡ ਸਦਾ ਲਈ ਸੇਵ ਹੋ ਗਿਆ!\nਰੋਲ ਨੰਬਰ: ${rollNo}\nUnique ID: ${uniqueId}`);
 
       document.getElementById("addName").value = "";
       document.getElementById("addFather").value = "";
@@ -537,9 +549,37 @@
       if (confirm(`ਕੀ ਤੁਸੀਂ ਰੋਲ ਨੰਬਰ ${roll} ਦਾ ਰਿਕਾਰਡ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?`)) {
         const db = getDB();
         delete db[roll];
-        localStorage.setItem("uihesd_a4_landscape_v8", JSON.stringify(db));
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
         renderTable();
       }
+    }
+
+    // Export JSON File to Computer
+    function exportData() {
+      const db = getDB();
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(db, null, 2));
+      const dlAnchor = document.createElement('a');
+      dlAnchor.setAttribute("href", dataStr);
+      dlAnchor.setAttribute("download", "UIHESD_Students_Backup.json");
+      dlAnchor.click();
+    }
+
+    // Import JSON File from Computer
+    function importData(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const importedDB = JSON.parse(e.target.result);
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(importedDB));
+          alert("✔ ਬੈਕਅੱਪ ਫ਼ਾਈਲ ਸਫਲਤਾਪੂਰਵਕ ਅੱਪਲੋਡ ਹੋ ਗਈ! ਸਾਰੇ ਵਿਦਿਆਰਥੀ ਵਾਪਸ ਆ ਗਏ।");
+          renderTable();
+        } catch (err) {
+          alert("❌ ਗਲਤ ਫ਼ਾਈਲ! ਕਿਰਪਾ ਕਰਕੇ ਸਹੀ .json ਫ਼ਾਈਲ ਚੁਣੋ।");
+        }
+      };
+      reader.readAsText(file);
     }
 
     function quickView(roll) {
@@ -572,7 +612,6 @@
             </span>
           </div>
 
-          <!-- A4 LANDSCAPE CERTIFICATE CONTAINER -->
           <div class="cert-landscape-wrapper">
             <div class="cert-inner-border" id="certFrame">
               
@@ -582,7 +621,6 @@
                 <div>CERTIFICATE UID: <strong style="color:#b91c1c;">${s.uniqueId}</strong></div>
               </div>
 
-              <!-- Header: Left Single Logo -->
               <div class="cert-header-layout">
                 <img src="collagelogo1.png" class="cert-college-logo" alt="UIHESD Emblem" onerror="this.onerror=null;this.src='collagelogo1.PNG';">
                 <div class="cert-college-details">
@@ -603,7 +641,7 @@
                 Resident of <span class="cert-highlight-field">${s.address}</span>, 
                 having successfully fulfilled all academic curriculum, workshop practices, and examination standards, is hereby awarded this certificate for the vocational trade / program of:
                 <br>
-                <div style="text-align:center; margin: 5px 0;">
+                <div style="text-align:center; margin: 6px 0;">
                   <span class="cert-highlight-field" style="font-size:1.3rem; color:#0b1f3a; letter-spacing:0.5px;">
                     ${s.course}
                   </span>
@@ -612,7 +650,6 @@
                 The overall performance of the candidate has been evaluated by the Examination Board and awarded <span class="cert-highlight-field">${s.grade || 'Grade A+ (Distinction)'}</span>.
               </div>
 
-              <!-- FOOTER: 4 ACCREDITATION LOGOS -->
               <div class="cert-landscape-footer">
                 <div class="footer-logos-strip">
                   
@@ -638,7 +675,6 @@
 
                 </div>
 
-                <!-- Bottom Row: QR + Gold Seal + Signatures -->
                 <div class="cert-bottom-controls">
                   <div class="qr-box-wrap">
                     <div id="qrcode"></div>
@@ -670,7 +706,6 @@
           <button class="btn-print" onclick="window.print()">🖨️ ਪ੍ਰਿੰਟ ਸਰਟੀਫਿਕੇਟ (Print Certificate - A4 Landscape)</button>
         `;
 
-        // Live Dynamic QR Code
         setTimeout(() => {
           document.getElementById("qrcode").innerHTML = "";
           const qrText = `UIHESD OFFICIAL RECORD VERIFICATION\n================================\nCandidate: ${s.name}\nFather: ${s.father}\nCourse: ${s.course}\nRoll No: ${s.rollNo}\nUID: ${s.uniqueId}\nGrade: ${s.grade}\nSession: ${s.session}\nAccredited By: ISO 9001, IAF, MSME, IKGPTU\nVerification Status: 100% Genuine & Authentic`;
