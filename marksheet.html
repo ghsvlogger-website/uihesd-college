@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Official Statement of Marks | UIHESD & DGT</title>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, Helvetica, sans-serif; }
+    body { background-color: #f8fafc; color: #1e293b; overflow-x: hidden; }
+
+    /* TOP UTILITY BAR */
+    .top-utility-bar {
+      background: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 4px 5%;
+      font-size: 0.72rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #334155;
+    }
+    .top-right-tools { display: flex; align-items: center; gap: 14px; }
+    .top-right-tools a { color: #334155; text-decoration: none; font-weight: 600; }
+
+    /* MAIN HEADER */
+    .dgt-main-header {
+      padding: 10px 5%;
+      background: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    .header-left-emblem { display: flex; align-items: center; gap: 16px; }
+    .ashok-emblem-svg { height: 68px; width: auto; object-fit: contain; }
+    .college-highlight-cluster { border-left: 3.5px solid #b45309; padding-left: 14px; }
+    .dgt-sub-tag { font-size: 0.72rem; font-weight: 800; color: #64748b; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; }
+    .college-bold-title { font-size: 1.45rem; color: #0b1f3a; font-weight: 900; line-height: 1.15; text-transform: uppercase; }
+    .college-bold-title span { color: #b45309; }
+    .college-punjabi-sub { font-size: 0.88rem; color: #1e3a8a; font-weight: 800; margin-top: 2px; }
+    .college-accreditation-line { font-size: 0.72rem; color: #166534; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
+
+    /* SEARCH CONTAINER */
+    .container { max-width: 1120px; margin: 30px auto; padding: 0 15px; }
+    .cert-box { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-top: 4px solid #172b53; }
+    .cert-input-group { display: flex; gap: 10px; margin-top: 15px; }
+    .cert-input-group input { flex: 1; padding: 12px 15px; border: 1.5px solid #cbd5e1; border-radius: 5px; font-size: 1rem; outline: none; }
+    .cert-btn { background: #172b53; color: white; border: none; padding: 12px 24px; border-radius: 5px; font-weight: bold; cursor: pointer; }
+    .cert-result { display: none; margin-top: 25px; }
+    .cert-invalid { border: 1px solid #fecaca; background: #fef2f2; color: #dc2626; padding: 15px; text-align: center; font-weight: bold; border-radius: 6px; }
+
+    /* ================= A4 PORTRAIT MARKSHEET ================= */
+    .marksheet-wrapper {
+      width: 794px;
+      max-width: 100%;
+      margin: 20px auto;
+      background: #ffffff;
+      padding: 12px;
+      border: 1px solid #94a3b8;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      box-sizing: border-box;
+    }
+    .marksheet-inner {
+      border: 5px double #1e3a8a;
+      outline: 2px solid #b45309;
+      outline-offset: -3px;
+      padding: 22px 25px 18px;
+      position: relative;
+      background: #fffdfa;
+      background-image: radial-gradient(#1e3a8a 0.3px, transparent 0.3px);
+      background-size: 16px 16px;
+    }
+    .marksheet-inner::before {
+      content: "STATEMENT OF MARKS";
+      position: absolute;
+      top: 52%; left: 50%;
+      transform: translate(-50%, -50%) rotate(-25deg);
+      font-size: 3.8rem;
+      font-weight: 900;
+      color: rgba(30, 58, 138, 0.03);
+      pointer-events: none;
+      white-space: nowrap;
+      z-index: 1;
+    }
+
+    .ms-top-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: #334155;
+      border-bottom: 1.5px solid #cbd5e1;
+      padding-bottom: 5px;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .ms-header-layout {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      border-bottom: 2px solid #b45309;
+      padding-bottom: 10px;
+      position: relative;
+      z-index: 2;
+    }
+    .ms-logo { height: 70px; width: 70px; object-fit: contain; }
+    .ms-title-block { flex: 1; text-align: center; }
+    .ms-title-block h3 { font-size: 0.72rem; color: #b45309; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; }
+    .ms-title-block h1 { font-size: 1.18rem; color: #0b1f3a; font-family: 'Times New Roman', serif; font-weight: 900; }
+    .ms-title-block p { font-size: 0.68rem; color: #166534; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
+
+    .ms-doc-title {
+      text-align: center;
+      margin: 12px 0 10px;
+      position: relative;
+      z-index: 2;
+    }
+    .ms-doc-title h2 {
+      font-size: 1.15rem;
+      color: #172b53;
+      font-family: 'Georgia', serif;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-bottom: 2px double #172b53;
+      display: inline-block;
+      padding-bottom: 2px;
+    }
+
+    /* CANDIDATE INFO TABLE */
+    .candidate-info-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 14px;
+      font-size: 0.8rem;
+      position: relative;
+      z-index: 2;
+      background: rgba(255,255,255,0.9);
+    }
+    .candidate-info-table td {
+      padding: 6px 10px;
+      border: 1px solid #cbd5e1;
+    }
+    .candidate-info-table td.lbl { font-weight: 800; color: #475569; width: 25%; background: #f8fafc; }
+    .candidate-info-table td.val { font-weight: 900; color: #0b1f3a; width: 25%; }
+
+    /* MARKS TABLE */
+    .marks-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 15px;
+      font-size: 0.8rem;
+      position: relative;
+      z-index: 2;
+      background: rgba(255,255,255,0.95);
+    }
+    .marks-table th, .marks-table td {
+      border: 1px solid #94a3b8;
+      padding: 8px 10px;
+      text-align: center;
+    }
+    .marks-table th {
+      background: #172b53;
+      color: #ffffff;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .marks-table td.sub-name { text-align: left; font-weight: 800; color: #0f172a; }
+
+    /* FOOTER CONTROLS */
+    .ms-footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      position: relative;
+      z-index: 2;
+      margin-top: 15px;
+      border-top: 1px dashed #cbd5e1;
+      padding-top: 12px;
+    }
+    .qr-box-wrap { text-align: center; background: white; padding: 4px; border: 1px solid #cbd5e1; border-radius: 4px; }
+    #qrcodeMs { display: inline-block; }
+    .qr-lbl { font-size: 0.55rem; font-weight: 800; margin-top: 2px; text-transform: uppercase; }
+
+    .user-uploaded-seal {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.3));
+    }
+
+    .sign-col { text-align: center; font-size: 0.72rem; font-weight: 800; color: #1e3a8a; width: 130px; }
+    .sign-line { border-bottom: 1.5px solid #0f172a; margin-bottom: 3px; height: 26px; }
+
+    .btn-print { background: #16a34a; color: white; border: none; padding: 11px 26px; font-weight: bold; border-radius: 5px; cursor: pointer; font-size: 0.9rem; margin: 20px auto 0; display: block; }
+
+    footer { background: #0b132b; color: #94a3b8; padding: 25px 5%; font-size: 0.8rem; text-align: center; border-top: 2px solid #f59e0b; margin-top: 40px; }
+    footer a { color: #facc15; text-decoration: none; margin: 0 8px; }
+
+    @page { size: A4 portrait; margin: 8mm; }
+    @media print {
+      body * { visibility: hidden; }
+      .marksheet-wrapper, .marksheet-wrapper * { visibility: visible; }
+      .marksheet-wrapper { position: fixed; left: 0; top: 0; width: 100% !important; border: none !important; box-shadow: none !important; margin: 0; padding: 0; }
+      .btn-print, header, nav, .top-utility-bar, footer, .cert-input-group, h2, p { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP UTILITY BAR -->
+  <div class="top-utility-bar">
+    <div>Government of India | Ministry of Skill Development and Entrepreneurship</div>
+    <div class="top-right-tools">
+      <a href="verify.html">← Back to Certificate Verification</a>
+    </div>
+  </div>
+
+  <!-- MAIN HEADER -->
+  <header class="dgt-main-header">
+    <div class="header-left-emblem">
+      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150'><path fill='%231e3a8a' d='M40,5 C40,2 60,2 60,5 C62,15 75,25 75,40 C75,55 60,65 60,75 L65,85 L35,85 L40,75 C40,65 25,55 25,40 C25,25 38,15 40,5 Z'/><circle cx='50' cy='105' r='14' fill='none' stroke='%231e3a8a' stroke-width='3'/><circle cx='50' cy='105' r='3' fill='%231e3a8a'/><path fill='%23b45309' d='M20,125 L80,125 L75,140 L25,140 Z'/><text x='50' y='136' font-size='8' font-weight='bold' text-anchor='middle' fill='%23ffffff'>सत्यमेव जयते</text></svg>" class="ashok-emblem-svg" alt="Emblem">
+      <div class="college-highlight-cluster">
+        <div class="dgt-sub-tag">प्रशिक्षण महानिदेशालय • DIRECTORATE GENERAL OF TRAINING</div>
+        <div class="college-bold-title">UNIVERSAL INSTITUTE OF <span>HIGHER EDUCATION & SKILL DEVELOPMENT</span></div>
+        <div class="college-punjabi-sub">ਯੂਨੀਵਰਸਲ ਇੰਸਟੀਚਿਊਟ ਆਫ਼ ਹਾਇਰ ਐਜੂਕੇਸ਼ਨ ਐਂਡ ਸਕਿੱਲ ਡਿਵੈਲਪਮੈਂਟ</div>
+        <div class="college-accreditation-line">Accredited under ISO 9001:2015, IAF, MSME & NITI Aayog Recognized</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="cert-box">
+      <h2 style="text-align:center; color:#172b53; margin-bottom:6px;">ਅਧਿਕਾਰਤ ਮਾਰਕਸ਼ੀਟ ਪੜਤਾਲ (Online Marksheet Verification)</h2>
+      <p style="text-align:center; color:#64748b; font-size:0.9rem;">ਵਿਦਿਆਰਥੀ ਦਾ Roll Number ਜਾਂ Unique ID ਭਰੋ:</p>
+      
+      <div class="cert-input-group">
+        <input type="text" id="marksInput" placeholder="Enter Roll Number or Unique ID (ਜਿਵੇਂ ROLL-101)">
+        <button class="cert-btn" onclick="generateMarksheet()">ਮਾਰਕਸ਼ੀਟ ਦੇਖੋ (Get Marksheet)</button>
+      </div>
+
+      <div id="marksResult" class="cert-result"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Directorate General of Training (DGT), Ministry of Skill Development and Entrepreneurship & UIHESD.</p>
+  </footer>
+
+  <script>
+    const STORAGE_KEY = "UIHESD_MASTER_LIVE_DB";
+
+    const defaultRecords = [
+      {
+        rollNo: "ROLL-101",
+        uniqueId: "UID-2026-1001",
+        name: "GURPREET SINGH",
+        father: "S. HARBHAJAN SINGH",
+        address: "GURU HAR SAHAI, FIROZPUR, PUNJAB",
+        course: "Mechanic Diesel (NCVT / DGT Aligned Trade)",
+        session: "2025 - 2026",
+        grade: "Grade A+ (Distinction)"
+      }
+    ];
+
+    function getDatabase() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (!saved) return defaultRecords;
+      try { return JSON.parse(saved); } catch(e) { return defaultRecords; }
+    }
+
+    function generateMarksheet(forcedQ) {
+      const q = (forcedQ || document.getElementById("marksInput").value).trim().toUpperCase();
+      const res = document.getElementById("marksResult");
+      if (!q) return alert("ਕਿਰਪਾ ਕਰਕੇ Roll Number ਜਾਂ UID ਦਰਜ ਕਰੋ");
+
+      document.getElementById("marksInput").value = q;
+      res.style.display = "block";
+
+      const db = getDatabase();
+      const s = db.find(item => 
+        (item.rollNo && item.rollNo.toUpperCase() === q) || 
+        (item.uniqueId && item.uniqueId.toUpperCase() === q)
+      );
+
+      if (s) {
+        res.innerHTML = `
+          <div style="text-align:center; margin-bottom:12px;">
+            <span style="background:#16a34a; color:white; padding:4px 18px; border-radius:20px; font-weight:bold; font-size:0.82rem;">
+              ✔ OFFICIAL STATEMENT OF MARKS VERIFIED
+            </span>
+          </div>
+
+          <div class="marksheet-wrapper">
+            <div class="marksheet-inner">
+              
+              <div class="ms-top-meta">
+                <div>CERTIFICATE UID: <strong style="color:#b91c1c;">${s.uniqueId}</strong></div>
+                <div>EXAMINATION: <strong style="color:#1e3a8a;">SEM / ANNUAL 2026</strong></div>
+              </div>
+
+              <div class="ms-header-layout">
+                <img src="collagelogo1.png" class="ms-logo" alt="Logo" onerror="this.onerror=null;this.src='collagelogo1.PNG';">
+                <div class="ms-title-block">
+                  <h3>GOVT. REGD. TECHNICAL & VOCATIONAL FRAMEWORK</h3>
+                  <h1>UNIVERSAL INSTITUTE OF HIGHER EDUCATION & SKILL DEVELOPMENT</h1>
+                  <p>ALL INDIA TRADE TEST / VOCATIONAL EXAMINATION MARKSHEET</p>
+                </div>
+              </div>
+
+              <div class="ms-doc-title">
+                <h2>Statement of Marks</h2>
+              </div>
+
+              <table class="candidate-info-table">
+                <tr>
+                  <td class="lbl">Candidate Name</td>
+                  <td class="val" colspan="3">${s.name}</td>
+                </tr>
+                <tr>
+                  <td class="lbl">Father's Name</td>
+                  <td class="val" colspan="3">${s.father}</td>
+                </tr>
+                <tr>
+                  <td class="lbl">Roll Number</td>
+                  <td class="val">${s.rollNo}</td>
+                  <td class="lbl">Academic Session</td>
+                  <td class="val">${s.session || '2025 - 2026'}</td>
+                </tr>
+                <tr>
+                  <td class="lbl">Trade / Course</td>
+                  <td class="val" colspan="3">${s.course}</td>
+                </tr>
+              </table>
+
+              <table class="marks-table">
+                <thead>
+                  <tr>
+                    <th>Subject Code</th>
+                    <th>Subject Description / Title</th>
+                    <th>Max Marks</th>
+                    <th>Min Marks</th>
+                    <th>Marks Obtained</th>
+                    <th>Result / Grade</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><b>101</b></td>
+                    <td class="sub-name">Trade Theory</td>
+                    <td>100</td>
+                    <td>33</td>
+                    <td><b>86</b></td>
+                    <td style="color:#15803d; font-weight:bold;">Pass (A+)</td>
+                  </tr>
+                  <tr>
+                    <td><b>102</b></td>
+                    <td class="sub-name">Trade Practical</td>
+                    <td>250</td>
+                    <td>150</td>
+                    <td><b>220</b></td>
+                    <td style="color:#15803d; font-weight:bold;">Pass (A+)</td>
+                  </tr>
+                  <tr>
+                    <td><b>103</b></td>
+                    <td class="sub-name">Workshop Calculation & Science</td>
+                    <td>50</td>
+                    <td>17</td>
+                    <td><b>42</b></td>
+                    <td style="color:#15803d; font-weight:bold;">Pass (A)</td>
+                  </tr>
+                  <tr>
+                    <td><b>104</b></td>
+                    <td class="sub-name">Employability Skills</td>
+                    <td>50</td>
+                    <td>17</td>
+                    <td><b>45</b></td>
+                    <td style="color:#15803d; font-weight:bold;">Pass (A+)</td>
+                  </tr>
+                  <tr>
+                    <td><b>105</b></td>
+                    <td class="sub-name">Formative Assessment (Internal)</td>
+                    <td>200</td>
+                    <td>120</td>
+                    <td><b>178</b></td>
+                    <td style="color:#15803d; font-weight:bold;">Pass (A+)</td>
+                  </tr>
+                  <tr style="background:#f8fafc; font-weight:900;">
+                    <td colspan="2" style="text-align:right;">TOTAL AGGREGATE MARKS:</td>
+                    <td>650</td>
+                    <td>337</td>
+                    <td style="color:#b91c1c; font-size:0.95rem;">571</td>
+                    <td style="color:#16a34a; font-size:0.95rem;">91.5% (Distinction)</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div style="font-size:0.78rem; font-weight:800; color:#1e293b; margin-bottom:10px; text-align:center;">
+                Overall Final Result: <span style="color:#15803d; font-size:0.9rem;">PASSED WITH DISTINCTION (${s.grade || 'Grade A+'})</span>
+              </div>
+
+              <div class="ms-footer-row">
+                <div class="qr-box-wrap">
+                  <div id="qrcodeMs"></div>
+                  <div class="qr-lbl">Scan to Verify</div>
+                </div>
+
+                <img src="seal.jpg" class="user-uploaded-seal" alt="Official Seal" onerror="this.src='collagelogo1.png';">
+
+                <div class="sign-col">
+                  <div class="sign-line"></div>
+                  <div>Controller of Exams</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <button class="btn-print" onclick="window.print()">🖨️ ਪ੍ਰਿੰਟ ਮਾਰਕਸ਼ੀਟ (Print Marksheet)</button>
+        `;
+
+        setTimeout(() => {
+          const qr = document.getElementById("qrcodeMs");
+          if (qr) {
+            qr.innerHTML = "";
+            new QRCode(qr, {
+              text: window.location.origin + window.location.pathname + "?verify=" + s.uniqueId,
+              width: 80,
+              height: 80,
+              colorDark: "#000000",
+              colorLight: "#ffffff",
+              correctLevel: QRCode.CorrectLevel.M
+            });
+          }
+        }, 50);
+
+      } else {
+        res.innerHTML = `<div class="cert-invalid">❌ ਕੋਈ ਰਿਕਾਰਡ ਨਹੀਂ ਮਿਲਿਆ! ਸਹੀ Roll Number ਜਾਂ UID ਦਰਜ ਕਰੋ।</div>`;
+      }
+    }
+
+    window.onload = function() {
+      const params = new URLSearchParams(window.location.search);
+      const v = params.get('verify') || params.get('roll');
+      if (v) generateMarksheet(v);
+    };
+  </script>
+</body>
+</html>
