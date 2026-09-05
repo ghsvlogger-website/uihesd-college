@@ -81,64 +81,64 @@
     .entry-group input { width: 100%; padding: 10px; border: 1.5px solid #cbd5e1; border-radius: 4px; font-size: 0.9rem; outline: none; }
     .btn-save-record { width: 100%; background: #16a34a; color: white; border: none; padding: 12px; font-size: 1rem; font-weight: 800; border-radius: 4px; cursor: pointer; margin-top: 18px; text-transform: uppercase; }
 
-    /* ================= 100% SINGLE PAGE A4 LANDSCAPE CERTIFICATE ================= */
+    /* ================= ORIGINAL FULL SIZE A4 LANDSCAPE CERTIFICATE ================= */
     .stylish-cert-wrapper {
-      width: 1020px; max-width: 100%; margin: 10px auto; background: #fcfbf7;
-      padding: 10px; border: 1px solid #d4af37; box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      width: 1060px; max-width: 100%; margin: 20px auto; background: #fcfbf7;
+      padding: 16px; border: 1px solid #d4af37; box-shadow: 0 15px 40px rgba(0,0,0,0.15);
       box-sizing: border-box; position: relative; overflow: hidden;
     }
     .stylish-cert-wrapper::before {
-      content: ""; position: absolute; top: 0; right: 0; width: 130px; height: 130px;
+      content: ""; position: absolute; top: 0; right: 0; width: 180px; height: 180px;
       background: linear-gradient(135deg, transparent 40%, #c5a059 40%, #c5a059 50%, #7b1113 50%); z-index: 2; pointer-events: none;
     }
     .stylish-cert-wrapper::after {
-      content: ""; position: absolute; bottom: 0; left: 0; width: 130px; height: 130px;
+      content: ""; position: absolute; bottom: 0; left: 0; width: 180px; height: 180px;
       background: linear-gradient(135deg, #7b1113 50%, #c5a059 50%, #c5a059 60%, transparent 60%); z-index: 2; pointer-events: none;
     }
-    .stylish-inner-frame { border: 2px solid #c5a059; padding: 12px 22px 10px; position: relative; background: #fffdf9; z-index: 3; }
-    .ornament-tl { position: absolute; top: 5px; left: 5px; width: 30px; height: 30px; border-top: 2.5px solid #c5a059; border-left: 2.5px solid #c5a059; }
-    .ornament-br { position: absolute; bottom: 5px; right: 5px; width: 30px; height: 30px; border-bottom: 2.5px solid #c5a059; border-right: 2.5px solid #c5a059; }
+    .stylish-inner-frame { border: 2px solid #c5a059; padding: 25px 40px 20px; position: relative; background: #fffdf9; z-index: 3; }
+    .ornament-tl { position: absolute; top: 12px; left: 12px; width: 50px; height: 50px; border-top: 3px solid #c5a059; border-left: 3px solid #c5a059; }
+    .ornament-br { position: absolute; bottom: 12px; right: 12px; width: 50px; height: 50px; border-bottom: 3px solid #c5a059; border-right: 3px solid #c5a059; }
 
-    .sc-header { display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #c5a059; padding-bottom: 5px; margin-bottom: 6px; }
-    .sc-logo { height: 46px; width: 46px; object-fit: contain; }
+    .sc-header { display: flex; align-items: center; gap: 15px; border-bottom: 2px solid #c5a059; padding-bottom: 10px; margin-bottom: 12px; }
+    .sc-logo { height: 68px; width: 68px; object-fit: contain; }
     .sc-titles { flex: 1; text-align: center; }
-    .sc-titles h4 { font-size: 0.58rem; color: #b45309; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
-    .sc-titles h2 { font-size: 0.98rem; color: #0b1f3a; font-family: 'Cinzel', serif; font-weight: 900; }
-    .sc-titles p { font-size: 0.52rem; color: #166534; font-weight: 800; text-transform: uppercase; margin-top: 1px; }
+    .sc-titles h4 { font-size: 0.72rem; color: #b45309; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+    .sc-titles h2 { font-size: 1.25rem; color: #0b1f3a; font-family: 'Cinzel', serif; font-weight: 900; }
+    .sc-titles p { font-size: 0.66rem; color: #166534; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
 
-    .sc-main-title-box { text-align: center; margin: 3px 0 2px; }
-    .sc-cert-word { font-family: 'Cinzel', serif; font-size: 1.75rem; font-weight: 900; color: #7b1113; letter-spacing: 3px; line-height: 1; }
-    .sc-achieve-word { font-family: 'Cinzel', serif; font-size: 0.78rem; font-weight: 700; color: #334155; letter-spacing: 2px; margin-top: 2px; text-transform: uppercase; }
-    .sc-presented-to { font-size: 0.58rem; color: #64748b; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+    .sc-main-title-box { text-align: center; margin: 10px 0 6px; }
+    .sc-cert-word { font-family: 'Cinzel', serif; font-size: 2.5rem; font-weight: 900; color: #7b1113; letter-spacing: 4px; line-height: 1; }
+    .sc-achieve-word { font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 700; color: #334155; letter-spacing: 4px; margin-top: 4px; text-transform: uppercase; }
+    .sc-presented-to { font-size: 0.78rem; color: #64748b; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-top: 6px; }
 
     .sc-candidate-name {
-      font-family: 'Cinzel', serif; font-size: 1.6rem; font-weight: 900; color: #9a3412;
-      text-align: center; margin: 2px 0; letter-spacing: 2px; text-transform: uppercase;
-      border-bottom: 2px solid #c5a059; display: inline-block; padding: 0 14px;
+      font-family: 'Cinzel', serif; font-size: 2.4rem; font-weight: 900; color: #9a3412;
+      text-align: center; margin: 6px 0; letter-spacing: 2px; text-transform: uppercase;
+      border-bottom: 2px solid #c5a059; display: inline-block; padding: 0 25px;
     }
-    .name-container { text-align: center; margin: 1px 0; }
+    .name-container { text-align: center; margin: 4px 0; }
 
-    .sc-statement { font-family: 'Montserrat', sans-serif; font-size: 0.72rem; color: #1e293b; text-align: center; max-width: 720px; margin: 2px auto 6px; line-height: 1.3; font-weight: 500; }
-    .sc-highlight { font-weight: 800; color: #0b1f3a; border-bottom: 1.5px solid #c5a059; padding: 0 2px; }
+    .sc-statement { font-family: 'Montserrat', sans-serif; font-size: 0.92rem; color: #1e293b; text-align: center; max-width: 780px; margin: 10px auto 15px; line-height: 1.5; font-weight: 500; }
+    .sc-highlight { font-weight: 800; color: #0b1f3a; border-bottom: 1.5px solid #c5a059; padding: 0 4px; }
 
     /* FOOTER LOGOS STRIP */
     .footer-logos-strip {
       display: flex; justify-content: space-around; align-items: center;
       background: #fafafa; border: 1px solid #e2e8f0; border-radius: 4px;
-      padding: 3px 6px; margin-bottom: 4px;
+      padding: 6px 10px; margin-bottom: 10px;
     }
-    .f-logo-item { display: flex; align-items: center; gap: 4px; }
-    .f-logo-item img { height: 22px; width: auto; max-width: 50px; object-fit: contain; }
-    .f-logo-item span { font-size: 0.45rem; font-weight: 800; color: #1e3a8a; line-height: 1; text-transform: uppercase; }
+    .f-logo-item { display: flex; align-items: center; gap: 6px; }
+    .f-logo-item img { height: 36px; width: auto; max-width: 75px; object-fit: contain; }
+    .f-logo-item span { font-size: 0.58rem; font-weight: 800; color: #1e3a8a; line-height: 1.1; text-transform: uppercase; }
 
-    .sc-footer-grid { display: flex; justify-content: space-between; align-items: flex-end; border-top: 1.5px dashed #cbd5e1; padding-top: 5px; margin-top: 2px; }
-    .sc-qr-wrap { text-align: center; background: white; padding: 2px; border: 1px solid #cbd5e1; border-radius: 4px; }
+    .sc-footer-grid { display: flex; justify-content: space-between; align-items: flex-end; border-top: 1.5px dashed #cbd5e1; padding-top: 10px; margin-top: 5px; }
+    .sc-qr-wrap { text-align: center; background: white; padding: 3px; border: 1px solid #cbd5e1; border-radius: 4px; }
     #qrcode { display: inline-block; }
-    .sc-qr-lbl { font-size: 0.42rem; font-weight: 800; margin-top: 1px; text-transform: uppercase; }
+    .sc-qr-lbl { font-size: 0.55rem; font-weight: 800; margin-top: 2px; text-transform: uppercase; }
 
-    .user-uploaded-red-seal { width: 62px; height: 62px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25)); }
-    .sc-sign-col { text-align: center; font-size: 0.58rem; font-weight: 800; color: #1e3a8a; width: 110px; }
-    .sc-sign-line { border-bottom: 1.5px solid #0f172a; margin-bottom: 2px; height: 16px; }
+    .user-uploaded-red-seal { width: 95px; height: 95px; object-fit: contain; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25)); }
+    .sc-sign-col { text-align: center; font-size: 0.72rem; font-weight: 800; color: #1e3a8a; width: 150px; }
+    .sc-sign-line { border-bottom: 1.5px solid #0f172a; margin-bottom: 3px; height: 26px; }
 
     .btn-print { background: #16a34a; color: white; border: none; padding: 12px 28px; font-weight: bold; border-radius: 5px; cursor: pointer; font-size: 0.95rem; margin: 25px auto 0; display: block; }
 
@@ -162,12 +162,18 @@
     footer { background: #0b132b; color: #94a3b8; padding: 25px 5%; font-size: 0.8rem; text-align: center; border-top: 2px solid #f59e0b; margin-top: 40px; }
     footer a { color: #facc15; text-decoration: none; margin: 0 8px; }
 
-    @page { size: A4 landscape; margin: 2mm; }
+    @page { size: A4 landscape; margin: 0mm; }
     @media print {
       html, body { width: 297mm; height: 210mm; background: #ffffff !important; margin: 0; padding: 0; overflow: hidden; }
       body * { visibility: hidden; }
       .stylish-cert-wrapper, .stylish-cert-wrapper * { visibility: visible; }
-      .stylish-cert-wrapper { position: fixed; left: 0; top: 0; width: 100% !important; height: 100% !important; margin: 0 !important; padding: 2mm !important; border: none !important; box-shadow: none !important; page-break-after: avoid; page-break-inside: avoid; }
+      .stylish-cert-wrapper {
+        position: fixed; left: 0; top: 0;
+        width: 297mm !important; height: 210mm !important;
+        margin: 0 !important; padding: 8mm 12mm !important;
+        border: none !important; box-shadow: none !important;
+        page-break-after: avoid; page-break-inside: avoid;
+      }
       .btn-print, header, nav, .top-utility-bar, footer, .cert-input-group, h2, p, .action-control-bar, .records-table { display: none !important; }
     }
   </style>
@@ -372,7 +378,7 @@
 
       const db = getStudentDatabase();
       if (db.find(s => s.rollNo === rollNo)) {
-        return alert("ਇਹ Roll Number ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ!");
+        return alert("ਇह Roll Number ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ!");
       }
 
       db.push({ rollNo, uniqueId, name, father, address, course, session, grade });
@@ -527,8 +533,8 @@
             qrEl.innerHTML = "";
             new QRCode(qrEl, {
               text: window.location.origin + window.location.pathname + "?verify=" + encodeURIComponent(s.uniqueId),
-              width: 65,
-              height: 65,
+              width: 85,
+              height: 85,
               colorDark: "#000000",
               colorLight: "#ffffff",
               correctLevel: QRCode.CorrectLevel.M
