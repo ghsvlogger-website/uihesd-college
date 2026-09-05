@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Online Certificate Verification System | UIHESD</title>
   
-  <!-- Dynamic QR Code Library -->
+  <!-- Dynamic QR Code Script -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
   <style>
@@ -64,7 +64,7 @@
     .alert-ribbon { height: 34px; background: #0284c7; color: white; padding: 0 6%; font-size: 0.82rem; display: flex; align-items: center; gap: 12px; }
     .alert-tag { background: #0c4a6e; padding: 2px 8px; border-radius: 3px; font-weight: 800; font-size: 0.72rem; }
 
-    /* Container */
+    /* Input Section */
     .container { max-width: 1120px; margin: 30px auto; padding: 0 15px; }
     .cert-box { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-top: 4px solid #1e3a8a; }
     .cert-input-group { display: flex; gap: 10px; margin-top: 15px; }
@@ -278,45 +278,6 @@
     .btn-print { background: #16a34a; color: white; border: none; padding: 12px 28px; font-weight: bold; border-radius: 5px; cursor: pointer; font-size: 0.95rem; margin: 20px auto 0; display: block; }
     .btn-print:hover { background: #15803d; }
 
-    /* Admin Panel with Backup/Restore */
-    .admin-toggle { text-align: center; margin-top: 25px; }
-    .admin-toggle button { background: #1e293b; color: white; border: none; padding: 9px 18px; border-radius: 4px; cursor: pointer; font-size: 0.9rem; font-weight: 700; }
-    .admin-form-box { display: none; background: #f8fafc; border: 2px dashed #94a3b8; border-radius: 8px; padding: 25px; margin-top: 18px; }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .form-group label { display: block; font-size: 0.82rem; font-weight: 700; margin-bottom: 4px; color: #334155; }
-    .form-group input { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 0.9rem; }
-    .form-group input[readonly] { background: #e2e8f0; color: #b91c1c; font-weight: 800; }
-
-    .records-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.85rem; }
-    .records-table th, .records-table td { padding: 8px 10px; border: 1px solid #cbd5e1; text-align: left; }
-    .records-table th { background: #1e3a8a; color: white; }
-    .btn-action { padding: 3px 8px; font-size: 0.75rem; border-radius: 3px; border: none; cursor: pointer; font-weight: bold; }
-    .btn-view { background: #0284c7; color: white; }
-    .btn-del { background: #dc2626; color: white; margin-left: 4px; }
-
-    /* Backup Buttons */
-    .backup-row {
-      display: flex;
-      gap: 10px;
-      margin-top: 15px;
-      padding: 12px;
-      background: #e2e8f0;
-      border-radius: 6px;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-    .btn-backup {
-      background: #0284c7;
-      color: white;
-      border: none;
-      padding: 7px 14px;
-      border-radius: 4px;
-      font-weight: 700;
-      font-size: 0.8rem;
-      cursor: pointer;
-    }
-
     footer { background: #0b132b; color: #94a3b8; padding: 25px 6%; font-size: 0.85rem; text-align: center; margin-top: 40px; }
 
     @page { size: A4 landscape; margin: 6mm; }
@@ -331,7 +292,7 @@
         border: none !important; box-shadow: none !important;
       }
       .cert-inner-border { height: 100% !important; box-sizing: border-box; padding: 16mm 18mm 12mm !important; }
-      .btn-print, .admin-toggle, .admin-form-box, header, nav, .alert-ribbon, .gov-flag-bar, footer, .cert-input-group, h2, p {
+      .btn-print, header, nav, .alert-ribbon, .gov-flag-bar, footer, .cert-input-group, h2, p {
         display: none !important;
       }
     }
@@ -377,7 +338,7 @@
 
   <div class="alert-ribbon">
     <span class="alert-tag">VERIFICATION</span>
-    <marquee>National Credential Registry: Permanent Student Database Enabled with One-Click Backup & Restore.</marquee>
+    <marquee>Official Institutional Database Connected: Enter Roll Number or Unique ID to Verify.</marquee>
   </div>
 
   <div class="container">
@@ -391,52 +352,6 @@
       </div>
 
       <div id="certResult" class="cert-result"></div>
-
-      <div class="admin-toggle">
-        <button onclick="toggleAdmin()">⚙️ ਨਵਾਂ ਵਿਦਿਆਰਥੀ ਸ਼ਾਮਲ ਕਰੋ / ਡਾਟਾਬੇਸ ਦੇਖੋ (Admin Portal)</button>
-      </div>
-
-      <div id="adminPanel" class="admin-form-box">
-        <h3 style="margin-bottom:15px; color:#1e3a8a; border-bottom:2px solid #0284c7; padding-bottom:5px;">
-          ➕ ਨਵੇਂ ਵਿਦਿਆਰਥੀ ਦਾ ਰਿਕਾਰਡ ਦਰਜ ਕਰੋ (ਸਦਾ ਲਈ ਸੇਵ ਰਹੇਗਾ)
-        </h3>
-        <div class="form-grid">
-          <div class="form-group"><label>ਯੂਨੀਕ ਆਈ.ਡੀ. (Auto Generated):</label><input type="text" id="addUID" readonly></div>
-          <div class="form-group"><label>ਰੋਲ ਨੰਬਰ (Roll Number):</label><input type="text" id="addRoll" placeholder="e.g. ROLL-102"></div>
-          <div class="form-group"><label>ਵਿਦਿਆਰਥੀ ਦਾ ਨਾਮ (Candidate Name):</label><input type="text" id="addName" placeholder="e.g. GURPREET SINGH"></div>
-          <div class="form-group"><label>ਪਿਤਾ ਦਾ ਨਾਮ (Father's Name):</label><input type="text" id="addFather" placeholder="e.g. S. HARBHAJAN SINGH"></div>
-          <div class="form-group"><label>ਪਤਾ (City / Address):</label><input type="text" id="addAddress" placeholder="e.g. GURU HAR SAHAI, PUNJAB"></div>
-          <div class="form-group"><label>ਕੋਰਸ ਦਾ ਨਾਮ (Course Title):</label><input type="text" id="addCourse" placeholder="e.g. Mechanic Diesel / COPA / Electrician"></div>
-          <div class="form-group"><label>ਸੈਸ਼ਨ (Session):</label><input type="text" id="addSession" value="2025 - 2026"></div>
-          <div class="form-group"><label>ਗ੍ਰੇਡ (Grade):</label><input type="text" id="addGrade" value="Grade A+ (Distinction)"></div>
-        </div>
-        <button class="cert-btn" style="width:100%; margin-top:16px; background:#16a34a; font-size:1rem;" onclick="saveRecord()">
-          💾 ਵਿਦਿਆਰਥੀ ਨੂੰ ਪੱਕਾ ਸੇਵ ਕਰੋ (Save Permanently)
-        </button>
-
-        <!-- Permanent Backup & Restore Controls -->
-        <div class="backup-row">
-          <div>
-            <strong style="font-size:0.85rem; color:#0f172a;">💾 ਡਾਟਾ ਸੁਰੱਖਿਆ ਬੈਕਅੱਪ:</strong>
-            <span style="font-size:0.75rem; color:#475569; display:block;">ਫ਼ਾਈਲ ਡਾਊਨਲੋਡ ਕਰਕੇ ਆਪਣੇ ਕੰਪਿਊਟਰ 'ਚ ਸਾਂਭ ਲਵੋ।</span>
-          </div>
-          <div style="display:flex; gap:8px;">
-            <button class="btn-backup" onclick="exportData()">⬇️ ਬੈਕਅੱਪ ਡਾਊਨਲੋਡ ਕਰੋ</button>
-            <button class="btn-backup" style="background:#475569;" onclick="document.getElementById('importFile').click()">⬆️ ਬੈਕਅੱਪ ਅੱਪਲੋਡ ਕਰੋ</button>
-            <input type="file" id="importFile" style="display:none;" accept=".json" onchange="importData(event)">
-          </div>
-        </div>
-
-        <div style="margin-top:20px; border-top:1px solid #cbd5e1; padding-top:15px;">
-          <h4 style="color:#1e3a8a;">📁 ਸੇਵ ਕੀਤੇ ਹੋਏ ਕੁੱਲ ਵਿਦਿਆਰਥੀ (Database):</h4>
-          <table class="records-table">
-            <thead>
-              <tr><th>Roll No</th><th>Unique ID</th><th>ਨਾਮ</th><th>ਕੋਰਸ</th><th>ਐਕਸ਼ਨ</th></tr>
-            </thead>
-            <tbody id="dbTableBody"></tbody>
-          </table>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -445,164 +360,46 @@
   </footer>
 
   <script>
-    // 1. Permanent Locked Storage Key (Never changes)
-    const STORAGE_KEY = "UIHESD_MASTER_DATABASE";
-
-    const defaultRecords = {
-      "ROLL-101": {
+    // Embedded Official Fallback Database
+    const embeddedDatabase = [
+      {
+        rollNo: "ROLL-101",
+        uniqueId: "UID-2026-1001",
         name: "GURPREET SINGH",
         father: "S. HARBHAJAN SINGH",
         address: "GURU HAR SAHAI, DISTT. FIROZPUR, PUNJAB",
         course: "Mechanic Diesel (NCVT / DGT Aligned Trade)",
-        rollNo: "ROLL-101",
-        uniqueId: "UID-2026-1001",
         session: "2025 - 2026",
-        grade: "Grade A+ (Distinction)",
-        issueDate: "15/06/2026"
+        grade: "Grade A+ (Distinction)"
       }
-    };
+    ];
 
-    function getDB() {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (!saved) {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultRecords));
-        return defaultRecords;
-      }
+    // Fetch Database from students.json (Fallback to embedded)
+    async function getStudentDatabase() {
       try {
-        return JSON.parse(saved);
-      } catch (e) {
-        return defaultRecords;
-      }
-    }
-
-    function generateNewUID() {
-      const year = new Date().getFullYear();
-      const randomNum = Math.floor(10000 + Math.random() * 90000);
-      return `UID-${year}-${randomNum}`;
-    }
-
-    function toggleAdmin() {
-      const p = document.getElementById("adminPanel");
-      if (p.style.display === "block") {
-        p.style.display = "none";
-      } else {
-        p.style.display = "block";
-        document.getElementById("addUID").value = generateNewUID();
-        renderTable();
-      }
-    }
-
-    function renderTable() {
-      const db = getDB();
-      const tbody = document.getElementById("dbTableBody");
-      tbody.innerHTML = "";
-      for (let k in db) {
-        const item = db[k];
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-          <td><strong>${item.rollNo}</strong></td>
-          <td style="color:#b91c1c; font-weight:bold;">${item.uniqueId}</td>
-          <td>${item.name}</td>
-          <td>${item.course}</td>
-          <td>
-            <button class="btn-action btn-view" onclick="quickView('${item.rollNo}')">View</button>
-            <button class="btn-action btn-del" onclick="deleteRecord('${item.rollNo}')">Delete</button>
-          </td>
-        `;
-        tbody.appendChild(tr);
-      }
-    }
-
-    function saveRecord() {
-      const name = document.getElementById("addName").value.trim().toUpperCase();
-      const father = document.getElementById("addFather").value.trim().toUpperCase();
-      const address = document.getElementById("addAddress").value.trim().toUpperCase();
-      const course = document.getElementById("addCourse").value.trim();
-      const rollNo = document.getElementById("addRoll").value.trim().toUpperCase();
-      const uniqueId = document.getElementById("addUID").value.trim().toUpperCase();
-      const session = document.getElementById("addSession").value.trim();
-      const grade = document.getElementById("addGrade").value.trim();
-
-      if (!name || !father || !course || !rollNo || !uniqueId) {
-        return alert("ਕਿਰਪਾ ਕਰਕੇ ਸਾਰੀ ਜ਼ਰੂਰੀ ਜਾਣਕਾਰੀ ਭਰੋ!");
-      }
-
-      const db = getDB();
-      db[rollNo] = {
-        name, father, address, course, rollNo, uniqueId, session, grade,
-        issueDate: new Date().toLocaleDateString('en-GB')
-      };
-
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
-      alert(`ਵਿਦਿਆਰਥੀ ਦਾ ਰਿਕਾਰਡ ਸਦਾ ਲਈ ਸੇਵ ਹੋ ਗਿਆ!\nਰੋਲ ਨੰਬਰ: ${rollNo}\nUnique ID: ${uniqueId}`);
-
-      document.getElementById("addName").value = "";
-      document.getElementById("addFather").value = "";
-      document.getElementById("addAddress").value = "";
-      document.getElementById("addCourse").value = "";
-      document.getElementById("addRoll").value = "";
-      document.getElementById("addUID").value = generateNewUID();
-      renderTable();
-    }
-
-    function deleteRecord(roll) {
-      if (confirm(`ਕੀ ਤੁਸੀਂ ਰੋਲ ਨੰਬਰ ${roll} ਦਾ ਰਿਕਾਰਡ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?`)) {
-        const db = getDB();
-        delete db[roll];
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
-        renderTable();
-      }
-    }
-
-    // Export JSON File to Computer
-    function exportData() {
-      const db = getDB();
-      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(db, null, 2));
-      const dlAnchor = document.createElement('a');
-      dlAnchor.setAttribute("href", dataStr);
-      dlAnchor.setAttribute("download", "UIHESD_Students_Backup.json");
-      dlAnchor.click();
-    }
-
-    // Import JSON File from Computer
-    function importData(event) {
-      const file = event.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        try {
-          const importedDB = JSON.parse(e.target.result);
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(importedDB));
-          alert("✔ ਬੈਕਅੱਪ ਫ਼ਾਈਲ ਸਫਲਤਾਪੂਰਵਕ ਅੱਪਲੋਡ ਹੋ ਗਈ! ਸਾਰੇ ਵਿਦਿਆਰਥੀ ਵਾਪਸ ਆ ਗਏ।");
-          renderTable();
-        } catch (err) {
-          alert("❌ ਗਲਤ ਫ਼ਾਈਲ! ਕਿਰਪਾ ਕਰਕੇ ਸਹੀ .json ਫ਼ਾਈਲ ਚੁਣੋ।");
+        const response = await fetch('students.json?v=' + Date.now());
+        if (response.ok) {
+          return await response.json();
         }
-      };
-      reader.readAsText(file);
+      } catch (err) {
+        console.log("Loading embedded database...");
+      }
+      return embeddedDatabase;
     }
 
-    function quickView(roll) {
-      document.getElementById("certInput").value = roll;
-      verifyCertificate();
-      window.scrollTo({ top: 300, behavior: 'smooth' });
-    }
-
-    function verifyCertificate() {
+    async function verifyCertificate() {
       const q = document.getElementById("certInput").value.trim().toUpperCase();
       const res = document.getElementById("certResult");
       if (!q) return alert("ਕਿਰਪਾ ਕਰਕੇ Roll Number ਜਾਂ UID ਦਰਜ ਕਰੋ");
 
       res.style.display = "block";
-      const db = getDB();
-      let s = null;
+      res.innerHTML = "<p style='text-align:center; color:#0284c7;'>ਪੜਤਾਲ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ... ਕਿਰਪਾ ਕਰਕੇ ਉਡੀਕ ਕਰੋ।</p>";
 
-      for (let k in db) {
-        if (k === q || db[k].uniqueId.toUpperCase() === q) {
-          s = db[k];
-          break;
-        }
-      }
+      const db = await getStudentDatabase();
+      const s = db.find(item => 
+        item.rollNo.toUpperCase() === q || 
+        item.uniqueId.toUpperCase() === q
+      );
 
       if (s) {
         res.innerHTML = `
@@ -612,6 +409,7 @@
             </span>
           </div>
 
+          <!-- A4 LANDSCAPE CERTIFICATE -->
           <div class="cert-landscape-wrapper">
             <div class="cert-inner-border" id="certFrame">
               
@@ -621,6 +419,7 @@
                 <div>CERTIFICATE UID: <strong style="color:#b91c1c;">${s.uniqueId}</strong></div>
               </div>
 
+              <!-- Header: Left Single Logo -->
               <div class="cert-header-layout">
                 <img src="collagelogo1.png" class="cert-college-logo" alt="UIHESD Emblem" onerror="this.onerror=null;this.src='collagelogo1.PNG';">
                 <div class="cert-college-details">
@@ -650,6 +449,7 @@
                 The overall performance of the candidate has been evaluated by the Examination Board and awarded <span class="cert-highlight-field">${s.grade || 'Grade A+ (Distinction)'}</span>.
               </div>
 
+              <!-- FOOTER: 4 ACCREDITATION LOGOS -->
               <div class="cert-landscape-footer">
                 <div class="footer-logos-strip">
                   
@@ -675,6 +475,7 @@
 
                 </div>
 
+                <!-- Bottom Row: QR + Gold Seal + Signatures -->
                 <div class="cert-bottom-controls">
                   <div class="qr-box-wrap">
                     <div id="qrcode"></div>
