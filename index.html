@@ -1,270 +1,552 @@
 <!DOCTYPE html>
-<html lang="pa">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Universal Institute of Higher Education & Skill Development (UIHESD)</title>
+  <title>Home | Directorate General of Training (DGT) & UIHESD</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
-    body { background-color: #f8fafc; color: #1e293b; line-height: 1.5; }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, Helvetica, sans-serif; }
+    body { background-color: #ffffff; color: #1e293b; overflow-x: hidden; }
 
-    /* ================= MASTER OFFICIAL HEADER (EXACT ON ALL PAGES) ================= */
-    .gov-flag-bar {
-      height: 32px;
-      background: #0f172a;
-      border-bottom: 2px solid #ff9933;
-      padding: 0 6%;
-      font-size: 0.76rem;
+    /* ================= 1. TOP GOVT UTILITY BAR ================= */
+    .top-utility-bar {
+      background: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 4px 5%;
+      font-size: 0.72rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: #e2e8f0;
+      color: #334155;
     }
-    .flag-group { display: flex; align-items: center; gap: 8px; font-weight: 700; }
-    .flag-icon { width: 20px; height: 13px; border: 1px solid #cbd5e1; background: linear-gradient(#ff9933 33%, #ffffff 33%, #ffffff 66%, #128807 66%); display: inline-block; }
-    .gov-links a { color: #cbd5e1; text-decoration: none; font-size: 0.74rem; font-weight: 600; margin-left: 14px; }
-    .gov-links a:hover { color: #facc15; }
+    .top-left-text { font-weight: 600; }
+    .top-right-tools { display: flex; align-items: center; gap: 14px; }
+    .top-right-tools a { color: #334155; text-decoration: none; font-weight: 600; }
+    .top-right-tools a:hover { color: #0284c7; }
+    
+    .font-resizers { display: flex; gap: 4px; border-left: 1px solid #cbd5e1; border-right: 1px solid #cbd5e1; padding: 0 8px; }
+    .f-btn { background: #ffffff; border: 1px solid #94a3b8; border-radius: 2px; padding: 1px 5px; font-size: 0.68rem; cursor: pointer; font-weight: bold; }
+    .theme-toggle { display: flex; gap: 3px; }
+    .t-black { background: #000000; color: #ffffff; border-radius: 50%; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.6rem; font-weight: bold; cursor: pointer; }
+    .t-white { background: #ffffff; color: #000000; border: 1px solid #94a3b8; border-radius: 50%; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.6rem; font-weight: bold; cursor: pointer; }
 
-    .portal-header {
-      height: 96px;
+    .top-search-box { display: flex; align-items: center; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 3px; padding: 2px 6px; }
+    .top-search-box input { border: none; outline: none; font-size: 0.72rem; width: 130px; }
+    .top-search-box button { background: transparent; border: none; cursor: pointer; font-size: 0.75rem; color: #64748b; }
+    .lang-select { font-weight: bold; color: #0f172a; cursor: pointer; }
+
+    /* ================= 2. MAIN HEADER (HIGHLIGHTED COLLEGE NAME) ================= */
+    .dgt-main-header {
+      padding: 12px 5%;
       background: #ffffff;
-      padding: 0 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 2px solid #e2e8f0;
     }
-    .header-logos { display: flex; align-items: center; gap: 16px; }
-    .emblem-box { display: flex; align-items: center; gap: 8px; border-right: 2px solid #cbd5e1; padding-right: 16px; }
-    .emblem-text { font-size: 0.70rem; font-weight: 800; color: #0f172a; line-height: 1.2; text-transform: uppercase; }
+    .header-left-emblem {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .ashok-emblem-img {
+      height: 68px;
+      width: auto;
+    }
     
-    .brand-logo-area { display: flex; align-items: center; gap: 14px; }
-    .brand-logo-area img { height: 72px; width: auto; object-fit: contain; }
-    .brand-names h1 { font-size: 1.55rem; color: #0f172a; font-weight: 900; text-transform: uppercase; letter-spacing: 0.3px; line-height: 1.1; margin: 0; }
-    .brand-names h2 { font-size: 0.82rem; color: #1e3a8a; font-weight: 800; text-transform: uppercase; margin: 2px 0 0; }
-    .brand-names p { font-size: 0.74rem; color: #0284c7; font-weight: 700; margin: 0; }
-
-    .header-controls { display: flex; align-items: center; gap: 10px; }
-    .search-box { display: flex; align-items: center; background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 4px; padding: 6px 12px; width: 220px; }
-    .search-box input { border: none; outline: none; font-size: 0.82rem; width: 100%; margin-left: 6px; }
-    .btn-dash { background: #f97316; color: white; border: none; padding: 8px 14px; font-size: 0.78rem; font-weight: 800; border-radius: 4px; cursor: pointer; }
-    .btn-reg { background: #b45309; color: white; border: none; padding: 8px 16px; font-size: 0.78rem; font-weight: 800; border-radius: 4px; cursor: pointer; text-decoration: none; }
-    .btn-login { background: white; color: #b45309; border: 1.5px solid #b45309; padding: 7px 16px; font-size: 0.78rem; font-weight: 800; border-radius: 4px; cursor: pointer; text-decoration: none; }
-
-    nav { height: 46px; background: #1e3a8a; padding: 0 6%; display: flex; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.08); }
-    .nav-list { display: flex; list-style: none; gap: 26px; align-items: center; }
-    .nav-list li a { display: block; color: #ffffff; text-decoration: none; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; }
-    .nav-list li a:hover, .nav-list li a.active { color: #facc15; }
-    .nav-dot { width: 7px; height: 7px; background: #dc2626; border-radius: 50%; display: inline-block; margin-left: 4px; }
-
-    .alert-ribbon { height: 34px; background: #0284c7; color: white; padding: 0 6%; font-size: 0.82rem; display: flex; align-items: center; gap: 12px; }
-    .alert-tag { background: #0c4a6e; padding: 2px 8px; border-radius: 3px; font-weight: 800; font-size: 0.72rem; white-space: nowrap; }
-
-    /* ================= PAGE CONTENT ================= */
-    .official-hero {
-      position: relative;
-      background: linear-gradient(135deg, #0b1f3a 0%, #0f274a 60%, #173863 100%);
-      color: #ffffff;
-      min-height: 480px;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      border-bottom: 4px solid #f97316;
+    /* COLLEGE NAME PROMINENT HIGHLIGHT BOX */
+    .college-highlight-cluster {
+      border-left: 3.5px solid #b45309;
+      padding-left: 14px;
     }
-    .hero-graphic-bg {
-      position: absolute;
-      top: 0; right: 0; bottom: 0;
-      width: 55%;
-      background-image: linear-gradient(to right, #0b1f3a 0%, rgba(11, 31, 58, 0.78) 40%, rgba(11, 31, 58, 0.2) 100%),
-                        url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1400&q=80');
-      background-size: cover;
-      background-position: center right;
-      z-index: 1;
-    }
-    .hero-container {
-      position: relative;
-      z-index: 3;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 50px 6%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .hero-content { max-width: 650px; }
-    .official-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      padding: 5px 14px;
-      border-radius: 20px;
-      font-size: 0.78rem;
+    .dgt-sub-tag {
+      font-size: 0.72rem;
       font-weight: 800;
-      color: #facc15;
-      margin-bottom: 16px;
+      color: #64748b;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .college-bold-title {
+      font-size: 1.45rem;
+      color: #0b1f3a;
+      font-weight: 900;
+      letter-spacing: 0.3px;
+      line-height: 1.15;
       text-transform: uppercase;
     }
-    .hero-title { font-size: 2.35rem; font-weight: 900; line-height: 1.25; margin-bottom: 14px; color: #ffffff; }
-    .hero-title span { color: #38bdf8; }
-    .hero-sub { font-size: 0.98rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 24px; }
-    .accreditation-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
-    .acc-badge { background: rgba(15, 23, 42, 0.75); border: 1px solid rgba(148, 163, 184, 0.4); padding: 6px 12px; border-radius: 6px; font-size: 0.78rem; font-weight: 700; color: #f1f5f9; }
-    .hero-actions { display: flex; gap: 14px; align-items: center; }
-    .btn-primary-official { background: #dc2626; color: #ffffff; padding: 12px 26px; border-radius: 4px; font-weight: 800; font-size: 0.92rem; text-decoration: none; cursor: pointer; }
-    .btn-secondary-official { background: transparent; color: #ffffff; border: 1.5px solid #cbd5e1; padding: 11px 22px; border-radius: 4px; font-weight: 800; font-size: 0.92rem; text-decoration: none; }
+    .college-bold-title span {
+      color: #b45309;
+    }
+    .college-punjabi-sub {
+      font-size: 0.88rem;
+      color: #1e3a8a;
+      font-weight: 800;
+      margin-top: 2px;
+    }
+    .college-accreditation-line {
+      font-size: 0.72rem;
+      color: #166534;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
 
-    .hero-floating-card {
-      background: rgba(255, 255, 255, 0.97);
-      color: #0f172a;
-      border-radius: 10px;
-      padding: 22px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
-      border-top: 4px solid #0284c7;
-      width: 320px;
+    .header-right-tri-logos {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .header-right-tri-logos img {
+      height: 56px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* ================= 3. DARK BLUE NAVIGATION BAR ================= */
+    .dgt-navbar {
+      background: #172b53;
+      padding: 0 5%;
+    }
+    .dgt-nav-list {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      gap: 1px;
+      flex-wrap: wrap;
+    }
+    .dgt-nav-list li a {
+      display: block;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 11px 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .dgt-nav-list li a:hover, .dgt-nav-list li a.active {
+      background: #0f1d38;
+      color: #facc15;
+    }
+
+    /* ================= 4. SOCIAL MEDIA FLOATING STRIP ================= */
+    .floating-social-strip {
+      position: fixed;
+      left: 0;
+      top: 42%;
+      z-index: 999;
       display: flex;
       flex-direction: column;
-      gap: 12px;
     }
-    .card-head { display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; }
-    .card-head h4 { font-size: 0.95rem; font-weight: 900; color: #1e3a8a; }
-    .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: center; }
-    .stat-box { background: #f8fafc; border: 1px solid #e2e8f0; padding: 10px 6px; border-radius: 6px; }
-    .stat-number { font-size: 1.25rem; font-weight: 900; color: #0284c7; }
-    .stat-label { font-size: 0.68rem; font-weight: 800; color: #64748b; }
+    .social-btn {
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    .sb-fb { background: #3b5998; }
+    .sb-tw { background: #1da1f2; }
+    .sb-insta { background: #e1306c; }
+    .sb-yt { background: #ff0000; }
+    .sb-wa { background: #25d366; }
 
-    .partners-section { padding: 45px 6%; background: #ffffff; text-align: center; border-bottom: 1px solid #e2e8f0; }
-    .partner-logos-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 20px; }
-    .partner-card { padding: 14px 20px; border: 1px solid #e2e8f0; border-radius: 6px; background: #f8fafc; min-width: 170px; text-align: center; }
-    .partner-card .p-icon { font-size: 2rem; margin-bottom: 5px; }
+    /* ================= 5. OFFICIAL DGT HERO BANNER SECTION ================= */
+    .dgt-hero-stage {
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1800&q=80') center center / cover no-repeat;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      padding: 30px 5%;
+      overflow: hidden;
+    }
+    .hero-tint-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(90deg, rgba(254, 243, 199, 0.94) 0%, rgba(253, 230, 138, 0.82) 42%, rgba(245, 158, 11, 0.35) 75%, rgba(0, 0, 0, 0.45) 100%);
+      z-index: 1;
+    }
 
-    footer { background: #0b132b; color: #94a3b8; padding: 30px 6%; font-size: 0.85rem; text-align: center; }
+    .banner-top-partners {
+      position: absolute;
+      top: 18px;
+      right: 5%;
+      z-index: 3;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(4px);
+      padding: 6px 18px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .partner-label {
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: #1e293b;
+      line-height: 1.1;
+    }
 
-    @media (max-width: 850px) {
-      .portal-header { height: auto; padding: 10px 6%; flex-direction: column; gap: 10px; }
-      nav { height: auto; padding: 8px 6%; }
-      .nav-list { flex-wrap: wrap; gap: 12px; }
-      .hero-graphic-bg { width: 100%; opacity: 0.25; }
-      .hero-floating-card { display: none; }
+    .hero-content-cluster {
+      position: relative;
+      z-index: 2;
+      max-width: 640px;
+    }
+    .hero-main-title {
+      font-size: 2.85rem;
+      font-weight: 900;
+      color: #111827;
+      line-height: 1.12;
+      margin-bottom: 15px;
+      letter-spacing: -0.5px;
+    }
+    .hero-lead-text {
+      font-size: 1.05rem;
+      color: #374151;
+      line-height: 1.5;
+      margin-bottom: 22px;
+      font-weight: 600;
+    }
+
+    .register-brown-card {
+      background: #88220f;
+      color: #ffffff;
+      padding: 16px 28px;
+      border-radius: 6px;
+      display: inline-block;
+      box-shadow: 0 8px 20px rgba(136, 34, 15, 0.35);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .register-brown-card:hover {
+      background: #6f1908;
+      transform: translateY(-2px);
+    }
+    .reg-cta-heading {
+      font-size: 1.25rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+    .reg-cta-sub {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #fed7aa;
+    }
+    .reg-cta-date {
+      font-size: 1.1rem;
+      font-weight: 900;
+      margin-top: 4px;
+      color: #ffffff;
+    }
+
+    .banner-qr-badge {
+      margin-top: 24px;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1.5px solid #ffffff;
+      border-radius: 8px;
+      padding: 8px 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+    .banner-qr-badge p {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.25;
+      text-transform: uppercase;
+    }
+    .banner-qr-badge img {
+      width: 58px;
+      height: 58px;
+      background: white;
+    }
+
+    .banner-farmer-layer {
+      position: absolute;
+      right: 4%;
+      bottom: 0;
+      height: 94%;
+      max-height: 480px;
+      z-index: 2;
+      filter: drop-shadow(0 15px 25px rgba(0,0,0,0.35));
+    }
+
+    /* ================= 6. BOTTOM CARDS BAR ================= */
+    .bottom-role-bar {
+      background: #172b53;
+      padding: 25px 5%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .role-block {
+      background: #9d3910;
+      border-radius: 6px;
+      padding: 20px 20px 15px;
+      color: white;
+      text-align: center;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+    .role-block:hover { transform: translateY(-3px); }
+    .role-block.blue-block { background: #0c4a6e; }
+    .role-circle-avatar {
+      position: absolute;
+      top: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #1e3a8a;
+      border: 3px solid #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+    .role-block h3 { font-size: 1.05rem; font-weight: 800; margin-top: 10px; margin-bottom: 4px; }
+    .role-block p { font-size: 0.78rem; color: #ffedd5; }
+
+    /* ================= 7. CHATBOT MASCOT ================= */
+    .dgt-ai-bot {
+      position: fixed;
+      right: 25px;
+      bottom: 25px;
+      z-index: 9999;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .bot-speech-bubble {
+      background: #10b981;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 900;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-bottom: 2px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .bot-avatar-wrap {
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      background: #0f172a;
+      border: 3px solid #38bdf8;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      animation: botFloat 2.5s ease-in-out infinite;
+    }
+    @keyframes botFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    footer {
+      background: #0b132b;
+      color: #94a3b8;
+      padding: 25px 5%;
+      font-size: 0.8rem;
+      text-align: center;
+      border-top: 2px solid #f59e0b;
+    }
+    footer a { color: #facc15; text-decoration: none; margin: 0 8px; }
+
+    @media (max-width: 992px) {
+      .dgt-hero-stage { min-height: auto; padding: 40px 5%; }
+      .hero-main-title { font-size: 2.1rem; }
+      .banner-farmer-layer { display: none; }
+      .bottom-role-bar { grid-template-columns: 1fr; gap: 35px; }
+      .banner-top-partners { position: static; margin-bottom: 15px; }
+      .college-bold-title { font-size: 1.15rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- MASTER TOP FLAG BAR -->
-  <div class="gov-flag-bar">
-    <div class="flag-group">
-      <span class="flag-icon"></span>
-      <span>ਭਾਰਤ ਸਰਕਾਰ | Government of India</span>
+  <!-- ================= 1. TOP GOVT UTILITY BAR ================= -->
+  <div class="top-utility-bar">
+    <div class="top-left-text">
+      Government of India | Ministry of Skill Development and Entrepreneurship
     </div>
-    <div class="gov-links">
-      <a href="verify.html">Document Verification</a>
-      <a href="courses.html">Skill Trades</a>
+
+    <div class="top-right-tools">
+      <a href="#mainContent">Skip to main content</a>
+      <span title="Screen Reader">🔊</span>
+      
+      <div class="font-resizers">
+        <button class="f-btn">A-</button>
+        <button class="f-btn">A</button>
+        <button class="f-btn">A+</button>
+      </div>
+
+      <div class="theme-toggle">
+        <span class="t-black" title="Dark Contrast">A</span>
+        <span class="t-white" title="Standard Theme">A</span>
+      </div>
+
+      <div class="top-search-box">
+        <input type="text" placeholder="Search here...">
+        <button>🔍</button>
+      </div>
+
+      <div class="lang-select">
+        ਪੰਜਾਬੀ / English
+      </div>
     </div>
   </div>
 
-  <!-- MASTER PORTAL HEADER -->
-  <header class="portal-header">
-    <div class="header-logos">
-      <div class="emblem-box">
-        🏛️
-        <div class="emblem-text">
-          ਕੌਸ਼ਲ ਵਿਕਾਸ ਮੰਤਰਾਲਾ<br>
-          <span style="font-size:0.62rem; color:#64748b;">MINISTRY OF SKILL DEV.</span>
+  <!-- ================= 2. MAIN HEADER (HIGHLIGHTED COLLEGE NAME) ================= -->
+  <header class="dgt-main-header">
+    <div class="header-left-emblem">
+      <!-- National Emblem -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Emblem_of_India.svg/200px-Emblem_of_India.svg.png" class="ashok-emblem-img" alt="Emblem of India">
+      
+      <!-- PROMINENT HIGHLIGHTED COLLEGE BRAND -->
+      <div class="college-highlight-cluster">
+        <div class="dgt-sub-tag">प्रशिक्षण महानिदेशालय • DIRECTORATE GENERAL OF TRAINING</div>
+        <div class="college-bold-title">
+          UNIVERSAL INSTITUTE OF <span>HIGHER EDUCATION & SKILL DEVELOPMENT</span>
         </div>
-      </div>
-      <div class="brand-logo-area">
-        <img src="collagelogo1.png" alt="UIHESD Logo" onerror="this.src='https://via.placeholder.com/72?text=UIHESD'">
-        <div class="brand-names">
-          <h1>UIHESD SKILL HUB</h1>
-          <h2>Universal Institute of Higher Education & Skill Development</h2>
-          <p>ਕੌਸ਼ਲ ਭਾਰਤ • ਕੁਸ਼ਲ ਭਾਰਤ | Technical & Vocational Institute</p>
+        <div class="college-punjabi-sub">
+          ਯੂਨੀਵਰਸਲ ਇੰਸਟੀਚਿਊਟ ਆਫ਼ ਹਾਇਰ ਐਜੂਕੇਸ਼ਨ ਐਂਡ ਸਕਿੱਲ ਡਿਵੈਲਪਮੈਂਟ (UIHESD SKILL HUB)
+        </div>
+        <div class="college-accreditation-line">
+          Accredited under ISO 9001:2015, IAF, MSME & University Affiliated Guidelines
         </div>
       </div>
     </div>
-    <div class="header-controls">
-      <div class="search-box">
-        🔍 <input type="text" placeholder="Search Courses, Trades...">
-      </div>
-      <button class="btn-dash" onclick="window.location.href='index.html'">HOME</button>
-      <button class="btn-reg" onclick="window.location.href='courses.html'">COURSES</button>
-      <button class="btn-login" onclick="window.location.href='verify.html'">VERIFY</button>
+
+    <!-- Right Side 3 Logos: DGT, Skill India, UIHESD ITI Logo -->
+    <div class="header-right-tri-logos">
+      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Directorate_General_of_Training_logo.png/220px-Directorate_General_of_Training_logo.png" alt="DGT Logo" onerror="this.src='collagelogo1.png'">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/MSME_logo.png/320px-MSME_logo.png" alt="MSME Govt of India">
+      <img src="collagelogo1.png" alt="UIHESD ITI" title="Industrial Training Institute" onerror="this.onerror=null;this.src='collagelogo1.PNG';">
     </div>
   </header>
 
-  <!-- MASTER NAVIGATION BAR -->
-  <nav>
-    <ul class="nav-list">
-      <li><a href="index.html" class="active">MSDE <span class="nav-dot"></span></a></li>
-      <li><a href="courses.html">Courses & Trades</a></li>
-      <li><a href="about.html">About Institute</a></li>
-      <li><a href="verify.html">Verify Certificate</a></li>
+  <!-- ================= 3. DARK BLUE NAVIGATION BAR ================= -->
+  <nav class="dgt-navbar">
+    <ul class="dgt-nav-list">
+      <li><a href="index.html" class="active">HOME</a></li>
+      <li><a href="about.html">ABOUT US ▾</a></li>
+      <li><a href="courses.html">SCHEMES/PROGRAMMES ▾</a></li>
+      <li><a href="courses.html">COURSES & TRADES</a></li>
+      <li><a href="verify.html">EXAMINATION ▾</a></li>
+      <li><a href="verify.html">USEFUL LINKS ▾</a></li>
+      <li><a href="about.html">MEDIA CENTER ▾</a></li>
+      <li><a href="about.html">RAJBHASHA CORNER</a></li>
+      <li><a href="verify.html">VERIFY CERTIFICATE</a></li>
     </ul>
   </nav>
 
-  <!-- MASTER ALERT RIBBON -->
-  <div class="alert-ribbon">
-    <span class="alert-tag">LATEST NOTIFICATION</span>
-    <marquee onmouseover="this.stop();" onmouseout="this.start();">
-      📢 Admissions open for ITI Trades (COPA, Electrician, Fitter) & Degree Programs Session 2026-27 | Online Credential & Certificate Verification active.
-    </marquee>
+  <!-- ================= 4. SOCIAL MEDIA FLOATING STRIP ================= -->
+  <div class="floating-social-strip">
+    <a href="#" class="social-btn sb-fb">f</a>
+    <a href="#" class="social-btn sb-tw">𝕏</a>
+    <a href="#" class="social-btn sb-insta">📷</a>
+    <a href="#" class="social-btn sb-yt">▶</a>
+    <a href="#" class="social-btn sb-wa">💬</a>
   </div>
 
-  <!-- HERO SECTION -->
-  <section class="official-hero">
-    <div class="hero-graphic-bg"></div>
-    <div class="hero-container">
-      <div class="hero-content">
-        <div class="official-tag">🏛️ ਨੈਸ਼ਨਲ ਸਕਿੱਲ ਮਿਸ਼ਨ • ਦਾਖ਼ਲਾ ਸੈਸ਼ਨ 2026-27</div>
-        <h2 class="hero-title">ਹੁਨਰਮੰਦ ਸਿੱਖਿਆ ਅਤੇ <span>ਆਧੁਨਿਕ ਤਕਨਾਲੋਜੀ</span> ਦਾ ਪ੍ਰਮੁੱਖ ਕੇਂਦਰ</h2>
-        <p class="hero-sub">
-          ਯੂਨੀਵਰਸਲ ਇੰਸਟੀਚਿਊਟ ਆਫ਼ ਹਾਇਰ ਐਜੂਕੇਸ਼ਨ ਐਂਡ ਸਕਿੱਲ ਡਿਵੈਲਪਮੈਂਟ (UIHESD) — ਨੌਜਵਾਨਾਂ ਨੂੰ ਉਦਯੋਗਾਂ ਦੀ ਮੰਗ ਅਨੁਸਾਰ ਆਈ.ਟੀ.ਆਈ. ਟ੍ਰੇਡਾਂ, ਕੰਪਿਊਟਰ ਪ੍ਰੋਗਰਾਮਿੰਗ ਅਤੇ ਯੂਨੀਵਰਸਿਟੀ ਡਿਗਰੀਆਂ ਪ੍ਰਦਾਨ ਕਰਨ ਵਾਲਾ ਮੋਹਰੀ ਸੰਸਥਾਨ।
-        </p>
-        <div class="accreditation-row">
-          <div class="acc-badge">✓ IKGPTU ਐਫੀਲੀਏਟਿਡ ਸਟੱਡੀ ਸੈਂਟਰ</div>
-          <div class="acc-badge">✓ ISO 9001:2015 ਪ੍ਰਮਾਣਿਤ</div>
-          <div class="acc-badge">✓ NCVT/DGT ਪੈਟਰਨ ਟ੍ਰੇਡਾਂ</div>
-          <div class="acc-badge">✓ ਆਨਲਾਈਨ ਦਸਤਾਵੇਜ਼ ਪੜਤਾਲ</div>
-        </div>
-        <div class="hero-actions">
-          <a href="courses.html" class="btn-primary-official">ਸਾਰੇ ਕੋਰਸ ਦੇਖੋ ➔</a>
-          <a href="verify.html" class="btn-secondary-official">ਸਰਟੀਫਿਕੇਟ ਵੈਰੀਫਾਈ ਕਰੋ</a>
-        </div>
-      </div>
+  <!-- ================= 5. OFFICIAL DGT HERO BANNER ================= -->
+  <section class="dgt-hero-stage" id="mainContent">
+    <div class="hero-tint-overlay"></div>
 
-      <div class="hero-floating-card">
-        <div class="card-head">
-          <span style="font-size: 1.4rem;">📜</span>
-          <div>
-            <h4>ਅਧਿਕਾਰਤ ਰਜਿਸਟਰੀ ਪੋਰਟਲ</h4>
-            <p style="font-size: 0.72rem; color: #64748b;">Live Student Database</p>
-          </div>
-        </div>
-        <div class="stat-grid">
-          <div class="stat-box"><div class="stat-number">60+</div><div class="stat-label">ਸਰਟੀਫਾਈਡ ਟ੍ਰੇਡਾਂ</div></div>
-          <div class="stat-box"><div class="stat-number">100%</div><div class="stat-label">ਵੈਰੀਫਾਈਡ ਰਿਕਾਰਡ</div></div>
-        </div>
-        <div style="font-size: 0.76rem; color: #166534; background: #f0fdf4; border: 1px solid #bbf7d0; padding: 8px 10px; border-radius: 4px; line-height: 1.4;">
-          <strong>✔ 24x7 ਸਰਵਿਸ:</strong> ਵਿਦਿਆਰਥੀ ਰੋਲ ਨੰਬਰ ਜਾਂ UID ਰਾਹੀਂ ਆਪਣਾ ਸਰਟੀਫਿਕੇਟ ਤੁਰੰਤ ਆਨਲਾਈਨ ਚੈੱਕ ਤੇ ਪ੍ਰਿੰਟ ਕਰ ਸਕਦੇ ਹਨ।
-        </div>
+    <!-- Partner Logos (Top Right of Banner) -->
+    <div class="banner-top-partners">
+      <div class="partner-label">इलेक्ट्रॉनिकी एवं<br>सूचना प्रौद्योगिकी मंत्रालय<br><strong>MeitY</strong></div>
+      <span style="font-size:1.1rem; font-weight:bold; color:#0284c7;">BHASHINI</span>
+      <span style="font-size:0.85rem; font-weight:800; color:#0f172a;">Current AI</span>
+      <span style="font-size:0.85rem; font-weight:700; color:#475569;">Kalpa Impact</span>
+    </div>
+
+    <!-- Content Cluster -->
+    <div class="hero-content-cluster">
+      <h1 class="hero-main-title">
+        Build Innovation That Reaches Every Voice
+      </h1>
+
+      <p class="hero-lead-text">
+        If you are a student, developer, designer, researcher, or innovator, this is your chance to create impact that matters.
+      </p>
+
+      <!-- Brown Call to Action Box -->
+      <a href="courses.html" class="register-brown-card">
+        <div class="reg-cta-heading">REGISTER NOW</div>
+        <div class="reg-cta-sub">Join Us for the Launch event of the innovation challenge on</div>
+        <div class="reg-cta-date">1st June, 2026</div>
+      </a>
+
+      <br>
+
+      <!-- Scan QR Box -->
+      <div class="banner-qr-badge">
+        <p>Scan the QR<br>Code To<br>know more<br>about the<br>Challenge</p>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://ghsvlogger-del.github.io/uihesd-college/verify.html" alt="Challenge QR">
       </div>
+    </div>
+
+    <!-- Farmer Innovator Photo Cutout -->
+    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=700&q=80" class="banner-farmer-layer" alt="DGT Innovator Farmer">
+  </section>
+
+  <!-- ================= 6. BOTTOM CARDS BAR ================= -->
+  <section class="bottom-role-bar">
+    <div class="role-block blue-block" onclick="window.location.href='courses.html'">
+      <div class="role-circle-avatar">👤</div>
+      <h3>Candidate & Trainee Hub</h3>
+      <p>ITI Admissions, CTS/CITS Enrolment & Trade Information</p>
+    </div>
+
+    <div class="role-block" onclick="window.location.href='courses.html'">
+      <div class="role-circle-avatar">💼</div>
+      <h3>Designated Vocational Schemes</h3>
+      <p>Craftsmen Training Scheme (CTS), Apprenticeship & MSDE Norms</p>
+    </div>
+
+    <div class="role-block blue-block" onclick="window.location.href='verify.html'">
+      <div class="role-circle-avatar">👥</div>
+      <h3>Examination & Verification</h3>
+      <p>AITT Results, Authenticated Certificates & QR Evaluation</p>
     </div>
   </section>
 
-  <section class="partners-section">
-    <h3 style="color:#1e293b; font-weight:900; font-size:1.3rem;">Our Academic & Certification Partners</h3>
-    <div class="partner-logos-grid">
-      <div class="partner-card"><div class="p-icon">🏛️</div><h4>IKGPTU</h4><p>Punjab Technical University</p></div>
-      <div class="partner-card"><div class="p-icon">🏅</div><h4>ISO 9001:2015</h4><p>Quality Standard Certified</p></div>
-      <div class="partner-card"><div class="p-icon">🇮🇳</div><h4>Skill India</h4><p>National Skill Mission</p></div>
-      <div class="partner-card"><div class="p-icon">⚙️</div><h4>NCVT / DGT</h4><p>Industrial Trades</p></div>
-    </div>
-  </section>
+  <!-- ================= 7. CHATBOT MASCOT ================= -->
+  <div class="dgt-ai-bot" onclick="alert('Welcome to DGT & UIHESD Online Helpdesk! How can we assist your admission or verification today?')">
+    <div class="bot-speech-bubble">HI!</div>
+    <div class="bot-avatar-wrap">🤖</div>
+  </div>
 
+  <!-- FOOTER -->
   <footer>
-    <p>© 2026 Universal Institute of Higher Education & Skill Development. Powered by Skill India Digital Ecosystem.</p>
+    <p>© 2026 Directorate General of Training (DGT), Ministry of Skill Development and Entrepreneurship & UIHESD Skill Hub.</p>
+    <p style="margin-top:8px;">
+      <a href="index.html">Home</a> | 
+      <a href="courses.html">Courses & Trades</a> | 
+      <a href="about.html">About Institute</a> | 
+      <a href="verify.html">Verify Certificate</a>
+    </p>
   </footer>
 
 </body>
