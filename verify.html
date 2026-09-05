@@ -50,7 +50,7 @@
     .entry-group input { width: 100%; padding: 8px 10px; border: 1.5px solid #cbd5e1; border-radius: 4px; font-size: 0.88rem; outline: none; }
     .btn-save-record { width: 100%; background: #16a34a; color: white; border: none; padding: 11px; font-size: 0.95rem; font-weight: 800; border-radius: 4px; cursor: pointer; margin-top: 15px; text-transform: uppercase; }
 
-    /* ================= 100% PERFECT FIT STYLISH CERTIFICATE ================= */
+    /* ================= FULL A4 LANDSCAPE CERTIFICATE ================= */
     .stylish-cert-wrapper { width: 1040px; max-width: 100%; margin: 15px auto; background: #fcfbf7; padding: 12px; border: 1px solid #d4af37; box-shadow: 0 10px 30px rgba(0,0,0,0.12); box-sizing: border-box; position: relative; overflow: hidden; }
     .stylish-cert-wrapper::before { content: ""; position: absolute; top: 0; right: 0; width: 140px; height: 140px; background: linear-gradient(135deg, transparent 40%, #c5a059 40%, #c5a059 50%, #7b1113 50%); z-index: 2; pointer-events: none; }
     .stylish-cert-wrapper::after { content: ""; position: absolute; bottom: 0; left: 0; width: 140px; height: 140px; background: linear-gradient(135deg, #7b1113 50%, #c5a059 50%, #c5a059 60%, transparent 60%); z-index: 2; pointer-events: none; }
@@ -82,7 +82,6 @@
     .sc-statement { font-family: 'Montserrat', sans-serif; font-size: 0.76rem; color: #1e293b; text-align: center; max-width: 740px; margin: 4px auto 8px; line-height: 1.38; font-weight: 500; }
     .sc-highlight { font-weight: 800; color: #0b1f3a; border-bottom: 1.5px solid #c5a059; padding: 0 2px; }
 
-    /* REAL LOGOS STRIP */
     .footer-logos-strip { display: flex; justify-content: space-around; align-items: center; background: #fafafa; border: 1px solid #e2e8f0; border-radius: 4px; padding: 4px 8px; margin-bottom: 6px; }
     .f-logo-item { display: flex; align-items: center; gap: 6px; }
     .f-logo-item img { height: 35px; width: auto; max-width: 75px; object-fit: contain; }
@@ -114,13 +113,20 @@
     .gov-qr-table td.gov-field-val { width: 60%; color: #0f172a; font-weight: 800; }
     .gov-qr-footer-seal { background: #f8fafc; padding: 14px 20px; text-align: center; border-top: 1px solid #e2e8f0; font-size: 0.75rem; font-weight: 800; color: #065f46; }
 
+    /* EXACT 1 PAGE A4 LANDSCAPE PRINT RULE */
     @page { size: A4 landscape; margin: 0; }
     @media print {
       html, body { width: 297mm; height: 210mm; margin: 0 !important; padding: 0 !important; background: #ffffff !important; overflow: hidden; }
       body * { visibility: hidden; }
       .stylish-cert-wrapper, .stylish-cert-wrapper * { visibility: visible; }
-      .stylish-cert-wrapper { position: absolute; left: 0; top: 0; width: 297mm !important; height: 210mm !important; margin: 0 !important; padding: 6mm 10mm !important; border: none !important; box-shadow: none !important; page-break-after: avoid; page-break-inside: avoid; }
-      .btn-print, header, nav, .top-utility-bar, footer, .cert-input-group, h2, p, .action-control-bar, .records-table { display: none !important; }
+      .stylish-cert-wrapper {
+        position: fixed; left: 0; top: 0;
+        width: 297mm !important; height: 210mm !important;
+        margin: 0 !important; padding: 10mm 15mm !important;
+        border: none !important; box-shadow: none !important;
+      }
+      .stylish-inner-frame { height: 100%; box-sizing: border-box; }
+      .btn-print, header, nav, .top-utility-bar, footer, .cert-input-group, .cert-box h2, .cert-box p, .action-control-bar, .records-table { display: none !important; }
     }
   </style>
 </head>
@@ -287,7 +293,7 @@
     }
 
     window.onload = function() {
-      const urlParams = newSearchParams(window.location.search);
+      const urlParams = new URLSearchParams(window.location.search);
       const scanVerifyUID = urlParams.get('verify') || urlParams.get('roll');
       if (scanVerifyUID) {
         document.getElementById("certInput").value = scanVerifyUID;
