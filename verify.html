@@ -84,7 +84,7 @@
     .cert-result { display: none; margin-top: 25px; }
     .cert-invalid { border: 1px solid #fecaca; background: #fef2f2; color: #dc2626; padding: 15px; text-align: center; font-weight: bold; border-radius: 6px; }
 
-    /* ACTION BAR WITH "ADD STUDENT" AND "EXCEL" */
+    /* ACTION BAR */
     .action-control-bar {
       margin-top: 22px;
       background: #f0fdf4;
@@ -147,7 +147,7 @@
     }
     .btn-excel-import:hover { background: #0369a1; }
 
-    /* ================= DGT VERIFIED DATA CARD (SHOWN ON QR SCAN) ================= */
+    /* ================= DGT VERIFIED DATA CARD (ON QR SCAN) ================= */
     .qr-verify-card {
       background: #ffffff;
       border: 2px solid #10b981;
@@ -326,13 +326,41 @@
     #qrcode { display: inline-block; background: #ffffff; padding: 2px; }
     .qr-text-tag { font-size: 0.62rem; color: #0f172a; font-weight: 800; margin-top: 4px; text-transform: uppercase; }
 
-    .gold-seal-badge {
-      width: 78px; height: 78px; border-radius: 50%; border: 3px double #b45309;
-      background: radial-gradient(circle, #fef08a 10%, #facc15 80%);
-      box-shadow: 0 0 10px rgba(234, 179, 8, 0.4);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center; color: #78350f; font-weight: 900; font-size: 0.52rem; line-height: 1.1;
+    /* ================= REFINED AUTHENTIC 3D METALLIC GOLD EMBOSSED SEAL ================= */
+    .authentic-gold-emboss {
+      width: 95px;
+      height: 95px;
+      position: relative;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #fffbeb 0%, #fef08a 25%, #eab308 55%, #ca8a04 80%, #854d0e 100%);
+      border: 2px dashed #78350f;
+      outline: 3px solid #ca8a04;
+      outline-offset: -5px;
+      box-shadow: 0 6px 14px rgba(113, 63, 18, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.8), inset 0 -3px 5px rgba(0, 0, 0, 0.35);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #713f12;
+      text-shadow: 0 1px 1px rgba(254, 240, 138, 0.9);
+      user-select: none;
     }
+    .emboss-inner-ring {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      border: 1px solid #78350f;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .emboss-top-txt { font-size: 0.50rem; font-weight: 900; letter-spacing: 0.8px; text-transform: uppercase; }
+    .emboss-crest { font-size: 1.05rem; margin: 1px 0; color: #78350f; }
+    .emboss-mid-txt { font-size: 0.56rem; font-weight: 900; letter-spacing: 1px; line-height: 1; text-transform: uppercase; }
+    .emboss-bot-txt { font-size: 0.46rem; font-weight: 800; letter-spacing: 0.6px; margin-top: 2px; }
+
     .sign-col { text-align: center; font-size: 0.74rem; font-weight: 800; color: #1e3a8a; width: 150px; }
     .sign-underline { border-bottom: 1.5px solid #0f172a; margin-bottom: 4px; height: 30px; }
 
@@ -371,7 +399,6 @@
     .btn-save-record { width: 100%; background: #16a34a; color: white; border: none; padding: 12px; font-size: 1rem; font-weight: 800; border-radius: 4px; cursor: pointer; margin-top: 18px; text-transform: uppercase; }
     .btn-save-record:hover { background: #15803d; }
 
-    /* Student Database Table */
     .records-table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.85rem; background: white; }
     .records-table th, .records-table td { padding: 9px 12px; border: 1px solid #cbd5e1; text-align: left; }
     .records-table th { background: #172b53; color: white; }
@@ -729,7 +756,7 @@
       reader.readAsText(file);
     }
 
-    // ================= VERIFICATION FUNCTION (HANDLES QR SCAN & SEARCH) =================
+    // ================= VERIFICATION FUNCTION =================
     function verifyCertificate(forcedQuery, fromScan) {
       const q = (forcedQuery || document.getElementById("certInput").value).trim().toUpperCase();
       const res = document.getElementById("certResult");
@@ -745,7 +772,6 @@
       );
 
       if (s) {
-        // IF OPENED VIA QR SCAN: SHOW CLEAN DGT VERIFIED DATA CARD
         if (fromScan) {
           res.innerHTML = `
             <div class="qr-verify-card">
@@ -810,12 +836,10 @@
               </div>
             </div>
 
-            <!-- Placeholder for full certificate if user clicks button -->
             <div id="fullCertBox" style="display:none;"></div>
           `;
           window.scrollTo({ top: 180, behavior: 'smooth' });
         } else {
-          // NORMAL WEBSITE SEARCH: SHOW FULL A4 CERTIFICATE DIRECTLY
           renderFullCertificateHtml(s);
         }
 
@@ -904,17 +928,21 @@
                 </div>
               </div>
 
+              <!-- BOTTOM CONTROLS WITH NEW AUTHENTIC EMBOSSED SEAL -->
               <div class="cert-bottom-controls">
                 <div class="qr-box-wrap">
                   <div id="qrcode"></div>
                   <div class="qr-text-tag">Scan To Verify</div>
                 </div>
 
-                <div class="gold-seal-badge">
-                  ★ SEAL OF ★<br>
-                  UIHESD<br>
-                  EXCELLENCE<br>
-                  ★ VERIFIED ★
+                <!-- 3D METALLIC EMBOSSED GOVERNMENT SEAL -->
+                <div class="authentic-gold-emboss">
+                  <div class="emboss-inner-ring">
+                    <span class="emboss-top-txt">★ OFFICIAL ★</span>
+                    <span class="emboss-crest">⚜</span>
+                    <span class="emboss-mid-txt">UIHESD</span>
+                    <span class="emboss-bot-txt">SEAL</span>
+                  </div>
                 </div>
 
                 <div class="sign-col">
@@ -945,7 +973,6 @@
         const qrEl = document.getElementById("qrcode");
         if (qrEl) {
           qrEl.innerHTML = "";
-          // Live link with `scan=1` to ensure scanning displays verification card only
           const currentUrl = window.location.origin + window.location.pathname;
           const verifyLink = `${currentUrl}?verify=${encodeURIComponent(s.uniqueId)}&scan=1`;
 
@@ -961,7 +988,6 @@
       }, 50);
     }
 
-    // Auto-Verify when URL contains query parameter
     window.onload = function() {
       renderTable();
       const urlParams = new URLSearchParams(window.location.search);
